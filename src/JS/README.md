@@ -1,1 +1,1 @@
-All JavaScript libraries go here
+All JavaScript libraries go here.
