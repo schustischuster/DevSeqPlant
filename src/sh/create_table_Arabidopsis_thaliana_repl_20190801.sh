@@ -1,4 +1,4 @@
-######### Create empty mySQL data table ###########
+######### Create empty mySQL data tables ###########
 
 # 1._Connect to mySQL and select database
 
