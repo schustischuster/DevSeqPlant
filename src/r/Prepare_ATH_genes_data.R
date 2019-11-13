@@ -1,0 +1,245 @@
+# Prepare_ATH_data_for_webpage
+# This script prepares DevSeq A.thaliana expression data for DevSeq webpage database
+# Input format of DevSeq expression table is as follows:
+# id / symbol / biotype / source / DEVSEQ_SAMPLE_REPLICATES(132samples)
+# Check: depending on input file version, input format could be without symbols
+# id / biotype / source / DEVSEQ_SAMPLE_REPLICATES(132samples)
+# In that case, load gene_ids_araport_gene_symbol file and add gene symbols to
+# devseq expression table
+
+
+# Install and load the following R packages
+if (!require(dplyr)) install.packages('dplyr')
+library(dplyr)
+
+
+# Set file path and input files
+in_dir <- "/Volumes/User/Shared/Christoph_manuscript/DevSeq_paper/Analysis/Analysis_2019/A_thaliana_gene_exression_map/DevSeq_ATH_for_webpage/data/20190801"
+out_dir <- "/Volumes/User/Shared/Christoph_manuscript/DevSeq_paper/Analysis/Analysis_2019/A_thaliana_gene_exression_map/DevSeq_ATH_for_webpage"
+
+devseq_genes_input_file <- "No_TE_genes_tpm_sample_names_20190801.csv"
+id_symbol_input_file <- "Gene_IDs_ATH_names_wo_dupl.csv"
+
+
+# Read raw data
+devseq_genes_all_samples <- read.table(file=file.path(in_dir, devseq_genes_input_file), sep=";", dec=".", header=TRUE, stringsAsFactors = FALSE)
+gene_id_symbol_list <- read.table(file=file.path(in_dir, id_symbol_input_file), sep=";", dec=".", header=TRUE, stringsAsFactors = FALSE)
+
+
+# Create string of colnames
+# Adjust columns that need to be excluded to table format of devseq input raw data!
+devseq_col_names <- c("gene_id", "symbol", c(names(devseq_genes_all_samples[4:ncol(devseq_genes_all_samples)])))
+
+
+
+####################################################################################################
+####### Optional: prepare gene_id-symbol list and add symbols to DevSeq ATH expression table #######
+# This step is only required if ATH input data table does not contain a symbol column
+
+all_devseq_genes <- as.data.frame(devseq_genes_all_samples[, 1])
+names(all_devseq_genes) <- c("id")
+
+gene_names_id <- as.data.frame(gene_id_symbol_list[, 1])
+names(gene_names_id) <- c("id")
+
+devseq_genes_wo_symbol <- anti_join(all_devseq_genes, gene_names_id, by = "id")
+devseq_genes_wo_symbol$symbol = devseq_genes_wo_symbol$id
+gene_names_all_genes <- rbind(gene_id_symbol_list, devseq_genes_wo_symbol)
+
+addGeneSymbols <- function(df) {
+		    df <- merge(df, gene_names_all_genes[, c("id", "symbol")], by="id")
+		    df = df %>% select(id, symbol, everything())
+		    df <- df[order(df$id),]
+		}
+
+devseq_genes_all_samples <- addGeneSymbols(devseq_genes_all_samples)
+
+####################################################################################################
+
+
+
+# Remove all rows that only contain "0"
+devseq_genes_all_samples <- devseq_genes_all_samples[which(rowMeans(devseq_genes_all_samples[,-1:-4, drop = FALSE]) > 0),]
+
+
+# Select columns for final data table
+devseq_genes_all_samples <- devseq_genes_all_samples[,-3:-4]
+colnames(devseq_genes_all_samples) <- devseq_col_names
+
+
+# Set final order of samples
+devseq_genes_all_samples = devseq_genes_all_samples %>% select(
+			gene_id, 
+			symbol, 
+			root_root_tip_5d_1, 
+			root_root_tip_5d_2, 
+			root_root_tip_5d_3, 
+			root_maturation_zone_5d_1, 
+			root_maturation_zone_5d_2, 
+			root_maturation_zone_5d_3, 
+			root_whole_root_5d_1, 
+			root_whole_root_5d_2, 
+			root_whole_root_5d_3, 
+			root_whole_root_7d_1, 
+			root_whole_root_7d_2, 
+			root_whole_root_7d_3, 
+			root_whole_root_14d_1, 
+			root_whole_root_14d_2, 
+			root_whole_root_14d_3,
+			root_whole_root_21d_1, 
+			root_whole_root_21d_2, 
+			root_whole_root_21d_3, 
+			hypocotyl_10d_1, 
+			hypocotyl_10d_2, 
+			hypocotyl_10d_3, 
+			third_internode_24d_1, 
+			third_internode_24d_2, 
+			third_internode_24d_3, 
+			second_internode_24d_1, 
+			second_internode_24d_2, 
+			second_internode_24d_3, 
+			first_internode_28d._1, 
+			first_internode_28d._2, 
+			first_internode_28d._3, 
+			cotyledons_7d_1, 
+			cotyledons_7d_2, 
+			cotyledons_7d_3,  
+			leaf_1.2_7d_1, 
+			leaf_1.2_7d_2, 
+			leaf_1.2_7d_3, 
+			leaf_1.2_10d_1, 
+			leaf_1.2_10d_2, 
+			leaf_1.2_10d_3, 
+			leaf_1.2_petiole_10d_1, 
+			leaf_1.2_petiole_10d_2, 
+			leaf_1.2_petiole_10d_3, 
+			leaf_1.2_leaf_tip_10d_1, 
+			leaf_1.2_leaf_tip_10d_2, 
+			leaf_1.2_leaf_tip_10d_3, 
+			leaf_5.6_17d_1, 
+			leaf_5.6_17d_2, 
+			leaf_5.6_17d_3, 
+			leaf_9.10_27d_1, 
+			leaf_9.10_27d_2, 
+			leaf_9.10_27d_3, 
+			leaf_senescing_35d_1, 
+			leaf_senescing_35d_2, 
+			leaf_senescing_35d_3, 
+			cauline_leaves_24d_1, 
+			cauline_leaves_24d_2, 
+			cauline_leaves_24d_3, 
+			apex_vegetative_7d_1, 
+			apex_vegetative_7d_2, 
+			apex_vegetative_7d_3, 
+			apex_vegetative_10d_1, 
+			apex_vegetative_10d_2, 
+			apex_vegetative_10d_3, 
+			apex_vegetative_14d_1, 
+			apex_vegetative_14d_2, 
+			apex_vegetative_14d_3, 
+			apex_inflorescence_21d_1, 
+			apex_inflorescence_21d_2, 
+			apex_inflorescence_21d_3, 
+			apex_inflorescence_28d_1, 
+			apex_inflorescence_28d_2, 
+			apex_inflorescence_28d_3, 
+			apex_inflorescence_clv1_21d._1, 
+			apex_inflorescence_clv1_21d._2, 
+			apex_inflorescence_clv1_21d._3,  
+			flower_stg9_21d._1, 
+			flower_stg9_21d._2, 
+			flower_stg9_21d._3, 
+			flower_stg10_11_21d._1, 
+			flower_stg10_11_21d._2, 
+			flower_stg10_11_21d._3, 
+			flower_stg12_21d._1, 
+			flower_stg12_21d._2, 
+			flower_stg12_21d._3, 
+			flower_stg15_21d._1, 
+			flower_stg15_21d._2, 
+			flower_stg15_21d._3, 
+			flower_stg12_sepals_21d._1, 
+			flower_stg12_sepals_21d._2, 
+			flower_stg12_sepals_21d._3, 
+			flower_stg15_sepals_21d._1, 
+			flower_stg15_sepals_21d._2, 
+			flower_stg15_sepals_21d._3, 
+			flower_stg12_petals_21d._1, 
+			flower_stg12_petals_21d._2, 
+			flower_stg12_petals_21d._3, 
+			flower_stg15_petals_21d._1, 
+			flower_stg15_petals_21d._2, 
+			flower_stg15_petals_21d._3, 
+			flower_stg12_stamens_21d._1, 
+			flower_stg12_stamens_21d._2, 
+			flower_stg12_stamens_21d._3, 
+			flower_stg15_stamens_21d._1, 
+			flower_stg15_stamens_21d._2, 
+			flower_stg15_stamens_21d._3, 
+			flowers_mature_pollen_28d_1, 
+			flowers_mature_pollen_28d_2, 
+			flowers_mature_pollen_28d_3, 
+			flower_early_stg12_carpels_21d._1, 
+			flower_early_stg12_carpels_21d._2, 
+			flower_early_stg12_carpels_21d._3, 
+			flower_late_stg12_carpels_21d._1, 
+			flower_late_stg12_carpels_21d._2, 
+			flower_late_stg12_carpels_21d._3, 
+			flower_stg15_carpels_21d._1, 
+			flower_stg15_carpels_21d._2, 
+			flower_stg15_carpels_21d._3, 
+			fruit_stg16_siliques_28d._1, 
+			fruit_stg16_siliques_28d._2, 
+			fruit_stg16_siliques_28d._3, 
+			fruit_stg17a_siliques_28d._1, 
+			fruit_stg17a_siliques_28d._2, 
+			fruit_stg17a_siliques_28d._3, 
+			fruit_stg16_seeds_28d._1, 
+			fruit_stg16_seeds_28d._2, 
+			fruit_stg16_seeds_28d._3, 
+			fruit_stg17a_seeds_28d._1, 
+			fruit_stg17a_seeds_28d._2, 
+			fruit_stg17a_seeds_28d._3, 
+			fruit_stg18_seeds_28d._1, 
+			fruit_stg18_seeds_28d._2, 
+			fruit_stg18_seeds_28d._3
+			)
+
+
+
+# The following wrapper function calculates relative expression (RE)
+# it scales all expression values to the range between 0 and 1
+
+getRE <- function(x) { 
+
+	devseq_RE <- data.frame(x[1:2], 
+        as.data.frame(t(apply(x[,c(3:ncol(x))], 1, # transposes matrix output from apply function
+	    
+	    normalize <- function(x) {
+		
+		    # calculate relative expression
+		    calculateRE <- function(x) {
+		    	(x - min(x, na.rm = TRUE)) / 
+		    	(max(x, na.rm = TRUE) - min(x, na.rm = TRUE))
+		    }
+		    x <- calculateRE(x)
+
+		    return(x)
+		}
+	)))
+    )
+}
+
+# Apply getRE function
+devseq_genes_all_samples_RE <- getRE(devseq_genes_all_samples)
+
+
+
+# Write final data tables to csv files and store them in /out_dir/output/data_tables
+if (!dir.exists(file.path(out_dir, "output", "data_tables"))) dir.create(file.path(out_dir, "output", "data_tables"), recursive = TRUE)
+write.table(devseq_genes_all_samples, file=file.path(out_dir, "output", "data_tables", "devseq_genes_all_samples.csv"), sep=";", dec=".", row.names=FALSE, col.names=TRUE)
+write.table(devseq_genes_all_samples_RE, file=file.path(out_dir, "output", "data_tables", "devseq_genes_all_samples_RE.csv"), sep=";", dec=".", row.names=FALSE, col.names=TRUE)
+
+
+
+
