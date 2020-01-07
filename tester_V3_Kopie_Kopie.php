@@ -1505,16 +1505,17 @@ HTML Body starts: wrapper = 1st level div
   		              <span class = 'hreflinks1'>
                     <button id="export_charts" class="btn btn-gray-light" title="Download data as csv file" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none" class="tfbutton3" onclick="download_csv_function();"><i class="fa fa-download" aria-hidden="true" style="color:#0a1e38"></i> <span>Data</span></a></button>
                     </span>
+                    <span class = 'hreflinks3'>
+                    <a href="devseq_sample_table.xls" download="devseq_sample_table.xls" Download!><button class="btn btn-gray-light" title="Download sample table as xls file" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none"><i class="fa fa-download" aria-hidden="true" style="color:#0a1e38"></i><span> Sample table</span></button></a></a>
+                    <span style="display:inline-block; "></span>
+                    </span>
                     <span class = 'hreflinks2'>
                     <button id="show2" class="btn btn-gray-light" title="Generate pdf and download chart from cloud" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0 || $count>50 || $_POST['filter4'] == "heatmap" || ($_POST['filter4'] == "heatmap" && $_POST['filter6'] == "1" && $count==1)) {?> style="display: none" <?php } ?> style="text-decoration: none" class="tfbutton4" onclick="return addnsandprint()"><i class="fa fa-cloud-download" aria-hidden="true" style="color:#0a1e38"></i> <span>Chart</span></a></button>
                     </span>
                     <span class = 'hreflinks2'>
                     <button id="show3" class="btn btn-gray-light" title="Generate pdf and download resized chart from cloud" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0 || $count>50 || $_POST['filter4'] == "heatmap" || ($_POST['filter4'] == "heatmap" && $_POST['filter6'] == "1" && $count==1)) {?> style="display: none" <?php } ?> style="text-decoration: none" class="tfbutton4" onclick="return addnsandprint_2()"><i class="fa fa-cloud-download" aria-hidden="true" style="color:#0a1e38"></i> <span>Chart (resized)</span></a></button>
                     </span>
-                    <span class = 'hreflinks3'>
-                    <a href="devseq_sample_table.xls" download="devseq_sample_table.xls" Download!><button class="btn btn-gray-light" title="Download sample table as xls file" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none"><i class="fa fa-download" aria-hidden="true" style="color:#0a1e38"></i><span> Sample table</span></button></a></a>
-                    <span style="display:inline-block; "></span>
-                    </span>
+                    
 
 
                       <!-- Define chart display buttons -->
@@ -1542,10 +1543,10 @@ HTML Body starts: wrapper = 1st level div
                         <div class='lchart' id="displaybtngroup" role="group" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none" >
                           <font size="3">Chart format:</font>
                           <span class = 'lchartset2'>
-                          <button id="displaygrid" class="btn-display active" title="Show grid lines" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none" onclick="d_function();"><span>Grid</span></button>
+                          <button id="displaygrid_noath" class="btn-display active" title="Show grid lines" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none" onclick="d_function();"><span>Grid</span></button>
                           </span>
                           <span class = 'lchartset3'>
-                          <button id="displayplain" class="btn-display" title="Display plain chart area" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none" onclick="e_function();"><span>Plain</span></button>
+                          <button id="displayplain_noath" class="btn-display" title="Display plain chart area" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none" onclick="e_function();"><span>Plain</span></button>
                           </span>
                         </div> 
                         <?php }
@@ -1562,22 +1563,22 @@ HTML Body starts: wrapper = 1st level div
                         <div class='lchart' id="displaybtngroup" role="group" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none" >
   		                    <font size="3">Colorscale:</font>
                           <span class = 'hmapset1'>
-                          <button id="displaydomain" class="btn-display active" title="Show viridis colorscale" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none" onclick="f_function();"><span>Vd</span></button>
+                          <button class="btn-display active" title="Show viridis colorscale" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none" onclick="f_function();"><span>Vd</span></button>
                           </span>
   		                    <span class = 'hmapset2'>
-                          <button id="displaydomain" class="btn-display" title="Show blue colorscale" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none" onclick="g_function();"><span>Bu</span></button>
+                          <button class="btn-display" title="Show blue colorscale" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none" onclick="g_function();"><span>Bu</span></button>
                           </span>
                           <span class = 'hmapset3'>
-                          <button id="displaygrid" class="btn-display" title="Show red colorscale" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none" onclick="h_function();"><span>Rd</span></button>
+                          <button class="btn-display" title="Show red colorscale" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none" onclick="h_function();"><span>Rd</span></button>
                           </span>
                           <span class = 'hmapset4'>
-                          <button id="displaygrid" class="btn-display" title="Show green colorscale" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none" onclick="i_function();"><span>Gn</span></button>
+                          <button class="btn-display" title="Show green colorscale" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none" onclick="i_function();"><span>Gn</span></button>
                           </span>
                           <span class = 'hmapset5'>
-                          <button id="displaydomain" class="btn-display" title="Show red-yellow colorscale" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none" onclick="j_function();"><span>RdY</span></button>
+                          <button class="btn-display" title="Show red-yellow colorscale" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none" onclick="j_function();"><span>RdY</span></button>
                           </span>
                           <span class = 'hmapset6'>
-                          <button id="displaydomain" class="btn-display" title="Show yellow-red colorscale" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none" onclick="k_function();"><span>YRd</span></button>
+                          <button class="btn-display" title="Show yellow-red colorscale" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none" onclick="k_function();"><span>YRd</span></button>
                           </span>
                         </div> 
 
@@ -1586,22 +1587,22 @@ HTML Body starts: wrapper = 1st level div
                         <div class='lchart' id="displaybtngroup" role="group" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none" >
                           <font size="3">Colorscale:</font>
                           <span class = 'hmapset7'>
-                          <button id="displaygrid" class="btn-display active" title="Show viridis colorscale" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none" onclick="l_function();"><span>Vd</span></button>
+                          <button class="btn-display active" title="Show viridis colorscale" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none" onclick="l_function();"><span>Vd</span></button>
                           </span>
   		                    <span class = 'hmapset8'>
-                          <button id="displaydomain" class="btn-display" title="Show blue colorscale" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none" onclick="m_function();"><span>Bu</span></button>
+                          <button class="btn-display" title="Show blue colorscale" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none" onclick="m_function();"><span>Bu</span></button>
                           </span>
                           <span class = 'hmapset9'>
-                          <button id="displaygrid" class="btn-display" title="Show red colorscale" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none" onclick="n_function();"><span>Rd</span></button>
+                          <button class="btn-display" title="Show red colorscale" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none" onclick="n_function();"><span>Rd</span></button>
                           </span>
                           <span class = 'hmapset10'>
-                          <button id="displaygrid" class="btn-display" title="Show green colorscale" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none" onclick="o_function();"><span>Gn</span></button>
+                          <button class="btn-display" title="Show green colorscale" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none" onclick="o_function();"><span>Gn</span></button>
                           </span>
                           <span class = 'hmapset11'>
-                          <button id="displaydomain" class="btn-display" title="Show red-yellow colorscale" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none" onclick="p_function();"><span>RdY</span></button>
+                          <button class="btn-display" title="Show red-yellow colorscale" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none" onclick="p_function();"><span>RdY</span></button>
                           </span>
                           <span class = 'hmapset12'>
-                          <button id="displaydomain" class="btn-display" title="Show yellow-red colorscale" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none" onclick="q_function();"><span>YRd</span></button>
+                          <button class="btn-display" title="Show yellow-red colorscale" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none" onclick="q_function();"><span>YRd</span></button>
                           </span>
                         </div> 
 
@@ -1610,22 +1611,22 @@ HTML Body starts: wrapper = 1st level div
                         <div class='lchart' id="displaybtngroup" role="group" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none" >
                           <font size="3">Colorscale:</font>
                           <span class = 'hmapset13'>
-                          <button id="displaydomain" class="btn-display active" title="Show viridis colorscale" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none" onclick="r_function();"><span>Vd</span></button>
+                          <button class="btn-display active" title="Show viridis colorscale" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none" onclick="r_function();"><span>Vd</span></button>
                           </span>
                           <span class = 'hmapset14'>
-                          <button id="displaydomain" class="btn-display" title="Show blue colorscale" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none" onclick="s_function();"><span>Bu</span></button>
+                          <button class="btn-display" title="Show blue colorscale" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none" onclick="s_function();"><span>Bu</span></button>
                           </span>
                           <span class = 'hmapset15'>
-                          <button id="displaygrid" class="btn-display" title="Show red colorscale" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none" onclick="t_function();"><span>Rd</span></button>
+                          <button class="btn-display" title="Show red colorscale" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none" onclick="t_function();"><span>Rd</span></button>
                           </span>
                           <span class = 'hmapset16'>
-                          <button id="displaygrid" class="btn-display" title="Show green colorscale" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none" onclick="u_function();"><span>Gn</span></button>
+                          <button class="btn-display" title="Show green colorscale" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none" onclick="u_function();"><span>Gn</span></button>
                           </span>
                           <span class = 'hmapset17'>
-                          <button id="displaydomain" class="btn-display" title="Show red-yellow colorscale" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none" onclick="v_function();"><span>RdY</span></button>
+                          <button class="btn-display" title="Show red-yellow colorscale" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none" onclick="v_function();"><span>RdY</span></button>
                           </span>
                           <span class = 'hmapset18'>
-                          <button id="displaydomain" class="btn-display" title="Show yellow-red colorscale" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none" onclick="w_function();"><span>YRd</span></button>
+                          <button class="btn-display" title="Show yellow-red colorscale" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none" onclick="w_function();"><span>YRd</span></button>
                           </span>
                         </div> 
 
@@ -1634,22 +1635,22 @@ HTML Body starts: wrapper = 1st level div
                         <div class='lchart' id="displaybtngroup" role="group" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none" >
                           <font size="3">Colorscale:</font>
                           <span class = 'hmapset19'>
-                          <button id="displaygrid" class="btn-display active" title="Show viridis colorscale" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none" onclick="x_function();"><span>Vd</span></button>
+                          <button class="btn-display active" title="Show viridis colorscale" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none" onclick="x_function();"><span>Vd</span></button>
                           </span>
                           <span class = 'hmapset20'>
-                          <button id="displaydomain" class="btn-display" title="Show blue colorscale" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none" onclick="y_function();"><span>Bu</span></button>
+                          <button class="btn-display" title="Show blue colorscale" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none" onclick="y_function();"><span>Bu</span></button>
                           </span>
                           <span class = 'hmapset21'>
-                          <button id="displaygrid" class="btn-display" title="Show red colorscale" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none" onclick="z_function();"><span>Rd</span></button>
+                          <button class="btn-display" title="Show red colorscale" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none" onclick="z_function();"><span>Rd</span></button>
                           </span>
                           <span class = 'hmapset22'>
-                          <button id="displaygrid" class="btn-display" title="Show green colorscale" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none" onclick="aa_function();"><span>Gn</span></button>
+                          <button class="btn-display" title="Show green colorscale" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none" onclick="aa_function();"><span>Gn</span></button>
                           </span>
                           <span class = 'hmapset23'>
-                          <button id="displaydomain" class="btn-display" title="Show red-yellow colorscale" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none" onclick="ab_function();"><span>RdY</span></button>
+                          <button class="btn-display" title="Show red-yellow colorscale" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none" onclick="ab_function();"><span>RdY</span></button>
                           </span>
                           <span class = 'hmapset24'>
-                          <button id="displaydomain" class="btn-display" title="Show yellow-red colorscale" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none" onclick="ac_function();"><span>YRd</span></button>
+                          <button class="btn-display" title="Show yellow-red colorscale" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none" onclick="ac_function();"><span>YRd</span></button>
                           </span>
                         </div> 
 
@@ -1774,46 +1775,168 @@ if($_POST['filter4'] == "line_chart" && $_POST['filter1'] == "Arabidopsis_thalia
         regions: ath_regions
       });
 
+
+
+    // Function to call line charts for chart#2 div (not displayed) for resized plotting option
     $("#show3").click(function() {
-    var chart_2 = c3.generate({
-     bindto: '#chart_2',
-     padding: {
-          top: 20,
-          right: 146,
-          bottom: 53,
-          left: 172,
-        },
-        size: {height: 450},
-        point: {r: 3.1},
-        data: {json: dataset},
-        axis: {
-          x: {
-            type: 'category',
-            categories: x_axis_cat,
-            tick: {
+      if ($("#displaydomain").hasClass("active")) {
+        var chart_2 = c3.generate({
+          bindto: '#chart_2',
+          padding: {
+            top: 20,
+            right: 60,
+            bottom: 50,
+            left: 60,
+          },
+          size: {height: 505, width: 635},
+          point: {r: 3.5},
+          data: {json: dataset},
+          axis: {
+            x: {
+              type: 'category',
+              categories: x_axis_cat,
+              tick: {
                 rotate:90,
                 multiline: false,
                 culling: {max: 45},
+                inner:false,
+              },
+              height: 120,
+              padding: {right: 0.25},
             },
-            height: 120,
-            padding: {right: 0.25},
+            y: { 
+              label: {
+                text: title,
+                position: 'outer-middle'
+              },
+              min: 0,
+              padding: {bottom:0},
+              tick: {
+                outer: false
+              }
+            }
           },
-          y: { 
-            label: {
-              text: title,
-              position: 'outer-middle'
+          grid: {
+            lines: {front: false},
+          },
+          zoom: {enabled: false},
+          regions: ath_regions,
+          onrendered: function() {
+            d3.select("#chart_2").selectAll(".c3-axis-x .tick line").style("display", "none");
+          }   
+        });
+      }
+      else if ($("#displaygrid").hasClass("active")) {
+        var chart_2 = c3.generate({
+          bindto: '#chart_2',
+          padding: {
+            top: 20,
+            right: 60,
+            bottom: 50,
+            left: 60,
+          },
+          size: {height: 505, width: 635},
+          point: {r: 3.5},
+          data: {json: dataset},
+          axis: {
+            x: {
+              type: 'category',
+              categories: x_axis_cat,
+              tick: {
+                rotate:90,
+                multiline: false,
+                culling: {max: 45}
+              },
+              height: 120,
+              padding: {right: 0.25},
             },
-            min: 0,
-            padding: {bottom:0},
-          }
-        },
-        grid: {
+            y: { 
+              label: {
+                text: title,
+                position: 'outer-middle'
+              },
+              min:0,
+              padding: {bottom:0},
+              tick: {
+                outer: false
+              }
+            }
+          },
+          grid: {
+            x: {
+              lines: [
+                {value: -0.55, class: 'gridx'},
+                {value: 17.5, class: 'gridx'},
+                {value: 29.5, class: 'gridx'},
+                {value: 56.5, class: 'gridx'},
+                {value: 74.5, class: 'gridx'},
+                {value: 86.5, class: 'gridx'},
+                {value: 113.5, class: 'gridx'},
+                {value: 131.5, class: 'gridx'}
+              ]
+            },
+            y: {
+              show: true,
+              lines: [
+                {value: 0, class: 'gridx'}
+              ]
+            },
           lines: {front: false},
-        },
-        zoom: {enabled: false},
-        regions: ath_regions
-      });
+          },
+          zoom: {enabled: false},
+          onrendered: function() {
+            d3.select("#chart_2").selectAll(".c3-axis-x .tick line").style("display", "none");
+            d3.select("#chart_2").selectAll(".c3 path.domain").style("stroke", "rgb(224,224,224,0)");
+          }   
+        });
+      }
+      else if ($("#displayplain").hasClass("active")) {
+        var chart_2 = c3.generate({
+          bindto: '#chart_2',
+          padding: {
+            top: 20,
+            right: 60,
+            bottom: 50,
+            left: 60,
+          },
+          size: {height: 505, width: 635},
+          point: {r: 3.5},
+          data: {json: dataset},
+          axis: {
+            x: {
+              type: 'category',
+              categories: x_axis_cat,
+              tick: {
+                rotate:90,
+                multiline: false,
+                culling: {max: 45}
+              },
+              height: 120,
+              padding: {right: 0.25},
+            },
+            y: { 
+              label: {
+                text: title,
+                position: 'outer-middle'
+              },
+              min:0,
+              padding: {bottom:0},
+              tick: {
+                outer: false
+              }
+            }
+          },
+          grid: {
+            lines: {front: false},
+          },
+          zoom: {enabled: false},
+          onrendered: function() {
+            d3.select("#chart_2").selectAll(".c3-axis-x .tick line").style("display", "none");
+          }   
+        });
+      }
     })
+
 
 
     // Function to call line chart with regions
@@ -3374,7 +3497,7 @@ Loading custom JavaScript scripts
      setTimeout(function(){
      $('#chart_2').find('svg').attr('xmlns','http://www.w3.org/2000/svg', 'xmlns:xlink', 'http://www.w3.org/1999/xlink');
      xepOnline.Formatter.Format('chart_2',{render:'download', srctype:'svg', filename: 'devseq_plot'});
-     }, 1000);
+     }, 1500);
     };
   </script>
 
@@ -3404,7 +3527,7 @@ Loading custom JavaScript scripts
        // After 1 second stop spinning and remove the DIV
        setTimeout(function() { 
            el.spin(false).remove()
-       }, 7400)
+       }, 8000)
       })
     })
   </script>
