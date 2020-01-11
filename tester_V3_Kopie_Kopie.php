@@ -1452,6 +1452,10 @@ HTML Body starts: wrapper = 1st level div
                 <div id="chart_2" style="display: none">
                 </div>
 
+                <!-- div for line chart -->
+                <div id="chart_3" style="display: none">
+                </div>
+
 
 
                 <!-- line chart message: if to many query IDs, print notification -->
@@ -1507,13 +1511,15 @@ HTML Body starts: wrapper = 1st level div
                     </span>
                     <span class = 'hreflinks3'>
                     <a href="devseq_sample_table.xls" download="devseq_sample_table.xls" Download!><button class="btn btn-gray-light" title="Download sample table as xls file" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none"><i class="fa fa-download" aria-hidden="true" style="color:#0a1e38"></i><span> Sample table</span></button></a></a>
-                    <span style="display:inline-block; "></span>
                     </span>
                     <span class = 'hreflinks2'>
                     <button id="show2" class="btn btn-gray-light" title="Generate pdf and download chart from cloud" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0 || $count>50 || $_POST['filter4'] == "heatmap" || ($_POST['filter4'] == "heatmap" && $_POST['filter6'] == "1" && $count==1)) {?> style="display: none" <?php } ?> style="text-decoration: none" class="tfbutton4" onclick="return addnsandprint()"><i class="fa fa-cloud-download" aria-hidden="true" style="color:#0a1e38"></i> <span>Chart</span></a></button>
                     </span>
                     <span class = 'hreflinks2'>
-                    <button id="show3" class="btn btn-gray-light" title="Generate pdf and download resized chart from cloud" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0 || $count>50 || $_POST['filter4'] == "heatmap" || ($_POST['filter4'] == "heatmap" && $_POST['filter6'] == "1" && $count==1)) {?> style="display: none" <?php } ?> style="text-decoration: none" class="tfbutton4" onclick="return addnsandprint_2()"><i class="fa fa-cloud-download" aria-hidden="true" style="color:#0a1e38"></i> <span>Chart (resized)</span></a></button>
+                    <button id="show3" class="btn btn-gray-light" title="Generate pdf and download resized chart from cloud" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $_POST['filter1'] != "Arabidopsis_thaliana" || $count==0 || $count>50 || $_POST['filter4'] == "heatmap" || ($_POST['filter4'] == "heatmap" && $_POST['filter6'] == "1" && $count==1)) {?> style="display: none" <?php } ?> style="text-decoration: none" class="tfbutton4" onclick="return addnsandprint_2()"><i class="fa fa-cloud-download" aria-hidden="true" style="color:#0a1e38"></i> <span>Resized chart</span></a></button>
+                    </span>
+                    <span class = 'hreflinks2'>
+                    <button id="show4" class="btn btn-gray-light" title="Generate pdf and download resized chart from cloud" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $_POST['filter1'] == "Arabidopsis_thaliana" || $count==0 || $count>50 || $_POST['filter4'] == "heatmap" || ($_POST['filter4'] == "heatmap" && $_POST['filter6'] == "1" && $count==1)) {?> style="display: none" <?php } ?> style="text-decoration: none" class="tfbutton4" onclick="return addnsandprint_3()"><i class="fa fa-cloud-download" aria-hidden="true" style="color:#0a1e38"></i> <span>Resized chart</span></a></button>
                     </span>
                     
 
@@ -1754,10 +1760,12 @@ if($_POST['filter4'] == "line_chart" && $_POST['filter1'] == "Arabidopsis_thalia
             tick: {
                 rotate:90,
                 multiline: false,
-                culling: {max: 45},
+                culling: {max: 45}
             },
             height: 120,
-            padding: {right: 0.25},
+            padding: {
+              right: 0.25
+            },
           },
           y: { 
             label: {
@@ -1765,6 +1773,14 @@ if($_POST['filter4'] == "line_chart" && $_POST['filter1'] == "Arabidopsis_thalia
               position: 'outer-middle'
             },
             min: 0,
+            tick: {
+              format: function (d) {
+                if ((d / 1000) >= 1) {
+                  d = Math.round((d / 1000 )*100) / 100 + "K";
+                  }
+                return d;
+              }
+            },
             padding: {bottom:0},
           }
         },
@@ -1772,37 +1788,40 @@ if($_POST['filter4'] == "line_chart" && $_POST['filter1'] == "Arabidopsis_thalia
           lines: {front: false},
         },
         zoom: {enabled: false},
-        regions: ath_regions
+        regions: ath_regions,
       });
 
 
 
     // Function to call line charts for chart#2 div (not displayed) for resized plotting option
     $("#show3").click(function() {
+      var x_axis_cat_prt = ['', 'root, root tip, 5d', '', '', 'root, maturation zone', '', '', 'root, whole root_5d', '', '', 'root, whole root, 7d', '', '', 'root, whole root, 14d', '', '', 'root, whole root, 21d', '', '', 'hypocotyl, 10d', '', '', '3rd internode, 24d', '', '', '2nd internode, 24d', '', '', '1st internode, 28d', '', '', 'cotyledons, 7d', '', '', 'leaf 1+2, 7d', '', '', 'leaf 1+2, 10d', '', '', 'leaf 1+2, petiole, 10d', '', '', 'leaf 1+2, leaf tip, 10d', '', '', 'leaf 5+6, 17d', '', '', 'leaf 9+10, 27d', '', '', 'leaves senescing, 35d', '', '', 'cauline leaves, 24d', '', '', 'apex vegetative, 7d', '', '', 'apex vegetative, 10d', '', '', 'apex vegetative, 14d', '', '', 'apex inflor, 21d', '', '', 'apex inflor, 28d', '', '', 'apex inflor clv1, 21d', '', '', 'flower stg9, 21d+', '', '', 'flower stg10/11, 21d+', '', '', 'flower stg12, 21d+', '', '', 'flower stg15, 21d+', '', '', 'sepals stg12', '', '', 'sepals stg15', '', '', 'petals stg12', '', '', 'petals stg15', '', '', 'stamens stg12', '', '', 'stamens stg15', '', '', 'mature pollen, 28d+', '', '', 'carpels early stg12', '', '', 'carpels late stg12', '', '', 'carpels stg15', '', '', 'fruit stg16, siliques', '', '', 'fruit stg17a, siliques', '', '', 'fruit stg16/17a, seeds', '', '', 'fruit stg17b, seeds', '', '', 'fruit stg18, seeds', '' , ''];
       if ($("#displaydomain").hasClass("active")) {
         var chart_2 = c3.generate({
           bindto: '#chart_2',
           padding: {
             top: 20,
             right: 60,
-            bottom: 50,
+            bottom: 30,
             left: 60,
           },
-          size: {height: 505, width: 635},
-          point: {r: 3.5},
+          size: {height: 467, width: 620},
+          point: {r: 3.4},
           data: {json: dataset},
           axis: {
             x: {
               type: 'category',
-              categories: x_axis_cat,
+              categories: x_axis_cat_prt,
               tick: {
                 rotate:90,
                 multiline: false,
-                culling: {max: 45},
-                inner:false,
+                inner:false
               },
               height: 120,
-              padding: {right: 0.25},
+              padding: {
+                left: 0.1,
+                right: 0.25
+              },
             },
             y: { 
               label: {
@@ -1812,7 +1831,13 @@ if($_POST['filter4'] == "line_chart" && $_POST['filter1'] == "Arabidopsis_thalia
               min: 0,
               padding: {bottom:0},
               tick: {
-                outer: false
+                outer: false,
+                format: function (d) {
+                  if ((d / 1000) >= 1) {
+                    d = Math.round((d / 1000 )*100) / 100 + "K";
+                  }
+                  return d;
+                }
               }
             }
           },
@@ -1832,23 +1857,23 @@ if($_POST['filter4'] == "line_chart" && $_POST['filter1'] == "Arabidopsis_thalia
           padding: {
             top: 20,
             right: 60,
-            bottom: 50,
+            bottom: 30,
             left: 60,
           },
-          size: {height: 505, width: 635},
-          point: {r: 3.5},
+          size: {height: 467, width: 620},
+          point: {r: 3.4},
           data: {json: dataset},
           axis: {
             x: {
               type: 'category',
-              categories: x_axis_cat,
+              categories: x_axis_cat_prt,
               tick: {
                 rotate:90,
                 multiline: false,
-                culling: {max: 45}
+                inner:false
               },
               height: 120,
-              padding: {right: 0.25},
+              padding: {right: 0.5},
             },
             y: { 
               label: {
@@ -1856,16 +1881,22 @@ if($_POST['filter4'] == "line_chart" && $_POST['filter1'] == "Arabidopsis_thalia
                 position: 'outer-middle'
               },
               min:0,
-              padding: {bottom:0},
+              padding: {bottom:1.5},
               tick: {
-                outer: false
+                outer: false,
+                format: function (d) {
+                  if ((d / 1000) >= 1) {
+                    d = Math.round((d / 1000 )*100) / 100 + "K";
+                  }
+                  return d;
+                }
               }
             }
           },
           grid: {
             x: {
               lines: [
-                {value: -0.55, class: 'gridx'},
+                {value: -0.5, class: 'gridx'},
                 {value: 17.5, class: 'gridx'},
                 {value: 29.5, class: 'gridx'},
                 {value: 56.5, class: 'gridx'},
@@ -1896,20 +1927,20 @@ if($_POST['filter4'] == "line_chart" && $_POST['filter1'] == "Arabidopsis_thalia
           padding: {
             top: 20,
             right: 60,
-            bottom: 50,
+            bottom: 30,
             left: 60,
           },
-          size: {height: 505, width: 635},
-          point: {r: 3.5},
+          size: {height: 467, width: 620},
+          point: {r: 3.4},
           data: {json: dataset},
           axis: {
             x: {
               type: 'category',
-              categories: x_axis_cat,
+              categories: x_axis_cat_prt,
               tick: {
                 rotate:90,
                 multiline: false,
-                culling: {max: 45}
+                inner:false
               },
               height: 120,
               padding: {right: 0.25},
@@ -1922,7 +1953,13 @@ if($_POST['filter4'] == "line_chart" && $_POST['filter1'] == "Arabidopsis_thalia
               min:0,
               padding: {bottom:0},
               tick: {
-                outer: false
+                outer: false,
+                format: function (d) {
+                  if ((d / 1000) >= 1) {
+                    d = Math.round((d / 1000 )*100) / 100 + "K";
+                  }
+                  return d;
+                }
               }
             }
           },
@@ -1970,6 +2007,14 @@ if($_POST['filter4'] == "line_chart" && $_POST['filter1'] == "Arabidopsis_thalia
               position: 'outer-middle'
             },
             min:0,
+            tick: {
+              format: function (d) {
+                if ((d / 1000) >= 1) {
+                  d = Math.round((d / 1000 )*100) / 100 + "K";
+                  }
+                return d;
+              }
+            },
             padding: {bottom:0}
           }
         },
@@ -2014,6 +2059,14 @@ if($_POST['filter4'] == "line_chart" && $_POST['filter1'] == "Arabidopsis_thalia
               position: 'outer-middle'
             },
             min:0,
+            tick: {
+              format: function (d) {
+                if ((d / 1000) >= 1) {
+                  d = Math.round((d / 1000 )*100) / 100 + "K";
+                  }
+                return d;
+              }
+            },
             padding: {bottom:0}
           }
         },
@@ -2069,6 +2122,14 @@ if($_POST['filter4'] == "line_chart" && $_POST['filter1'] == "Arabidopsis_thalia
               position: 'outer-middle'
             },
             min:0,
+            tick: {
+              format: function (d) {
+                if ((d / 1000) >= 1) {
+                  d = Math.round((d / 1000 )*100) / 100 + "K";
+                  }
+                return d;
+              }
+            },
             padding: {bottom:0}
           }
         },
@@ -2119,6 +2180,7 @@ else if ($_POST['filter4'] == "line_chart" && ($count > 0) && ($count < 51) && $
           left: 97,
         },
         size: {height: 600},
+        point: {r: 3.1},
         data: {json: dataset},
         axis: {
           x: {
@@ -2152,6 +2214,135 @@ else if ($_POST['filter4'] == "line_chart" && ($count > 0) && ($count < 51) && $
       });
 
 
+
+    // Function to call line charts for chart#3 div (not displayed) for resized plotting option
+    $("#show4").click(function() {
+      var xValues_plt = 
+       <?php if($_POST['filter1'] == "Capsella_rubella") { ?>
+       ['root, whole root.1', 'root, whole root.2', 'root, whole root.3', 'hypocotyl.1', 'hypocotyl.2', 'hypocotyl.3', 'leaf 1+2.1', 'leaf 1+2.2', 'leaf 1+2.3', 'apex vegetative.1', 'apex vegetative.2', 'apex vegetative.3', 'apex inflor.1', 'apex inflor.2', 'apex inflor.3', 'flower stg12.1', 'flower stg12.2', 'flower stg12.3', 'carpels stg12.1', 'carpels stg12.2', 'carpels stg12.3', 'stamens stg12.1', 'stamens stg12.2', 'stamens stg12.3', 'mature pollen.1', 'mature pollen.2', 'mature pollen.3'];
+        <?php } 
+        else if ($_POST['filter1'] == "Eutrema_salsugineum") { ?>
+        ['whole root.1', 'whole root.2', 'whole root.3', 'hypocotyl.1', 'hypocotyl.2', 'hypocotyl.3', 'leaf 1+2.1', 'leaf 1+2.2', 'leaf 1+2.3', 'apex veget.1', 'apex veget.2', 'apex veget.3', 'apex inflor.1', 'apex inflor.2', 'apex inflor.3', 'flower 12.1', 'flower 12.2', 'flower 12.3', 'carpel 12.1', 'carpel 12.2', 'carpel 12.3', 'stamen 12.1', 'stamen 12.2', 'stamen 12.3', 'pollen.1', 'pollen.2', 'pollen.3'];
+        <?php } ?>
+      var nonathgrid_plt = [
+        {value: -0.45, class: 'gridx'},
+        {value: 2.5, class: 'gridx'},
+        {value: 5.5, class: 'gridx'},
+        {value: 8.5, class: 'gridx'},
+        {value: 11.5, class: 'gridx'},
+        {value: 14.5, class: 'gridx'},
+        {value: 17.5, class: 'gridx'},
+        {value: 20.5, class: 'gridx'},
+        {value: 23.5, class: 'gridx'},
+        {value: 26.43, class: 'gridy'}
+      ];
+      if ($("#displaygrid_noath").hasClass("active")) {
+        var chart_3 = c3.generate({
+          bindto: '#chart_3',
+          padding: {
+            top: 20,
+            right: 60,
+            bottom: 0,
+            left: 60,
+          },
+          size: {height: 438, width: 611},
+          point: {r: 3.7},
+          data: {json: dataset},
+          axis: {
+            x: {
+              type: 'category',
+              categories: xValues_plt,
+              tick: {
+                rotate:90,
+                multiline: false,
+              },
+              height: 120,
+              padding: {right: 0.04},
+            },
+            y: { 
+              label: {
+                text: title,
+                position: 'outer-middle'
+              },
+              min:0,
+              padding: {bottom: 1.5},
+              tick: {
+                outer: false,
+                format: function (d) {
+                  if ((d / 1000) >= 1) {
+                    d = Math.round((d / 1000 )*100) / 100 + "K";
+                  }
+                  return d;
+                }
+              }
+            }
+          },
+          grid: {
+            x: {lines: nonathgrid_plt},
+            y: {show: true},
+            lines: {front: false},
+          },
+          zoom: {enabled: false},
+          onrendered: function() {
+            d3.select("#chart_3").selectAll(".c3-axis-x .tick line").style("display", "none");
+            d3.select("#chart_3").selectAll(".c3 path.domain").style("stroke", "rgb(224,224,224,0)");
+          }   
+        });
+      }
+      else if ($("#displayplain_noath").hasClass("active")) {
+        var chart_3 = c3.generate({
+          bindto: '#chart_3',
+          padding: {
+            top: 20,
+            right: 60,
+            bottom: 0,
+            left: 60,
+          },
+          size: {height: 438, width: 611},
+          point: {r: 3.7},
+          data: {json: dataset},
+          axis: {
+            x: {
+              type: 'category',
+              categories: xValues_plt,
+              tick: {
+                rotate:90,
+                multiline: false,
+                culling: {max: 45}
+              },
+              height: 120,
+              padding: {right: 0.04},
+            },
+            y: { 
+              label: {
+                text: title,
+                position: 'outer-middle'
+              },
+              min:0,
+              padding: {bottom: 1.5},
+              tick: {
+                outer: false,
+                format: function (d) {
+                  if ((d / 1000) >= 1) {
+                    d = Math.round((d / 1000 )*100) / 100 + "K";
+                  }
+                  return d;
+                }
+              }
+            }
+          },
+          grid: {
+            lines: {front: false},
+          },
+          zoom: {enabled: false},
+          onrendered: function() {
+            d3.select("#chart_3").selectAll(".c3-axis-x .tick line").style("display", "none");
+          }   
+        });
+      }
+    })
+
+
     // Function to call non-Arabidopsis thaliana line chart with grid
     function d_function(){
     $(function () {
@@ -2163,6 +2354,7 @@ else if ($_POST['filter4'] == "line_chart" && ($count > 0) && ($count < 51) && $
           left: 97,
         },
         size: {height: 600},
+        point: {r: 3.1},
         data: {json: dataset},
         axis: {
           x: {
@@ -2209,6 +2401,7 @@ else if ($_POST['filter4'] == "line_chart" && ($count > 0) && ($count < 51) && $
           left: 97,
         },
         size: {height: 600},
+        point: {r: 3.1},
         data: {json: dataset},
         axis: {
           x: {
@@ -2301,14 +2494,14 @@ else if (($_POST['filter4'] == "heatmap" && $_POST['filter1'] == "Arabidopsis_th
             tickangle: 90,
             tickvals: ticklabels,
             tickfont: {
-              size: 11.2,
+              size: 11.5,
               color: 'black'
             }},
           yaxis: {
             showticklabels: true,
             tickangle: 0,
             tickfont: {
-            size: 11.4,
+            size: 11.5,
             color: 'black'
             }}
           };  
@@ -2328,14 +2521,14 @@ else if (($_POST['filter4'] == "heatmap" && $_POST['filter1'] == "Arabidopsis_th
             tickangle: 90,
             tickvals: ticklabels,
             tickfont: {
-                size: 11.2,
+                size: 11.5,
                 color: 'black'
             }},
           yaxis: {
             showticklabels: true,
             tickangle: 0,
             tickfont: {
-              size: 11.4,
+              size: 11.5,
               color: 'black'
             }}
           };
@@ -2355,14 +2548,14 @@ else if (($_POST['filter4'] == "heatmap" && $_POST['filter1'] == "Arabidopsis_th
             tickangle: 90,
             tickvals: ticklabels,
             tickfont: {
-              size: 11.2,
+              size: 11.5,
               color: 'black'
             }},
           yaxis: {
             showticklabels: true,
             tickangle: 0,
             tickfont: {
-              size: 11.4,
+              size: 11.5,
               color: 'black'
             }}
           };
@@ -2512,14 +2705,14 @@ else if (($_POST['filter4'] == "heatmap" && $_POST['filter1'] == "Arabidopsis_th
             tickangle: 90,
             tickvals: ticklabels,
             tickfont: {
-              size: 11.2,
+              size: 11.5,
               color: 'black'
             }},
           yaxis: {
             showticklabels: true,
             tickangle: 0,
             tickfont: {
-              size: 11.4,
+              size: 11.5,
               color: 'black'
             }}
           };
@@ -2862,14 +3055,14 @@ else if ($_POST['filter4'] == "heatmap" && $_POST['filter1'] == "Arabidopsis_tha
             tickangle: 90,
             tickvals: ticklabels,
             tickfont: {
-              size: 11.2,
+              size: 11.5,
               color: 'black'
           }},
           yaxis: {
             showticklabels: true,
             tickangle: 0,
             tickfont: {
-              size: 11.4,
+              size: 11.5,
               color: 'black'
             }}
           };
@@ -2889,14 +3082,14 @@ else if ($_POST['filter4'] == "heatmap" && $_POST['filter1'] == "Arabidopsis_tha
             tickangle: 90,
             tickvals: ticklabels,
             tickfont: {
-              size: 11.2,
+              size: 11.5,
               color: 'black'
           }},
           yaxis: {
             showticklabels: true,
             tickangle: 0,
             tickfont: {
-              size: 11.4,
+              size: 11.5,
               color: 'black'
             }}
           };
@@ -2916,14 +3109,14 @@ else if ($_POST['filter4'] == "heatmap" && $_POST['filter1'] == "Arabidopsis_tha
             tickangle: 90,
             tickvals: ticklabels,
             tickfont: {
-              size: 11.2,
+              size: 11.5,
               color: 'black'
           }},
           yaxis: {
             showticklabels: true,
             tickangle: 0,
             tickfont: {
-              size: 11.4,
+              size: 11.5,
               color: 'black'
           }}
         };
@@ -3059,14 +3252,14 @@ else if ($_POST['filter4'] == "heatmap" && $_POST['filter1'] == "Arabidopsis_tha
             tickangle: 90,
             tickvals: ticklabels,
             tickfont: {
-              size: 11.2,
+              size: 11.5,
               color: 'black'
           }},
           yaxis: {
             showticklabels: true,
             tickangle: 0,
             tickfont: {
-              size: 11.4,
+              size: 11.5,
               color: 'black'
           }}
         };
@@ -3501,6 +3694,16 @@ Loading custom JavaScript scripts
     };
   </script>
 
+  <!-- css2pdf hack for saving rescaled line chart: define SVG namespace for C3.js SVG element -->
+  <script type="text/javascript">
+    function addnsandprint_3(){
+     setTimeout(function(){
+     $('#chart_3').find('svg').attr('xmlns','http://www.w3.org/2000/svg', 'xmlns:xlink', 'http://www.w3.org/1999/xlink');
+     xepOnline.Formatter.Format('chart_3',{render:'download', srctype:'svg', filename: 'devseq_plot'});
+     }, 1500);
+    };
+  </script>
+
 
   <!-- Spinner for line chart css2pdf download -->
   <script type="text/javascript">
@@ -3521,6 +3724,21 @@ Loading custom JavaScript scripts
   <script type="text/javascript">
     $(document).ready(function () {
      $("#show3").click(function() {
+       // Create a DIV, append to BODY and add a spinner
+       var el = $('<div>').appendTo('body').spin()
+    
+       // After 1 second stop spinning and remove the DIV
+       setTimeout(function() { 
+           el.spin(false).remove()
+       }, 8000)
+      })
+    })
+  </script>
+
+  <!-- Spinner for resized line chart css2pdf download -->
+  <script type="text/javascript">
+    $(document).ready(function () {
+     $("#show4").click(function() {
        // Create a DIV, append to BODY and add a spinner
        var el = $('<div>').appendTo('body').spin()
     
