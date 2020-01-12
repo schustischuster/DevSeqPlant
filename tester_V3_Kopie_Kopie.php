@@ -1802,11 +1802,11 @@ if($_POST['filter4'] == "line_chart" && $_POST['filter1'] == "Arabidopsis_thalia
           padding: {
             top: 20,
             right: 60,
-            bottom: 30,
+            bottom: 49,
             left: 60,
           },
-          size: {height: 467, width: 620},
-          point: {r: 3.4},
+          size: {height: 525, width: 840},
+          point: {r: 4},
           data: {json: dataset},
           axis: {
             x: {
@@ -1857,11 +1857,11 @@ if($_POST['filter4'] == "line_chart" && $_POST['filter1'] == "Arabidopsis_thalia
           padding: {
             top: 20,
             right: 60,
-            bottom: 30,
+            bottom: 49,
             left: 60,
           },
-          size: {height: 467, width: 620},
-          point: {r: 3.4},
+          size: {height: 525, width: 840},
+          point: {r: 4},
           data: {json: dataset},
           axis: {
             x: {
@@ -1873,7 +1873,7 @@ if($_POST['filter4'] == "line_chart" && $_POST['filter1'] == "Arabidopsis_thalia
                 inner:false
               },
               height: 120,
-              padding: {right: 0.5},
+              padding: {right: 0.4},
             },
             y: { 
               label: {
@@ -1927,11 +1927,11 @@ if($_POST['filter4'] == "line_chart" && $_POST['filter1'] == "Arabidopsis_thalia
           padding: {
             top: 20,
             right: 60,
-            bottom: 30,
+            bottom: 49,
             left: 60,
           },
-          size: {height: 467, width: 620},
-          point: {r: 3.4},
+          size: {height: 525, width: 840},
+          point: {r: 4},
           data: {json: dataset},
           axis: {
             x: {
@@ -2245,8 +2245,8 @@ else if ($_POST['filter4'] == "line_chart" && ($count > 0) && ($count < 51) && $
             bottom: 0,
             left: 60,
           },
-          size: {height: 438, width: 611},
-          point: {r: 3.7},
+          size: {height: 476, width: 560},
+          point: {r: 4},
           data: {json: dataset},
           axis: {
             x: {
@@ -2257,7 +2257,7 @@ else if ($_POST['filter4'] == "line_chart" && ($count > 0) && ($count < 51) && $
                 multiline: false,
               },
               height: 120,
-              padding: {right: 0.04},
+              padding: {right: 0.05},
             },
             y: { 
               label: {
@@ -2298,8 +2298,8 @@ else if ($_POST['filter4'] == "line_chart" && ($count > 0) && ($count < 51) && $
             bottom: 0,
             left: 60,
           },
-          size: {height: 438, width: 611},
-          point: {r: 3.7},
+          size: {height: 476, width: 560},
+          point: {r: 4},
           data: {json: dataset},
           axis: {
             x: {
@@ -3745,7 +3745,7 @@ Loading custom JavaScript scripts
        // After 1 second stop spinning and remove the DIV
        setTimeout(function() { 
            el.spin(false).remove()
-       }, 8000)
+       }, 4250)
       })
     })
   </script>
