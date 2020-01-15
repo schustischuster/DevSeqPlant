@@ -3815,7 +3815,7 @@ C3.js style
 
 
   /* Settings for resized c3 line chart */
-  #chart_2.c3 .c3-line {stroke-width: 2.75px!important}
+  #chart_2.c3 .c3-line {stroke-width: 2.6px!important}
   #chart_2.c3 .c3-axis-x .tick line {opacity: 0!important}
   #chart_2.c3 .c3-axis-x {font: 13.5px sans-serif!important}
   #chart_2.c3 .c3-axis-y {font: 13.5px sans-serif!important}
@@ -3824,7 +3824,7 @@ C3.js style
 
 
   /* Settings for resized c3 line chart */
-  #chart_3.c3 .c3-line {stroke-width: 2.75px!important}
+  #chart_3.c3 .c3-line {stroke-width: 2.6px!important}
   #chart_3.c3 .c3-axis-x .tick line {opacity: 1!important}
   #chart_3.c3 .c3-axis-x {font: 13.5px sans-serif!important}
   #chart_3.c3 .c3-axis-y {font: 13.5px sans-serif!important}
