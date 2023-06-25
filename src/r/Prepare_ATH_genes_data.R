@@ -1,4 +1,4 @@
-# Prepare_ATH_data_for_webpage
+# Prepare_ATH_data_for_webpage - expression data version from 20210528
 # This script prepares DevSeq A.thaliana expression data for DevSeq webpage database
 # Input format of DevSeq expression table is as follows:
 # id / symbol / biotype / source / DEVSEQ_SAMPLE_REPLICATES(132samples)
@@ -7,28 +7,19 @@
 # In that case, load gene_ids_araport_gene_symbol file and add gene symbols to
 # devseq expression table
 
-
-# Install and load the following R packages
-if (!require(dplyr)) install.packages('dplyr')
-library(dplyr)
-
-
-# Set file path and input files
-in_dir <- "/Volumes/User/Shared/Christoph_manuscript/DevSeq_paper/Analysis/Analysis_2019/A_thaliana_gene_exression_map/DevSeq_ATH_for_webpage/data/20190801"
-out_dir <- "/Volumes/User/Shared/Christoph_manuscript/DevSeq_paper/Analysis/Analysis_2019/A_thaliana_gene_exression_map/DevSeq_ATH_for_webpage"
-
-devseq_genes_input_file <- "No_TE_genes_tpm_sample_names_20190801.csv"
+devseq_genes_input_file <- "AT_genes_inter_norm_tpm_mat_deseq_sample_names.csv"
+devseq_genes_input_file_pol <- "AT_genes_intra_norm_tpm_mat_deseq_sample_names.csv"
 id_symbol_input_file <- "Gene_IDs_ATH_names_wo_dupl.csv"
 
 
 # Read raw data
-devseq_genes_all_samples <- read.table(file=file.path(in_dir, devseq_genes_input_file), sep=";", dec=".", header=TRUE, stringsAsFactors = FALSE)
-gene_id_symbol_list <- read.table(file=file.path(in_dir, id_symbol_input_file), sep=";", dec=".", header=TRUE, stringsAsFactors = FALSE)
+devseq_genes_all_samples <- read.table(file=file.path(in_dir, "AT", devseq_genes_input_file), sep=";", dec=".", header=TRUE, stringsAsFactors = FALSE)
+devseq_genes_all_samples_pol <- read.table(file=file.path(in_dir, "AT", devseq_genes_input_file_pol), sep=";", dec=".", header=TRUE, stringsAsFactors = FALSE)
+gene_id_symbol_list <- read.table(file=file.path(in_dir, "AT", id_symbol_input_file), sep=";", dec=".", header=TRUE, stringsAsFactors = FALSE)
 
 
-# Create string of colnames
-# Adjust columns that need to be excluded to table format of devseq input raw data!
-devseq_col_names <- c("gene_id", "symbol", c(names(devseq_genes_all_samples[4:ncol(devseq_genes_all_samples)])))
+devseq_genes_all_samples <- tibble::rownames_to_column(devseq_genes_all_samples, "id")
+devseq_genes_all_samples_pol <- tibble::rownames_to_column(devseq_genes_all_samples_pol, "id")
 
 
 
@@ -43,13 +34,13 @@ gene_names_id <- as.data.frame(gene_id_symbol_list[, 1])
 names(gene_names_id) <- c("id")
 
 devseq_genes_wo_symbol <- anti_join(all_devseq_genes, gene_names_id, by = "id")
-devseq_genes_wo_symbol$symbol = devseq_genes_wo_symbol$id
+devseq_genes_wo_symbol$symbol <- devseq_genes_wo_symbol$id
 gene_names_all_genes <- rbind(gene_id_symbol_list, devseq_genes_wo_symbol)
 
 addGeneSymbols <- function(df) {
-		    df <- merge(df, gene_names_all_genes[, c("id", "symbol")], by="id")
+		    df <- merge(df, gene_names_all_genes, by = "id")
 		    df = df %>% select(id, symbol, everything())
-		    df <- df[order(df$id),]
+		    df <- df[order(df$id), ]
 		}
 
 devseq_genes_all_samples <- addGeneSymbols(devseq_genes_all_samples)
@@ -58,151 +49,161 @@ devseq_genes_all_samples <- addGeneSymbols(devseq_genes_all_samples)
 
 
 
-# Remove all rows that only contain "0"
-devseq_genes_all_samples <- devseq_genes_all_samples[which(rowMeans(devseq_genes_all_samples[,-1:-4, drop = FALSE]) > 0),]
+####################################################################################################
+####### Add pollen data from intra-organ normalization TPM tables
+# Pollen can not be normalized with the other samples, it has very specific transcriptome profile
 
 
-# Select columns for final data table
-devseq_genes_all_samples <- devseq_genes_all_samples[,-3:-4]
-colnames(devseq_genes_all_samples) <- devseq_col_names
+devseq_genes_all_samples_pol <- devseq_genes_all_samples_pol[c("id", 
+	"flowers_mature_pollen_28d_.1.", "flowers_mature_pollen_28d_.2.","flowers_mature_pollen_28d_.3.")]
+
+devseq_genes_all_samples <- merge(devseq_genes_all_samples, devseq_genes_all_samples_pol, by = "id")
+
+
+####################################################################################################
+
+
+
+# Change
+names(devseq_genes_all_samples)[names(devseq_genes_all_samples) == 'id'] <- 'gene_id'
 
 
 # Set final order of samples
 devseq_genes_all_samples = devseq_genes_all_samples %>% select(
 			gene_id, 
 			symbol, 
-			root_root_tip_5d_1, 
-			root_root_tip_5d_2, 
-			root_root_tip_5d_3, 
-			root_maturation_zone_5d_1, 
-			root_maturation_zone_5d_2, 
-			root_maturation_zone_5d_3, 
-			root_whole_root_5d_1, 
-			root_whole_root_5d_2, 
-			root_whole_root_5d_3, 
-			root_whole_root_7d_1, 
-			root_whole_root_7d_2, 
-			root_whole_root_7d_3, 
-			root_whole_root_14d_1, 
-			root_whole_root_14d_2, 
-			root_whole_root_14d_3,
-			root_whole_root_21d_1, 
-			root_whole_root_21d_2, 
-			root_whole_root_21d_3, 
-			hypocotyl_10d_1, 
-			hypocotyl_10d_2, 
-			hypocotyl_10d_3, 
-			third_internode_24d_1, 
-			third_internode_24d_2, 
-			third_internode_24d_3, 
-			second_internode_24d_1, 
-			second_internode_24d_2, 
-			second_internode_24d_3, 
-			first_internode_28d._1, 
-			first_internode_28d._2, 
-			first_internode_28d._3, 
-			cotyledons_7d_1, 
-			cotyledons_7d_2, 
-			cotyledons_7d_3,  
-			leaf_1.2_7d_1, 
-			leaf_1.2_7d_2, 
-			leaf_1.2_7d_3, 
-			leaf_1.2_10d_1, 
-			leaf_1.2_10d_2, 
-			leaf_1.2_10d_3, 
-			leaf_1.2_petiole_10d_1, 
-			leaf_1.2_petiole_10d_2, 
-			leaf_1.2_petiole_10d_3, 
-			leaf_1.2_leaf_tip_10d_1, 
-			leaf_1.2_leaf_tip_10d_2, 
-			leaf_1.2_leaf_tip_10d_3, 
-			leaf_5.6_17d_1, 
-			leaf_5.6_17d_2, 
-			leaf_5.6_17d_3, 
-			leaf_9.10_27d_1, 
-			leaf_9.10_27d_2, 
-			leaf_9.10_27d_3, 
-			leaf_senescing_35d_1, 
-			leaf_senescing_35d_2, 
-			leaf_senescing_35d_3, 
-			cauline_leaves_24d_1, 
-			cauline_leaves_24d_2, 
-			cauline_leaves_24d_3, 
-			apex_vegetative_7d_1, 
-			apex_vegetative_7d_2, 
-			apex_vegetative_7d_3, 
-			apex_vegetative_10d_1, 
-			apex_vegetative_10d_2, 
-			apex_vegetative_10d_3, 
-			apex_vegetative_14d_1, 
-			apex_vegetative_14d_2, 
-			apex_vegetative_14d_3, 
-			apex_inflorescence_21d_1, 
-			apex_inflorescence_21d_2, 
-			apex_inflorescence_21d_3, 
-			apex_inflorescence_28d_1, 
-			apex_inflorescence_28d_2, 
-			apex_inflorescence_28d_3, 
-			apex_inflorescence_clv1_21d._1, 
-			apex_inflorescence_clv1_21d._2, 
-			apex_inflorescence_clv1_21d._3,  
-			flower_stg9_21d._1, 
-			flower_stg9_21d._2, 
-			flower_stg9_21d._3, 
-			flower_stg10_11_21d._1, 
-			flower_stg10_11_21d._2, 
-			flower_stg10_11_21d._3, 
-			flower_stg12_21d._1, 
-			flower_stg12_21d._2, 
-			flower_stg12_21d._3, 
-			flower_stg15_21d._1, 
-			flower_stg15_21d._2, 
-			flower_stg15_21d._3, 
-			flower_stg12_sepals_21d._1, 
-			flower_stg12_sepals_21d._2, 
-			flower_stg12_sepals_21d._3, 
-			flower_stg15_sepals_21d._1, 
-			flower_stg15_sepals_21d._2, 
-			flower_stg15_sepals_21d._3, 
-			flower_stg12_petals_21d._1, 
-			flower_stg12_petals_21d._2, 
-			flower_stg12_petals_21d._3, 
-			flower_stg15_petals_21d._1, 
-			flower_stg15_petals_21d._2, 
-			flower_stg15_petals_21d._3, 
-			flower_stg12_stamens_21d._1, 
-			flower_stg12_stamens_21d._2, 
-			flower_stg12_stamens_21d._3, 
-			flower_stg15_stamens_21d._1, 
-			flower_stg15_stamens_21d._2, 
-			flower_stg15_stamens_21d._3, 
-			flowers_mature_pollen_28d_1, 
-			flowers_mature_pollen_28d_2, 
-			flowers_mature_pollen_28d_3, 
-			flower_early_stg12_carpels_21d._1, 
-			flower_early_stg12_carpels_21d._2, 
-			flower_early_stg12_carpels_21d._3, 
-			flower_late_stg12_carpels_21d._1, 
-			flower_late_stg12_carpels_21d._2, 
-			flower_late_stg12_carpels_21d._3, 
-			flower_stg15_carpels_21d._1, 
-			flower_stg15_carpels_21d._2, 
-			flower_stg15_carpels_21d._3, 
-			fruit_stg16_siliques_28d._1, 
-			fruit_stg16_siliques_28d._2, 
-			fruit_stg16_siliques_28d._3, 
-			fruit_stg17a_siliques_28d._1, 
-			fruit_stg17a_siliques_28d._2, 
-			fruit_stg17a_siliques_28d._3, 
-			fruit_stg16_seeds_28d._1, 
-			fruit_stg16_seeds_28d._2, 
-			fruit_stg16_seeds_28d._3, 
-			fruit_stg17a_seeds_28d._1, 
-			fruit_stg17a_seeds_28d._2, 
-			fruit_stg17a_seeds_28d._3, 
-			fruit_stg18_seeds_28d._1, 
-			fruit_stg18_seeds_28d._2, 
-			fruit_stg18_seeds_28d._3
+			root_root_tip_5d_.1., 
+			root_root_tip_5d_.2., 
+			root_root_tip_5d_.3., 
+			root_maturation_zone_5d_.1., 
+			root_maturation_zone_5d_.2., 
+			root_maturation_zone_5d_.3., 
+			root_whole_root_5d_.1., 
+			root_whole_root_5d_.2., 
+			root_whole_root_5d_.3., 
+			root_whole_root_7d_.1., 
+			root_whole_root_7d_.2., 
+			root_whole_root_7d_.3., 
+			root_whole_root_14d_.1., 
+			root_whole_root_14d_.2., 
+			root_whole_root_14d_.3.,
+			root_whole_root_21d_.1., 
+			root_whole_root_21d_.2., 
+			root_whole_root_21d_.3., 
+			hypocotyl_10d_.1., 
+			hypocotyl_10d_.2., 
+			hypocotyl_10d_.3., 
+			third_internode_24d_.1., 
+			third_internode_24d_.2., 
+			third_internode_24d_.3., 
+			second_internode_24d_.1., 
+			second_internode_24d_.2., 
+			second_internode_24d_.3., 
+			first_internode_28d._.1., 
+			first_internode_28d._.2., 
+			first_internode_28d._.3., 
+			cotyledons_7d_.1., 
+			cotyledons_7d_.2., 
+			cotyledons_7d_.3.,  
+			leaf_1.2_7d_.1., 
+			leaf_1.2_7d_.2., 
+			leaf_1.2_7d_.3., 
+			leaf_1.2_10d_.1., 
+			leaf_1.2_10d_.2., 
+			leaf_1.2_10d_.3., 
+			leaf_1.2_petiole_10d_.1., 
+			leaf_1.2_petiole_10d_.2., 
+			leaf_1.2_petiole_10d_.3., 
+			leaf_1.2_leaf_tip_10d_.1., 
+			leaf_1.2_leaf_tip_10d_.2., 
+			leaf_1.2_leaf_tip_10d_.3., 
+			leaf_5.6_17d_.1., 
+			leaf_5.6_17d_.2., 
+			leaf_5.6_17d_.3., 
+			leaf_9.10_27d_.1., 
+			leaf_9.10_27d_.2., 
+			leaf_9.10_27d_.3., 
+			leaf_senescing_35d_.1., 
+			leaf_senescing_35d_.2., 
+			leaf_senescing_35d_.3., 
+			cauline_leaves_24d_.1., 
+			cauline_leaves_24d_.2., 
+			cauline_leaves_24d_.3., 
+			apex_vegetative_7d_.1., 
+			apex_vegetative_7d_.2., 
+			apex_vegetative_7d_.3., 
+			apex_vegetative_10d_.1., 
+			apex_vegetative_10d_.2., 
+			apex_vegetative_10d_.3., 
+			apex_vegetative_14d_.1., 
+			apex_vegetative_14d_.2., 
+			apex_vegetative_14d_.3., 
+			apex_inflorescence_21d_.1., 
+			apex_inflorescence_21d_.2., 
+			apex_inflorescence_21d_.3., 
+			apex_inflorescence_28d_.1., 
+			apex_inflorescence_28d_.2., 
+			apex_inflorescence_28d_.3., 
+			apex_inflorescence_clv1_21d._.1., 
+			apex_inflorescence_clv1_21d._.2., 
+			apex_inflorescence_clv1_21d._.3.,  
+			flower_stg9_21d._.1., 
+			flower_stg9_21d._.2., 
+			flower_stg9_21d._.3., 
+			flower_stg10_11_21d._.1., 
+			flower_stg10_11_21d._.2., 
+			flower_stg10_11_21d._.3., 
+			flower_stg12_21d._.1., 
+			flower_stg12_21d._.2., 
+			flower_stg12_21d._.3., 
+			flower_stg15_21d._.1., 
+			flower_stg15_21d._.2., 
+			flower_stg15_21d._.3., 
+			flower_stg12_sepals_21d._.1., 
+			flower_stg12_sepals_21d._.2., 
+			flower_stg12_sepals_21d._.3., 
+			flower_stg15_sepals_21d._.1., 
+			flower_stg15_sepals_21d._.2., 
+			flower_stg15_sepals_21d._.3., 
+			flower_stg12_petals_21d._.1., 
+			flower_stg12_petals_21d._.2., 
+			flower_stg12_petals_21d._.3., 
+			flower_stg15_petals_21d._.1., 
+			flower_stg15_petals_21d._.2., 
+			flower_stg15_petals_21d._.3., 
+			flower_stg12_stamens_21d._.1., 
+			flower_stg12_stamens_21d._.2., 
+			flower_stg12_stamens_21d._.3., 
+			flower_stg15_stamens_21d._.1., 
+			flower_stg15_stamens_21d._.2., 
+			flower_stg15_stamens_21d._.3., 
+			flowers_mature_pollen_28d_.1., 
+			flowers_mature_pollen_28d_.2., 
+			flowers_mature_pollen_28d_.3., 
+			flower_early_stg12_carpels_21d._.1., 
+			flower_early_stg12_carpels_21d._.2., 
+			flower_early_stg12_carpels_21d._.3., 
+			flower_late_stg12_carpels_21d._.1., 
+			flower_late_stg12_carpels_21d._.2., 
+			flower_late_stg12_carpels_21d._.3., 
+			flower_stg15_carpels_21d._.1., 
+			flower_stg15_carpels_21d._.2., 
+			flower_stg15_carpels_21d._.3., 
+			fruit_stg16_siliques_28d._.1., 
+			fruit_stg16_siliques_28d._.2., 
+			fruit_stg16_siliques_28d._.3., 
+			fruit_stg17a_siliques_28d._.1., 
+			fruit_stg17a_siliques_28d._.2., 
+			fruit_stg17a_siliques_28d._.3., 
+			fruit_stg16_seeds_28d._.1., 
+			fruit_stg16_seeds_28d._.2., 
+			fruit_stg16_seeds_28d._.3., 
+			fruit_stg17a_seeds_28d._.1., 
+			fruit_stg17a_seeds_28d._.2., 
+			fruit_stg17a_seeds_28d._.3., 
+			fruit_stg18_seeds_28d._.1., 
+			fruit_stg18_seeds_28d._.2., 
+			fruit_stg18_seeds_28d._.3.
 			)
 
 
