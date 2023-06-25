@@ -64,7 +64,7 @@ devseq_genes_all_samples <- merge(devseq_genes_all_samples, devseq_genes_all_sam
 
 
 
-# Change
+# Change name of id column
 names(devseq_genes_all_samples)[names(devseq_genes_all_samples) == 'id'] <- 'gene_id'
 
 
