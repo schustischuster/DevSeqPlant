@@ -235,11 +235,60 @@ getRE <- function(x) {
 devseq_genes_all_samples_RE <- getRE(devseq_genes_all_samples)
 
 
+# Create string of colnames for merged replicates
+# Adjust columns that need to be excluded to table format of devseq input raw data!
+replicate_names <- unique(gsub('.{4}$', "", names(devseq_genes_all_samples[3:ncol(devseq_genes_all_samples)])))
+replicate_names <- gsub("[.]", "", replicate_names)
+devseq_col_names <- c("gene_id", "symbol", replicate_names)
+
+
+# Merge replicates
+calculateAvgExpr <- function(df) {
+
+	# Split data frame by sample replicates into a list
+	# then get rowMeans for each subset, simplify output and bind to first two columns
+	
+	averaged_replicates <- data.frame(df[1:2],
+
+		sapply(split.default(df[3:ncol(df)], 
+			rep(seq_along(df), 
+			each = 3, 
+			length.out=ncol(df)-2)
+			), rowMeans)
+		)
+		
+	return(averaged_replicates)
+}
+
+
+# Apply calculateAvgExpr function and add column names
+devseq_replicate_genes <- calculateAvgExpr(devseq_genes_all_samples)
+colnames(devseq_replicate_genes) <- devseq_col_names
+
+devseq_replicate_genes_RE <- calculateAvgExpr(devseq_genes_all_samples_RE)
+colnames(devseq_replicate_genes_RE) <- devseq_col_names
+
+
+# Round values to two digits (database numeric columns are formated to Decimal[2])
+round_df <- function(x, digits) {
+    numeric_columns <- sapply(x, mode) == 'numeric'
+    x[numeric_columns] <-  round(x[numeric_columns], digits)
+    x
+}
+
+devseq_genes_all_samples <- round_df(devseq_genes_all_samples, 2)
+devseq_genes_all_samples_RE <- round_df(devseq_genes_all_samples_RE, 2)
+
+devseq_replicate_genes <- round_df(devseq_replicate_genes, 2)
+devseq_replicate_genes_RE <- round_df(devseq_replicate_genes_RE, 2)
+
 
 # Write final data tables to csv files and store them in /out_dir/output/data_tables
 if (!dir.exists(file.path(out_dir, "output", "data_tables"))) dir.create(file.path(out_dir, "output", "data_tables"), recursive = TRUE)
-write.table(devseq_genes_all_samples, file=file.path(out_dir, "output", "data_tables", "devseq_genes_all_samples.csv"), sep=";", dec=".", row.names=FALSE, col.names=TRUE)
-write.table(devseq_genes_all_samples_RE, file=file.path(out_dir, "output", "data_tables", "devseq_genes_all_samples_RE.csv"), sep=";", dec=".", row.names=FALSE, col.names=TRUE)
+write.table(devseq_genes_all_samples, file=file.path(out_dir, "output", "data_tables", "AT_devseq_genes_all_samples.csv"), sep=";", dec=".", row.names=FALSE, col.names=TRUE)
+write.table(devseq_genes_all_samples_RE, file=file.path(out_dir, "output", "data_tables", "AT_devseq_genes_all_samples_RE.csv"), sep=";", dec=".", row.names=FALSE, col.names=TRUE)
+write.table(devseq_replicate_genes, file=file.path(out_dir, "output", "data_tables", "AT_devseq_replicate_genes.csv"), sep=";", dec=".", row.names=FALSE, col.names=TRUE)
+write.table(devseq_replicate_genes_RE, file=file.path(out_dir, "output", "data_tables", "AT_devseq_replicate_genes_RE.csv"), sep=";", dec=".", row.names=FALSE, col.names=TRUE)
 
 
 
