@@ -243,11 +243,60 @@ getRE <- function(x) {
 devseq_transcripts_all_samples_RE <- getRE(devseq_transcripts_all_samples)
 
 
+# Create string of colnames for merged replicates
+# Adjust columns that need to be excluded to table format of devseq input raw data!
+replicate_names <- unique(gsub('.{4}$', "", names(devseq_transcripts_all_samples[4:ncol(devseq_transcripts_all_samples)])))
+replicate_names <- gsub("[.]", "", replicate_names)
+devseq_col_names <- c("transcript_id", "gene_id", "symbol", replicate_names)
+
+
+# Merge replicates
+calculateAvgExpr <- function(df) {
+
+	# Split data frame by sample replicates into a list
+	# then get rowMeans for each subset, simplify output and bind to first two columns
+	
+	averaged_replicates <- data.frame(df[1:3],
+
+		sapply(split.default(df[4:ncol(df)], 
+			rep(seq_along(df), 
+			each = 3, 
+			length.out=ncol(df)-3)
+			), rowMeans)
+		)
+		
+	return(averaged_replicates)
+}
+
+
+# Apply calculateAvgExpr function and add column names
+devseq_replicate_transcripts <- calculateAvgExpr(devseq_transcripts_all_samples)
+colnames(devseq_replicate_transcripts) <- devseq_col_names
+
+devseq_replicate_transcripts_RE <- calculateAvgExpr(devseq_transcripts_all_samples_RE)
+colnames(devseq_replicate_transcripts_RE) <- devseq_col_names
+
+
+# Round values to two digits (database numeric columns are formated to Decimal[2])
+round_df <- function(x, digits) {
+    numeric_columns <- sapply(x, mode) == 'numeric'
+    x[numeric_columns] <-  round(x[numeric_columns], digits)
+    x
+}
+
+devseq_transcripts_all_samples <- round_df(devseq_transcripts_all_samples, 2)
+devseq_transcripts_all_samples_RE <- round_df(devseq_transcripts_all_samples_RE, 2)
+
+devseq_replicate_transcripts <- round_df(devseq_replicate_transcripts, 2)
+devseq_replicate_transcripts_RE <- round_df(devseq_replicate_transcripts_RE, 2)
+
 
 # Write final data tables to csv files and store them in /out_dir/output/data_tables
 if (!dir.exists(file.path(out_dir, "output", "data_tables"))) dir.create(file.path(out_dir, "output", "data_tables"), recursive = TRUE)
-write.table(devseq_transcripts_all_samples, file=file.path(out_dir, "output", "data_tables", "devseq_transcripts_all_samples.csv"), sep=";", dec=".", row.names=FALSE, col.names=TRUE)
-write.table(devseq_transcripts_all_samples_RE, file=file.path(out_dir, "output", "data_tables", "devseq_transcripts_all_samples_RE.csv"), sep=";", dec=".", row.names=FALSE, col.names=TRUE)
+write.table(devseq_transcripts_all_samples, file=file.path(out_dir, "output", "data_tables", "AT_devseq_transcripts_all_samples.csv"), sep=";", dec=".", row.names=FALSE, col.names=TRUE)
+write.table(devseq_transcripts_all_samples_RE, file=file.path(out_dir, "output", "data_tables", "AT_devseq_transcripts_all_samples_RE.csv"), sep=";", dec=".", row.names=FALSE, col.names=TRUE)
+write.table(devseq_replicate_transcripts, file=file.path(out_dir, "output", "data_tables", "AT_devseq_replicate_transcripts.csv"), sep=";", dec=".", row.names=FALSE, col.names=TRUE)
+write.table(devseq_replicate_transcripts_RE, file=file.path(out_dir, "output", "data_tables", "AT_devseq_replicate_transcripts_RE.csv"), sep=";", dec=".", row.names=FALSE, col.names=TRUE)
 
 
 
