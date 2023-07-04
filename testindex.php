@@ -1715,6 +1715,280 @@ if($_POST['filter4'] == "line_chart" && $_POST['filter1'] == "Arabidopsis_thalia
 
 
 
+
+<!-- **************************************************************************** -->
+<!-- ********************************************************************************
+Closing controlplot_container 2nd level div and wrap 1st level div and define footer
+********************************************************************************* -->
+<!-- **************************************************************************** -->
+
+
+  <table></table>
+  </div><!--/close controlplot_container-->
+</div><!--/close wrap-->
+
+</div><!--/closing div to make footer stay on bottom of page-->
+
+
+
+<div class="footer"> 
+  <div class="footerinner"> 
+    <div class="parent"> 
+      <div class="child num1"><a href="#"><font color="#333399">Home</font></a>&nbsp · &nbsp<a href="#"><font color="#333399">About DevSeq</font></a>&nbsp · &nbsp<a href="#"><font color="#333399">Contact</font></a>
+      </div>
+      <div class="child num3"><a href="#"><font color="#333399">Release 1 - June 2018</font></a>&nbsp · &nbsp<a href="#"><font color="#333399">Back to top<i class="fa fa-chevron-up" aria-hidden="true"></i></a>
+      </div>  
+    </div> 
+  </div> 
+</div>
+
+
+
+
+<!-- ***********************************************************************
+Loading custom JavaScript scripts 
+************************************************************************ -->
+
+
+  <!-- Make checkbox behave like radio buttons -->
+  <!-- (only allows to check either log2 or min/max checkbox) -->
+  <script type="text/javascript">
+       function cbclick(e){
+       e = e || event;
+       var cb = e.srcElement || e.target;
+       if (cb.type !== 'checkbox') {return true;}
+       var cbxs = document.getElementById('radiocb').getElementsByTagName('input'), i=cbxs.length;
+       while(i--) {
+        if (cbxs[i].type && cbxs[i].type == 'checkbox' && cbxs[i].id !== cb.id) {
+         cbxs[i].checked = false;
+        }
+       }
+    }
+  </script>
+
+
+  <!-- Make checkbox behave like radio buttons on Start Search Page-->
+  <!-- (only allows to check either log2 or min/max checkbox) -->
+  <script type="text/javascript">
+       function cbclicksrt(e){
+       e = e || event;
+       var cb = e.srcElement || e.target;
+       if (cb.type !== 'checkbox') {return true;}
+       var cbxs = document.getElementById('radiocbsrt').getElementsByTagName('input'), i=cbxs.length;
+       while(i--) {
+        if (cbxs[i].type && cbxs[i].type == 'checkbox' && cbxs[i].id !== cb.id) {
+         cbxs[i].checked = false;
+        }
+       }
+    }
+  </script>
+
+
+  <!-- javascript command to set condition for hclust checkbox -->
+  <!-- (select Heatmap radio button if hclust checkbox is checked) -->
+  <script  type="text/javascript">
+    function validate()
+    {
+      var idcbClass = document.getElementsByClassName("idcb");
+      console.log(this);
+      for (var i = 0; i < idcbClass.length; i++) {
+        if (idcbClass[i].checked == true) {
+        document.getElementById("radio1").checked = false;
+        document.getElementById("radio2").checked = true;
+        }
+      }
+    }
+  </script>
+
+
+  <!-- jQuery command to set condition for hclust checkbox -->
+  <!-- (uncheck hclust checkbox if Line Chart readio button is selected) -->
+  <script>
+  $(document).ready(function(e) {    
+    $("input[id=radio1]").on("click", function() { 
+    if ($(this).attr("checked", true)) {
+        $("input[id=cb4]").prop("checked", false);
+       }
+      });
+    });
+  </script>
+
+
+  <!-- JSON to CSV Converter -->
+  <script type="text/javascript">
+        function ConvertToCSV(objArray) {
+        var array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
+        var str = '';
+            for (var i = 0; i < array.length; i++) {
+                var line = '';
+                for (var index in array[i]) {
+                    if (line != '') line += ','
+                    line += array[i][index];
+                }
+                str += line + '\r\n';
+            }
+            return str;
+        }
+        function download_csv_function() {
+        // Read in JSON data and transform to CSV
+        $(document).ready(function () {          
+            // Read in json data
+            var items = <?php 
+              if ((($_POST['filter5'] == "0" || $_POST['filter5'] == "2") && $_POST['filter6'] != "1") || (($_POST['filter5'] == "0" || $_POST['filter5'] == "2") && $_POST['filter6'] == "1" && $count == 1)) { 
+                           echo $jsonoutcsv; 
+              } else if (($_POST['filter5'] == "1" && $_POST['filter6'] != "1") || ($_POST['filter5'] == "1" && $_POST['filter6'] == "1" && $count == 1)) {  
+                           echo $jsonoutcsvlog; 
+              } else if ($_POST['filter6'] == "1" && $count > 1) { 
+                           echo $jsonoutclustcsv; 
+              }
+              ?>;
+            // Convert JSON object into JSON string
+            var jsonObject = JSON.stringify(items);
+            // Convert JSON to CSV & Display CSV on screen
+            var csvstring = ConvertToCSV(jsonObject);
+        // FileSaver.js: open download dialog and save file as csv
+        saveTextAs(csvstring, "devseq_data.csv");
+         })
+        };
+  </script> 
+
+
+  <!-- css2pdf hack: define SVG namespace for C3.js SVG element -->
+  <script type="text/javascript">
+    function addnsandprint(){
+     $('#chart').find('svg').attr('xmlns','http://www.w3.org/2000/svg', 'xmlns:xlink', 'http://www.w3.org/1999/xlink');
+     xepOnline.Formatter.Format('chart',{render:'download', srctype:'svg', filename: 'devseq_plot'});
+    };
+  </script>
+
+  <!-- css2pdf hack for saving rescaled line chart: define SVG namespace for C3.js SVG element -->
+  <script type="text/javascript">
+    function addnsandprint_2(){
+     setTimeout(function(){
+     $('#chart_2').find('svg').attr('xmlns','http://www.w3.org/2000/svg', 'xmlns:xlink', 'http://www.w3.org/1999/xlink');
+     xepOnline.Formatter.Format('chart_2',{render:'download', srctype:'svg', filename: 'devseq_plot'});
+     }, 1500);
+    };
+  </script>
+
+  <!-- css2pdf hack for saving rescaled line chart: define SVG namespace for C3.js SVG element -->
+  <script type="text/javascript">
+    function addnsandprint_3(){
+     setTimeout(function(){
+     $('#chart_3').find('svg').attr('xmlns','http://www.w3.org/2000/svg', 'xmlns:xlink', 'http://www.w3.org/1999/xlink');
+     xepOnline.Formatter.Format('chart_3',{render:'download', srctype:'svg', filename: 'devseq_plot'});
+     }, 1500);
+    };
+  </script>
+
+
+  <!-- Spinner for line chart css2pdf download -->
+  <script type="text/javascript">
+    $(document).ready(function () {
+     $("#show2").click(function() {
+       // Create a DIV, append to BODY and add a spinner
+       var el = $('<div>').appendTo('body').spin()
+    
+       // After 1 second stop spinning and remove the DIV
+       setTimeout(function() { 
+          el.spin(false).remove()
+       }, 4500)
+      })
+    })
+  </script>
+
+  <!-- Spinner for resized line chart css2pdf download -->
+  <script type="text/javascript">
+    $(document).ready(function () {
+     $("#show3").click(function() {
+       // Create a DIV, append to BODY and add a spinner
+       var el = $('<div>').appendTo('body').spin()
+    
+       // After 1 second stop spinning and remove the DIV
+       setTimeout(function() { 
+           el.spin(false).remove()
+       }, 8000)
+      })
+    })
+  </script>
+
+  <!-- Spinner for resized line chart css2pdf download -->
+  <script type="text/javascript">
+    $(document).ready(function () {
+     $("#show4").click(function() {
+       // Create a DIV, append to BODY and add a spinner
+       var el = $('<div>').appendTo('body').spin()
+    
+       // After 1 second stop spinning and remove the DIV
+       setTimeout(function() { 
+           el.spin(false).remove()
+       }, 4250)
+      })
+    })
+  </script>
+
+
+  <!-- Keep navbar link marked after page loaded -->
+  <script type="text/javascript">
+  $(function(){
+    $('#navContainer a').click(function () {
+        $('#navContainer a').removeClass('active');
+        $(this).addClass('active');
+     });
+   });
+  </script>
+
+
+  <!-- Set font color for select box -->
+  <script type="text/javascript">  
+  $(document).ready(function() {
+    $('select').change(function() {
+        $(this).blur();
+    })
+  })
+  </script>
+
+
+  <!-- Font awesome search icon submit function -->
+  <script type="text/javascript">  
+    function SbnFunction() {
+        document.getElementById("devseqform").submit();
+    }
+  </script>
+  
+
+  <!-- Bootstrap - rotate dropdown caret -->
+  <script type="text/javascript">  
+  $(document).ready(function() {
+    $('.dropdown').on('hidden.bs.dropdown', function(e) {
+      $(this).find('.caret').toggleClass('rotate-180');
+    });
+    $('.dropdown').on('shown.bs.dropdown', function(e) {
+      $(this).find('.caret').toggleClass('rotate-180');
+    });
+  });
+  </script>
+
+
+<!-- Show loading bar in Chrome if result page has large number of entities -->
+  <?php if ((isset($_POST['searchquery'])) && ($_POST['searchquery'] != "") && ($count > 100) && ((  (strpos($_SERVER['HTTP_USER_AGENT'], 'Chrome') !== false) && (strpos($_SERVER['HTTP_USER_AGENT'], 'OPR') == false)  )) ){?>
+
+    <script type="text/javascript">
+    document.onreadystatechange = function () {
+      var state = document.readyState
+      if (state === 'interactive') {
+      document.getElementById('load').style.visibility="visible";
+      } else if (state === 'complete') {
+      document.getElementById('load').remove();
+      }
+    }
+    </script>
+
+  <?php } ?> <!--/close php condition for Chrome loading bar -->
+
+
+
+
 </body>
 
 
