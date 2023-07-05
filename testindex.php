@@ -17,13 +17,19 @@ error_reporting(E_ALL);
 ini_set('display_errors', '1');
 
 // turn off php notices
-error_reporting(0);
+# error_reporting(0);
 
 // Connect to MySQL database
 require_once("connect_mysql_ds.php");
 
+// Define variables
 $search_output = "";
 $transformq = "";
+$atcolnames = "";
+$valueslog = "";
+$keysclust = "";
+$valuesclust = "";
+$transformqlogcsv = "";
 
 
 // Process the search query_Initiate the search output variable
@@ -164,16 +170,19 @@ delete_col2($keys, 1);
 $keys2 = array_map(function($v){return $v[0];},$keys);
 
 
-// log2-transformed expression values of transformq array
-function mapArray($keys, $valueslog) {
+if ($_POST['filter5'] == "1"){
+
+  // log2-transformed expression values of transformq array
+  function mapArray($keys, $valueslog) {
     return [array_merge([$keys[0]], $valueslog)];
   }
-$transformqlog = array_map("mapArray", $keys, $valueslog);
-$transformqlog = array_map(function($v){return $v[0];},$transformqlog);
+  $transformqlog = array_map("mapArray", $keys, $valueslog);
+  $transformqlog = array_map(function($v){return $v[0];},$transformqlog);
 
 
-// Add header to $transformqlog array
-$transformqlogcsv = array_merge($colnames, $transformqlog);
+  // Add header to $transformqlog array
+  $transformqlogcsv = array_merge($colnames, $transformqlog);
+}
 
 
 // create new combined array from $keys and §values/valueslog arrays
@@ -206,6 +215,70 @@ $countout = json_encode($count, JSON_NUMERIC_CHECK);
   $jsonoutfile = fopen('/var/www/devseqplant.org/files/inputfile.json', 'w');
   fwrite($jsonoutfile, $jsonout);
   fclose($jsonoutfile);
+
+
+// Perform hierarchical clustering of $jsonout json array by calling python script
+if ($_POST['filter4'] == "heatmap" && $_POST['filter6'] == "1" && ($count > 1) && ($count < 400)) {
+// Prepare json file for passing to shell
+$jsonoutshin = escapeshellarg($jsonout);
+// Execute the python script with the JSON data
+$resultpy = shell_exec("/usr/local/bin/python3 /Applications/XAMPP/xamppfiles/htdocs/python/hclust_V2.py 2>&1 $jsonoutshin");
+// Decode the result
+$clusteresult = json_decode($resultpy, true);
+// End python clustering workflow
+
+// Generate an array of keys
+$keysclust = array_keys($clusteresult);
+array_unshift($keys, NULL);
+unset($keys[0]);
+
+// Generate an array of expression values
+$valuesclust = array_values($clusteresult);
+array_unshift($values, NULL);
+unset($values[0]);
+
+// write search output to json file 
+$valuesclustout = json_encode($valuesclust, JSON_NUMERIC_CHECK);
+$keysclustout = json_encode($keysclust);
+
+// For >400 counts read and write json data from file when using hclust
+} else if ($_POST['filter4'] == "heatmap" && $_POST['filter6'] == "1" && ($count > 400)) {
+  // Execute the python script with the JSON data
+  $command = escapeshellcmd('/usr/local/bin/python3 /Applications/XAMPP/xamppfiles/htdocs/python/hclust_V3.py 2>&1');
+  exec($command);
+  // read data from jsonout.json file fater hclust has been performed
+  $jsonouthclust = file_get_contents('outputfile.json');
+  // Decode the result
+  $clusteresult = json_decode($jsonouthclust, true);
+  // End python clustering workflow
+
+// Generate an array of keys
+$keysclust = array_keys($clusteresult);
+array_unshift($keys, NULL);
+unset($keys[0]);
+
+// Generate an array of expression values
+$valuesclust = array_values($clusteresult);
+array_unshift($values, NULL);
+unset($values[0]);
+
+// write search output to json file 
+$valuesclustout = json_encode($valuesclust, JSON_NUMERIC_CHECK);
+$keysclustout = json_encode($keysclust);
+}; 
+
+if ($_POST['filter4'] == "heatmap" && $_POST['filter6'] == "1") {
+  // Combine keys and values from hclust analysis
+  function mapArrayClust($keysclust, $valuesclust) {
+    return [array_merge([$keysclust], $valuesclust)];
+  }
+  $clusteresultkeyvalue = array_map("mapArrayClust", $keysclust, $valuesclust);
+  $clusteresultkeyvalue = array_map(function($v){return $v[0];},$clusteresultkeyvalue);
+
+  // write search output to json file containing header for csv file 
+  $transformqclustcsv = array_merge($colnames, $clusteresultkeyvalue);
+  $jsonoutclustcsv = json_encode($transformqclustcsv, JSON_NUMERIC_CHECK);
+}
 
 
 $sboxplaceholder = "Enter gene, isoform ID, or symbol, e.g. AT5G10720, PIN1, or paste a list of identifiers";
@@ -1608,24 +1681,6 @@ HTML Body starts: wrapper = 1st level div
 
     <?php } ?> <!--/close php condition for processing result page-->
 
-
-
-<!-- ******************************************************************* -->
-<!-- ***********************************************************************
-Writing output files to local
-************************************************************************ -->
-<!-- ******************************************************************* -->
-
-
-<?php
-  // write search results to json and php files on server
-  $fp = fopen('/var/www/devseqplant.org/files/results.json', 'w'); 
-  fwrite($fp, $jsonouthclust);
-  fclose($fp);
-  $rp = fopen('/var/www/devseqplant.org/files/results.php', 'w');
-  fwrite($rp, print_r($transformqclustcsv, TRUE));
-  fclose($rp);
-?>
 
 
 
