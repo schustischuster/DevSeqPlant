@@ -1,7 +1,7 @@
 
 # Log in to DevSeq server (Cambridge)
 ssh ubuntu@128.232.226.206
-
+apach
 
 # Restart server (it will take one or two minutes to restart and until login is possible again)
 sudo reboot now
@@ -657,6 +657,23 @@ DROP TABLE Arabidopsis_thaliana_gene_tpm_20230625;
 SELECT * FROM Arabidopsis_thaliana_gene_tpm_20230625 LIMIT 3;
 
 
+# Transfer testindex file from MBP13 to server
+scp testindex.php ubuntu@128.232.226.206:/var/www/devseqplant.org
+
+
+### Set up ssl certificate:
+### Get free ssl certificate from certbot
+https://certbot.eff.org/instructions?ws=apache&os=ubuntufocal
+
+# Set redirect to https to off
+sudo nano devseqplant.org.conf
+# set RewriteEngine to off
+# set it to on again after website testing is completed to allow certbot ssl certificate update
+sudo systemctl reload apache2
+# Update ssl certificate (need to be done every 90 days)
+sudo certbot renew --dry-run # to test if renewal works
+# To renew, do
+sudo certbot renew
 
 
 
