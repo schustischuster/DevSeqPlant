@@ -205,12 +205,7 @@ if($count < 1251){
 $jsonoutcsv = json_encode($transformqcsv, JSON_NUMERIC_CHECK);
 $jsonoutcsvlog = json_encode($transformqlogcsv, JSON_NUMERIC_CHECK);
 $jsonout = json_encode($transformcomb, JSON_NUMERIC_CHECK);
-$valuesout = json_encode($values, JSON_NUMERIC_CHECK);
-$valueslogout = json_encode($valueslog, JSON_NUMERIC_CHECK);
-$keys2out = json_encode($keys2);
-$reqheightout = json_encode($reqheight, JSON_NUMERIC_CHECK);
 $titleout = json_encode($title);
-$countout = json_encode($count, JSON_NUMERIC_CHECK);
 
 // write $jsonout to json file on server (needed for hclust if $count > 400)
   $jsonoutfile = fopen('/var/www/devseqplant.org/files/inputfile.json', 'w');
@@ -219,11 +214,11 @@ $countout = json_encode($count, JSON_NUMERIC_CHECK);
 
 
 // Perform hierarchical clustering of $jsonout json array by calling python script
-if ($_POST['filter4'] == "heatmap" && $_POST['filter6'] == "1" && ($count > 1) && ($count < 400)) {
+if ($_POST['filter4'] == "heatmap" && $_POST['filter6'] == "1" && ($count > 1) && ($count < 4)) {
 // Prepare json file for passing to shell
 $jsonoutshin = escapeshellarg($jsonout);
 // Execute the python script with the JSON data
-$resultpy = shell_exec("/usr/local/bin/python3 /Applications/XAMPP/xamppfiles/htdocs/python/hclust_V2.py 2>&1 $jsonoutshin");
+$resultpy = shell_exec("/usr/bin/python3 /var/www/devseqplant.org/py/hclust_exe.py 2>&1 $jsonoutshin");
 // Decode the result
 $clusteresult = json_decode($resultpy, true);
 // End python clustering workflow
@@ -243,12 +238,12 @@ $valuesclustout = json_encode($valuesclust, JSON_NUMERIC_CHECK);
 $keysclustout = json_encode($keysclust);
 
 // For >400 counts read and write json data from file when using hclust
-} else if ($_POST['filter4'] == "heatmap" && $_POST['filter6'] == "1" && ($count > 400)) {
+} else if ($_POST['filter4'] == "heatmap" && $_POST['filter6'] == "1" && ($count > 4)) {
   // Execute the python script with the JSON data
-  $command = escapeshellcmd('/usr/local/bin/python3 /Applications/XAMPP/xamppfiles/htdocs/python/hclust_V3.py 2>&1');
+  $command = escapeshellcmd('/usr/bin/python3 /var/www/devseqplant.org/py/hclust_esc.py 2>&1');
   exec($command);
   // read data from jsonout.json file fater hclust has been performed
-  $jsonouthclust = file_get_contents('outputfile.json');
+  $jsonouthclust = file_get_contents('/var/www/devseqplant.org/files/outputfile.json');
   // Decode the result
   $clusteresult = json_decode($jsonouthclust, true);
   // End python clustering workflow
