@@ -13,7 +13,7 @@ Apache Server Version Used: 2.4.25 (Unix)
 set_time_limit(20);
 
 // Force script errors and warnings to show during production only
-error_reporting(E_ALL);
+error_reporting(E_ALL ^ E_NOTICE);
 ini_set('display_errors', '1');
 
 // turn off php notices
@@ -345,7 +345,11 @@ Loading css style sheets
   <link href="https://www.devseqplant.org/css/fa/font-awesome_partial_bundle_cs.css" rel="stylesheet" />
 
   <!-- Load c3.css versions depending on selected species-->
+  <?php if ($_POST['filter4'] == "line_chart" && $_POST['filter1'] == "Arabidopsis_thaliana") { ?>
   <link href="https://www.devseqplant.org/css/c3/c3.min_at.css" rel="stylesheet" />
+  <?php } else if ($_POST['filter4'] == "line_chart" && $_POST['filter1'] != "Arabidopsis_thaliana") { ?>
+  <link href="https://www.devseqplant.org/css/c3/c3.min_os.css" rel="stylesheet" />
+  <?php } ?>
 
 
 <!-- ***********************************************************************
@@ -353,10 +357,17 @@ Loading javascript vizualisation libraries for generating plots
 ************************************************************************ -->
 
 
-  <script src="https://www.devseqplant.org/js/c3/c3.min.js"></script>
+  <!-- Load either C3/D3.js or Plotly.js library depending on query -->
+  <?php if (($_POST['filter4'] == "line_chart") && (isset($_POST['searchquery'])) && ($count > 0)) { ?> 
+  <!-- Load d3.js and c3.js -->
   <script src="https://www.devseqplant.org/js/d3/d3.min.js"></script>
+  <script src="https://www.devseqplant.org/js/c3/c3.min.js"></script>
 
+  <?php } else if (($_POST['filter4'] == "heatmap") && (isset($_POST['searchquery'])) && ($count > 0)) { ?>
+  <!-- Load plotly.js for heatmap plot -->
+  <!-- Partial bundles at github.com/plotly/plotly.js/blob/master/dist/README.md -->
   <script src="https://www.devseqplant.org/js/plotly/plotly-cartesian-latest_45_3.min.js"></script>
+  <?php } ?>
 
 
   <!-- Load jQuery from google CDN -->
@@ -376,7 +387,6 @@ Loading javascript vizualisation libraries for generating plots
   <script src="https://www.devseqplant.org/js/jquery/jquery.spin.js" defer></script>
   <script src="https://www.devseqplant.org/js/filesaver/FileSaver.js" defer></script>
   <script src="https://www.devseqplant.org/js/blob/Blob.js" defer></script>
-
 
 
 
@@ -829,10 +839,10 @@ HTML Body starts: wrapper = 1st level div
     <!-- Initially load C3/D3.js and Plotly.js libraries on search landing page to put them into browser cache if not already there - defered loading to let page parse first-->
     <?php if (!isset($_POST['searchquery'])){?> 
     <!-- Load d3.js and c3.js -->
-    <script src="/D3js_C3js_source/d3/d3.min.js" defer></script>
-    <script src="/D3js_C3js_source/c3/c3.min.js" defer></script>
+    <script src="https://www.devseqplant.org/js/d3/d3.min.js" defer></script>
+    <script src="https://www.devseqplant.org/js/c3/c3.min.js" defer></script>
     <!-- Partial bundles at github.com/plotly/plotly.js/blob/master/dist/README.md -->
-    <script src="/D3js_C3js_source/plotly/plotly-cartesian-latest_45_3.min.js" defer></script>
+    <script src="https://www.devseqplant.org/js/plotly/plotly-cartesian-latest_45_3.min.js" defer></script>
     <?php } ?>
 
 
