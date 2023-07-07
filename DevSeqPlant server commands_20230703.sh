@@ -328,6 +328,11 @@ pip install numpy
 #> Successfully installed numpy-1.24.3
 pip install scipy
 #> Successfully installed scipy-1.10.1
+pip install pandas
+#> Successfully installed pandas-2.0.3 python-dateutil-2.8.2 pytz-2023.3 tzdata-2023.3
+pip install matplotlib
+#> Successfully installed contourpy-1.1.0 cycler-0.11.0 fonttools-4.40.0 importlib-resources-6.0.0
+#> kiwisolver-1.4.4 matplotlib-3.7.2 packaging-23.1 pillow-10.0.0 pyparsing-3.0.9 zipp-3.15.0
 
 
 
@@ -755,6 +760,27 @@ sudo systemctl reload apache2
 sudo certbot renew --dry-run # to test if renewal works
 # To renew, do
 sudo certbot renew
+
+
+
+### Give reading and writing permissions to a file
+sudo chmod 777 -R /var/www/devseqplant.org/files/inputfile.json
+
+### Check path to python3 on server
+python3
+import sys
+sys.executable
+# '/usr/bin/python3'
+
+
+# Check PHP ini config file
+php --ini
+# Configuration File (php.ini) Path: /etc/php/7.4/cli
+# Loaded Configuration File:         /etc/php/7.4/cli/php.ini
+# To change:
+nano /etc/php/7.4/cli/php.ini
+
+
 
 
 
