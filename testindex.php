@@ -376,7 +376,6 @@ Loading javascript vizualisation libraries for generating plots
   <script src="https://www.devseqplant.org/js/jquery/jquery.spin.js" defer></script>
   <script src="https://www.devseqplant.org/js/filesaver/FileSaver.js" defer></script>
   <script src="https://www.devseqplant.org/js/blob/Blob.js" defer></script>
-  <script src="https://www.devseqplant.org/js/css_to_pdf/xepOnline.jqPlugin.js" defer></script>
 
 
 
@@ -1495,15 +1494,6 @@ HTML Body starts: wrapper = 1st level div
                     <span class = 'hreflinks3'>
                     <a href="devseq_sample_table.xls" download="devseq_sample_table.xls" Download!><button class="btn btn-gray-light" title="Download sample table as xls file" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none"><i class="fa fa-download" aria-hidden="true" style="color:#0a1e38"></i><span> Sample table</span></button></a></a>
                     </span>
-                    <span class = 'hreflinks2'>
-                    <button id="show2" class="btn btn-gray-light" title="Generate pdf and download chart from cloud" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0 || $count>50 || $_POST['filter4'] == "heatmap" || ($_POST['filter4'] == "heatmap" && $_POST['filter6'] == "1" && $count==1)) {?> style="display: none" <?php } ?> style="text-decoration: none" class="tfbutton4" onclick="return addnsandprint()"><i class="fa fa-cloud-download" aria-hidden="true" style="color:#0a1e38"></i> <span>Chart</span></a></button>
-                    </span>
-                    <span class = 'hreflinks2'>
-                    <button id="show3" class="btn btn-gray-light" title="Generate pdf and download resized chart from cloud" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $_POST['filter1'] != "Arabidopsis_thaliana" || $count==0 || $count>50 || $_POST['filter4'] == "heatmap" || ($_POST['filter4'] == "heatmap" && $_POST['filter6'] == "1" && $count==1)) {?> style="display: none" <?php } ?> style="text-decoration: none" class="tfbutton4" onclick="return addnsandprint_2()"><i class="fa fa-cloud-download" aria-hidden="true" style="color:#0a1e38"></i> <span>Resized chart</span></a></button>
-                    </span>
-                    <span class = 'hreflinks2'>
-                    <button id="show4" class="btn btn-gray-light" title="Generate pdf and download resized chart from cloud" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $_POST['filter1'] == "Arabidopsis_thaliana" || $count==0 || $count>50 || $_POST['filter4'] == "heatmap" || ($_POST['filter4'] == "heatmap" && $_POST['filter6'] == "1" && $count==1)) {?> style="display: none" <?php } ?> style="text-decoration: none" class="tfbutton4" onclick="return addnsandprint_3()"><i class="fa fa-cloud-download" aria-hidden="true" style="color:#0a1e38"></i> <span>Resized chart</span></a></button>
-                    </span>
                     
 
 
@@ -1902,81 +1892,6 @@ Loading custom JavaScript scripts
          })
         };
   </script> 
-
-
-  <!-- css2pdf hack: define SVG namespace for C3.js SVG element -->
-  <script type="text/javascript">
-    function addnsandprint(){
-     $('#chart').find('svg').attr('xmlns','http://www.w3.org/2000/svg', 'xmlns:xlink', 'http://www.w3.org/1999/xlink');
-     xepOnline.Formatter.Format('chart',{render:'download', srctype:'svg', filename: 'devseq_plot'});
-    };
-  </script>
-
-  <!-- css2pdf hack for saving rescaled line chart: define SVG namespace for C3.js SVG element -->
-  <script type="text/javascript">
-    function addnsandprint_2(){
-     setTimeout(function(){
-     $('#chart_2').find('svg').attr('xmlns','http://www.w3.org/2000/svg', 'xmlns:xlink', 'http://www.w3.org/1999/xlink');
-     xepOnline.Formatter.Format('chart_2',{render:'download', srctype:'svg', filename: 'devseq_plot'});
-     }, 1500);
-    };
-  </script>
-
-  <!-- css2pdf hack for saving rescaled line chart: define SVG namespace for C3.js SVG element -->
-  <script type="text/javascript">
-    function addnsandprint_3(){
-     setTimeout(function(){
-     $('#chart_3').find('svg').attr('xmlns','http://www.w3.org/2000/svg', 'xmlns:xlink', 'http://www.w3.org/1999/xlink');
-     xepOnline.Formatter.Format('chart_3',{render:'download', srctype:'svg', filename: 'devseq_plot'});
-     }, 1500);
-    };
-  </script>
-
-
-  <!-- Spinner for line chart css2pdf download -->
-  <script type="text/javascript">
-    $(document).ready(function () {
-     $("#show2").click(function() {
-       // Create a DIV, append to BODY and add a spinner
-       var el = $('<div>').appendTo('body').spin()
-    
-       // After 1 second stop spinning and remove the DIV
-       setTimeout(function() { 
-          el.spin(false).remove()
-       }, 4500)
-      })
-    })
-  </script>
-
-  <!-- Spinner for resized line chart css2pdf download -->
-  <script type="text/javascript">
-    $(document).ready(function () {
-     $("#show3").click(function() {
-       // Create a DIV, append to BODY and add a spinner
-       var el = $('<div>').appendTo('body').spin()
-    
-       // After 1 second stop spinning and remove the DIV
-       setTimeout(function() { 
-           el.spin(false).remove()
-       }, 8000)
-      })
-    })
-  </script>
-
-  <!-- Spinner for resized line chart css2pdf download -->
-  <script type="text/javascript">
-    $(document).ready(function () {
-     $("#show4").click(function() {
-       // Create a DIV, append to BODY and add a spinner
-       var el = $('<div>').appendTo('body').spin()
-    
-       // After 1 second stop spinning and remove the DIV
-       setTimeout(function() { 
-           el.spin(false).remove()
-       }, 4250)
-      })
-    })
-  </script>
 
 
   <!-- Keep navbar link marked after page loaded -->
