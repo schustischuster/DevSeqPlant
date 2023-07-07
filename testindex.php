@@ -17,7 +17,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', '1');
 
 // turn off php notices
-error_reporting(0);
+#error_reporting(0);
 
 // Connect to MySQL database
 require_once("connect_mysql_ds.php");
@@ -1682,24 +1682,6 @@ HTML Body starts: wrapper = 1st level div
 
     <?php } ?> <!--/close php condition for processing result page-->
 
-
-
-<!-- ******************************************************************* -->
-<!-- ***********************************************************************
-Writing output files to local
-************************************************************************ -->
-<!-- ******************************************************************* -->
-
-
-<?php
-  // write search results to json and php files on server
-  $fp = fopen('/var/www/devseqplant.org/files/results.json', 'w'); 
-  fwrite($fp, $jsonouthclust);
-  fclose($fp);
-  $rp = fopen('/var/www/devseqplant.org/files/results.php', 'w');
-  fwrite($rp, print_r($transformqclustcsv, TRUE));
-  fclose($rp);
-?>
 
 
 
