@@ -205,7 +205,12 @@ if($count < 1251){
 $jsonoutcsv = json_encode($transformqcsv, JSON_NUMERIC_CHECK);
 $jsonoutcsvlog = json_encode($transformqlogcsv, JSON_NUMERIC_CHECK);
 $jsonout = json_encode($transformcomb, JSON_NUMERIC_CHECK);
+$valuesout = json_encode($values, JSON_NUMERIC_CHECK);
+$valueslogout = json_encode($valueslog, JSON_NUMERIC_CHECK);
+$keys2out = json_encode($keys2);
+$reqheightout = json_encode($reqheight, JSON_NUMERIC_CHECK);
 $titleout = json_encode($title);
+$countout = json_encode($count, JSON_NUMERIC_CHECK);
 
 // write $jsonout to json file on server (needed for hclust if $count > 400)
   $jsonoutfile = fopen('/var/www/devseqplant.org/files/inputfile.json', 'w');
@@ -1440,14 +1445,6 @@ HTML Body starts: wrapper = 1st level div
                 <div id="chart">
                 </div> 
 
-                <!-- div for line chart -->
-                <div id="chart_2" style="display: none">
-                </div>
-
-                <!-- div for line chart -->
-                <div id="chart_3" style="display: none">
-                </div>
-
 
 
                 <!-- line chart message: if to many query IDs, print notification -->
@@ -1760,9 +1757,1455 @@ if($_POST['filter4'] == "line_chart" && $_POST['filter1'] == "Arabidopsis_thalia
       });
 
 
+    // Function to call line chart with regions
+    function a_function(){
+    $(function () {
+      var chart = c3.generate({
+        padding: {
+          top: 12,
+          right: 46,
+          bottom: 53,
+          left: 72,
+        },
+        size: {height: 609},
+        point: {r: 3.1},
+        data: {json: dataset},
+        axis: {
+          x: {
+            type: 'category',
+            categories: x_axis_cat,
+            tick: {
+              rotate:90,
+              multiline: false,
+              culling: {max: 45}
+            },
+            height: 120,
+            padding: {right: 0.25},
+          },
+          y: { 
+            label: {
+              text: title,
+              position: 'outer-middle'
+            },
+            min:0,
+            tick: {
+              format: function (d) {
+                if ((d / 1000) >= 1) {
+                  d = Math.round((d / 1000 )*100) / 100 + "K";
+                  }
+                return d;
+              }
+            },
+            padding: {bottom:0}
+          }
+        },
+        grid: {
+          lines: {front: false},
+        },
+        zoom: {enabled: false},
+        regions: ath_regions
+      });
+    }
+    )}
+
+
+    // Function to call line chart with grid
+    function b_function(){
+    $(function () {
+      var chart = c3.generate({
+        padding: {
+          top: 12,
+          right: 46,
+          bottom: 53,
+          left: 72,
+        },
+        size: {height: 609},
+        point: {r: 3.1},
+        data: {json: dataset},
+        axis: {
+          x: {
+            type: 'category',
+            categories: x_axis_cat,
+            tick: {
+                rotate:90,
+                multiline: false,
+                culling: {max: 45}
+            },
+            height: 120,
+            padding: {right: 0.25},
+          },
+          y: { 
+            label: {
+              text: title,
+              position: 'outer-middle'
+            },
+            min:0,
+            tick: {
+              format: function (d) {
+                if ((d / 1000) >= 1) {
+                  d = Math.round((d / 1000 )*100) / 100 + "K";
+                  }
+                return d;
+              }
+            },
+            padding: {bottom:0}
+          }
+        },
+        grid: {
+          x: {
+            lines: [
+                {value: 17.5, class: 'gridx'},
+                {value: 29.5, class: 'gridx'},
+                {value: 56.5, class: 'gridx'},
+                {value: 74.5, class: 'gridx'},
+                {value: 86.5, class: 'gridx'},
+                {value: 113.5, class: 'gridx'},
+                {value: 131.5, class: 'gridx'}
+            ]
+          },
+          y: {show: true},
+          lines: {front: false},
+        },
+        zoom: {enabled: false},
+      });
+    }
+    )}
+
+
+    // Function to call plain line chart
+    function c_function(){
+    $(function () {
+      var chart = c3.generate({
+        padding: {
+        top: 12,
+        right: 46,
+        bottom: 53,
+        left: 72,
+        },
+        size: {height: 609},
+        point: {r: 3.1},
+        data: {json: dataset},
+        axis: {
+          x: {
+            type: 'category',
+            categories: x_axis_cat,
+            tick: {
+              rotate:90,
+              multiline: false,
+              culling: {max: 45}
+            },
+            height: 120,
+            padding: {right: 0.25},
+          },
+          y: { 
+            label: {
+              text: title,
+              position: 'outer-middle'
+            },
+            min:0,
+            tick: {
+              format: function (d) {
+                if ((d / 1000) >= 1) {
+                  d = Math.round((d / 1000 )*100) / 100 + "K";
+                  }
+                return d;
+              }
+            },
+            padding: {bottom:0}
+          }
+        },
+        grid: {
+          lines: {front: false},
+        },
+        zoom: {enabled: false},
+      });
+    }
+    )}
+
+
   </script>
 
-<?php }?>
+<?php }
+
+
+// define line chart parameters for plotting non-Arabidopsis thaliana data here
+else if ($_POST['filter4'] == "line_chart" && ($count > 0) && ($count < 51) && $_POST['filter1'] != "Arabidopsis_thaliana") { ?>
+
+    <script>
+      var dataset = <?php echo $jsonout; ?>;
+      var title = <?php echo $titleout; ?>;
+      var nonathgrid = [
+        {value: 2.5, class: 'gridx'},
+        {value: 5.5, class: 'gridx'},
+        {value: 8.5, class: 'gridx'},
+        {value: 11.5, class: 'gridx'},
+        {value: 14.5, class: 'gridx'},
+        {value: 17.5, class: 'gridx'},
+        {value: 20.5, class: 'gridx'},
+        {value: 23.5, class: 'gridx'},
+        {value: 26.43, class: 'gridy'}
+      ];
+      var xValues = 
+       <?php if($_POST['filter1'] == "Capsella_rubella") { ?>
+       ['root, whole root, 4d.1', 'root, whole root, 4d.2', 'root, whole root, 4d.3', 'hypocotyl, 9d.1', 'hypocotyl, 9d.2', 'hypocotyl, 9d.3', 'leaf 1+2, 7d.1', 'leaf 1+2, 7d.2', 'leaf 1+2, 7d.3', 'apex vegetative, 7d.1', 'apex vegetative, 7d.2', 'apex vegetative, 7d.3', 'apex inflorescence.1', 'apex inflorescence.2', 'apex inflorescence.3', 'flower stg12.1', 'flower stg12.2', 'flower stg12.3', 'flower stg12, carpels.1', 'flower stg12, carpels.2', 'flower stg12, carpels.3', 'flower stg12, stamens.1', 'flower stg12, stamens.2', 'flower stg12, stamens.3', 'mature pollen.1', 'mature pollen.2', 'mature pollen.3'];
+        <?php } 
+        else if ($_POST['filter1'] == "Eutrema_salsugineum") { ?>
+        ['root, whole root, 6d.1', 'root, whole root, 6d.2', 'root, whole root, 6d.3', 'hypocotyl, 12d.1', 'hypocotyl, 12d.2', 'hypocotyl, 12d.3', 'leaf 1+2, 9d.1', 'leaf 1+2, 9d.2', 'leaf 1+2, 9d.3', 'apex vegetative, 9d.1', 'apex vegetative, 9d.2', 'apex vegetative, 9d.3', 'apex inflorescence.1', 'apex inflorescence.2', 'apex inflorescence.3', 'flower stg12.1', 'flower stg12.2', 'flower stg12.3', 'flower stg12, carpels.1', 'flower stg12, carpels.2', 'flower stg12, carpels.3', 'flower stg12, stamens.1', 'flower stg12, stamens.2', 'flower stg12, stamens.3', 'mature pollen.1', 'mature pollen.2', 'mature pollen.3'];
+        <?php } ?>
+
+      var chart = c3.generate({
+        padding: {
+          top: 12,
+          right: 76,
+          bottom: 50,
+          left: 97,
+        },
+        size: {height: 600},
+        point: {r: 3.1},
+        data: {json: dataset},
+        axis: {
+          x: {
+            type: 'category',
+            categories: xValues,
+            tick: {
+                rotate:90,
+                multiline: false,
+            },
+            height: 120,
+            label: {
+                label: 'X Label',
+                position: 'outer-middle'
+            },
+          },
+          y: { 
+            label: {
+            text: title,
+            position: 'outer-middle'
+            },
+            min:0,
+            padding: {bottom:0}
+          },
+        },
+        grid: {
+          x: {lines: nonathgrid},
+          y: {show: true},
+          lines: {front: false},
+        },
+        zoom: {enabled: false}
+      });
+
+
+
+    // Function to call non-Arabidopsis thaliana line chart with grid
+    function d_function(){
+    $(function () {
+      var chart = c3.generate({
+        padding: {
+          top: 12,
+          right: 76,
+          bottom: 50,
+          left: 97,
+        },
+        size: {height: 600},
+        point: {r: 3.1},
+        data: {json: dataset},
+        axis: {
+          x: {
+            type: 'category',
+            categories: xValues,
+            tick: {
+                rotate:90,
+                multiline: false,
+            },
+            height: 120,
+            label: {
+              label: 'X Label',
+              position: 'outer-middle'
+            },
+          },
+          y: { 
+            label: {
+              text: title,
+              position: 'outer-middle'
+            },
+            min:0,
+            padding: {bottom:0}
+          },
+        },
+        grid: {
+          x: {lines: nonathgrid},
+          y: {show: true},
+          lines: {front: false},
+        },
+        zoom: {enabled: false},
+      });
+    }
+    )}
+
+
+    // Function to call non-Arabidopsis thaliana line chart without grid
+    function e_function(){
+    $(function () {
+      var chart = c3.generate({
+        padding: {
+          top: 12,
+          right: 76,
+          bottom: 50,
+          left: 97,
+        },
+        size: {height: 600},
+        point: {r: 3.1},
+        data: {json: dataset},
+        axis: {
+          x: {
+            type: 'category',
+            categories: xValues,
+            tick: {
+              rotate:90,
+              multiline: false,
+            },
+            height: 120,
+            label: {
+              label: 'X Label',
+              position: 'outer-middle'
+            },
+          },
+          y: { 
+            label: {
+              text: title,
+              position: 'outer-middle'
+            },
+            min:0,
+            padding: {bottom:0}
+          },
+        },
+        grid: {lines: {front: false}},
+        zoom: {enabled: false},
+      });
+    }
+    )}
+
+</script>
+
+<?php }
+
+
+
+// define heatmap plot parameters for plotting Arabidopsis thaliana data here
+else if (($_POST['filter4'] == "heatmap" && $_POST['filter1'] == "Arabidopsis_thaliana" && ($count > 0) && ($count < 1251) && $_POST['filter6'] != "1") || ($_POST['filter4'] == "heatmap" && $_POST['filter1'] == "Arabidopsis_thaliana" && $_POST['filter6'] == "1" && $count == 1)) { ?>
+
+    <script type="text/javascript">
+
+        // Function to call viridis plot (standard setup)
+        var zValues = <?php if (($_POST['filter5'] == "0" || $_POST['filter5'] == "2")) { 
+                           echo $valuesout; 
+                           } else if ($_POST['filter5'] == "1") { 
+                           echo $valueslogout; }
+                           ?>;
+        var yValues = <?php echo $keys2out; ?>;
+        var xValues = 
+        ['root, root tip, 5d.1', 'root, root tip, 5d.2', 'root, root tip, 5d.3', 'root, maturation zone, 5d.1', 'root, maturation zone, 5d.2', 'root, maturation zone, 5d.3', 'root, whole root, 5d.1', 'root, whole root_5d.2', 'root, whole root, 5d.3', 'root, whole root, 7d.1', 'root, whole root, 7d.2', 'root, whole root, 7d.3', 'root, whole root, 14d.1', 'root, whole root, 14d.2', 'root, whole root, 14d.3', 'root, whole root, 21d.1', 'root, whole root, 21d.2', 'root, whole root, 21d.3', 'hypocotyl, 10d.1', 'hypocotyl, 10d.2', 'hypocotyl, 10d.3', '3rd internode, 24d.1', '3rd internode, 24d.2', '3rd internode, 24d.3', '2nd internode, 24d.1', '2nd internode, 24d.2', '2nd internode, 24d.3', '1st internode, 28d.1', '1st internode, 28d.2', '1st internode, 28d.3', 'cotyledons, 7d.1', 'cotyledons, 7d.2', 'cotyledons, 7d.3', 'leaf 1+2, 7d.1', 'leaf 1+2, 7d.2', 'leaf 1+2, 7d.3', 'leaf 1+2, 10d.1', 'leaf 1+2, 10d.2', 'leaf 1+2, 10d.3', 'leaf 1+2, petiole, 10d.1', 'leaf 1+2, petiole, 10d.2', 'leaf 1+2, petiole, 10d.3', 'leaf 1+2, leaf tip, 10d.1', 'leaf 1+2, leaf tip, 10d.2', 'leaf 1+2, leaf tip, 10d.3', 'leaf 5+6, 17d.1', 'leaf 5+6, 17d.2', 'leaf 5+6, 17d.3', 'leaf 9+10, 27d.1', 'leaf 9+10, 27d.2', 'leaf 9+10, 27d.3', 'leaves senescing, 35d.1', 'leaves senescing, 35d.2', 'leaves senescing, 35d.3', 'cauline leaves, 24d.1', 'cauline leaves, 24d.2', 'cauline leaves, 24d.3', 'apex vegetative, 7d.1', 'apex vegetative, 7d.2', 'apex vegetative, 7d.3', 'apex vegetative, 10d.1', 'apex vegetative, 10d.2', 'apex vegetative, 10d.3', 'apex vegetative, 14d.1', 'apex vegetative, 14d.2', 'apex vegetative, 14d.3', 'apex inflorescence, 21d.1', 'apex inflorescence, 21d.2', 'apex inflorescence, 21d.3', 'apex inflorescence, 28d.1', 'apex inflorescence, 28d.2', 'apex inflorescence, 28d.3', 'apex inflor. clv1, 21d.1', 'apex inflor. clv1, 21d.2', 'apex inflor. clv1, 21d.3', 'flower stg9, 21d+.1', 'flower stg9, 21d+.2', 'flower stg9, 21d+.3', 'flower stg10/11, 21d+.1', 'flower stg10/11, 21d+.2', 'flower stg10/11, 21d+.3', 'flower stg12, 21d+.1', 'flower stg12, 21d+.2', 'flower stg12, 21d+.3', 'flower stg15, 21d+.1', 'flower stg15, 21d+.2', 'flower stg15, 21d+.3', 'flower stg12, sepals.1', 'flower stg12, sepals.2', 'flower stg12, sepals.3', 'flower stg15, sepals.1', 'flower stg15, sepals.2', 'flower stg15, sepals.3', 'flower stg12, petals.1', 'flower stg12, petals.2', 'flower stg12, petals.3', 'flower stg15, petals.1', 'flower stg15, petals.2', 'flower stg15, petals.3', 'flower stg12, stamens.1', 'flower stg12, stamens.2', 'flower stg12, stamens.3', 'flower stg15, stamens.1', 'flower stg15, stamens.2', 'flower stg15, stamens.3', 'mature pollen, 28d+.1', 'mature pollen, 28d+.2', 'mature pollen, 28d+.3', 'flower early stg12, carpels.1', 'flower early stg12, carpels.2', 'flower early stg12, carpels.3', 'flower late stg12, carpels.1', 'flower late stg12, carpels.2', 'flower late stg12, carpels.3', 'flower stg15, carpels.1', 'flower stg15, carpels.2', 'flower stg15, carpels.3', 'fruit stg16, siliques.1', 'fruit stg16, siliques.2', 'fruit stg16, siliques.3', 'fruit stg17a, siliques.1', 'fruit stg17a, siliques.2', 'fruit stg17a, siliques.3', 'fruit stg16, seeds.1', 'fruit stg16, seeds.2', 'fruit stg16, seeds.3', 'fruit stg17a, seeds.1', 'fruit stg17a, seeds.2', 'fruit stg17a, seeds.3', 'fruit stg18, seeds.1', 'fruit stg18, seeds.2', 'fruit stg18, seeds.3'];
+
+        var title = <?php echo $titleout; ?>;
+
+        var ticknumber = <?php if($countout == 1) { ?> 3;
+                     <?php } else { ?> 0; <?php } ?>;
+
+        var ticklabels = ['root, root tip, 5d.1', 'root, maturation zone, 5d.1', 'root, whole root, 5d.1', 'root, whole root, 7d.1', 'root, whole root, 14d.1', 'root, whole root, 21d.1', 'hypocotyl, 10d.1', '3rd internode, 24d.1',  '2nd internode, 24d.1', '1st internode, 28d.1', 'cotyledons, 7d.1', 'leaf 1+2, 7d.1', 'leaf 1+2, 10d.1', 'leaf 1+2, petiole, 10d.1', 'leaf 1+2, leaf tip, 10d.1', 'leaf 5+6, 17d.1', 'leaf 9+10, 27d.1', 'leaves senescing, 35d.1', 'cauline leaves, 24d.1', 'apex vegetative, 7d.1', 'apex vegetative, 10d.1', 'apex vegetative, 14d.1', 'apex inflorescence, 21d.1', 'apex inflorescence, 28d.1', 'apex inflor. clv1, 21d.1', 'flower stg9, 21d+.1', 'flower stg10/11, 21d+.1', 'flower stg12, 21d+.1', 'flower stg15, 21d+.1', 'flower stg12, sepals.1', 'flower stg15, sepals.1', 'flower stg12, petals.1', 'flower stg15, petals.1', 'flower stg12, stamens.1', 'flower stg15, stamens.1', 'mature pollen, 28d+.1', 'flower early stg12, carpels.1', 'flower late stg12, carpels.1', 'flower stg15, carpels.1', 'fruit stg16, siliques.1', 'fruit stg17a, siliques.1', 'fruit stg16, seeds.1', 'fruit stg17a, seeds.1', 'fruit stg18, seeds.1'];
+
+        var colorbar = {
+          title: title,
+          titlefont: {
+          size: 12,
+          },
+          titleside: "top",
+          thickness: 20,
+          nticks: ticknumber,
+          tickfont: {
+          size:10.5
+          },
+          outlinewidth: 0,
+          xpad: 1,
+          ypad:3
+          };
+
+        var height = <?php echo $reqheightout; ?>;
+ 
+        var layout = <?php if($countout < 5) { ?> {
+          paper_bgcolor: 'rgba(255,255,255,0)',
+          height: height,
+          margin: {
+            l: 105,
+            r: 105,
+            b: 181,
+            t: 62,
+            pad: 0
+            },
+          xaxis: {
+            showticklabels: true,
+            tickangle: 90,
+            tickvals: ticklabels,
+            tickfont: {
+              size: 11.75,
+              color: 'black'
+            }},
+          yaxis: {
+            showticklabels: true,
+            tickangle: 0,
+            tickfont: {
+            size: 11.75,
+            color: 'black'
+            }}
+          };  
+
+          <?php } else if ($countout < 10) { ?> {
+          paper_bgcolor: 'rgba(255,255,255,0)',
+          height: height,
+          margin: {
+            l: 105,
+            r: 105,
+            b: 187,
+            t: 53,
+            pad: 0
+            },
+          xaxis: {
+            showticklabels: true,
+            tickangle: 90,
+            tickvals: ticklabels,
+            tickfont: {
+                size: 11.75,
+                color: 'black'
+            }},
+          yaxis: {
+            showticklabels: true,
+            tickangle: 0,
+            tickfont: {
+              size: 11.75,
+              color: 'black'
+            }}
+          };
+      
+          <?php } else { ?> {
+          paper_bgcolor: 'rgba(255,255,255,0)',
+          height: height,
+          margin: {
+            l: 105,
+            r: 105,
+            b: 202,
+            t: 38,
+            pad: 0
+          },
+          xaxis: {
+            showticklabels: true,
+            tickangle: 90,
+            tickvals: ticklabels,
+            tickfont: {
+              size: 11.75,
+              color: 'black'
+            }},
+          yaxis: {
+            showticklabels: true,
+            tickangle: 0,
+            tickfont: {
+              size: 11.75,
+              color: 'black'
+            }}
+          };
+          <?php } ?>;
+
+
+
+        // fill in 'text' array for hover
+        var text = zValues.map (function(zValues, i) { return zValues.map (function (value, j) {
+            return ` ID: ${yValues[i]}<br> Tissue: ${xValues[j]}<br> Expression: ${value.toFixed(2)} `
+            });
+          });
+
+        // format modebar, add svg download icon, activate responsive design
+        var config = {
+            modeBarButtonsToRemove: ['sendDataToCloud', 'autoScale2d', 'hoverClosestCartesian', 'hoverCompareCartesian', 'lasso2d', 'select2d', 'toggleSpikelines'],
+            displayModeBar: true,
+            responsive: true,
+            toImageButtonOptions: {
+              filename: 'devseq_plot',
+              width: 1020,
+            },
+            modeBarButtonsToAdd: [{
+            name: 'Download plot as a svg',
+            icon: Plotly.Icons.disk,
+            click: function(gd) {
+              gd.layout.width = gd.offsetWidth;
+              gd.layout.height = gd.offsetHeight;
+              Plotly.downloadImage(gd, {filename: 'devseq_plot', format: 'svg'})
+              }
+            }],
+            displaylogo: false
+          };
+
+      Plotly.newPlot('myDiv', [{x: xValues, y: yValues, z: zValues, text: text, hoverinfo: 'text', hoverlabel: {bgcolor: '#41454c'}, layout: layout, colorbar: colorbar, type: 'heatmap', colorscale: [['0', 'rgb(64, 1, 82)'],['0.01', 'rgb(68, 1, 84)'],['0.05', 'rgb(71, 17, 102)'],['0.10', 'rgb(73, 34, 117)'],['0.1475', 'rgb(72, 49, 130)'],['0.195', 'rgb(67, 62, 135)'],['0.2425', 'rgb(64, 77, 143)'],['0.29', 'rgb(58, 90, 145)'],['0.3375', 'rgb(52, 103, 148)'],['0.385', 'rgb(47, 116, 148)'],['0.425', 'rgb(41, 124, 145)'],['0.465', 'rgb(38, 136, 145)'],['0.505', 'rgb(33, 145, 142)'],['0.545', 'rgb(31, 155, 137)'],['0.585', 'rgb(34, 165, 132)'],['0.63', 'rgb(42, 175, 126)'],['0.675', 'rgb(59, 185, 117)'],['0.725', 'rgb(80, 195, 105)'],['0.77', 'rgb(105, 204, 90)'],['0.815', 'rgb(132, 212, 74)'],['0.8625', 'rgb(169, 217, 55)'],['0.91', 'rgb(202, 222, 36)'],['0.95', 'rgb(223, 227, 27)'],['0.99', 'rgb(251, 230, 36)'],['1.0', 'rgb(251, 230, 36)']]}], layout, config);
+
+
+
+      // Function to call viridis plot
+      function f_function(){
+        $(function () {
+        Plotly.newPlot('myDiv',[{x: xValues, y: yValues, z: zValues, text: text, hoverinfo: 'text', hoverlabel: {bgcolor: '#41454c'}, layout: layout, colorbar: colorbar, type: 'heatmap', colorscale: [['0', 'rgb(64, 1, 82)'],['0.01', 'rgb(68, 1, 84)'],['0.05', 'rgb(71, 17, 102)'],['0.10', 'rgb(73, 34, 117)'],['0.1475', 'rgb(72, 49, 130)'],['0.195', 'rgb(67, 62, 135)'],['0.2425', 'rgb(64, 77, 143)'],['0.29', 'rgb(58, 90, 145)'],['0.3375', 'rgb(52, 103, 148)'],['0.385', 'rgb(47, 116, 148)'],['0.425', 'rgb(41, 124, 145)'],['0.465', 'rgb(38, 136, 145)'],['0.505', 'rgb(33, 145, 142)'],['0.545', 'rgb(31, 155, 137)'],['0.585', 'rgb(34, 165, 132)'],['0.63', 'rgb(42, 175, 126)'],['0.675', 'rgb(59, 185, 117)'],['0.725', 'rgb(80, 195, 105)'],['0.77', 'rgb(105, 204, 90)'],['0.815', 'rgb(132, 212, 74)'],['0.8625', 'rgb(169, 217, 55)'],['0.91', 'rgb(202, 222, 36)'],['0.95', 'rgb(223, 227, 27)'],['0.99', 'rgb(251, 230, 36)'],['1.0', 'rgb(251, 230, 36)']]}], layout, config);
+          }
+        )}
+
+
+      // Function to call blue plot
+      function g_function(){
+        $(function () {
+        Plotly.newPlot('myDiv',[{x: xValues, y: yValues, z: zValues, text: text, hoverinfo: 'text', hoverlabel: {bgcolor: '#41454c'}, layout: layout, colorbar: colorbar, type: 'heatmap', colorscale: [['0.0', 'rgb(245, 249, 252)'],['0.1', 'rgb(226, 237, 248)'],['0.2', 'rgb(207, 225, 242)'],['0.3', 'rgb(180, 211, 233)'],['0.4', 'rgb(146, 195, 223)'],['0.5', 'rgb(108, 173, 213)'],['0.6', 'rgb(74, 151, 201)'],['0.7', 'rgb(47, 126, 188)'],['0.8', 'rgb( 24, 100, 170)'],['0.9', 'rgb(10, 74, 144)'],['1.0', 'rgb(9, 57, 127)']]}], layout, config);
+          }
+        )}
+
+
+      // Function to call red plot - from R color brewer palette
+      function h_function(){
+        $(function () {
+        Plotly.newPlot('myDiv', [{x: xValues, y: yValues, z: zValues, text: text, hoverinfo: 'text', hoverlabel: {bgcolor: '#41454c'}, layout: layout, colorbar: colorbar, type: 'heatmap', colorscale: [['0.0', 'rgb(252, 245, 245)'],['0.11', 'rgb(250, 221, 207)'],['0.22', 'rgb(247, 199, 178)'],['0.33', 'rgb(240, 173, 151)'],['0.44', 'rgb(227, 127, 102)'],['0.55', 'rgb(209, 86, 67)'],['0.66', 'rgb(191, 55, 48)'],['0.77', 'rgb(173, 26, 31)'],['0.88', 'rgb(133, 12, 18)'],['1.0', 'rgb(110, 4, 18)']]}], layout, config);
+          }
+        )}
+
+
+      // Function to call green plot
+      function i_function(){
+        $(function () {
+        Plotly.newPlot('myDiv', [{x: xValues, y: yValues, z: zValues, text: text, hoverinfo: 'text', hoverlabel: {bgcolor: '#41454c'}, layout: layout, colorbar: colorbar, type: 'heatmap', colorscale: [['0.0', 'rgb(245, 252, 247)'],['0.11112', 'rgb(226, 237, 197)'],['0.22223', 'rgb(209, 224, 162)'],['0.33334', 'rgb(185, 204, 129)'],['0.44445', 'rgb(155, 184, 94)'],['0.55556', 'rgb(116, 161, 67)'],['0.66667', 'rgb(70, 138, 41)'],['0.77778', 'rgb(25, 115, 21)'],['0.88889', 'rgb(9, 99, 20)'],['1.0', 'rgb(4, 89, 21)']]}], layout, config);
+          }
+        )}
+
+
+      // Function to call red-yellow plot
+      function j_function(){
+        $(function () {
+        Plotly.newPlot('myDiv',[{x: xValues, y: yValues, z: zValues, text: text, hoverinfo: 'text', hoverlabel: {bgcolor: '#41454c'}, layout: layout, colorbar: colorbar, type: 'heatmap', colorscale: [['0.0', 'rgb(253, 0, 0)'],['0.067', 'rgb(253, 33, 2)'],['0.134', 'rgb(253, 63, 6)'],['0.201', 'rgb(253, 89, 12)'],['0.268', 'rgb(253, 113, 18)'],['0.335', 'rgb(253, 137, 24)'],['0.402', 'rgb(253, 161, 30)'],['0.469', 'rgb(253, 185, 36)'],['0.536', 'rgb(253, 209, 42)'],['0.603', 'rgb(253, 233, 48)'],['0.670', 'rgb(253, 255, 54)'],['0.737', 'rgb(252, 255, 69)'],['0.804', 'rgb(253, 255, 136)'],['0.871', 'rgb(253, 255, 170)'],['0.938', 'rgb(254, 255, 207)'],['1.0', 'rgb(254, 255, 207)']]}], layout, config);
+          }
+        )}
+
+
+      // Function to call yellow-red plot
+      function k_function(){
+        $(function () {
+        Plotly.newPlot('myDiv',[{x: xValues, y: yValues, z: zValues, text: text, hoverinfo: 'text', hoverlabel: {bgcolor: '#41454c'}, layout: layout, colorbar: colorbar, type: 'heatmap', colorscale: [['0.0', 'rgb(254, 255, 207)'],['0.067', 'rgb(253, 255, 136)'],['0.134', 'rgb(252, 255, 69)'],['0.201', 'rgb(253, 255, 54)'],['0.268', 'rgb(253, 233, 48)'],['0.335', 'rgb(253, 209, 42)'],['0.402', 'rgb(253, 185, 36)'],['0.469', 'rgb(253, 161, 30)'],['0.536', 'rgb(253, 137, 24)'],['0.603', 'rgb(253, 113, 18)'],['0.670', 'rgb(253, 89, 12)'],['0.737', 'rgb(253, 63, 6)'],['0.804', 'rgb(253, 33, 2)'],['0.871', 'rgb(253, 16, 1)'],['0.938', 'rgb(253, 0, 0)'],['1.0', 'rgb(253, 0, 0)']]}], layout, config);
+          }
+        )}
+
+
+    </script>
+<?php }
+
+
+
+
+
+// define heatmap plot parameters for plotting Arabidopsis thaliana AVERAGED REPLICATE data here
+// AVERAGED REPLICATE data will be plotted if number of entities found is >1250
+else if (($_POST['filter4'] == "heatmap" && $_POST['filter1'] == "Arabidopsis_thaliana" && ($count > 1250) && $_POST['filter6'] != "1") || ($_POST['filter4'] == "heatmap" && $_POST['filter1'] == "Arabidopsis_thaliana" && $_POST['filter6'] == "1" && $count == 1)) { ?>
+
+    <script type="text/javascript">
+
+        // Function to call viridis plot (standard setup)
+        var zValues = <?php if (($_POST['filter5'] == "0" || $_POST['filter5'] == "2")) { 
+                           echo $valuesout; 
+                           } else if ($_POST['filter5'] == "1") { 
+                           echo $valueslogout; }
+                           ?>;
+        var yValues = <?php echo $keys2out; ?>;
+        var xValues = 
+        ['root_root tip_5d', 'root_maturation zone_5d', 'root_whole root_5d', 'root_whole root_7d', 'root_whole root_14d', 'root_whole root_21d', 'hypocotyl_10d', '3rd internode_24d', '2nd internode_24d', '1st internode_28d', 'cotyledons_7d', 'leaf 1+2_7d', 'leaf 1+2_10d', 'leaf 1+2_petiole_10d', 'leaf 1+2_leaf tip_10d', 'leaf_5+6_17d', 'leaf_9+10_27d', 'leaves senescing_35d', 'cauline leaves_24d', 'apex vegetative_7d', 'apex vegetative_10d', 'apex vegetative_14d', 'apex inflorescence_21d', 'apex inflorescence_28d', 'apex inflorescence_clv1_21d', 'flower stg9_21d+', 'flower stg10/11_21d+', 'flower stg12_21d+', 'flower stg15_21d+', 'flower stg12_sepals', 'flower stg15_sepals', 'flower stg12_petals', 'flower stg15_petals', 'flower stg12_stamens', 'flower stg15_stamens', 'mature pollen_28d+', 'flower early stg12_carpels', 'flower late stg12_carpels', 'flower stg15_carpels', 'fruit stg16_siliques', 'fruit stg17a_siliques', 'fruit stg16_seeds', 'fruit stg17a_seeds', 'fruit stg18_seeds'];
+
+        var title = <?php echo $titleout; ?>;
+
+        var ticknumber = <?php if($countout == 1) { ?> 3;
+                     <?php } else { ?> 0; <?php } ?>;
+
+        var ticklabels = ['root_root tip_5d', 'root_maturation zone_5d', 'root_whole root_5d', 'root_whole root_7d', 'root_whole root_14d', 'root_whole root_21d', 'hypocotyl_10d', '3rd internode_24d', '2nd internode_24d', '1st internode_28d', 'cotyledons_7d', 'leaf 1+2_7d', 'leaf 1+2_10d', 'leaf 1+2_petiole_10d', 'leaf 1+2_leaf tip_10d', 'leaf_5+6_17d', 'leaf_9+10_27d', 'leaves senescing_35d', 'cauline leaves_24d', 'apex vegetative_7d', 'apex vegetative_10d', 'apex vegetative_14d', 'apex inflorescence_21d', 'apex inflorescence_28d', 'apex inflorescence_clv1_21d', 'flower stg9_21d+', 'flower stg10/11_21d+', 'flower stg12_21d+', 'flower stg15_21d+', 'flower stg12_sepals', 'flower stg15_sepals', 'flower stg12_petals', 'flower stg15_petals', 'flower stg12_stamens', 'flower stg15_stamens', 'mature pollen_28d+', 'flower early stg12_carpels', 'flower late stg12_carpels', 'flower stg15_carpels', 'fruit stg16_siliques', 'fruit stg17a_siliques', 'fruit stg16_seeds', 'fruit stg17a_seeds', 'fruit stg18_seeds'];
+
+        var colorbar = {
+          title: title,
+          titlefont: {
+          size: 12,
+          },
+          titleside: "top",
+          thickness: 20,
+          nticks: ticknumber,
+          tickfont: {
+          size:10.5
+          },
+          outlinewidth: 0,
+          xpad: 1,
+          ypad:3
+          };
+
+        var height = <?php echo $reqheightout; ?>;
+ 
+        var layout = {
+          paper_bgcolor: 'rgba(255,255,255,0)',
+          height: height,
+          margin: {
+            l: 105,
+            r: 105,
+            b: 202,
+            t: 38,
+            pad: 0
+          },
+          xaxis: {
+            showticklabels: true,
+            tickangle: 90,
+            tickvals: ticklabels,
+            tickfont: {
+              size: 11.75,
+              color: 'black'
+            }},
+          yaxis: {
+            showticklabels: true,
+            tickangle: 0,
+            tickfont: {
+              size: 11.75,
+              color: 'black'
+            }}
+          };
+
+
+
+        // fill in 'text' array for hover
+        var text = zValues.map (function(zValues, i) { return zValues.map (function (value, j) {
+            return ` ID: ${yValues[i]}<br> Tissue: ${xValues[j]}<br> Expression: ${value.toFixed(2)} `
+            });
+          });
+
+        // format modebar, add svg download icon, activate responsive design
+        var config = {
+            modeBarButtonsToRemove: ['sendDataToCloud', 'autoScale2d', 'hoverClosestCartesian', 'hoverCompareCartesian', 'lasso2d', 'select2d', 'toggleSpikelines'],
+            displayModeBar: true,
+            responsive: true,
+            toImageButtonOptions: {
+              filename: 'devseq_plot',
+              width: 1020,
+            },
+            modeBarButtonsToAdd: [{
+            name: 'Download plot as a svg',
+            icon: Plotly.Icons.disk,
+            click: function(gd) {
+              gd.layout.width = gd.offsetWidth;
+              gd.layout.height = gd.offsetHeight;
+              Plotly.downloadImage(gd, {filename: 'devseq_plot', format: 'svg'})
+              }
+            }],
+            displaylogo: false
+          };
+
+      Plotly.newPlot('myDiv', [{x: xValues, y: yValues, z: zValues, text: text, hoverinfo: 'text', hoverlabel: {bgcolor: '#41454c'}, layout: layout, colorbar: colorbar, type: 'heatmap', colorscale: [['0', 'rgb(64, 1, 82)'],['0.01', 'rgb(68, 1, 84)'],['0.05', 'rgb(71, 17, 102)'],['0.10', 'rgb(73, 34, 117)'],['0.1475', 'rgb(72, 49, 130)'],['0.195', 'rgb(67, 62, 135)'],['0.2425', 'rgb(64, 77, 143)'],['0.29', 'rgb(58, 90, 145)'],['0.3375', 'rgb(52, 103, 148)'],['0.385', 'rgb(47, 116, 148)'],['0.425', 'rgb(41, 124, 145)'],['0.465', 'rgb(38, 136, 145)'],['0.505', 'rgb(33, 145, 142)'],['0.545', 'rgb(31, 155, 137)'],['0.585', 'rgb(34, 165, 132)'],['0.63', 'rgb(42, 175, 126)'],['0.675', 'rgb(59, 185, 117)'],['0.725', 'rgb(80, 195, 105)'],['0.77', 'rgb(105, 204, 90)'],['0.815', 'rgb(132, 212, 74)'],['0.8625', 'rgb(169, 217, 55)'],['0.91', 'rgb(202, 222, 36)'],['0.95', 'rgb(223, 227, 27)'],['0.99', 'rgb(251, 230, 36)'],['1.0', 'rgb(251, 230, 36)']]}], layout, config);
+
+
+
+      // Function to call viridis plot
+      function f_function(){
+        $(function () {
+        Plotly.newPlot('myDiv',[{x: xValues, y: yValues, z: zValues, text: text, hoverinfo: 'text', hoverlabel: {bgcolor: '#41454c'}, layout: layout, colorbar: colorbar, type: 'heatmap', colorscale: [['0', 'rgb(64, 1, 82)'],['0.01', 'rgb(68, 1, 84)'],['0.05', 'rgb(71, 17, 102)'],['0.10', 'rgb(73, 34, 117)'],['0.1475', 'rgb(72, 49, 130)'],['0.195', 'rgb(67, 62, 135)'],['0.2425', 'rgb(64, 77, 143)'],['0.29', 'rgb(58, 90, 145)'],['0.3375', 'rgb(52, 103, 148)'],['0.385', 'rgb(47, 116, 148)'],['0.425', 'rgb(41, 124, 145)'],['0.465', 'rgb(38, 136, 145)'],['0.505', 'rgb(33, 145, 142)'],['0.545', 'rgb(31, 155, 137)'],['0.585', 'rgb(34, 165, 132)'],['0.63', 'rgb(42, 175, 126)'],['0.675', 'rgb(59, 185, 117)'],['0.725', 'rgb(80, 195, 105)'],['0.77', 'rgb(105, 204, 90)'],['0.815', 'rgb(132, 212, 74)'],['0.8625', 'rgb(169, 217, 55)'],['0.91', 'rgb(202, 222, 36)'],['0.95', 'rgb(223, 227, 27)'],['0.99', 'rgb(251, 230, 36)'],['1.0', 'rgb(251, 230, 36)']]}], layout, config);
+          }
+        )}
+
+
+      // Function to call blue plot
+      function g_function(){
+        $(function () {
+        Plotly.newPlot('myDiv',[{x: xValues, y: yValues, z: zValues, text: text, hoverinfo: 'text', hoverlabel: {bgcolor: '#41454c'}, layout: layout, colorbar: colorbar, type: 'heatmap', colorscale: [['0.0', 'rgb(245, 250, 254)'],['0.1', 'rgb(226, 237, 248)'],['0.2', 'rgb(207, 225, 242)'],['0.3', 'rgb(180, 211, 233)'],['0.4', 'rgb(146, 195, 223)'],['0.5', 'rgb(108, 173, 213)'],['0.6', 'rgb(74, 151, 201)'],['0.7', 'rgb(47, 126, 188)'],['0.8', 'rgb( 24, 100, 170)'],['0.9', 'rgb(10, 74, 144)'],['1.0', 'rgb(9, 57, 127)']]}], layout, config);
+          }
+        )}
+
+
+      // Function to call red plot
+      function h_function(){
+        $(function () {
+        Plotly.newPlot('myDiv', [{x: xValues, y: yValues, z: zValues, text: text, hoverinfo: 'text', hoverlabel: {bgcolor: '#41454c'}, layout: layout, colorbar: colorbar, type: 'heatmap', colorscale: [['0.0', 'rgb(254, 245, 245)'],['0.11', 'rgb(249, 225, 215)'],['0.22', 'rgb(244, 201, 182)'],['0.33', 'rgb(240, 168, 145)'],['0.44', 'rgb(231, 126, 107)'],['0.55', 'rgb(217, 73, 64)'],['0.66', 'rgb(197, 38, 40)'],['0.77', 'rgb(162, 23, 28)'],['0.88', 'rgb(127, 13, 24)'],['1.0', 'rgb(98, 2, 14)']]}], layout, config);
+          }
+        )}
+
+
+      // Function to call green plot
+      function i_function(){
+        $(function () {
+        Plotly.newPlot('myDiv', [{x: xValues, y: yValues, z: zValues, text: text, hoverinfo: 'text', hoverlabel: {bgcolor: '#41454c'}, layout: layout, colorbar: colorbar, type: 'heatmap', colorscale: [['0.0', 'rgb(245, 252, 234)'],['0.11112', 'rgb(228, 240, 195)'],['0.22223', 'rgb(207, 224, 154)'],['0.33334', 'rgb(181, 206, 109)'],['0.44445', 'rgb(154, 187, 83)'],['0.55556', 'rgb(116, 165, 63)'],['0.66667', 'rgb(72, 138, 44)'],['0.77778', 'rgb(33, 113, 29)'],['0.88889', 'rgb(9, 96, 21)'],['1.0', 'rgb(0, 87, 18)']]}], layout, config);
+          }
+        )}
+
+
+      // Function to call red-yellow plot
+      function j_function(){
+        $(function () {
+        Plotly.newPlot('myDiv',[{x: xValues, y: yValues, z: zValues, text: text, hoverinfo: 'text', hoverlabel: {bgcolor: '#41454c'}, layout: layout, colorbar: colorbar, type: 'heatmap', colorscale: [['0.0', 'rgb(253, 0, 0)'],['0.067', 'rgb(253, 33, 2)'],['0.134', 'rgb(253, 63, 6)'],['0.201', 'rgb(253, 89, 12)'],['0.268', 'rgb(253, 113, 18)'],['0.335', 'rgb(253, 137, 24)'],['0.402', 'rgb(253, 161, 30)'],['0.469', 'rgb(253, 185, 36)'],['0.536', 'rgb(253, 209, 42)'],['0.603', 'rgb(253, 233, 48)'],['0.670', 'rgb(253, 255, 54)'],['0.737', 'rgb(252, 255, 69)'],['0.804', 'rgb(253, 255, 136)'],['0.871', 'rgb(253, 255, 170)'],['0.938', 'rgb(254, 255, 207)'],['1.0', 'rgb(254, 255, 207)']]}], layout, config);
+          }
+        )}
+
+
+      // Function to call yellow-red plot
+      function k_function(){
+        $(function () {
+        Plotly.newPlot('myDiv',[{x: xValues, y: yValues, z: zValues, text: text, hoverinfo: 'text', hoverlabel: {bgcolor: '#41454c'}, layout: layout, colorbar: colorbar, type: 'heatmap', colorscale: [['0.0', 'rgb(254, 255, 207)'],['0.067', 'rgb(253, 255, 136)'],['0.134', 'rgb(252, 255, 69)'],['0.201', 'rgb(253, 255, 54)'],['0.268', 'rgb(253, 233, 48)'],['0.335', 'rgb(253, 209, 42)'],['0.402', 'rgb(253, 185, 36)'],['0.469', 'rgb(253, 161, 30)'],['0.536', 'rgb(253, 137, 24)'],['0.603', 'rgb(253, 113, 18)'],['0.670', 'rgb(253, 89, 12)'],['0.737', 'rgb(253, 63, 6)'],['0.804', 'rgb(253, 33, 2)'],['0.871', 'rgb(253, 16, 1)'],['0.938', 'rgb(253, 0, 0)'],['1.0', 'rgb(253, 0, 0)']]}], layout, config);
+          }
+        )}
+
+
+    </script>
+<?php }
+
+
+
+
+// define heatmap plot parameters for plotting non-Arabidopsis thaliana data here
+else if (($_POST['filter4'] == "heatmap" && $_POST['filter1'] != "Arabidopsis_thaliana" && ($count > 0) && $_POST['filter6'] != "1") || ($_POST['filter4'] == "heatmap" && $_POST['filter1'] != "Arabidopsis_thaliana" && $_POST['filter6'] == "1" && $count == 1)) { ?>
+
+    <script type="text/javascript">
+        var zValues = <?php if (($_POST['filter5'] == "0" || $_POST['filter5'] == "2")) { 
+                           echo $valuesout; 
+                           } else if ($_POST['filter5'] == "1") { 
+                           echo $valueslogout; }
+                           ?>;
+        var yValues = <?php echo $keys2out; ?>;
+
+        // define x axis labels depending on selected species
+        var xValues = 
+        <?php if($_POST['filter1'] == "Capsella_rubella") { ?>
+        ['root, whole root, 4d.1', 'root, whole root, 4d.2', 'root, whole root, 4d.3', 'hypocotyl, 9d.1', 'hypocotyl, 9d.2', 'hypocotyl, 9d.3', 'leaf 1+2, 7d.1', 'leaf 1+2, 7d.2', 'leaf 1+2, 7d.3', 'apex vegetative, 7d.1', 'apex vegetative, 7d.2', 'apex vegetative, 7d.3', 'apex inflorescence.1', 'apex inflorescence.2', 'apex inflorescence.3', 'flower stg12.1', 'flower stg12.2', 'flower stg12.3', 'flower stg12, carpels.1', 'flower stg12, carpels.2', 'flower stg12, carpels.3', 'flower stg12, stamens.1', 'flower stg12, stamens.2', 'flower stg12, stamens.3', 'mature pollen.1', 'mature pollen.2', 'mature pollen.3'];
+        <?php } 
+        else if ($_POST['filter1'] == "Eutrema_salsugineum") { ?>
+        ['root, whole root, 6d.1', 'root, whole root, 6d.2', 'root, whole root, 6d.3', 'hypocotyl, 12d.1', 'hypocotyl, 12d.2', 'hypocotyl, 12d.3', 'leaf 1+2, 9d.1', 'leaf 1+2, 9d.2', 'leaf 1+2, 9d.3', 'apex vegetative, 9d.1', 'apex vegetative, 9d.2', 'apex vegetative, 9d.3', 'apex inflorescence.1', 'apex inflorescence.2', 'apex inflorescence.3', 'flower stg12.1', 'flower stg12.2', 'flower stg12.3', 'flower stg12, carpels.1', 'flower stg12, carpels.2', 'flower stg12, carpels.3', 'flower stg12, stamens.1', 'flower stg12, stamens.2', 'flower stg12, stamens.3', 'mature pollen.1', 'mature pollen.2', 'mature pollen.3'];
+        <?php } ?>
+
+        var title = <?php echo $titleout; ?>;
+
+        var ticknumber = <?php if($countout == 1) { ?> 3;
+                     <?php } else { ?> 0; <?php } ?>;
+
+        var colorbar = {
+          title: title,
+          titlefont: {
+          size: 12,
+          },
+          titleside: "top",
+          thickness: 20,
+          nticks: ticknumber,
+          tickfont: {
+          size:10.5
+          },
+          outlinewidth: 0,
+          xpad: 1,
+          ypad:3
+          };
+
+        var height = <?php echo $reqheightout; ?>;
+    
+        var layout = <?php if($countout < 5) { ?> {
+          paper_bgcolor: 'rgba(255,255,255,0)',
+          height: height,
+          margin: {
+            l: 148,
+            r: 148,
+            b: 181,
+            t: 62,
+            pad: 0
+          },
+          xaxis: {
+            showticklabels: true,
+            tickangle: 90,
+            tickfont: {
+              size: 11.75,
+              color: 'black'
+          }},
+          yaxis: {
+            showticklabels: true,
+            tickangle: 0,
+            tickfont: {
+              size: 11.75,
+              color: 'black'
+          }}
+        }; 
+
+        <?php } else if ($countout < 10) { ?> {
+          paper_bgcolor: 'rgba(255,255,255,0)',
+          height: height,
+          margin: {
+            l: 148,
+            r: 148,
+            b: 187,
+            t: 53,
+            pad: 0
+          },
+          xaxis: {
+            showticklabels: true,
+            tickangle: 90,
+            tickfont: {
+              size: 11.75,
+              color: 'black'
+            }},
+          yaxis: {
+            showticklabels: true,
+            tickangle: 0,
+            tickfont: {
+              size: 11.75,
+              color: 'black'
+            }}
+          };
+      
+        <?php } else { ?> {
+          paper_bgcolor: 'rgba(255,255,255,0)',
+          height: height,
+          margin: {
+            l: 148,
+            r: 148,
+            b: 202,
+            t: 38,
+            pad: 0
+          },
+          xaxis: {
+            showticklabels: true,
+            tickangle: 90,
+            tickfont: {
+              size: 11.75,
+              color: 'black'
+            }},
+          yaxis: {
+            showticklabels: true,
+            tickangle: 0,
+            tickfont: {
+              size: 11.75,
+              color: 'black'
+            }}
+          };
+        <?php } ?>;
+
+
+        // fill in 'text' array for hover
+        var text = zValues.map (function(zValues, i) { return zValues.map (function (value, j) {
+            return ` ID: ${yValues[i]}<br> Tissue: ${xValues[j]}<br> Expression: ${value.toFixed(2)} `
+            });
+          });
+
+        // format modebar, add svg download icon, activate responsive design
+        var config = {
+            displayModeBar: true,
+            responsive: true,
+            toImageButtonOptions: {
+              filename: 'devseq_plot',
+              width: 1020,
+            },
+            modeBarButtonsToRemove: ['sendDataToCloud', 'autoScale2d', 'hoverClosestCartesian', 'hoverCompareCartesian', 'lasso2d', 'select2d', 'toggleSpikelines'],
+            modeBarButtonsToAdd: [{
+            name: 'Download plot as a svg',
+            icon: Plotly.Icons.disk,
+            click: function(gd) {
+            Plotly.downloadImage(gd, {format: 'svg'})
+            } 
+            }],
+            displaylogo: false
+          };
+
+      Plotly.newPlot('myDiv',[{x: xValues, y: yValues, z: zValues, text: text, hoverinfo: 'text', hoverlabel: {bgcolor: '#41454c'}, layout: layout, colorbar: colorbar, type: 'heatmap', colorscale: [['0', 'rgb(64, 1, 82)'],['0.01', 'rgb(68, 1, 84)'],['0.05', 'rgb(71, 17, 102)'],['0.10', 'rgb(73, 34, 117)'],['0.1475', 'rgb(72, 49, 130)'],['0.195', 'rgb(67, 62, 135)'],['0.2425', 'rgb(64, 77, 143)'],['0.29', 'rgb(58, 90, 145)'],['0.3375', 'rgb(52, 103, 148)'],['0.385', 'rgb(47, 116, 148)'],['0.425', 'rgb(41, 124, 145)'],['0.465', 'rgb(38, 136, 145)'],['0.505', 'rgb(33, 145, 142)'],['0.545', 'rgb(31, 155, 137)'],['0.585', 'rgb(34, 165, 132)'],['0.63', 'rgb(42, 175, 126)'],['0.675', 'rgb(59, 185, 117)'],['0.725', 'rgb(80, 195, 105)'],['0.77', 'rgb(105, 204, 90)'],['0.815', 'rgb(132, 212, 74)'],['0.8625', 'rgb(169, 217, 55)'],['0.91', 'rgb(202, 222, 36)'],['0.95', 'rgb(223, 227, 27)'],['0.99', 'rgb(251, 230, 36)'],['1.0', 'rgb(251, 230, 36)']]}], layout, config);
+
+
+
+      // Function to call viridis plot for non-Arabidopsis thaliana species
+      function r_function(){
+        $(function () {
+        Plotly.newPlot('myDiv',[{x: xValues, y: yValues, z: zValues, text: text, hoverinfo: 'text', hoverlabel: {bgcolor: '#41454c'}, layout: layout, colorbar: colorbar, type: 'heatmap', colorscale: [['0', 'rgb(64, 1, 82)'],['0.01', 'rgb(68, 1, 84)'],['0.05', 'rgb(71, 17, 102)'],['0.10', 'rgb(73, 34, 117)'],['0.1475', 'rgb(72, 49, 130)'],['0.195', 'rgb(67, 62, 135)'],['0.2425', 'rgb(64, 77, 143)'],['0.29', 'rgb(58, 90, 145)'],['0.3375', 'rgb(52, 103, 148)'],['0.385', 'rgb(47, 116, 148)'],['0.425', 'rgb(41, 124, 145)'],['0.465', 'rgb(38, 136, 145)'],['0.505', 'rgb(33, 145, 142)'],['0.545', 'rgb(31, 155, 137)'],['0.585', 'rgb(34, 165, 132)'],['0.63', 'rgb(42, 175, 126)'],['0.675', 'rgb(59, 185, 117)'],['0.725', 'rgb(80, 195, 105)'],['0.77', 'rgb(105, 204, 90)'],['0.815', 'rgb(132, 212, 74)'],['0.8625', 'rgb(169, 217, 55)'],['0.91', 'rgb(202, 222, 36)'],['0.95', 'rgb(223, 227, 27)'],['0.99', 'rgb(251, 230, 36)'],['1.0', 'rgb(251, 230, 36)']]}], layout, config);
+          }
+        )}
+
+
+      // Function to call blue plot for non-Arabidopsis thaliana species
+      function s_function(){
+        $(function () {
+        Plotly.newPlot('myDiv',[{x: xValues, y: yValues, z: zValues, text: text, hoverinfo: 'text', hoverlabel: {bgcolor: '#41454c'}, layout: layout, colorbar: colorbar, type: 'heatmap', colorscale: [['0.0', 'rgb(245, 250, 254)'],['0.1', 'rgb(226, 237, 248)'],['0.2', 'rgb(207, 225, 242)'],['0.3', 'rgb(180, 211, 233)'],['0.4', 'rgb(146, 195, 223)'],['0.5', 'rgb(108, 173, 213)'],['0.6', 'rgb(74, 151, 201)'],['0.7', 'rgb(47, 126, 188)'],['0.8', 'rgb( 24, 100, 170)'],['0.9', 'rgb(10, 74, 144)'],['1.0', 'rgb(9, 57, 127)']]}], layout, config);
+          }
+        )}
+
+
+      // Function to call red plot for non-Arabidopsis thaliana species
+      function t_function(){
+        $(function () {
+        Plotly.newPlot('myDiv',[{x: xValues, y: yValues, z: zValues, text: text, hoverinfo: 'text', hoverlabel: {bgcolor: '#41454c'}, layout: layout, colorbar: colorbar, type: 'heatmap', colorscale: [['0.0', 'rgb(254, 245, 245)'],['0.11', 'rgb(249, 225, 215)'],['0.22', 'rgb(244, 201, 182)'],['0.33', 'rgb(240, 168, 145)'],['0.44', 'rgb(231, 126, 107)'],['0.55', 'rgb(217, 73, 64)'],['0.66', 'rgb(197, 38, 40)'],['0.77', 'rgb(162, 23, 28)'],['0.88', 'rgb(127, 13, 24)'],['1.0', 'rgb(98, 2, 14)']]}], layout, config);
+          }
+        )}
+
+
+      // Function to call green plot for non-Arabidopsis thaliana species
+      function u_function(){
+        $(function () {
+        Plotly.newPlot('myDiv',[{x: xValues, y: yValues, z: zValues, text: text, hoverinfo: 'text', hoverlabel: {bgcolor: '#41454c'}, layout: layout, colorbar: colorbar, type: 'heatmap', colorscale: [['0.0', 'rgb(245, 252, 234)'],['0.11112', 'rgb(228, 240, 195)'],['0.22223', 'rgb(207, 224, 154)'],['0.33334', 'rgb(181, 206, 109)'],['0.44445', 'rgb(154, 187, 83)'],['0.55556', 'rgb(116, 165, 63)'],['0.66667', 'rgb(72, 138, 44)'],['0.77778', 'rgb(33, 113, 29)'],['0.88889', 'rgb(9, 96, 21)'],['1.0', 'rgb(0, 87, 18)']]}], layout, config);
+          }
+        )}
+
+
+      // Function to call red-yellow plot for non-Arabidopsis thaliana species
+      function v_function(){
+        $(function () {
+        Plotly.newPlot('myDiv',[{x: xValues, y: yValues, z: zValues, text: text, hoverinfo: 'text', hoverlabel: {bgcolor: '#41454c'}, layout: layout, colorbar: colorbar, type: 'heatmap', colorscale: [['0.0', 'rgb(253, 0, 0)'],['0.067', 'rgb(253, 33, 2)'],['0.134', 'rgb(253, 63, 6)'],['0.201', 'rgb(253, 89, 12)'],['0.268', 'rgb(253, 113, 18)'],['0.335', 'rgb(253, 137, 24)'],['0.402', 'rgb(253, 161, 30)'],['0.469', 'rgb(253, 185, 36)'],['0.536', 'rgb(253, 209, 42)'],['0.603', 'rgb(253, 233, 48)'],['0.670', 'rgb(253, 255, 54)'],['0.737', 'rgb(252, 255, 69)'],['0.804', 'rgb(253, 255, 136)'],['0.871', 'rgb(253, 255, 170)'],['0.938', 'rgb(254, 255, 207)'],['1.0', 'rgb(254, 255, 207)']]}], layout, config);
+          }
+        )}
+
+
+      // Function to call yellow-red plot for non-Arabidopsis thaliana species
+      function w_function(){
+      $(function () {
+        Plotly.newPlot('myDiv',[{x: xValues, y: yValues, z: zValues, text: text, hoverinfo: 'text', hoverlabel: {bgcolor: '#41454c'}, layout: layout, colorbar: colorbar, type: 'heatmap', colorscale: [['0.0', 'rgb(254, 255, 207)'],['0.067', 'rgb(253, 255, 136)'],['0.134', 'rgb(252, 255, 69)'],['0.201', 'rgb(253, 255, 54)'],['0.268', 'rgb(253, 233, 48)'],['0.335', 'rgb(253, 209, 42)'],['0.402', 'rgb(253, 185, 36)'],['0.469', 'rgb(253, 161, 30)'],['0.536', 'rgb(253, 137, 24)'],['0.603', 'rgb(253, 113, 18)'],['0.670', 'rgb(253, 89, 12)'],['0.737', 'rgb(253, 63, 6)'],['0.804', 'rgb(253, 33, 2)'],['0.871', 'rgb(253, 16, 1)'],['0.938', 'rgb(253, 0, 0)'],['1.0', 'rgb(253, 0, 0)']]}], layout, config);
+          }
+        )}
+
+    </script>
+<?php }
+
+
+
+
+// define hclust viridis heatmap plot parameters for plotting Arabidopsis thaliana data here
+else if ($_POST['filter4'] == "heatmap" && $_POST['filter1'] == "Arabidopsis_thaliana" && ($count > 1) && ($count < 1251) && $_POST['filter6'] == "1") { ?>
+
+    <script type="text/javascript">
+        // Function to call viridis plot (standard plot)
+        var zValues = <?php echo $valuesclustout; ?>;                       
+        var yValues = <?php echo $keysclustout; ?>;
+        var xValues = 
+        ['root, root tip, 5d.1', 'root, root tip, 5d.2', 'root, root tip, 5d.3', 'root, maturation zone, 5d.1', 'root, maturation zone, 5d.2', 'root, maturation zone, 5d.3', 'root, whole root, 5d.1', 'root, whole root_5d.2', 'root, whole root, 5d.3', 'root, whole root, 7d.1', 'root, whole root, 7d.2', 'root, whole root, 7d.3', 'root, whole root, 14d.1', 'root, whole root, 14d.2', 'root, whole root, 14d.3', 'root, whole root, 21d.1', 'root, whole root, 21d.2', 'root, whole root, 21d.3', 'hypocotyl, 10d.1', 'hypocotyl, 10d.2', 'hypocotyl, 10d.3', '3rd internode, 24d.1', '3rd internode, 24d.2', '3rd internode, 24d.3', '2nd internode, 24d.1', '2nd internode, 24d.2', '2nd internode, 24d.3', '1st internode, 28d.1', '1st internode, 28d.2', '1st internode, 28d.3', 'cotyledons, 7d.1', 'cotyledons, 7d.2', 'cotyledons, 7d.3', 'leaf 1+2, 7d.1', 'leaf 1+2, 7d.2', 'leaf 1+2, 7d.3', 'leaf 1+2, 10d.1', 'leaf 1+2, 10d.2', 'leaf 1+2, 10d.3', 'leaf 1+2, petiole, 10d.1', 'leaf 1+2, petiole, 10d.2', 'leaf 1+2, petiole, 10d.3', 'leaf 1+2, leaf tip, 10d.1', 'leaf 1+2, leaf tip, 10d.2', 'leaf 1+2, leaf tip, 10d.3', 'leaf 5+6, 17d.1', 'leaf 5+6, 17d.2', 'leaf 5+6, 17d.3', 'leaf 9+10, 27d.1', 'leaf 9+10, 27d.2', 'leaf 9+10, 27d.3', 'leaves senescing, 35d.1', 'leaves senescing, 35d.2', 'leaves senescing, 35d.3', 'cauline leaves, 24d.1', 'cauline leaves, 24d.2', 'cauline leaves, 24d.3', 'apex vegetative, 7d.1', 'apex vegetative, 7d.2', 'apex vegetative, 7d.3', 'apex vegetative, 10d.1', 'apex vegetative, 10d.2', 'apex vegetative, 10d.3', 'apex vegetative, 14d.1', 'apex vegetative, 14d.2', 'apex vegetative, 14d.3', 'apex inflorescence, 21d.1', 'apex inflorescence, 21d.2', 'apex inflorescence, 21d.3', 'apex inflorescence, 28d.1', 'apex inflorescence, 28d.2', 'apex inflorescence, 28d.3', 'apex inflor. clv1, 21d.1', 'apex inflor. clv1, 21d.2', 'apex inflor. clv1, 21d.3', 'flower stg9, 21d+.1', 'flower stg9, 21d+.2', 'flower stg9, 21d+.3', 'flower stg10/11, 21d+.1', 'flower stg10/11, 21d+.2', 'flower stg10/11, 21d+.3', 'flower stg12, 21d+.1', 'flower stg12, 21d+.2', 'flower stg12, 21d+.3', 'flower stg15, 21d+.1', 'flower stg15, 21d+.2', 'flower stg15, 21d+.3', 'flower stg12, sepals.1', 'flower stg12, sepals.2', 'flower stg12, sepals.3', 'flower stg15, sepals.1', 'flower stg15, sepals.2', 'flower stg15, sepals.3', 'flower stg12, petals.1', 'flower stg12, petals.2', 'flower stg12, petals.3', 'flower stg15, petals.1', 'flower stg15, petals.2', 'flower stg15, petals.3', 'flower stg12, stamens.1', 'flower stg12, stamens.2', 'flower stg12, stamens.3', 'flower stg15, stamens.1', 'flower stg15, stamens.2', 'flower stg15, stamens.3', 'mature pollen, 28d+.1', 'mature pollen, 28d+.2', 'mature pollen, 28d+.3', 'flower early stg12, carpels.1', 'flower early stg12, carpels.2', 'flower early stg12, carpels.3', 'flower late stg12, carpels.1', 'flower late stg12, carpels.2', 'flower late stg12, carpels.3', 'flower stg15, carpels.1', 'flower stg15, carpels.2', 'flower stg15, carpels.3', 'fruit stg16, siliques.1', 'fruit stg16, siliques.2', 'fruit stg16, siliques.3', 'fruit stg17a, siliques.1', 'fruit stg17a, siliques.2', 'fruit stg17a, siliques.3', 'fruit stg16, seeds.1', 'fruit stg16, seeds.2', 'fruit stg16, seeds.3', 'fruit stg17a, seeds.1', 'fruit stg17a, seeds.2', 'fruit stg17a, seeds.3', 'fruit stg18, seeds.1', 'fruit stg18, seeds.2', 'fruit stg18, seeds.3'];
+
+        var title = <?php echo $titleout; ?>;
+
+        var ticknumber = <?php if($countout == 1) { ?> 3;
+                     <?php } else { ?> 0; <?php } ?>;
+
+        var ticklabels = ['root, root tip, 5d.1', 'root, maturation zone, 5d.1', 'root, whole root, 5d.1', 'root, whole root, 7d.1', 'root, whole root, 14d.1', 'root, whole root, 21d.1', 'hypocotyl, 10d.1', '3rd internode, 24d.1',  '2nd internode, 24d.1', '1st internode, 28d.1', 'cotyledons, 7d.1', 'leaf 1+2, 7d.1', 'leaf 1+2, 10d.1', 'leaf 1+2, petiole, 10d.1', 'leaf 1+2, leaf tip, 10d.1', 'leaf 5+6, 17d.1', 'leaf 9+10, 27d.1', 'leaves senescing, 35d.1', 'cauline leaves, 24d.1', 'apex vegetative, 7d.1', 'apex vegetative, 10d.1', 'apex vegetative, 14d.1', 'apex inflorescence, 21d.1', 'apex inflorescence, 28d.1', 'apex inflor. clv1, 21d.1', 'flower stg9, 21d+.1', 'flower stg10/11, 21d+.1', 'flower stg12, 21d+.1', 'flower stg15, 21d+.1', 'flower stg12, sepals.1', 'flower stg15, sepals.1', 'flower stg12, petals.1', 'flower stg15, petals.1', 'flower stg12, stamens.1', 'flower stg15, stamens.1', 'mature pollen, 28d+.1', 'flower early stg12, carpels.1', 'flower late stg12, carpels.1', 'flower stg15, carpels.1', 'fruit stg16, siliques.1', 'fruit stg17a, siliques.1', 'fruit stg16, seeds.1', 'fruit stg17a, seeds.1', 'fruit stg18, seeds.1'];
+
+        var colorbar = {
+          title: title,
+          titlefont: {
+            size: 12,
+          },
+          titleside: "top",
+          thickness: 20,
+          nticks: ticknumber,
+          tickfont: {
+            size:10.5
+          },
+          outlinewidth: 0,
+          xpad: 1,
+          ypad:3
+        };
+
+        var height = <?php echo $reqheightout; ?>;
+
+        var layout = <?php if($countout < 5) { ?> {
+          paper_bgcolor: 'rgba(255,255,255,0)',
+          height: height,
+          margin: {
+            l: 105,
+            r: 105,
+            b: 181,
+            t: 62,
+            pad: 0
+          },
+          xaxis: {
+            showticklabels: true,
+            tickangle: 90,
+            tickvals: ticklabels,
+            tickfont: {
+              size: 11.75,
+              color: 'black'
+          }},
+          yaxis: {
+            showticklabels: true,
+            tickangle: 0,
+            tickfont: {
+              size: 11.75,
+              color: 'black'
+            }}
+          };
+
+          <?php } else if ($countout < 10) { ?> {
+          paper_bgcolor: 'rgba(255,255,255,0)',
+          height: height,
+          margin: {
+            l: 105,
+            r: 105,
+            b: 187,
+            t: 53,
+            pad: 0
+          },
+          xaxis: {
+            showticklabels: true,
+            tickangle: 90,
+            tickvals: ticklabels,
+            tickfont: {
+              size: 11.75,
+              color: 'black'
+          }},
+          yaxis: {
+            showticklabels: true,
+            tickangle: 0,
+            tickfont: {
+              size: 11.75,
+              color: 'black'
+            }}
+          };
+      
+          <?php } else { ?> {
+          paper_bgcolor: 'rgba(255,255,255,0)',
+          height: height,
+          margin: {
+            l: 105,
+            r: 105,
+            b: 202,
+            t: 38,
+            pad: 0
+          },
+          xaxis: {
+            showticklabels: true,
+            tickangle: 90,
+            tickvals: ticklabels,
+            tickfont: {
+              size: 11.75,
+              color: 'black'
+          }},
+          yaxis: {
+            showticklabels: true,
+            tickangle: 0,
+            tickfont: {
+              size: 11.75,
+              color: 'black'
+          }}
+        };
+        <?php } ?>;
+
+
+        // fill in 'text' array for hover
+        var text = zValues.map (function(zValues, i) { return zValues.map (function (value, j) {
+            return ` ID: ${yValues[i]}<br> Tissue: ${xValues[j]}<br> Expression: ${value.toFixed(2)} `
+            });
+          });
+
+        // format modebar, add svg download icon, activate responsive design
+        var config = {
+            modeBarButtonsToRemove: ['sendDataToCloud', 'autoScale2d', 'hoverClosestCartesian', 'hoverCompareCartesian', 'lasso2d', 'select2d', 'toggleSpikelines'],
+            displayModeBar: true,
+            responsive: true,
+            toImageButtonOptions: {
+              filename: 'devseq_plot',
+              width: 1020,
+            },
+            modeBarButtonsToAdd: [{
+            name: 'Download plot as a svg',
+            icon: Plotly.Icons.disk,
+            click: function(gd) {
+            Plotly.downloadImage(gd, {filename: 'devseq_plot', format: 'svg'})
+            } 
+            }],
+            displaylogo: false
+          };
+
+      Plotly.newPlot('myDiv',[{x: xValues, y: yValues, z: zValues, text: text, hoverinfo: 'text', hoverlabel: {bgcolor: '#41454c'}, layout: layout, colorbar: colorbar, type: 'heatmap', colorscale: [['0', 'rgb(64, 1, 82)'],['0.01', 'rgb(68, 1, 84)'],['0.05', 'rgb(71, 17, 102)'],['0.10', 'rgb(73, 34, 117)'],['0.1475', 'rgb(72, 49, 130)'],['0.195', 'rgb(67, 62, 135)'],['0.2425', 'rgb(64, 77, 143)'],['0.29', 'rgb(58, 90, 145)'],['0.3375', 'rgb(52, 103, 148)'],['0.385', 'rgb(47, 116, 148)'],['0.425', 'rgb(41, 124, 145)'],['0.465', 'rgb(38, 136, 145)'],['0.505', 'rgb(33, 145, 142)'],['0.545', 'rgb(31, 155, 137)'],['0.585', 'rgb(34, 165, 132)'],['0.63', 'rgb(42, 175, 126)'],['0.675', 'rgb(59, 185, 117)'],['0.725', 'rgb(80, 195, 105)'],['0.77', 'rgb(105, 204, 90)'],['0.815', 'rgb(132, 212, 74)'],['0.8625', 'rgb(169, 217, 55)'],['0.91', 'rgb(202, 222, 36)'],['0.95', 'rgb(223, 227, 27)'],['0.99', 'rgb(251, 230, 36)'],['1.0', 'rgb(251, 230, 36)']]}], layout, config);
+ 
+
+
+    // Function to call viridis plot
+    function l_function(){
+      $(function () {
+      Plotly.newPlot('myDiv',[{x: xValues, y: yValues, z: zValues, text: text, hoverinfo: 'text', hoverlabel: {bgcolor: '#41454c'}, layout: layout, colorbar: colorbar, type: 'heatmap', colorscale: [['0', 'rgb(64, 1, 82)'],['0.01', 'rgb(68, 1, 84)'],['0.05', 'rgb(71, 17, 102)'],['0.10', 'rgb(73, 34, 117)'],['0.1475', 'rgb(72, 49, 130)'],['0.195', 'rgb(67, 62, 135)'],['0.2425', 'rgb(64, 77, 143)'],['0.29', 'rgb(58, 90, 145)'],['0.3375', 'rgb(52, 103, 148)'],['0.385', 'rgb(47, 116, 148)'],['0.425', 'rgb(41, 124, 145)'],['0.465', 'rgb(38, 136, 145)'],['0.505', 'rgb(33, 145, 142)'],['0.545', 'rgb(31, 155, 137)'],['0.585', 'rgb(34, 165, 132)'],['0.63', 'rgb(42, 175, 126)'],['0.675', 'rgb(59, 185, 117)'],['0.725', 'rgb(80, 195, 105)'],['0.77', 'rgb(105, 204, 90)'],['0.815', 'rgb(132, 212, 74)'],['0.8625', 'rgb(169, 217, 55)'],['0.91', 'rgb(202, 222, 36)'],['0.95', 'rgb(223, 227, 27)'],['0.99', 'rgb(251, 230, 36)'],['1.0', 'rgb(251, 230, 36)']]}], layout, config);
+        }
+      )}
+
+
+    // Function to call blue plot
+    function m_function(){
+      $(function () {
+      Plotly.newPlot('myDiv',[{x: xValues, y: yValues, z: zValues, text: text, hoverinfo: 'text', hoverlabel: {bgcolor: '#41454c'}, layout: layout, colorbar: colorbar, type: 'heatmap', colorscale: [['0.0', 'rgb(245, 250, 254)'],['0.1', 'rgb(226, 237, 248)'],['0.2', 'rgb(207, 225, 242)'],['0.3', 'rgb(180, 211, 233)'],['0.4', 'rgb(146, 195, 223)'],['0.5', 'rgb(108, 173, 213)'],['0.6', 'rgb(74, 151, 201)'],['0.7', 'rgb(47, 126, 188)'],['0.8', 'rgb( 24, 100, 170)'],['0.9', 'rgb(10, 74, 144)'],['1.0', 'rgb(9, 57, 127)']]}], layout, config);
+        }
+      )}
+
+
+    // Function to call red plot
+    function n_function(){
+      $(function () {
+      Plotly.newPlot('myDiv', [{x: xValues, y: yValues, z: zValues, text: text, hoverinfo: 'text', hoverlabel: {bgcolor: '#41454c'}, layout: layout, colorbar: colorbar, type: 'heatmap', colorscale: [['0.0', 'rgb(254, 245, 245)'],['0.11', 'rgb(249, 225, 215)'],['0.22', 'rgb(244, 201, 182)'],['0.33', 'rgb(240, 168, 145)'],['0.44', 'rgb(231, 126, 107)'],['0.55', 'rgb(217, 73, 64)'],['0.66', 'rgb(197, 38, 40)'],['0.77', 'rgb(162, 23, 28)'],['0.88', 'rgb(127, 13, 24)'],['1.0', 'rgb(98, 2, 14)']]}], layout, config);
+        }
+      )}
+
+
+    // Function to call green plot
+    function o_function(){
+      $(function () {
+      Plotly.newPlot('myDiv', [{x: xValues, y: yValues, z: zValues, text: text, hoverinfo: 'text', hoverlabel: {bgcolor: '#41454c'}, layout: layout, colorbar: colorbar, type: 'heatmap', colorscale: [['0.0', 'rgb(245, 252, 234)'],['0.11112', 'rgb(228, 240, 195)'],['0.22223', 'rgb(207, 224, 154)'],['0.33334', 'rgb(181, 206, 109)'],['0.44445', 'rgb(154, 187, 83)'],['0.55556', 'rgb(116, 165, 63)'],['0.66667', 'rgb(72, 138, 44)'],['0.77778', 'rgb(33, 113, 29)'],['0.88889', 'rgb(9, 96, 21)'],['1.0', 'rgb(0, 87, 18)']]}], layout, config);
+        }
+      )}
+
+
+    // Function to call red-yellow plot
+    function p_function(){
+      $(function () {
+      Plotly.newPlot('myDiv',[{x: xValues, y: yValues, z: zValues, text: text, hoverinfo: 'text', hoverlabel: {bgcolor: '#424447'}, layout: layout, colorbar: colorbar, type: 'heatmap', colorscale: [['0.0', 'rgb(253, 0, 0)'],['0.067', 'rgb(253, 33, 2)'],['0.134', 'rgb(253, 63, 6)'],['0.201', 'rgb(253, 89, 12)'],['0.268', 'rgb(253, 113, 18)'],['0.335', 'rgb(253, 137, 24)'],['0.402', 'rgb(253, 161, 30)'],['0.469', 'rgb(253, 185, 36)'],['0.536', 'rgb(253, 209, 42)'],['0.603', 'rgb(253, 233, 48)'],['0.670', 'rgb(253, 255, 54)'],['0.737', 'rgb(252, 255, 69)'],['0.804', 'rgb(253, 255, 136)'],['0.871', 'rgb(253, 255, 170)'],['0.938', 'rgb(254, 255, 207)'],['1.0', 'rgb(254, 255, 207)']]}], layout, config);
+        }
+      )}
+
+
+    // Function to call yellow-red plot
+    function q_function(){
+      $(function () {
+      Plotly.newPlot('myDiv',[{x: xValues, y: yValues, z: zValues, text: text, hoverinfo: 'text', hoverlabel: {bgcolor: '#41454c'}, layout: layout, colorbar: colorbar, type: 'heatmap', colorscale: [['0.0', 'rgb(254, 255, 207)'],['0.067', 'rgb(253, 255, 136)'],['0.134', 'rgb(252, 255, 69)'],['0.201', 'rgb(253, 255, 54)'],['0.268', 'rgb(253, 233, 48)'],['0.335', 'rgb(253, 209, 42)'],['0.402', 'rgb(253, 185, 36)'],['0.469', 'rgb(253, 161, 30)'],['0.536', 'rgb(253, 137, 24)'],['0.603', 'rgb(253, 113, 18)'],['0.670', 'rgb(253, 89, 12)'],['0.737', 'rgb(253, 63, 6)'],['0.804', 'rgb(253, 33, 2)'],['0.871', 'rgb(253, 16, 1)'],['0.938', 'rgb(253, 0, 0)'],['1.0', 'rgb(253, 0, 0)']]}], layout, config);
+        }
+      )}
+
+    </script>
+<?php }
+
+
+
+
+// define hclust viridis heatmap plot parameters for plotting Arabidopsis thaliana AVERAGED REPLICATE data here
+// AVERAGED REPLICATE data will be plotted if number of entities found is >1250
+else if ($_POST['filter4'] == "heatmap" && $_POST['filter1'] == "Arabidopsis_thaliana" && ($count > 1) && ($count > 1250) && $_POST['filter6'] == "1") { ?>
+
+    <script type="text/javascript">
+        // Function to call viridis plot (standard plot)
+        var zValues = <?php echo $valuesclustout; ?>;                       
+        var yValues = <?php echo $keysclustout; ?>;
+        var xValues = 
+        ['root_root tip_5d', 'root_maturation zone_5d', 'root_whole root_5d', 'root_whole root_7d', 'root_whole root_14d', 'root_whole root_21d', 'hypocotyl_10d', '3rd internode_24d', '2nd internode_24d', '1st internode_28d', 'cotyledons_7d', 'leaf 1+2_7d', 'leaf 1+2_10d', 'leaf 1+2_petiole_10d', 'leaf 1+2_leaf tip_10d', 'leaf_5+6_17d', 'leaf_9+10_27d', 'leaves senescing_35d', 'cauline leaves_24d', 'apex vegetative_7d', 'apex vegetative_10d', 'apex vegetative_14d', 'apex inflorescence_21d', 'apex inflorescence_28d', 'apex inflorescence_clv1_21d', 'flower stg9_21d+', 'flower stg10/11_21d+', 'flower stg12_21d+', 'flower stg15_21d+', 'flower stg12_sepals', 'flower stg15_sepals', 'flower stg12_petals', 'flower stg15_petals', 'flower stg12_stamens', 'flower stg15_stamens', 'mature pollen_28d+', 'flower early stg12_carpels', 'flower late stg12_carpels', 'flower stg15_carpels', 'fruit stg16_siliques', 'fruit stg17a_siliques', 'fruit stg16_seeds', 'fruit stg17a_seeds', 'fruit stg18_seeds'];
+
+        var title = <?php echo $titleout; ?>;
+
+        var ticknumber = <?php if($countout == 1) { ?> 3;
+                     <?php } else { ?> 0; <?php } ?>;
+
+        var ticklabels = ['root_root tip_5d', 'root_maturation zone_5d', 'root_whole root_5d', 'root_whole root_7d', 'root_whole root_14d', 'root_whole root_21d', 'hypocotyl_10d', '3rd internode_24d', '2nd internode_24d', '1st internode_28d', 'cotyledons_7d', 'leaf 1+2_7d', 'leaf 1+2_10d', 'leaf 1+2_petiole_10d', 'leaf 1+2_leaf tip_10d', 'leaf_5+6_17d', 'leaf_9+10_27d', 'leaves senescing_35d', 'cauline leaves_24d', 'apex vegetative_7d', 'apex vegetative_10d', 'apex vegetative_14d', 'apex inflorescence_21d', 'apex inflorescence_28d', 'apex inflorescence_clv1_21d', 'flower stg9_21d+', 'flower stg10/11_21d+', 'flower stg12_21d+', 'flower stg15_21d+', 'flower stg12_sepals', 'flower stg15_sepals', 'flower stg12_petals', 'flower stg15_petals', 'flower stg12_stamens', 'flower stg15_stamens', 'mature pollen_28d+', 'flower early stg12_carpels', 'flower late stg12_carpels', 'flower stg15_carpels', 'fruit stg16_siliques', 'fruit stg17a_siliques', 'fruit stg16_seeds', 'fruit stg17a_seeds', 'fruit stg18_seeds'];
+
+        var colorbar = {
+          title: title,
+          titlefont: {
+            size: 12,
+          },
+          titleside: "top",
+          thickness: 20,
+          nticks: ticknumber,
+          tickfont: {
+            size:10.5
+          },
+          outlinewidth: 0,
+          xpad: 1,
+          ypad:3
+        };
+
+        var height = <?php echo $reqheightout; ?>;
+
+        var layout = {
+          paper_bgcolor: 'rgba(255,255,255,0)',
+          height: height,
+          margin: {
+            l: 105,
+            r: 105,
+            b: 202,
+            t: 38,
+            pad: 0
+          },
+          xaxis: {
+            showticklabels: true,
+            tickangle: 90,
+            tickvals: ticklabels,
+            tickfont: {
+              size: 11.75,
+              color: 'black'
+          }},
+          yaxis: {
+            showticklabels: true,
+            tickangle: 0,
+            tickfont: {
+              size: 11.75,
+              color: 'black'
+          }}
+        };
+
+
+        // fill in 'text' array for hover
+        var text = zValues.map (function(zValues, i) { return zValues.map (function (value, j) {
+            return ` ID: ${yValues[i]}<br> Tissue: ${xValues[j]}<br> Expression: ${value.toFixed(2)} `
+            });
+          });
+
+        // format modebar, add svg download icon, activate responsive design
+        var config = {
+            modeBarButtonsToRemove: ['sendDataToCloud', 'autoScale2d', 'hoverClosestCartesian', 'hoverCompareCartesian', 'lasso2d', 'select2d', 'toggleSpikelines'],
+            displayModeBar: true,
+            responsive: true,
+            toImageButtonOptions: {
+              filename: 'devseq_plot',
+              width: 1020,
+            },
+            modeBarButtonsToAdd: [{
+            name: 'Download plot as a svg',
+            icon: Plotly.Icons.disk,
+            click: function(gd) {
+            Plotly.downloadImage(gd, {filename: 'devseq_plot', format: 'svg'})
+            } 
+            }],
+            displaylogo: false
+          };
+
+      Plotly.newPlot('myDiv',[{x: xValues, y: yValues, z: zValues, text: text, hoverinfo: 'text', hoverlabel: {bgcolor: '#41454c'}, layout: layout, colorbar: colorbar, type: 'heatmap', colorscale: [['0', 'rgb(64, 1, 82)'],['0.01', 'rgb(68, 1, 84)'],['0.05', 'rgb(71, 17, 102)'],['0.10', 'rgb(73, 34, 117)'],['0.1475', 'rgb(72, 49, 130)'],['0.195', 'rgb(67, 62, 135)'],['0.2425', 'rgb(64, 77, 143)'],['0.29', 'rgb(58, 90, 145)'],['0.3375', 'rgb(52, 103, 148)'],['0.385', 'rgb(47, 116, 148)'],['0.425', 'rgb(41, 124, 145)'],['0.465', 'rgb(38, 136, 145)'],['0.505', 'rgb(33, 145, 142)'],['0.545', 'rgb(31, 155, 137)'],['0.585', 'rgb(34, 165, 132)'],['0.63', 'rgb(42, 175, 126)'],['0.675', 'rgb(59, 185, 117)'],['0.725', 'rgb(80, 195, 105)'],['0.77', 'rgb(105, 204, 90)'],['0.815', 'rgb(132, 212, 74)'],['0.8625', 'rgb(169, 217, 55)'],['0.91', 'rgb(202, 222, 36)'],['0.95', 'rgb(223, 227, 27)'],['0.99', 'rgb(251, 230, 36)'],['1.0', 'rgb(251, 230, 36)']]}], layout, config);
+ 
+
+
+    // Function to call viridis plot
+    function l_function(){
+      $(function () {
+      Plotly.newPlot('myDiv',[{x: xValues, y: yValues, z: zValues, text: text, hoverinfo: 'text', hoverlabel: {bgcolor: '#41454c'}, layout: layout, colorbar: colorbar, type: 'heatmap', colorscale: [['0', 'rgb(64, 1, 82)'],['0.01', 'rgb(68, 1, 84)'],['0.05', 'rgb(71, 17, 102)'],['0.10', 'rgb(73, 34, 117)'],['0.1475', 'rgb(72, 49, 130)'],['0.195', 'rgb(67, 62, 135)'],['0.2425', 'rgb(64, 77, 143)'],['0.29', 'rgb(58, 90, 145)'],['0.3375', 'rgb(52, 103, 148)'],['0.385', 'rgb(47, 116, 148)'],['0.425', 'rgb(41, 124, 145)'],['0.465', 'rgb(38, 136, 145)'],['0.505', 'rgb(33, 145, 142)'],['0.545', 'rgb(31, 155, 137)'],['0.585', 'rgb(34, 165, 132)'],['0.63', 'rgb(42, 175, 126)'],['0.675', 'rgb(59, 185, 117)'],['0.725', 'rgb(80, 195, 105)'],['0.77', 'rgb(105, 204, 90)'],['0.815', 'rgb(132, 212, 74)'],['0.8625', 'rgb(169, 217, 55)'],['0.91', 'rgb(202, 222, 36)'],['0.95', 'rgb(223, 227, 27)'],['0.99', 'rgb(251, 230, 36)'],['1.0', 'rgb(251, 230, 36)']]}], layout, config);
+        }
+      )}
+
+
+    // Function to call blue plot
+    function m_function(){
+      $(function () {
+      Plotly.newPlot('myDiv',[{x: xValues, y: yValues, z: zValues, text: text, hoverinfo: 'text', hoverlabel: {bgcolor: '#41454c'}, layout: layout, colorbar: colorbar, type: 'heatmap', colorscale: [['0.0', 'rgb(245, 250, 254)'],['0.1', 'rgb(226, 237, 248)'],['0.2', 'rgb(207, 225, 242)'],['0.3', 'rgb(180, 211, 233)'],['0.4', 'rgb(146, 195, 223)'],['0.5', 'rgb(108, 173, 213)'],['0.6', 'rgb(74, 151, 201)'],['0.7', 'rgb(47, 126, 188)'],['0.8', 'rgb( 24, 100, 170)'],['0.9', 'rgb(10, 74, 144)'],['1.0', 'rgb(9, 57, 127)']]}], layout, config);
+        }
+      )}
+
+
+    // Function to call red plot
+    function n_function(){
+      $(function () {
+      Plotly.newPlot('myDiv', [{x: xValues, y: yValues, z: zValues, text: text, hoverinfo: 'text', hoverlabel: {bgcolor: '#41454c'}, layout: layout, colorbar: colorbar, type: 'heatmap', colorscale: [['0.0', 'rgb(254, 245, 245)'],['0.11', 'rgb(249, 225, 215)'],['0.22', 'rgb(244, 201, 182)'],['0.33', 'rgb(240, 168, 145)'],['0.44', 'rgb(231, 126, 107)'],['0.55', 'rgb(217, 73, 64)'],['0.66', 'rgb(197, 38, 40)'],['0.77', 'rgb(162, 23, 28)'],['0.88', 'rgb(127, 13, 24)'],['1.0', 'rgb(98, 2, 14)']]}], layout, config);
+        }
+      )}
+
+
+    // Function to call green plot
+    function o_function(){
+      $(function () {
+      Plotly.newPlot('myDiv', [{x: xValues, y: yValues, z: zValues, text: text, hoverinfo: 'text', hoverlabel: {bgcolor: '#41454c'}, layout: layout, colorbar: colorbar, type: 'heatmap', colorscale: [['0.0', 'rgb(245, 252, 234)'],['0.11112', 'rgb(228, 240, 195)'],['0.22223', 'rgb(207, 224, 154)'],['0.33334', 'rgb(181, 206, 109)'],['0.44445', 'rgb(154, 187, 83)'],['0.55556', 'rgb(116, 165, 63)'],['0.66667', 'rgb(72, 138, 44)'],['0.77778', 'rgb(33, 113, 29)'],['0.88889', 'rgb(9, 96, 21)'],['1.0', 'rgb(0, 87, 18)']]}], layout, config);
+        }
+      )}
+
+
+    // Function to call red-yellow plot
+    function p_function(){
+      $(function () {
+      Plotly.newPlot('myDiv',[{x: xValues, y: yValues, z: zValues, text: text, hoverinfo: 'text', hoverlabel: {bgcolor: '#424447'}, layout: layout, colorbar: colorbar, type: 'heatmap', colorscale: [['0.0', 'rgb(253, 0, 0)'],['0.067', 'rgb(253, 33, 2)'],['0.134', 'rgb(253, 63, 6)'],['0.201', 'rgb(253, 89, 12)'],['0.268', 'rgb(253, 113, 18)'],['0.335', 'rgb(253, 137, 24)'],['0.402', 'rgb(253, 161, 30)'],['0.469', 'rgb(253, 185, 36)'],['0.536', 'rgb(253, 209, 42)'],['0.603', 'rgb(253, 233, 48)'],['0.670', 'rgb(253, 255, 54)'],['0.737', 'rgb(252, 255, 69)'],['0.804', 'rgb(253, 255, 136)'],['0.871', 'rgb(253, 255, 170)'],['0.938', 'rgb(254, 255, 207)'],['1.0', 'rgb(254, 255, 207)']]}], layout, config);
+        }
+      )}
+
+
+    // Function to call yellow-red plot
+    function q_function(){
+      $(function () {
+      Plotly.newPlot('myDiv',[{x: xValues, y: yValues, z: zValues, text: text, hoverinfo: 'text', hoverlabel: {bgcolor: '#41454c'}, layout: layout, colorbar: colorbar, type: 'heatmap', colorscale: [['0.0', 'rgb(254, 255, 207)'],['0.067', 'rgb(253, 255, 136)'],['0.134', 'rgb(252, 255, 69)'],['0.201', 'rgb(253, 255, 54)'],['0.268', 'rgb(253, 233, 48)'],['0.335', 'rgb(253, 209, 42)'],['0.402', 'rgb(253, 185, 36)'],['0.469', 'rgb(253, 161, 30)'],['0.536', 'rgb(253, 137, 24)'],['0.603', 'rgb(253, 113, 18)'],['0.670', 'rgb(253, 89, 12)'],['0.737', 'rgb(253, 63, 6)'],['0.804', 'rgb(253, 33, 2)'],['0.871', 'rgb(253, 16, 1)'],['0.938', 'rgb(253, 0, 0)'],['1.0', 'rgb(253, 0, 0)']]}], layout, config);
+        }
+      )}
+
+    </script>
+<?php }
+
+
+
+
+// define hclust heatmap parameters for plotting non-Arabidopsis thaliana data here
+else if ($_POST['filter4'] == "heatmap" && $_POST['filter1'] != "Arabidopsis_thaliana" && ($count > 1) && $_POST['filter6'] == "1") { ?>
+
+    <script type="text/javascript">
+        var zValues = <?php echo $valuesclustout; ?>;
+        var yValues = <?php echo $keysclustout; ?>;
+        // define x axis labels depending on selected species
+        var xValues = 
+        <?php if($_POST['filter1'] == "Capsella_rubella") { ?>
+        ['root, whole root, 4d.1', 'root, whole root, 4d.2', 'root, whole root, 4d.3', 'hypocotyl, 9d.1', 'hypocotyl, 9d.2', 'hypocotyl, 9d.3', 'leaf 1+2, 7d.1', 'leaf 1+2, 7d.2', 'leaf 1+2, 7d.3', 'apex vegetative, 7d.1', 'apex vegetative, 7d.2', 'apex vegetative, 7d.3', 'apex inflorescence.1', 'apex inflorescence.2', 'apex inflorescence.3', 'flower stg12.1', 'flower stg12.2', 'flower stg12.3', 'flower stg12, carpels.1', 'flower stg12, carpels.2', 'flower stg12, carpels.3', 'flower stg12, stamens.1', 'flower stg12, stamens.2', 'flower stg12, stamens.3', 'mature pollen.1', 'mature pollen.2', 'mature pollen.3'];
+        <?php } 
+        else if ($_POST['filter1'] == "Eutrema_salsugineum") { ?>
+        ['root, whole root, 6d.1', 'root, whole root, 6d.2', 'root, whole root, 6d.3', 'hypocotyl, 12d.1', 'hypocotyl, 12d.2', 'hypocotyl, 12d.3', 'leaf 1+2, 9d.1', 'leaf 1+2, 9d.2', 'leaf 1+2, 9d.3', 'apex vegetative, 9d.1', 'apex vegetative, 9d.2', 'apex vegetative, 9d.3', 'apex inflorescence.1', 'apex inflorescence.2', 'apex inflorescence.3', 'flower stg12.1', 'flower stg12.2', 'flower stg12.3', 'flower stg12, carpels.1', 'flower stg12, carpels.2', 'flower stg12, carpels.3', 'flower stg12, stamens.1', 'flower stg12, stamens.2', 'flower stg12, stamens.3', 'mature pollen.1', 'mature pollen.2', 'mature pollen.3'];
+        <?php } ?>
+
+        var title = <?php echo $titleout; ?>;
+
+        var ticknumber = <?php if($countout == 1) { ?> 3;
+                     <?php } else { ?> 0; <?php } ?>;
+
+        var colorbar = {
+          title: title,
+          titlefont: {
+            size: 12,
+          },
+          titleside: "top",
+          thickness: 20,
+          nticks: ticknumber,
+          tickfont: {
+            size:10.5
+          },
+          outlinewidth: 0,
+          xpad: 1,
+          ypad:3
+        };
+
+        var height = <?php echo $reqheightout; ?>;
+
+        var layout = <?php if($countout < 5) { ?> {
+          paper_bgcolor: 'rgba(255,255,255,0)',
+          height: height,
+          margin: {
+            l: 148,
+            r: 148,
+            b: 181,
+            t: 62,
+            pad: 0
+          },
+          xaxis: {
+            showticklabels: true,
+            tickangle: 90,
+            tickfont: {
+              size: 11.75,
+              color: 'black'
+          }},
+          yaxis: {
+            showticklabels: true,
+            tickangle: 0,
+            tickfont: {
+              size: 11.75,
+              color: 'black'
+            }}
+          };      
+      
+          <?php } else if ($countout < 10) { ?> {
+          paper_bgcolor: 'rgba(255,255,255,0)',
+          height: height,
+          margin: {
+            l: 148,
+            r: 148,
+            b: 187,
+            t: 53,
+            pad: 0
+          },
+          xaxis: {
+            showticklabels: true,
+            tickangle: 90,
+            tickfont: {
+              size: 11.75,
+              color: 'black'
+            }},
+          yaxis: {
+            showticklabels: true,
+            tickangle: 0,
+            tickfont: {
+              size: 11.75,
+              color: 'black'
+            }}
+          };
+      
+          <?php } else { ?> {
+          paper_bgcolor: 'rgba(255,255,255,0)',
+          height: height,
+          margin: {
+            l: 148,
+            r: 148,
+            b: 202,
+            t: 38,
+            pad: 0
+          },
+          xaxis: {
+            showticklabels: true,
+            tickangle: 90,
+            tickfont: {
+              size: 11.75,
+              color: 'black'
+          }},
+          yaxis: {
+            showticklabels: true,
+            tickangle: 0,
+            tickfont: {
+              size: 11.75,
+              color: 'black'
+            }}
+          };
+          <?php } ?>;
+
+
+        // fill in 'text' array for hover
+        var text = zValues.map (function(zValues, i) { return zValues.map (function (value, j) {
+            return ` ID: ${yValues[i]}<br> Tissue: ${xValues[j]}<br> Expression: ${value.toFixed(2)} `
+            });
+          });
+
+        // format modebar, add svg download icon, activate responsive design
+        var config = {
+            displayModeBar: true,
+            responsive: true,
+            toImageButtonOptions: {
+              filename: 'devseq_plot',
+              width: 1020,
+            },
+            modeBarButtonsToRemove: ['sendDataToCloud', 'autoScale2d', 'hoverClosestCartesian', 'hoverCompareCartesian', 'lasso2d', 'select2d', 'toggleSpikelines'],
+            modeBarButtonsToAdd: [{
+            name: 'Download plot as a svg',
+            icon: Plotly.Icons.disk,
+            click: function(gd) {
+            Plotly.downloadImage(gd, {format: 'svg'})
+            } 
+            }],
+            displaylogo: false
+          };
+
+      Plotly.newPlot('myDiv',[{x: xValues, y: yValues, z: zValues, text: text, hoverinfo: 'text', hoverlabel: {bgcolor: '#41454c'}, layout: layout, colorbar: colorbar, type: 'heatmap', colorscale: [['0', 'rgb(64, 1, 82)'],['0.01', 'rgb(68, 1, 84)'],['0.05', 'rgb(71, 17, 102)'],['0.10', 'rgb(73, 34, 117)'],['0.1475', 'rgb(72, 49, 130)'],['0.195', 'rgb(67, 62, 135)'],['0.2425', 'rgb(64, 77, 143)'],['0.29', 'rgb(58, 90, 145)'],['0.3375', 'rgb(52, 103, 148)'],['0.385', 'rgb(47, 116, 148)'],['0.425', 'rgb(41, 124, 145)'],['0.465', 'rgb(38, 136, 145)'],['0.505', 'rgb(33, 145, 142)'],['0.545', 'rgb(31, 155, 137)'],['0.585', 'rgb(34, 165, 132)'],['0.63', 'rgb(42, 175, 126)'],['0.675', 'rgb(59, 185, 117)'],['0.725', 'rgb(80, 195, 105)'],['0.77', 'rgb(105, 204, 90)'],['0.815', 'rgb(132, 212, 74)'],['0.8625', 'rgb(169, 217, 55)'],['0.91', 'rgb(202, 222, 36)'],['0.95', 'rgb(223, 227, 27)'],['0.99', 'rgb(251, 230, 36)'],['1.0', 'rgb(251, 230, 36)']]}], layout, config);
+
+
+
+    // Function to call viridis hclust heatmap plot for non-Arabidopsis thaliana species 
+    function x_function(){
+      $(function () {
+      Plotly.newPlot('myDiv',[{x: xValues, y: yValues, z: zValues, text: text, hoverinfo: 'text', hoverlabel: {bgcolor: '#41454c'}, layout: layout, colorbar: colorbar, type: 'heatmap', colorscale: [['0', 'rgb(64, 1, 82)'],['0.01', 'rgb(68, 1, 84)'],['0.05', 'rgb(71, 17, 102)'],['0.10', 'rgb(73, 34, 117)'],['0.1475', 'rgb(72, 49, 130)'],['0.195', 'rgb(67, 62, 135)'],['0.2425', 'rgb(64, 77, 143)'],['0.29', 'rgb(58, 90, 145)'],['0.3375', 'rgb(52, 103, 148)'],['0.385', 'rgb(47, 116, 148)'],['0.425', 'rgb(41, 124, 145)'],['0.465', 'rgb(38, 136, 145)'],['0.505', 'rgb(33, 145, 142)'],['0.545', 'rgb(31, 155, 137)'],['0.585', 'rgb(34, 165, 132)'],['0.63', 'rgb(42, 175, 126)'],['0.675', 'rgb(59, 185, 117)'],['0.725', 'rgb(80, 195, 105)'],['0.77', 'rgb(105, 204, 90)'],['0.815', 'rgb(132, 212, 74)'],['0.8625', 'rgb(169, 217, 55)'],['0.91', 'rgb(202, 222, 36)'],['0.95', 'rgb(223, 227, 27)'],['0.99', 'rgb(251, 230, 36)'],['1.0', 'rgb(251, 230, 36)']]}], layout, config);
+        }
+      )}
+
+
+    // Function to call blue hclust heatmap plot for non-Arabidopsis thaliana species 
+    function y_function(){
+      $(function () {
+      Plotly.newPlot('myDiv',[{x: xValues, y: yValues, z: zValues, text: text, hoverinfo: 'text', hoverlabel: {bgcolor: '#41454c'}, layout: layout, colorbar: colorbar, type: 'heatmap', colorscale: [['0.0', 'rgb(245, 250, 254)'],['0.1', 'rgb(226, 237, 248)'],['0.2', 'rgb(207, 225, 242)'],['0.3', 'rgb(180, 211, 233)'],['0.4', 'rgb(146, 195, 223)'],['0.5', 'rgb(108, 173, 213)'],['0.6', 'rgb(74, 151, 201)'],['0.7', 'rgb(47, 126, 188)'],['0.8', 'rgb( 24, 100, 170)'],['0.9', 'rgb(10, 74, 144)'],['1.0', 'rgb(9, 57, 127)']]}], layout, config);
+        }
+      )}
+
+
+    // Function to call red hclust heatmap plot for non-Arabidopsis thaliana species 
+    function z_function(){
+      $(function () {
+      Plotly.newPlot('myDiv',[{x: xValues, y: yValues, z: zValues, text: text, hoverinfo: 'text', hoverlabel: {bgcolor: '#41454c'}, layout: layout, colorbar: colorbar, type: 'heatmap', colorscale: [['0.0', 'rgb(254, 245, 245)'],['0.11', 'rgb(249, 225, 215)'],['0.22', 'rgb(244, 201, 182)'],['0.33', 'rgb(240, 168, 145)'],['0.44', 'rgb(231, 126, 107)'],['0.55', 'rgb(217, 73, 64)'],['0.66', 'rgb(197, 38, 40)'],['0.77', 'rgb(162, 23, 28)'],['0.88', 'rgb(127, 13, 24)'],['1.0', 'rgb(98, 2, 14)']]}], layout, config);
+        }
+      )}
+
+
+    // Function to call green hclust heatmap plot for non-Arabidopsis thaliana species 
+    function aa_function(){
+      $(function () {
+      Plotly.newPlot('myDiv',[{x: xValues, y: yValues, z: zValues, text: text, hoverinfo: 'text', hoverlabel: {bgcolor: '#41454c'}, layout: layout, colorbar: colorbar, type: 'heatmap', colorscale: [['0.0', 'rgb(245, 252, 234)'],['0.11112', 'rgb(228, 240, 195)'],['0.22223', 'rgb(207, 224, 154)'],['0.33334', 'rgb(181, 206, 109)'],['0.44445', 'rgb(154, 187, 83)'],['0.55556', 'rgb(116, 165, 63)'],['0.66667', 'rgb(72, 138, 44)'],['0.77778', 'rgb(33, 113, 29)'],['0.88889', 'rgb(9, 96, 21)'],['1.0', 'rgb(0, 87, 18)']]}], layout, config);
+        }
+      )}
+
+
+    // Function to call red-yellow hclust heatmap plot for non-Arabidopsis thaliana species 
+    function ab_function(){
+      $(function () {
+      Plotly.newPlot('myDiv',[{x: xValues, y: yValues, z: zValues, text: text, hoverinfo: 'text', hoverlabel: {bgcolor: '#41454c'}, layout: layout, colorbar: colorbar, type: 'heatmap', colorscale: [['0.0', 'rgb(253, 0, 0)'],['0.067', 'rgb(253, 33, 2)'],['0.134', 'rgb(253, 63, 6)'],['0.201', 'rgb(253, 89, 12)'],['0.268', 'rgb(253, 113, 18)'],['0.335', 'rgb(253, 137, 24)'],['0.402', 'rgb(253, 161, 30)'],['0.469', 'rgb(253, 185, 36)'],['0.536', 'rgb(253, 209, 42)'],['0.603', 'rgb(253, 233, 48)'],['0.670', 'rgb(253, 255, 54)'],['0.737', 'rgb(252, 255, 69)'],['0.804', 'rgb(253, 255, 136)'],['0.871', 'rgb(253, 255, 170)'],['0.938', 'rgb(254, 255, 207)'],['1.0', 'rgb(254, 255, 207)']]}], layout, config);
+        }
+      )}
+
+
+    // Function to call yellow-red hclust heatmap plot for non-Arabidopsis thaliana species 
+    function ac_function(){
+      $(function () {
+      Plotly.newPlot('myDiv',[{x: xValues, y: yValues, z: zValues, text: text, hoverinfo: 'text', hoverlabel: {bgcolor: '#41454c'}, layout: layout, colorbar: colorbar, type: 'heatmap', colorscale: [['0.0', 'rgb(254, 255, 207)'],['0.067', 'rgb(253, 255, 136)'],['0.134', 'rgb(252, 255, 69)'],['0.201', 'rgb(253, 255, 54)'],['0.268', 'rgb(253, 233, 48)'],['0.335', 'rgb(253, 209, 42)'],['0.402', 'rgb(253, 185, 36)'],['0.469', 'rgb(253, 161, 30)'],['0.536', 'rgb(253, 137, 24)'],['0.603', 'rgb(253, 113, 18)'],['0.670', 'rgb(253, 89, 12)'],['0.737', 'rgb(253, 63, 6)'],['0.804', 'rgb(253, 33, 2)'],['0.871', 'rgb(253, 16, 1)'],['0.938', 'rgb(253, 0, 0)'],['1.0', 'rgb(253, 0, 0)']]}], layout, config);
+        }
+      )}
+
+    </script>
+
+<?php }
+
+?>
 
 
 
