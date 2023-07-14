@@ -635,7 +635,7 @@ Container classes and bootstrap grid system settings
 
 @media only screen and (max-height: 810px) {
     #md12rsltpg {
-        margin-top: 0px!important;
+        margin-top: 2px!important;
     }
 }
 
@@ -816,15 +816,15 @@ Bootstrap navbar and dropdown settings
 .navbar-brand {
     border-top: 0px solid white!important;
     margin-bottom: 0px!important;
-    padding-left: 15px !important; 
-    padding-right: 9px !important;
+    padding-left: 11px !important; 
+    padding-right: 11px !important;
     padding-top: 18px !important;
     margin-top: 0px!important;
     font-size: 20px !important; 
     font-weight: normal !important; 
     color: #1b1d1f !important;
     border-right: 2px solid rgba(255, 255, 255, 0.0); 
-    width: 143px;
+    width: 110px;
     min-height: 53px!important;
     outline:none!important; /* remove focus ring from Webkit */
     -webkit-appearance:none!important; /* remove the strong OSX influence from Webkit */
@@ -921,8 +921,8 @@ Bootstrap navbar and dropdown settings
     border-bottom: 3px solid white!important;
     padding-bottom: 13px!important;
     padding-top: 17px!important;
-    padding-left: 15px!important;
-    padding-right: 15px!important;
+    padding-left: 11px!important;
+    padding-right: 11px!important;
     max-height: 53px!important;
     background: white!important;
     outline:none!important; /* remove focus ring from Webkit */
@@ -995,8 +995,8 @@ Bootstrap navbar and dropdown settings
     }
 
 .navbar-nav.navbar-right > li:last-child > a  {
-    padding-left: 16px!important;
-    padding-right: 16px!important;
+    padding-left: 14px!important;
+    padding-right: 14px!important;
     margin-right: 0px!important;
     }
 
@@ -1204,8 +1204,8 @@ ol.message_list { position: relative !important}
   border-width: 6px 5px 0 5px;
   border-color: #1b1d1f transparent transparent transparent;
   display: inline-block;
-  margin-left: 4px;
-  margin-right: -5px!important;
+  margin-left: 2px;
+  margin-right: -4px!important;
   top: -1px;
   position: relative;
   -moz-transition: transform 0.25s ease-out;
@@ -2319,7 +2319,7 @@ Chart download button settings
 
 #selsearchwrapper {
   display: flex!important;
-  padding-bottom: 10px!important;
+  padding-bottom: 8px!important;
   margin-left: -10px!important;
   margin-right: 10px!important;
 }
