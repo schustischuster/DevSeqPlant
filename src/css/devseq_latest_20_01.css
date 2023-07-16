@@ -2720,10 +2720,10 @@ Search Box and Submit button settings
         margin: 0px 0 0 0!important;
         z-index: 100!important;
         background: white!important;
-        border-top: 1px solid #adb1b8!important;
-        border-bottom: 1px solid #c0c4cc!important;
-        border-left: 1px solid #c0c4cc!important;
-        border-right: 1px solid #c0c4cc!important;
+        border-top: 1.25px solid #adb1b8!important;
+        border-bottom: 1.25px solid #c0c4cc!important;
+        border-left: 1.25px solid #c0c4cc!important;
+        border-right: 1.25px solid #c0c4cc!important;
         margin-left: 0px!important;
         font: inherit!important;
         outline:none!important; /* remove focus ring from Webkit */
@@ -2758,10 +2758,10 @@ Search Box and Submit button settings
     }
 
 .SBoxsrt input:hover { 
-    border-top: 1px solid #8d939d!important;
-    border-bottom: 1px solid #9fa6b2!important;
-    border-left: 1px solid #9fa6b2!important;
-    border-right: 1px solid #9fa6b2!important;
+    border-top: 1.25px solid #8d939d!important;
+    border-bottom: 1.25px solid #9fa6b2!important;
+    border-left: 1.25px solid #9fa6b2!important;
+    border-right: 1.25px solid #9fa6b2!important;
     box-shadow: inset 0 0 1px 0px #c4c4c4!important;
     -webkit-box-shadow: inset 0 0 1px 0px #c4c4c4!important;
     -moz-box-shadow: inset 0 0 1px 0px #c4c4c4!important;
@@ -2814,7 +2814,7 @@ Search Box and Submit button settings
 }
 
 .right-inner-addonsrt input {
-    padding-right: 12px!important;    
+    padding-right: 35px!important;    
 }
 
 .right-inner-addon a {
@@ -2829,27 +2829,63 @@ Search Box and Submit button settings
     position: absolute!important;
     right: 1px!important;
     top: 0px!important;
-    padding: 12px 12px!important;
+    padding: 11px 8.5px!important;
     cursor: pointer!important;
+    fill:  #555555!important!;
 }
 
 .right-inner-addonsrt.defocus a {
         cursor: text!important;
         }
 
-.SBoxsrt:hover .fa-searchinfo2 {
-  color: #979798!important;
-  font-size: 11.5pt!important;
+.SBoxsrt:hover .fa_searchinfo_class .fa-searchinfo2 {
+  fill: #6e7273!important;
 }
 
+.searchinfo2div {
+    position: absolute!important;
+    right: 1.28px!important;
+    top: 1.025px!important;
+    padding: 8px 8px!important;
+    cursor: pointer!important;
+    background-color: transparent;
+    display:-webkit-box;
+    display:-ms-flexbox;
+    display:flex;
+    -webkit-box-align:center;
+    -ms-flex-align:center;
+    align-items:center;
+    -webkit-box-pack:center;
+    -ms-flex-pack:center;
+    justify-content:center;
+    width: 33.5px;
+    height: 93.5%;
+}
+
+.searchinfo2div:hover {
+    background-color: #e9ecef!important;
+    background: linear-gradient(to bottom, #dbdbdb 0, #e9ecef 2px, #e9ecef 100%)!important;
+}
+
+.searchinfo2div:hover .SBoxsrt input { 
+    border-top: 1px solid #8d939d!important;
+    border-bottom: 1px solid #9fa6b2!important;
+    border-left: 1px solid #9fa6b2!important;
+    border-right: 1px solid #9fa6b2!important;
+    box-shadow: inset 0 0 1px 0px #c4c4c4!important;
+    -webkit-box-shadow: inset 0 0 1px 0px #c4c4c4!important;
+    -moz-box-shadow: inset 0 0 1px 0px #c4c4c4!important;
+    -ms-box-shadow: inset 0 0 1px 0px #c4c4c4!important;
+    -o-box-shadow: inset 0 0 1px 0px #c4c4c4!important;
+    z-index: 5000!important;
+    }
+
 .fa-searchinfo2.focus {
-  color: #979798!important;
-  font-size: 11.5pt!important;
+  fill: #6e7273!important;
 }
 
 .fa-searchinfo2 {
-  color: #979798!important;
-  font-size: 11.5pt!important;
+  fill: #6e7273!important;
    -webkit-transition: all 0.05s!important;
    -moz-transition: all 0.05s!important;
    -ms-transition: all 0.05s!important;
@@ -2857,15 +2893,24 @@ Search Box and Submit button settings
    transition: all 0.05s!important;
 }
 
+.SBoxsrt:hover .fa_searchinfo_class .fa_searchinfo_class:hover {
+  fill: #6e7273!important;
+  font-size: 11.5pt!important;
+}
+
 .fa-searchinfo {
-  color: #6e7273!important;
+  fill: #6e7273!important;
   font-size: 11.5pt!important;
 }
 
 .fa-searchinfo:hover {
-  color: #6e7273!important;
+  fill: #6e7273!important;
   font-size: 11.5pt!important;
 }
+
+fa_searchinfo_class:hover .fa-searchinfo {
+    fill: #3e4042!important;
+    }
 
 
 .SButton {
