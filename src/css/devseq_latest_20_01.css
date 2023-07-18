@@ -2814,7 +2814,7 @@ Search Box and Submit button settings
 }
 
 .right-inner-addonsrt input {
-    padding-right: 35px!important;    
+    padding-right: 32.25px!important;    
 }
 
 .right-inner-addon a {
@@ -2827,28 +2827,29 @@ Search Box and Submit button settings
 
 .right-inner-addonsrt a {
     position: absolute!important;
-    right: 1px!important;
-    top: 0px!important;
+    right: 0px!important;
+    top: -0.7px!important;
     padding: 11px 8.5px!important;
-    cursor: pointer!important;
+    cursor: default!important;
     fill:  #555555!important!;
 }
 
 .right-inner-addonsrt.defocus a {
         cursor: text!important;
-        }
-
-.SBoxsrt:hover .fa_searchinfo_class .fa-searchinfo2 {
-  fill: #6e7273!important;
 }
+
 
 .searchinfo2div {
     position: absolute!important;
-    right: 1.28px!important;
-    top: 1.025px!important;
-    padding: 8px 8px!important;
+    right: 0px!important;
+    top: 0px!important;
+    padding: 0px 0px!important;
     cursor: pointer!important;
     background-color: transparent;
+    border-top: 1px solid transparent!important;
+    border-bottom: 1px solid transparent!important;
+    border-left: 0px solid transparent!important;
+    border-right: 1px solid transparent!important;
     display:-webkit-box;
     display:-ms-flexbox;
     display:flex;
@@ -2858,13 +2859,31 @@ Search Box and Submit button settings
     -webkit-box-pack:center;
     -ms-flex-pack:center;
     justify-content:center;
-    width: 33.5px;
-    height: 93.5%;
+    width: 32.0px;
+    height: 100%;
+}
+
+.SBoxsrt input:focus ~ .tooltipwrapper2 .searchinfo2div:hover {
+    background-color: #e9ecef!important;
+    cursor: default!important;
+    border-top: 1px solid #399F24!important;
+    border-bottom: 1px solid #399F24!important;
+    border-left: 0px solid #399F24!important;
+    border-right: 1px solid #399F24!important;
+    box-shadow: 
+        inset 0px 1px 1px -1px #41453b,
+        inset 0px -1px 1px -10px #41453b,
+        inset -1px -1px 1px -1px #41453b;
+    background: linear-gradient(to bottom, #d3d3d3 0, #e9ecef 3px, #e9ecef 100%)!important;
 }
 
 .searchinfo2div:hover {
     background-color: #e9ecef!important;
-    background: linear-gradient(to bottom, #dbdbdb 0, #e9ecef 2px, #e9ecef 100%)!important;
+    cursor: default!important;
+    border-top: 1.25px solid #adb1b8!important;
+    border-bottom: 1.25px solid #c0c4cc!important;
+    border-left: 0px solid transparent!important;
+    border-right: 1.25px solid #c0c4cc!important;
 }
 
 .searchinfo2div:hover .SBoxsrt input { 
@@ -2886,17 +2905,8 @@ Search Box and Submit button settings
 
 .fa-searchinfo2 {
   fill: #6e7273!important;
-   -webkit-transition: all 0.05s!important;
-   -moz-transition: all 0.05s!important;
-   -ms-transition: all 0.05s!important;
-   -o-transition: all 0.05s!important;
-   transition: all 0.05s!important;
 }
 
-.SBoxsrt:hover .fa_searchinfo_class .fa_searchinfo_class:hover {
-  fill: #6e7273!important;
-  font-size: 11.5pt!important;
-}
 
 .fa-searchinfo {
   fill: #6e7273!important;
