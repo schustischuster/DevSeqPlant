@@ -1038,10 +1038,10 @@ HTML Body starts: wrapper = 1st level div
                       &nbsp  <input type="checkbox" class="checktoradio" name="filter5" value="1" id="cb1" noneoption="true"<?php if ($_POST['filter5'] == "1") echo 'checked';?>><label for="cb1"> log2</label>
                       </div>
                      <div class="cbform-group">
-                      &nbsp <input type="checkbox" class="checktoradio" name="filter5" value="2" id="cb2" noneoption="true"<?php if ($_POST['filter5'] == "2") echo 'checked';?>><label for="cb2"> min-max (RE)</label> 
-                        <div class="tooltipwrapper" style="display:inline-block;"><a><span class = 'hreflinks11' style="text-decoration: none" ><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 192 512"><path d="M48 80a48 48 0 1 1 96 0A48 48 0 1 1 48 80zM0 224c0-17.7 14.3-32 32-32H96c17.7 0 32 14.3 32 32V448h32c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H64V256H32c-17.7 0-32-14.3-32-32z"/></svg></span></a>
+                      &nbsp <input type="checkbox" class="checktoradio" name="filter5" value="2" id="cb2" noneoption="true"<?php if ($_POST['filter5'] == "2") echo 'checked';?>><label for="cb2"> min-max (RE)&nbsp</label>
+                        <div class="tooltipwrapper" style="display:inline-block;"><div><a><span class = 'hreflinks11' style="text-decoration: none" ><svg class="fa-searchinfo3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" height="1.0em" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg></span></a></div>
                           <div class = "tooltipsrtbridge"></div>
-                          <div class="tooltipsrt">In <b>min-max feature scaling</b>, the expression data of each transcript is linearly scaled to the unit interval [0, 1].</font>
+                          <div class="tooltipsrt">In <b>min-max feature scaling</b>, the expression data of each transcript is linearly rescaled to the unit interval [0, 1].</font>
                           </div>
                         </div>
                       </div>
