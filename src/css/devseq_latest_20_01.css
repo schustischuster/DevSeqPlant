@@ -1956,7 +1956,7 @@ Setup for general buttons
 
 .hreflinks11:hover {
     color: #626566!important;
-    cursor: pointer!important;
+    cursor: default!important;
     }
 
 .hreflinks12 {
@@ -2844,7 +2844,7 @@ Search Box and Submit button settings
     right: 0px!important;
     top: 0px!important;
     padding: 0px 0px!important;
-    cursor: pointer!important;
+    cursor: default!important;
     background-color: transparent;
     border-top: 1px solid transparent!important;
     border-bottom: 1px solid transparent!important;
@@ -2861,6 +2861,15 @@ Search Box and Submit button settings
     justify-content:center;
     width: 32.0px;
     height: 100%;
+}
+
+.tooltipwrapper {
+    margin-left: -5px!important;
+    cursor: default!important;
+}
+
+.tooltipwrapper:hover {
+    cursor: default!important;
 }
 
 .SBoxsrt input:focus ~ .tooltipwrapper2 .searchinfo2div:hover {
@@ -2905,6 +2914,22 @@ Search Box and Submit button settings
 
 .fa-searchinfo2 {
   fill: #6e7273!important;
+}
+
+
+.fa-searchinfo3 {
+  position: absolute!important;
+  left: 1px!important;
+  right: 0px!important;
+  top: 2px!important;
+  padding: 0px 0px!important;
+  fill: #6e7273!important;
+  cursor: default!important;
+}
+
+.fa-searchinfo3:hover {
+  fill: #6e7273!important;
+  cursor: default!important;
 }
 
 
@@ -3080,8 +3105,8 @@ Name = data-tooltip
   background: white;
   top: 100%;
   display: block;
-  left: -160.5px;
-  margin-top: 10px;
+  left: -147.25px;
+  margin-top: 12.5px;
   opacity: 0;
   padding-left: 14px;
   padding-right: 10px;
@@ -3089,7 +3114,7 @@ Name = data-tooltip
   padding-bottom: 12px;
   position: absolute!important;
   pointer-events: none!important;
-  width: 328px!important;
+  width: 305px!important;
   -webkit-transform: translateY(0px)!important;
      -moz-transform: translateY(0px)!important;
       -ms-transform: translateY(0px)!important;
@@ -3213,8 +3238,8 @@ Name = data-tooltip
   top: 100%;
   color: #1b1d1f;
   display: block;
-  left: 442.0px;
-  margin-top: 11px;
+  left: 470.0px;
+  margin-top: 10px;
   opacity: 0;
   padding-left: 15px;
   padding-right: 13px;
@@ -3222,7 +3247,7 @@ Name = data-tooltip
   padding-bottom: 12px;
   position: absolute!important;
   pointer-events: none!important;
-  width: 311px!important;
+  width: 280px!important;
   -webkit-transform: translateY(0px)!important;
      -moz-transform: translateY(0px)!important;
       -ms-transform: translateY(0px)!important;
@@ -3462,7 +3487,7 @@ Name = data-tooltip
   top: -7px;
   content: " ";
   height: 0;
-  left: 62.2%;
+  left: 60.2%;
   margin-left: -11px;
   position: absolute;
   width: 0;
@@ -3477,7 +3502,7 @@ Name = data-tooltip
   top: -8px;
   content: " ";
   height: -20px;
-  left: 62.2%;
+  left: 60.2%;
   margin-left: -12px;
   position: absolute;
   width: 0;
