@@ -897,7 +897,7 @@ HTML Body starts: wrapper = 1st level div
                 <div class="SBoxsrt">
                   <div class="right-inner-addonsrt" id="rightinneraddonsrt_id">
                   <input name="searchquery" type="text" autofocus="autofocus" id="sfqsrt" size="35" maxlength="100000" class="tftextinput2" placeholder= "<?php echo $sboxplaceholder; ?>" value= "<?php if((isset($_POST['searchquery'])) && $_POST['searchquery'] != "") {echo $searchquery;} ?>" />
-                  <div class="tooltipwrapper2" style="display:inline-block;"><div class="searchinfo2div"><a><span style="text-decoration: none" id="fasearchinfo2_id" class="fa_searchinfo_class" ><svg  class="fa-searchinfo2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" height="1.0em" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg></span></a></div>
+                  <div class="tooltipwrapper2" style="display:inline-block;"><div class="searchinfo2div"><a><span style="text-decoration: none" id="fasearchinfo2_id" class="fa_searchinfo_class" ><svg class="fa-searchinfo2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" height="1.0em" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg></span></a></div>
                       <div class="tooltipsrcsrt" id="tooltipsrcsrtid">
                         <b>Input requirements:</b>
                         Multiple identifiers or gene symbols must be seperated with an empty space, comma, or semicolon.
@@ -908,7 +908,7 @@ HTML Body starts: wrapper = 1st level div
                 </div>
               </div>
               <div>
-              <button type="submit" class="SButtonsrt" name="submit" id="SubmBtn" ><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg></button>
+              <button type="submit" class="SButtonsrt" name="submit" id="SubmBtn" ><svg class="fa-searchiconsrt" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg></button>
               </div>
             </div><!--/close "selsearchwrapper" start search side-->
 
