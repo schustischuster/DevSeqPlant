@@ -135,7 +135,7 @@ Radio button styles
     height: 7px;
     background: #626566;
     position: absolute;
-    top: 2px;
+    top: 4px;
     left: 4px;
     border-radius: 100%;
     -webkit-transition: all 0.1s ease;
@@ -148,7 +148,7 @@ Radio button styles
 @-moz-document url-prefix() {
     [type="radio"]:checked + label:after,
     [type="radio"]:not(:checked) + label:after {
-        top: 3px;
+        top: 4px;
     }
 }/* settings specific for Firefox */
 
@@ -244,18 +244,27 @@ Checkbox styles
   content: '';
   display: block;
   position: absolute;
-  top: 4px;
+  top: 5px;
   left: 5px;
   width: 5px;
   height: 9px;
   border: solid #1b1d1f;
-  border-width: 0 2px 2px 0;
+  border-width: 0 2.5px 2.5px 0;
   transform: rotate(45deg);
 }
 @-moz-document url-prefix() {
     .cbform-group input:checked + label:after {
         top: 5px;
         border-width: 0 2.5px 2.5px 0;
+    }
+}/* settings specific for Firefox */
+
+.rsltsrcpargrid .cbform-group input:checked + label:after {
+    top: 4.5px!important;
+}
+@-moz-document url-prefix() {
+    .rsltsrcpargrid .cbform-group input:checked + label:after {
+        top: 5px!important;
     }
 }/* settings specific for Firefox */
 
@@ -3007,7 +3016,7 @@ fa_searchinfo_class:hover .fa-searchinfo {
         padding: 3px 3px 3px 3px!important;
         font: inherit!important;
         background: #399F24!important; 
-        color: white!important; 
+        fill: white!important; 
         float: left!important;
         margin-top: 0px!important;
         font-size: 13.5pt!important;
@@ -3031,6 +3040,11 @@ fa_searchinfo_class:hover .fa-searchinfo {
         background: #338f20!important; 
         border: 1px solid #338f20!important;
         }
+
+.fa-searchiconsrt {
+    fill: white!important;
+    margin-top: 7.5px!important;
+}
 
 
 /**************************************************************************
@@ -3113,7 +3127,7 @@ Name = data-tooltip
   padding-top: 10px;
   padding-bottom: 12px;
   position: absolute!important;
-  pointer-events: none!important;
+  pointer-events: auto!important;
   width: 305px!important;
   -webkit-transform: translateY(0px)!important;
      -moz-transform: translateY(0px)!important;
@@ -3663,6 +3677,7 @@ Name = data-tooltip
 .tooltipwrapper:hover .tooltipsrt {
   opacity: 1;
   pointer-events: auto!important;
+  cursor: auto!important;
   -webkit-transform: translateY(0px)!important;
      -moz-transform: translateY(0px)!important;
       -ms-transform: translateY(0px)!important;
