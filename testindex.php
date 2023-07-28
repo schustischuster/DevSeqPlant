@@ -17,7 +17,7 @@ error_reporting(E_ALL ^ E_NOTICE);
 ini_set('display_errors', '1');
 
 // turn off php notices
-#error_reporting(0);
+error_reporting(0);
 
 // Connect to MySQL database
 require_once("connect_mysql_ds.php");
@@ -829,8 +829,7 @@ HTML Body starts: wrapper = 1st level div
     <div class = "flexitop" id="fadeaway">
     </div>
 
-
-
+  
 
     <!-- **************************************************************** -->
     <!-- ********************************************************************
@@ -1039,7 +1038,7 @@ HTML Body starts: wrapper = 1st level div
                       </div>
                      <div class="cbform-group">
                       &nbsp <input type="checkbox" class="checktoradio" name="filter5" value="2" id="cb2" noneoption="true"<?php if ($_POST['filter5'] == "2") echo 'checked';?>><label for="cb2"> min-max (RE)&nbsp</label>
-                        <div class="tooltipwrapper" style="display:inline-block;"><div><a><span class = 'hreflinks11' style="text-decoration: none" ><svg class="fa-searchinfo3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" height="1.0em" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg></span></a></div>
+                        <div class="tooltipwrapper" style="display:inline-block;"><span class = 'hreflinks11' ><svg class="fa-searchinfo3" xmlns="http://www.w3.org/2000/svg" height="1.0em" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg></span>
                           <div class = "tooltipsrtbridge"></div>
                           <div class="tooltipsrt">In <b>min-max feature scaling</b>, the expression data of each transcript is linearly rescaled to the unit interval [0, 1].</font>
                           </div>
@@ -1081,6 +1080,7 @@ HTML Body starts: wrapper = 1st level div
             ?>
           </div>
         </div>
+        
         </div><!--/close "col" start search side-->
       </div><!--/close  "reqinnercontent" start search side-->
     </div><!--/close "reqcontent" start search side-->
@@ -3219,7 +3219,38 @@ Closing controlplot_container 2nd level div and wrap 1st level div and define fo
 
 
 
+<!--/start php condition for processing start search landing side-->
+<?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?>
+
+
+  <!-- This div is only visible if no search was done (=single species gene expression map start page) -->
+  <div 
+    <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: inline" <?php } 
+      else {?> style="display: none"<?php }?> >
+
+      <div id = "srtcredits">
+        <div id = "cred1">
+          <img src="img/SLCU_Logo-min.png" height = "70" alt="">
+        </div>
+        <div id = "cred2">
+          <img src="img/Gatsby_Logo-min_cropped.png" height = "70" alt="">
+        </div>
+        <div id = "cred3">
+          <img src="img/Cambridge_Logo-min_cropped.png" height = "70" alt="">
+        </div>
+        <table></table><table></table><table></table><table></table><table></table>
+      </div>
+
+    </div>
+
+<?php }
+
+?>
+
+
+
 <div class="footer"> 
+  
   <div class="footerinner"> 
     <div class="parent"> 
       <div class="child num1"><a href="#"><font color="#333399">Home</font></a>&nbsp · &nbsp<a href="#"><font color="#333399">About DevSeq</font></a>&nbsp · &nbsp<a href="#"><font color="#333399">Contact</font></a>
