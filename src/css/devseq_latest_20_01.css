@@ -525,6 +525,28 @@ Container classes and bootstrap grid system settings
   border-radius: 4px!important;
 }
 
+#srtcredits {
+  
+  margin-top: -157px!important; /* negative value of footer height */
+  height: 157px!important;  
+
+}
+
+#cred1 {
+    padding-bottom: 0px;
+    display:inline-block;
+    
+}
+
+#cred2 {
+    padding-bottom: 0px;
+    display:inline-block;
+}
+
+#cred3 {
+    padding-bottom: 0px;
+    display:inline-block;
+}
 
 
 .some-class3 {
@@ -2349,7 +2371,7 @@ Chart download button settings
   letter-spacing: 0.5px!important;
   color: #4b5163!important;
   font-size: 32px!important;
-  padding-top: 0px!important;
+  padding-top: 10px!important;
   padding-bottom: 37px!important;
   margin-left: 0px!important;
   margin-right: 0px!important;
@@ -2873,9 +2895,15 @@ Search Box and Submit button settings
 }
 
 .tooltipwrapper {
+    position: relative!important;
+    display: inline-block!important;
     margin-left: -5px!important;
     cursor: default!important;
 }
+
+.cbform-group .tooltipwrapper{
+  display:inline!important;
+  }
 
 .tooltipwrapper:hover {
     cursor: default!important;
@@ -2928,7 +2956,7 @@ Search Box and Submit button settings
 
 .fa-searchinfo3 {
   position: absolute!important;
-  left: 1px!important;
+  left: 4px!important;
   right: 0px!important;
   top: 2px!important;
   padding: 0px 0px!important;
@@ -3118,10 +3146,10 @@ Name = data-tooltip
 .tooltipwrapper .tooltipsrt {
   background: white;
   top: 100%;
-  display: block;
-  left: -147.25px;
-  margin-top: 12.5px;
-  opacity: 0;
+  left: -143.25px;
+  margin-top: 10.0px;
+  opacity: 0!important;
+  visibility: hidden;
   padding-left: 14px;
   padding-right: 10px;
   padding-top: 10px;
@@ -3134,11 +3162,6 @@ Name = data-tooltip
       -ms-transform: translateY(0px)!important;
        -o-transform: translateY(0px)!important;
           transform: translateY(0px)!important;
-  -webkit-transition: all 0.15s ease-out!important;
-     -moz-transition: all 0.15s ease-out!important;
-      -ms-transition: all 0.15s ease-out!important;
-       -o-transition: all 0.15s ease-out!important;
-          transition: all 0.15s ease-out!important;
   -webkit-box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.15);
      -moz-box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.15);
       -ms-box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.15);
@@ -3675,7 +3698,7 @@ Name = data-tooltip
 }
 
 .tooltipwrapper:hover .tooltipsrt {
-  opacity: 1;
+  opacity: 1!important;
   pointer-events: auto!important;
   cursor: auto!important;
   -webkit-transform: translateY(0px)!important;
@@ -3684,7 +3707,27 @@ Name = data-tooltip
        -o-transform: translateY(0px)!important;
           transform: translateY(0px)!important;
           z-index: 5000!important;
-            -webkit-transition: all 0.15s ease-out 2s!important;
+            -webkit-transition: all 0.15s ease-out 0.5s!important;
+     -moz-transition: all 0.15s ease-out 0.5s!important;
+      -ms-transition: all 0.15s ease-out 0.5s!important;
+       -o-transition: all 0.15s ease-out 0.5s!important;
+          transition: all 0.15s ease-out 0.5s!important;
+}
+
+.tooltipwrapper:hover .tooltipsrt,
+.tooltipsrt:hover {
+  display: block;
+  visibility: visible;
+  opacity: 1!important;
+  pointer-events: auto!important;
+  cursor: auto!important;
+  -webkit-transform: translateY(0px)!important;
+     -moz-transform: translateY(0px)!important;
+      -ms-transform: translateY(0px)!important;
+       -o-transform: translateY(0px)!important;
+          transform: translateY(0px)!important;
+          z-index: 5000!important;
+            -webkit-transition: all 0.15s ease-out 0.5s!important;
      -moz-transition: all 0.15s ease-out 0.5s!important;
       -ms-transition: all 0.15s ease-out 0.5s!important;
        -o-transition: all 0.15s ease-out 0.5s!important;
