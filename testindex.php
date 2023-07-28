@@ -829,6 +829,7 @@ HTML Body starts: wrapper = 1st level div
     <div class = "flexitop" id="fadeaway">
     </div>
 
+
   
 
     <!-- **************************************************************** -->
@@ -1080,7 +1081,6 @@ HTML Body starts: wrapper = 1st level div
             ?>
           </div>
         </div>
-        
         </div><!--/close "col" start search side-->
       </div><!--/close  "reqinnercontent" start search side-->
     </div><!--/close "reqcontent" start search side-->
@@ -3250,7 +3250,6 @@ Closing controlplot_container 2nd level div and wrap 1st level div and define fo
 
 
 <div class="footer"> 
-  
   <div class="footerinner"> 
     <div class="parent"> 
       <div class="child num1"><a href="#"><font color="#333399">Home</font></a>&nbsp · &nbsp<a href="#"><font color="#333399">About DevSeq</font></a>&nbsp · &nbsp<a href="#"><font color="#333399">Contact</font></a>
