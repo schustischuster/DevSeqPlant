@@ -526,25 +526,65 @@ Container classes and bootstrap grid system settings
 }
 
 #srtcredits {
-  
-  margin-top: -157px!important; /* negative value of footer height */
-  height: 157px!important;  
-
+  flex: 1!important;
+  display: flex!important;
+  margin-top: -220px!important; /* negative value of footer height */
+  height: 220px!important; 
+  align-items: center!important;
+  justify-content: center!important;
+  min-width: 1024px!important;
 }
 
 #cred1 {
-    padding-bottom: 0px;
-    display:inline-block;
-    
+    border: 0px solid white;
 }
 
-#cred2 {
-    padding-bottom: 0px;
-    display:inline-block;
+.center-img,
+#cred1lab {
+  display: inline-block;
+  vertical-align: top;
+  float: left!important;
+  margin: 0px;
+  height: 32.0px;
+}
+
+#cred1labpar {
+    display: inline-block!important;
+    position: relative;
+    vertical-align: top;
+    margin: 0px;
+    padding-left: 4.8px;
+    padding-top: 0.05px;
+    height: 30px;
+    font-size: 0;
+    text-align: top!important;
+}
+
+#cred1lab1 {
+    display: inline-block;
+    position: relative;
+    vertical-align: top;
+    margin-top: -18.1px!important;
+    font-size: 16.5px;
+    height: 20px;
+    text-align: top!important;
+    font-family: "Times New Roman", Times, serif;
+    letter-spacing: -0.025px;
+    word-spacing: -1.75px;
+}
+
+#cred1lab2 {
+    display: block;
+    position: relative;
+    margin-top: -9.85px!important;
+    font-size: 20.5px;
+    height: 20px;
+    text-align: top!important;
+    font-family: "Times New Roman", Times, serif;
+    letter-spacing: -0.1px;
 }
 
 #cred3 {
-    padding-bottom: 0px;
     display:inline-block;
 }
 
