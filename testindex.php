@@ -328,7 +328,15 @@ Define "Div's" for charts
 
 <head>
 
-  <title>DevSeq | Test Page</title>
+  <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?>
+
+    <title>DevSeq | Home</title>
+
+  <?php } else if ((isset($_POST['searchquery'])) && $count>0){?>
+
+    <title>DevSeq | Search results</title>
+
+  <?php } ?>
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="author" content="Christoph Schuster">
@@ -1104,39 +1112,39 @@ HTML Body starts: wrapper = 1st level div
       document.getElementById("addexid").addEventListener('click', function () {
         var text = document.getElementById('sfqsrt');
         if(document.getElementById('selectorsrt').value=='Arabidopsis_thaliana') {
-        text.value = 'AT5G10720, AT1G19850.1';
+        text.value = 'AT5G10720, AT1G19850';
         text.focus();
-        document.getElementById('isoformlev').checked = true;
+        document.getElementById('genelev').checked = true;
         }
         else if (document.getElementById('selectorsrt').value=='Arabidopsis_lyrata') {
           text.value = 'AL6G21260.t1, AL1G32580.t1';
           text.focus();
-        document.getElementById('isoformlev').checked = true;
+        document.getElementById('genelev').checked = true;
         }
         else if (document.getElementById('selectorsrt').value=='Capsella_rubella') {
           text.value = 'Carubv10003739m, Carubv10008258m';
           text.focus();
-        document.getElementById('isoformlev').checked = true;
+        document.getElementById('genelev').checked = true;
         }
         else if (document.getElementById('selectorsrt').value=='Eutrema_salsugineum') {
           text.value = 'Thhalv10012606m, Thhalv10006748m';
           text.focus();
-        document.getElementById('isoformlev').checked = true;
+        document.getElementById('genelev').checked = true;
         }
         else if (document.getElementById('selectorsrt').value=='Tarenaya_hassleriana') {
           text.value = 'XM_010527257.2, XM_010538056.2';
           text.focus();
-        document.getElementById('isoformlev').checked = true;
+        document.getElementById('genelev').checked = true;
         }
         else if (document.getElementById('selectorsrt').value=='Medicago_truncatula') {
           text.value = 'Medtr1g013360.1, Medtr1g024025.1';
           text.focus();
-        document.getElementById('isoformlev').checked = true;
+        document.getElementById('genelev').checked = true;
         }
         else {
           text.value = 'Bradi1g31200.1, Bradi5g25157.1';
           text.focus();
-        document.getElementById('isoformlev').checked = true;
+        document.getElementById('genelev').checked = true;
         }
       });
     </script>
@@ -3250,7 +3258,7 @@ Closing controlplot_container 2nd level div and wrap 1st level div and define fo
         <div id = "cred3">
           <img src="img/Gatsby_Logo-min_cropped.png" height = "40" style="position: relative; top: 4px" alt="">
           <div id = "cred3lab" style = "float: right">
-            <p style = "font-size: 14px"> GATSBY </p>
+            <p> GATSBY </p>
           </div>
         </div>
         <table></table><table></table><table></table><table></table><table></table>
