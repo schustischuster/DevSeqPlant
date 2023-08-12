@@ -3,7 +3,6 @@ import sys, json
 import scipy
 import scipy.cluster.hierarchy as sch
 import pandas as pd
-import matplotlib
 
 
 # Load the data that PHP sent
@@ -14,13 +13,11 @@ except (ValueError, TypeError, IndexError, KeyError) as e:
      print (json.dumps({'error': str(e)}))
      sys.exit(1)
 
-data2 = json.loads(json.dumps(data))
-
 
 ####################### Perform data clustering here #########################
 
 # create pandas data frame
-df = pd.DataFrame(data2)
+df = pd.DataFrame(data)
 
 # invert pandas dataframe
 dfinv=df.T
