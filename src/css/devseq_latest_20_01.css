@@ -973,6 +973,18 @@ Bootstrap navbar and dropdown settings
     transition: 0.1s ease-in!important;
     }
 
+.navbar-inverse .navbar-nav .navbar-right>.active>a {
+    background: white!important;
+    color: #1b1d1f!important;
+    -webkit-appearance:none!important; /* remove the strong OSX influence from Webkit */
+    -webkit-transition: color .25s ease-in!important;
+    border-top: 0px solid #000 !important;
+    border-bottom: 3px solid #1f77b4!important;
+    padding-bottom: 13px!important;
+    padding-top: 17px!important;
+    transition: 0.1s ease-in!important;
+    }
+
 
 .navbar-inverse .navbar-nav>.active>a:hover {
     background: #ededed !important;
