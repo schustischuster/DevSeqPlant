@@ -7,6 +7,10 @@ PHP Version Used: 8.2.8 Zend Engine v4.2.8
 Apache Server Version Used: 2.4.41 (Ubuntu)
 **************************************************************************/
 
+
+// Start new session
+session_start();
+
 // Set time limit for PHP script execution time (default limit is 30 seconds)
 // If limit is reached, the script returns a fatal error
 // Set to 20 seconds before timing out
@@ -21,6 +25,17 @@ ini_set('display_errors', '1');
 
 // Connect to MySQL database
 require_once("connect_mysql_ds.php");
+
+
+// Create a file name with session id
+// Once the browser gets closed and restarted, a new session with a new session_id is created
+$session_id = session_id();
+$session_input_fname = $session_id . "_inputfile.json";
+$session_output_fname = $session_id . "_outputfile.json";
+$session_input_fname_path = "/var/www/devseqplant.org/files/" . $session_input_fname;
+$session_output_fname_path = "/var/www/devseqplant.org/files/" . $session_output_fname;
+$jsonoutfile = fopen($session_input_fname_path, 'w');
+$jsonouthclust = fopen($session_output_fname_path, 'w');
 
 // Define variables
 $search_output = "";
@@ -213,13 +228,16 @@ $titleout = json_encode($title);
 $countout = json_encode($count, JSON_NUMERIC_CHECK);
 
 // write $jsonout to json file on server (needed for hclust if $count > 400)
-  $jsonoutfile = fopen('/var/www/devseqplant.org/files/inputfile.json', 'w');
-  fwrite($jsonoutfile, $jsonout);
-  fclose($jsonoutfile);
+// Use these variables later when calling python from PHP is tested and functional
+fwrite($jsonoutfile, $jsonout);
+fclose($jsonoutfile);
+
+$jsonsessid = json_encode($session_id, JSON_NUMERIC_CHECK);
+$jsonsessidshin = escapeshellarg($jsonsessid);
 
 
 // Perform hierarchical clustering of $jsonout json array by calling python script
-if ($_POST['filter4'] == "heatmap" && $_POST['filter6'] == "1" && ($count > 1) && ($count < 4)) {
+if ($_POST['filter4'] == "heatmap" && $_POST['filter6'] == "1" && ($count > 1) && ($count <= 4)) {
 // Prepare json file for passing to shell
 $jsonoutshin = escapeshellarg($jsonout);
 // Execute the python script with the JSON data
@@ -245,10 +263,14 @@ $keysclustout = json_encode($keysclust);
 // For >400 counts read and write json data from file when using hclust
 } else if ($_POST['filter4'] == "heatmap" && $_POST['filter6'] == "1" && ($count > 4)) {
   // Execute the python script with the JSON data
-  $command = escapeshellcmd("/usr/bin/python3 /var/www/devseqplant.org/py/hclust_esc.py 2>&1");
-  exec($command);
+  // For production use: Send python errors to PHP and write to html
+  //exec('/usr/bin/python3 /var/www/devseqplant.org/py/hclust_esc.py 2>&1', $output, $return_var);
+  //if ($return_var>0) {
+  //  var_dump($output);
+  //}
+  shell_exec("/usr/bin/python3 /var/www/devseqplant.org/py/hclust_esc.py 2>&1 $jsonsessidshin");
   // read data from jsonout.json file fater hclust has been performed
-  $jsonouthclust = file_get_contents('/var/www/devseqplant.org/files/outputfile.json');
+  $jsonouthclust = file_get_contents($session_output_fname_path);
   // Decode the result
   $clusteresult = json_decode($jsonouthclust, true);
   // End python clustering workflow
@@ -3459,6 +3481,19 @@ Loading custom JavaScript scripts
 
 
 </html>
+
+
+
+<?php
+
+//delete session data files from server
+//unlink($session_input_fname_path);
+//unlink($session_output_fname_path);
+
+?> 
+
+
+
 
 
 
