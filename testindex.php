@@ -94,7 +94,7 @@ if (isset($_POST['searchquery']) && $_POST['searchquery'] != "") {
 
         }
 
-    } else if ($count > 0) {
+    } else if ($count > 1) {
 
       $search_output .= "&nbsp &nbsp&#8198 <strong>$count</strong> entities found";
 
@@ -139,6 +139,8 @@ if ($_POST['filter1'] == "Arabidopsis_thaliana" && ($count < 1251)) {
 
 // Generate an array that contains both header and mysqli fetched data
 // Needed to store expression data for csv that will be generated later
+if ($count > 0){
+
 $transformqcsv = array_merge($colnames, $transformq);
 
 
@@ -323,6 +325,7 @@ $sboxplaceholder = "Enter gene or isoform ID, e.g. Medtr1g013360.1, Medtr1g02402
 $sboxplaceholder = "Enter gene or isoform ID, e.g. Bradi1g31200.1, Bradi5g25157.1, or paste a list of IDs";
 };
 
+}; # close count condition
 
 }
 
