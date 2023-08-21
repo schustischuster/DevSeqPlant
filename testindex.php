@@ -3264,28 +3264,34 @@ Closing controlplot_container 2nd level div and wrap 1st level div and define fo
       else {?> style="display: none"<?php }?> >
 
       <div id = "srtcredits">
-        <div id = "cred1">
-          <img src="img/Cambridge_Logo-min_cropped.png" style="position: relative; top: 4.5px; float: left" alt="" class="center-img" >
-          <div id = "cred1lab" style = "float: right">
-            <div id = "cred1labpar">
-              <div id = "cred1lab1">
-                <p> UNIVERSITY OF </p>
-              </div>
-              <div id = "cred1lab2">
-                <p> CAMBRIDGE </p>
+        <a href="https://www.slcu.cam.ac.uk/" target="_blank">
+          <div id = "cred2">
+            <img src="img/SLCU_Logo-min.png" height = "105" style="position: relative; top: 0px; padding-left: 28px" alt="">
+          </div>
+        </a>
+        <a href="https://www.gatsby.org.uk/" target="_blank">
+          <div id = "cred3">
+            <img src="img/Gatsby_Logo-min_cropped.png" height = "50" style="position: relative; top: 4px; padding-left: 25px" alt="">
+            <div id = "cred3lab" style = "float: right">
+              <p> GATSBY </p>
+            </div>
+          </div>
+        </a>
+        <a href="https://www.cam.ac.uk/" target="_blank">
+          <div id = "cred1">
+            <img src="img/Cambridge_Logo-min_cropped.png" style="position: relative; top: 4.5px; float: left; padding-left: 28px" alt="" class="center-img" >
+            <div id = "cred1lab" style = "float: right">
+              <div id = "cred1labpar">
+                <div id = "cred1lab1">
+                  <p> UNIVERSITY OF </p>
+                </div>
+                <div id = "cred1lab2">
+                  <p> CAMBRIDGE </p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div id = "cred2">
-          <img src="img/SLCU_Logo-min.png" height = "105" style="position: relative; top: -2px" alt="">
-        </div>
-        <div id = "cred3">
-          <img src="img/Gatsby_Logo-min_cropped.png" height = "40" style="position: relative; top: 4px" alt="">
-          <div id = "cred3lab" style = "float: right">
-            <p> GATSBY </p>
-          </div>
-        </div>
+        </a>
         <table></table><table></table><table></table><table></table><table></table>
       </div>
 
