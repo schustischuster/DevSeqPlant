@@ -588,6 +588,20 @@ Container classes and bootstrap grid system settings
     display:inline-block;
 }
 
+#cred3lab {
+    display: inline-block;
+    position: relative;
+    margin-top: -2px!important;
+    margin-left: -5px!important;
+    font-size: 17.5px;
+    height: 20px;
+    text-align: center!important;
+    font-family: "Gill Sans", Geneva, sans-serif!important;
+    font-weight: 100!important;
+    letter-spacing: 2px;
+    color: #85817d!important;
+}
+
 
 .some-class3 {
     margin-left: -11px!important;
@@ -1821,7 +1835,7 @@ Container and spacer settings
   margin: 0 auto 0px!important;
   /* Pad bottom by footer height */
   padding: 0 0 0px!important;
-  min-height: 640px!important;
+  min-height: 680px!important;
 }
 
 @media only screen and (max-width: 1239px) {
@@ -2423,11 +2437,11 @@ Chart download button settings
   letter-spacing: 0.5px!important;
   color: #4b5163!important;
   font-size: 32px!important;
-  padding-top: 10px!important;
+  padding-top: 20px!important;
   padding-bottom: 37px!important;
   margin-left: 0px!important;
   margin-right: 0px!important;
-  margin-top: -20px!important;
+  margin-top: 0px!important;
 }
 
 
