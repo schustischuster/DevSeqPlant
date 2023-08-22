@@ -1144,8 +1144,8 @@ ol.message_list { position: relative !important}
     color: #1b1d1f!important;
     font-weight: 600!important;
     text-align: left!important;
-    margin-right: 118px!important;
-    margin-left: 30px!important;
+    margin-right: 80px!important;
+    margin-left: 20px!important;
     margin-top: 12px!important;
     margin-bottom: 18px!important;
     padding-top: 0px!important;
@@ -1176,8 +1176,8 @@ ol.message_list { position: relative !important}
     color: #1b1d1f!important;
     font-weight: 600!important;
     text-align: left!important;
-    margin-right: 25px!important;
-    margin-left: -79px!important;
+    margin-right: 15px!important;
+    margin-left: -65px!important;
     margin-top: 12px!important;
     margin-bottom: 18px!important;
     padding-top: 0px!important;
@@ -1194,9 +1194,9 @@ ol.message_list { position: relative !important}
     }
 
 .SlSpExAtCnt {
-    margin-right: 92px!important;
-    margin-left: 15px!important;
-    padding-right: 12px!important;
+    margin-right: 80px!important;
+    margin-left: 20px!important;
+    padding-right: 7px!important;
     padding-top: 0px!important;
     padding-bottom: 0px!important;
     }
@@ -1210,15 +1210,15 @@ ol.message_list { position: relative !important}
     }
 
 .SlSpExAtIc {
-    margin-left: -92.75px!important;
-    margin-right: 12px!important;
+    margin-left: -77.75px!important;
+    margin-right: 0px!important;
     padding-top: 0px!important;
     padding-bottom: 0px!important;
     }
 
 .Mega_Menu_Lowerspacer {
     height: 53px!important;
-    margin-top: 14px!important;
+    margin-top: -2px!important;
     margin-bottom: -5px!important;
     margin-left: -10px!important;
     margin-right: -15px!important;
@@ -1305,11 +1305,11 @@ ol.message_list { position: relative !important}
   margin-right: -4px!important;
   top: -1px;
   position: relative;
-  -moz-transition: transform 0.25s ease-out;
-  -webkit-transition: transform 0.25s ease-out;
-  -ms-transition: transform 0.25s ease-out;
-  -o-transition: transform 0.25s ease-out;
-  transition: transform 0.25s ease-out;
+  -moz-transition: transform 0.2s ease-out;
+  -webkit-transition: transform 0.2s ease-out;
+  -ms-transition: transform 0.2s ease-out;
+  -o-transition: transform 0.2s ease-out;
+  transition: transform 0.2s ease-out;
 }
 
 @-moz-document url-prefix() {
@@ -1328,209 +1328,6 @@ ol.message_list { position: relative !important}
 Mega Menu Content
 ***************************************************************************/
 
-/*** Adjust Mega Menu responsible image grid to screen resolution ***/
-.MMSwrap {
-    margin-left: -1px!important;
-    margin-right: -1px!important;
-    }
-.MMCwrap {
-    margin-left: -1px!important;
-    margin-right: -1px!important;
-    }
-.MMIwrap {
-    margin-left: -1px!important;
-    margin-right: -1px!important;
-    }
-@media only screen and (max-width: 1292px) {
-    .SlSpExAtIc {
-    margin-left: -93px!important;
-    margin-right: 14.7px!important;
-    }
-}
-@media only screen and (max-width: 1280px) {
-    .SlSpExAtIc {
-    margin-left: -93px!important;
-    margin-right: 16.2px!important;
-    }
-}
-@media only screen and (max-width: 1267px) {
-    .SlSpExAtIc {
-    margin-left: -93px!important;
-    margin-right: 17.85px!important;
-    }
-}
-@media only screen and (max-width: 1253px) {
-    .SlSpExAtIc {
-    margin-left: -93px!important;
-    margin-right: 19.6px!important;
-    }
-}
-@media only screen and (max-width: 1239px) {
-    .MMSwrap {
-        margin-left: -3px !important;
-        margin-right: -3px !important;
-    }
-    .MMCwrap {
-        margin-left: -3px !important;
-        margin-right: -3px !important;
-    }
-    .MMIwrap {
-    margin-left: -3px !important;
-    margin-right: -3px !important;
-    }
-    .SlSpExAt {
-    margin-right: 116px!important;
-    }
-    .CompTransExAt {
-    margin-right: 131px!important;
-    }
-    .SlSpExAtCnt {
-    margin-left: 17px!important;
-    }
-    .CompTranscrAtl {
-    margin-left: -75px!important;
-    margin-right: 120.5px!important;
-    }
-    .SlSpExAtIc {
-    margin-left: -91px!important;
-    margin-right: 20.85px!important;
-    }
-}
-@media only screen and (max-width: 1221px) {
-    .SlSpExAtIc {
-    margin-left: -91px!important;
-    margin-right: 23.15px!important;
-    }
-}
-@media only screen and (max-width: 1203px) {
-    .SlSpExAtIc {
-    margin-left: -91px!important;
-    margin-right: 25.45px!important;
-    }
-}
-@media only screen and (max-width: 1185px) {
-    .SlSpExAtIc {
-    margin-left: -91px!important;
-    margin-right: 27.75px!important;
-    }
-}
-@media only screen and (max-width: 1167px) {
-    .MMSwrap {
-        margin-left: -5px !important;
-        margin-right: -5px !important;
-    }
-    .MMCwrap {
-        margin-left: -5px !important;
-        margin-right: -5px !important;
-    }
-    .MMIwrap {
-    margin-left: -5px !important;
-    margin-right: -5px !important;
-    }
-    .SlSpExAt {
-    margin-right: 114px!important;
-    }
-    .CompTransExAt {
-    margin-right: 128px!important;
-    }
-    .SlSpExAtCnt {
-    margin-left: 19px!important;
-    }
-    .CompTranscrAtl {
-    margin-left: -73px!important;
-    margin-right: 119.5px!important;
-    }
-    .SlSpExAtIc {
-    margin-left: -89px!important;
-    margin-right: 29.5px!important;
-    }
-}
-@media only screen and (max-width: 1149px) {
-    .SlSpExAtIc {
-    margin-left: -89px!important;
-    margin-right: 31.75px!important;
-    }
-}
-@media only screen and (max-width: 1131px) {
-    .SlSpExAtIc {
-    margin-left: -89px!important;
-    margin-right: 34.05px!important;
-    }
-}
-@media only screen and (max-width: 1113px) {
-    .SlSpExAtIc {
-    margin-left: -89px!important;
-    margin-right: 36.35px!important;
-    }
-}
-@media only screen and (max-width: 1095px) {
-    .MMSwrap {
-        margin-left: -7px !important;
-        margin-right: -7px !important;
-    }
-    .MMCwrap {
-        margin-left: -7px !important;
-        margin-right: -7px !important;
-    }
-    .MMIwrap {
-    margin-left: -7px !important;
-    margin-right: -7px !important;
-    }
-    .SlSpExAt {
-    margin-right: 112px!important;
-    }
-    .CompTransExAt {
-    margin-right: 126px!important;
-    }
-    .SlSpExAtCnt {
-    margin-left: 21px!important;
-    }
-    .CompTranscrAtl {
-    margin-left: -72px!important;
-    margin-right: 119.5px!important;
-    }
-    .SlSpExAtIc {
-    margin-left: -87px!important;
-    margin-right: 38.15px!important;
-    }
-}
-
-@media only screen and (max-width: 1082px) {
-    .SlSpExAtIc {
-    margin-left: -87px!important;
-    margin-right: 39.75px!important;
-    }
-    .CompTransExAt {
-    margin-right: 125px!important;
-    }
-}
-@media only screen and (max-width: 1068px) {
-    .SlSpExAtIc {
-    margin-left: -87px!important;
-    margin-right: 41.55px!important;
-    }
-    .CompTransExAt {
-    margin-right: 124px!important;
-    }
-}
-@media only screen and (max-width: 1053px) {
-    .SlSpExAtIc {
-    margin-left: -87px!important;
-    margin-right: 43.45px!important;
-    }
-    .CompTransExAt {
-    margin-right: 121.5px!important;
-    }
-}
-@media only screen and (max-width: 1038px) {
-    .SlSpExAtIc {
-    margin-left: -87px!important;
-    margin-right: 45.2px!important;
-    }
-    .CompTransExAt {
-    margin-right: 120px!important;
-    }
-}
 
 
 .UpperSpcClass {
@@ -1550,6 +1347,9 @@ Mega Menu Content
 .UpperSpcClass > .SlSpExAtTxt {order: 2; } /* Will be displayed second  */
 .UpperSpcClass > .SlSpExAtImg {order: 1; } /* Will be displayed first */
 
+.SlSpExAtTxt {
+    font-size: 12.75px!important;
+}
 
 
 .SlSpExAtTxt, .SlSpExAtImg {
