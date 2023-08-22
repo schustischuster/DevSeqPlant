@@ -1503,6 +1503,19 @@ Mega Menu Content
     }
 }
 
+.MMSwrap {
+    margin-left: -1px!important;
+    margin-right: -1px!important;
+    }
+.MMCwrap {
+    margin-left: -1px!important;
+    margin-right: -1px!important;
+    }
+.MMIwrap {
+    margin-left: -1px!important;
+    margin-right: -1px!important;
+    }
+
 .MMinfoiimg {
     height: 25px!important;
     transition: opacity ease-out .15s; /* Animation */
