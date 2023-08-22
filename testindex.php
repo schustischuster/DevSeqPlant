@@ -480,7 +480,7 @@ HTML Body starts: wrapper = 1st level div
             <!-- Navbar Mega-Menu Content -->
             <div class = "row">
               <!-- Begin Single Species Content -->
-              <div class = "col-xs-6">
+              <div class = "col-xs-9">
                 <div class="Single_Species_Atlas">
                   <div class="SlSpExAt">
                     <div class="SlSpExAtFt">
@@ -488,12 +488,17 @@ HTML Body starts: wrapper = 1st level div
                     </div>
                   </div> 
                   <div class="SlSpExAtCnt">
-                    <div class="col-xs-3">
+                    <div class = "row">
+                    <div class="col">
                       <div class="MMSwrap">
-                        <a href="devseq.php" data-select="Arabidopsis_thaliana" class="menuspec" style="text-decoration: none">  
+                        <a href="testindex.php" data-select="Arabidopsis_thaliana" class="menuspec" style="text-decoration: none">  
                           <div class="UpperSpcClass">
                             <div class="SlSpExAtTxt">
-                              <i>Arabidopsis thaliana</i>
+                              
+                              <span style="color:#1b1d1f"><i>Arabidopsis thaliana</i></span><br>
+                              <span style="color:#7e8690">Col-0</span><br>
+                              <span style="color:white">___________</span>
+                              
                             </div>
                             <div class="SlSpExAtImg">
                               <div class="MMinfoicn"><img src="img/icons8-info_fin2.svg" class="MMinfoiimg" title="Arabidopsis thaliana | Ecotype: Col-0 | Illumina Stranded Total RNA-Seq">
@@ -504,12 +509,14 @@ HTML Body starts: wrapper = 1st level div
                         </a> 
                       </div> 
                     </div>
-                    <div class="col-xs-3">
+                    <div class="col">
                       <div class="MMSwrap">
-                        <a href="devseq.php" data-select="Arabidopsis_lyrata" class="menuspec" style="text-decoration: none">  
+                        <a href="testindex.php" data-select="Arabidopsis_lyrata" class="menuspec" style="text-decoration: none">  
                           <div class="UpperSpcClass">
                             <div class="SlSpExAtTxt">
-                              <i>Arabidopsis lyrata</i>
+                              <span style="color:#1b1d1f"><i>Arabidopsis lyrata</i></span><br>
+                              <span style="color:#7e8690">MN47</span><br>
+                              <span style="color:white">___________</span>
                             </div>
                             <div class="SlSpExAtImg">
                               <div class="MMinfoicn"><img src="img/icons8-info_fin2.svg" class="MMinfoiimg" title="Arabidopsis lyrata | Accession: MN47 | Illumina Stranded Total RNA-Seq">
@@ -520,12 +527,14 @@ HTML Body starts: wrapper = 1st level div
                         </a> 
                       </div> 
                     </div>
-                    <div class="col-xs-3">
+                    <div class="col">
                       <div class="MMSwrap">
-                        <a href="devseq.php" data-select="Brachypodium_distachyon" class="menuspec" style="text-decoration: none">
+                        <a href="testindex.php" data-select="Brachypodium_distachyon" class="menuspec" style="text-decoration: none"> 
                           <div class="UpperSpcClass">
                             <div class="SlSpExAtTxt">
-                              <i>Brachypodium distachyon</i>
+                              <span style="color:#1b1d1f"><i>Brachypodium distachyon</i></span><br>
+                              <span style="color:#7e8690">Bd21-3</span><br>
+                              <span style="color:white">___________</span>
                             </div>
                             <div class="SlSpExAtImg">
                               <div class="MMinfoicn"><img src="img/icons8-info_fin2.svg" class="MMinfoiimg" title="Brachypodium distachyon | Accession: Bd21-3 | Illumina Stranded Total RNA-Seq">
@@ -536,12 +545,14 @@ HTML Body starts: wrapper = 1st level div
                         </a> 
                       </div> 
                     </div>
-                    <div class="col-xs-3">
+                    <div class="col">
                       <div class="MMSwrap">
-                        <a href="devseq.php" data-select="Capsella_rubella" class="menuspec" style="text-decoration: none"> 
+                        <a href="testindex.php" data-select="Capsella_rubella" class="menuspec" style="text-decoration: none"> 
                           <div class="UpperSpcClass">
                             <div class="SlSpExAtTxt">
-                              <i>Capsella rubella</i>
+                              <span style="color:#1b1d1f"><i>Capsella rubella</i></span><br>
+                              <span style="color:#7e8690">Mt.Gargano</span><br>
+                              <span style="color:white">___________</span>
                             </div>
                             <div class="SlSpExAtImg">
                               <div class="MMinfoicn"><img src="img/icons8-info_fin2.svg" class="MMinfoiimg" title="Capsella rubella | Ecotype: Monte Gargano | Illumina Stranded Total RNA-Seq">
@@ -552,18 +563,15 @@ HTML Body starts: wrapper = 1st level div
                         </a> 
                       </div> 
                     </div>
-                    <div class="col-xs-12">
-                      <table></table>
-                      <table></table>
-                      <table></table>
-                      <table></table>
-                    </div>
-                    <div class="col-xs-3">
+                    
+                    <div class="col">
                       <div class="MMSwrap">
-                        <a href="devseq.php" data-select="Eutrema_salsugineum" class="menuspec" style="text-decoration: none"> 
+                        <a href="testindex.php" data-select="Eutrema_salsugineum" class="menuspec" style="text-decoration: none"> 
                           <div class="UpperSpcClass">
                             <div class="SlSpExAtTxt">
-                              <i>Eutrema salsugineum</i>
+                              <span style="color:#1b1d1f"><i>Eutrema salsugineum</i></span><br>
+                              <span style="color:#7e8690">Shandong</span><br>
+                              <span style="color:white">___________</span>
                             </div>
                             <div class="SlSpExAtImg">
                               <div class="MMinfoicn"><img src="img/icons8-info_fin2.svg" class="MMinfoiimg" title="Eutrema salsugineum | Ecotype: Shandong | Illumina Stranded Total RNA-Seq">
@@ -574,12 +582,14 @@ HTML Body starts: wrapper = 1st level div
                         </a> 
                       </div> 
                     </div>
-                    <div class="col-xs-3">
+                    <div class="col">
                       <div class="MMSwrap">
-                        <a href="devseq.php" data-select="Medicago_truncatula" class="menuspec" style="text-decoration: none"> 
+                        <a href="testindex.php" data-select="Medicago_truncatula" class="menuspec" style="text-decoration: none"> 
                           <div class="UpperSpcClass">
                             <div class="SlSpExAtTxt">
-                              <i>Medicago truncatula</i>
+                              <span style="color:#1b1d1f"><i>Medicago truncatula</i></span><br>
+                              <span style="color:#7e8690">A17</span><br>
+                              <span style="color:white">___________</span>
                             </div>
                             <div class="SlSpExAtImg">
                               <div class="MMinfoicn"><img src="img/icons8-info_fin2.svg" class="MMinfoiimg" title="Medicago truncatula | Accession: A17 | Illumina Stranded Total RNA-Seq">
@@ -590,12 +600,14 @@ HTML Body starts: wrapper = 1st level div
                         </a> 
                       </div> 
                     </div>
-                    <div class="col-xs-3">
+                    <div class="col">
                       <div class="MMSwrap">
-                        <a href="devseq.php" data-select="Tarenaya_hassleriana" class="menuspec" style="text-decoration: none"> 
+                        <a href="testindex.php" data-select="Tarenaya_hassleriana" class="menuspec" style="text-decoration: none"> 
                           <div class="UpperSpcClass">
                             <div class="SlSpExAtTxt">
-                              <i>Tarenaya hassleriana</i>
+                              <span style="color:#1b1d1f"><i>Tarenaya hassleriana</i></span><br>
+                              <span style="color:#7e8690">ES1100</span><br>
+                              <span style="color:white">___________</span>
                             </div>
                             <div class="SlSpExAtImg">
                               <div class="MMinfoicn"><img src="img/icons8-info_fin2.svg" class="MMinfoiimg" title="Tarenaya hassleriana | Accession: ES1100 | Illumina Stranded Total RNA-Seq">
@@ -606,23 +618,23 @@ HTML Body starts: wrapper = 1st level div
                         </a> 
                       </div> 
                     </div>
-                    <div class="col-xs-3 imgs"></div>
-                      <!-- this column empty -->
+                    </div>
                     </div>
                   </div>
-                </div><!-- End Single Species Content -->
+                
+              </div><!-- End Single Species Content -->
 
               <div class = "col-xs-3">
-                <div class="Comparative_Transcriptome_Atlas">
-                  <div class="CompTransExAt">
+                <div class="Integrative_Transcriptome_Analysis">
+                  <div class="IntTransA">
                     <div class="SlSpExAtFt">
-                      Comparative Analysis
+                      Integrative Transcriptome Analysis
                     </div>
                   </div>
-                  <div class="CompTranscrAtl">
-                    <div class="col-xs-6">
+                  <div class="SlSpExAtIc">
+                    <div class="col-xs-4">
                       <div class="MMCwrap">
-                        <a href="devseq.php" data-select="Capsella_rubella" class="menuspec" style="text-decoration: none"> 
+                        <a href="development.html" class="menuspec" style="text-decoration: none"> 
                           <div class="UpperSpcClass">
                             <div class="SlSpExAtTxt">
                               1-1&nbsportholog expression
@@ -636,53 +648,9 @@ HTML Body starts: wrapper = 1st level div
                         </a> 
                       </div> 
                     </div>
-                    <div class="col-xs-6">
-                      <div class="MMCwrap">
-                        <a href="devseq.php" data-select="Capsella_rubella" class="menuspec" style="text-decoration: none"> 
-                          <div class="UpperSpcClass">
-                            <div class="SlSpExAtTxt">
-                              Orthogroup expression
-                            </div>
-                            <div class="SlSpExAtImg">
-                              <div class="MMinfoicn"><img src="img/icons8-info_fin2.svg" class="MMinfoiimg" title="Orthogroup expression | Orthology Inference: OrthoFinder2">
-                              </div>
-                              <img src="img/Orthogroups_tin.jpg" class=img-responsive" alt="" style="border-radius:7px">
-                            </div>
-                          </div>
-                        </a> 
-                      </div> 
-                    </div>
-                    <div class="col-xs-12">
-                      <table></table>
-                      <table></table>
-                      <table></table>
-                      <table></table>
-                    </div>
-                    <div class="col-xs-12">
-                      <div class="MMwrap">
-                        <a href="devseq.php" data-select="Eutrema_salsugineum" class="menuspec" style="text-decoration: none"> 
-                          <div class="UpperSpcClass">
-                            <div class="SlSpExAtTxt">
-                            </div>
-                          </div>
-                        </a> 
-                      </div> 
-                    </div>
-                  </div>
-                </div>
-              </div><!-- End Comparative Transcriptome Content -->
-
-              <div class = "col-xs-3">
-                <div class="Integrative_Transcriptome_Analysis">
-                  <div class="IntTransA">
-                    <div class="SlSpExAtFt">
-                      Integrative Transcriptome Analysis
-                    </div>
-                  </div>
-                  <div class="SlSpExAtIc">
                     <div class = "col-xs-4">
                       <div class="MMIwrap">
-                        <a href="devseq.php" data-select="Capsella_rubella" class="menuspec" style="text-decoration: none"> 
+                        <a href="development.html" class="menuspec" style="text-decoration: none"> 
                           <div class="UpperSpcClass">
                             <div class="SlSpExAtTxt">
                               Coding&nbspsense/<br>cis&#8209NAT&nbsppairs
@@ -698,7 +666,7 @@ HTML Body starts: wrapper = 1st level div
                     </div>
                     <div class="col-xs-4">
                       <div class="MMIwrap">
-                        <a href="devseq.php" data-select="Capsella_rubella" class="menuspec" style="text-decoration: none"> 
+                        <a href="development.html" class="menuspec" style="text-decoration: none"> 
                           <div class="UpperSpcClass">
                             <div class="SlSpExAtTxt">
                               DevSeq-At<br>GenExpress
@@ -712,51 +680,7 @@ HTML Body starts: wrapper = 1st level div
                         </a> 
                       </div> 
                     </div>
-                    <div class = "col-xs-4">
-                      <div class="MMIwrap">
-                        <a href="devseq.php" data-select="Capsella_rubella" class="menuspec" style="text-decoration: none"> 
-                          <div class="UpperSpcClass">
-                            <div class="SlSpExAtTxt">
-                              Coding&nbspsense/<br>circRNA&nbsppairs
-                            </div>
-                            <div class="SlSpExAtImg">
-                              <div class="MMinfoicn"><img src="img/icons8-info_fin2.svg" class="MMinfoiimg" title="Expression of protein-coding sense/circular RNA (circRNA) pairs">
-                              </div>
-                              <img src="img/circRNA_pairs.jpg" class=img-responsive" alt="" style="border-radius:7px">
-                            </div>
-                          </div>
-                        </a> 
-                      </div> 
-                    </div>
-                    <div class="col-xs-12">
-                      <table></table>
-                      <table></table>
-                      <table></table>
-                      <table></table>
-                    </div>
-                    <div class="col-xs-4">
-                      <div class="MMIwrap">
-                        <a href="devseq.php" data-select="Capsella_rubella" class="menuspec" style="text-decoration: none"> 
-                          <div class="UpperSpcClass">
-                            <div class="SlSpExAtTxt">
-                              More...
-                            </div>
-                            <div class="SlSpExAtImg">
-                              <div class="MMinfoicn"><img src="img/icons8-info_fin2.svg" class="MMinfoiimg" title="Find out about the integrative and functional transcriptome analysis tools we currently work on">
-                              </div>
-                              <img src="img/more_tin.jpg" class=img-responsive" alt="" style="border-radius:7px">
-                            </div>
-                          </div>
-                        </a> 
-                      </div> 
-                    </div>
-                    <div class="col-xs-12">
-                      <table></table>
-                      <table></table>
-                      <table></table>
-                      <table></table>
-                      <table></table>
-                    </div>
+                    
                     <div class="col-xs-12">
                       <div class="MMwrap">
                       </div> 
@@ -818,7 +742,7 @@ HTML Body starts: wrapper = 1st level div
     $(document).ready(function(){
       $(".dropdown").click(            
             function() {
-               $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true,true).slideToggle(350, "swing");
+               $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true,true).slideToggle(250, "swing");
                $(this).toggleClass('open');        
            }
       );
@@ -830,7 +754,7 @@ HTML Body starts: wrapper = 1st level div
   <!-- JavaScipt for writing Mega Menu selected link data (species) to local storage -->
   <script type="text/javascript"> 
     $(document).ready(function(){ 
-      $('a[href="devseq.php"]').click(
+      $('a[href="testindex.php"]').click(
           function () {
             var SpeciesToStore = $(this).data('select');
             localStorage.setItem("storelinkInput", SpeciesToStore);
