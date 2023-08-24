@@ -877,8 +877,11 @@ HTML Body starts: wrapper = 1st level div
             <!-- Load "storelinkInput" variable from local storage -->
             <script type="text/javascript">
               var selectorsrt = $('#selectorsrt'); 
+              const array = ["Arabidopsis_thaliana", "Arabidopsis_lyrata", "Capsella_rubella", "Eutrema_salsugineum", "Tarenaya_hassleriana", "Medicago_truncatula", "Brachypodium_distachyon"];
+
                 selectorsrt.val(localStorage.getItem("storelinkInput"));
-                if (localStorage.getItem("storelinkInput") === null) {
+
+                if (! array.includes(localStorage.getItem("storelinkInput"))) {
                   selectorsrt.val("Arabidopsis_thaliana")
                   };
             </script>
