@@ -24,7 +24,7 @@ Run javascripts for controling radio button, checkbox, select & text fields
 
 <head>
 
-  <title>DevSeq | About</title>
+  <title>DevSeq | Under development</title>
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="author" content="Christoph Schuster">
@@ -113,7 +113,7 @@ HTML Body starts: wrapper = 1st level div
         <ul class="nav navbar-nav centered-navbar"> 
 
         <!-- Begin of Mega Menu -->
-        <li class="dropdown mega-dropdown">
+        <li class="dropdown mega-dropdown active">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Data Analysis <span class="caret"></span></a>       
           <div class="dropdown-menu mega-dropdown-menu">
             <!-- Navbar Mega-Menu Content -->
@@ -122,7 +122,7 @@ HTML Body starts: wrapper = 1st level div
             <!-- Navbar Mega-Menu Content -->
             <div class = "row">
               <!-- Begin Single Species Content -->
-              <div class = "col-xs-6">
+              <div class = "col-xs-9">
                 <div class="Single_Species_Atlas">
                   <div class="SlSpExAt">
                     <div class="SlSpExAtFt">
@@ -130,12 +130,17 @@ HTML Body starts: wrapper = 1st level div
                     </div>
                   </div> 
                   <div class="SlSpExAtCnt">
-                    <div class="col-xs-3">
+                    <div class = "row">
+                    <div class="col">
                       <div class="MMSwrap">
-                        <a href="devseq.php" data-select="Arabidopsis_thaliana" class="menuspec" style="text-decoration: none">  
+                        <a href="testindex.php" data-select="Arabidopsis_thaliana" class="menuspec" style="text-decoration: none">  
                           <div class="UpperSpcClass">
                             <div class="SlSpExAtTxt">
-                              <i>Arabidopsis thaliana</i>
+                              
+                              <span style="color:#1b1d1f"><i>Arabidopsis thaliana</i></span><br>
+                              <span style="color:#7e8690">Col-0</span><br>
+                              <span style="color:white">___________</span>
+                              
                             </div>
                             <div class="SlSpExAtImg">
                               <div class="MMinfoicn"><img src="img/icons8-info_fin2.svg" class="MMinfoiimg" title="Arabidopsis thaliana | Ecotype: Col-0 | Illumina Stranded Total RNA-Seq">
@@ -146,12 +151,14 @@ HTML Body starts: wrapper = 1st level div
                         </a> 
                       </div> 
                     </div>
-                    <div class="col-xs-3">
+                    <div class="col">
                       <div class="MMSwrap">
-                        <a href="devseq.php" data-select="Arabidopsis_lyrata" class="menuspec" style="text-decoration: none">  
+                        <a href="testindex.php" data-select="Arabidopsis_lyrata" class="menuspec" style="text-decoration: none">  
                           <div class="UpperSpcClass">
                             <div class="SlSpExAtTxt">
-                              <i>Arabidopsis lyrata</i>
+                              <span style="color:#1b1d1f"><i>Arabidopsis lyrata</i></span><br>
+                              <span style="color:#7e8690">MN47</span><br>
+                              <span style="color:white">___________</span>
                             </div>
                             <div class="SlSpExAtImg">
                               <div class="MMinfoicn"><img src="img/icons8-info_fin2.svg" class="MMinfoiimg" title="Arabidopsis lyrata | Accession: MN47 | Illumina Stranded Total RNA-Seq">
@@ -162,12 +169,14 @@ HTML Body starts: wrapper = 1st level div
                         </a> 
                       </div> 
                     </div>
-                    <div class="col-xs-3">
+                    <div class="col">
                       <div class="MMSwrap">
-                        <a href="devseq.php" data-select="Brachypodium_distachyon" class="menuspec" style="text-decoration: none">
+                        <a href="testindex.php" data-select="Brachypodium_distachyon" class="menuspec" style="text-decoration: none"> 
                           <div class="UpperSpcClass">
                             <div class="SlSpExAtTxt">
-                              <i>Brachypodium distachyon</i>
+                              <span style="color:#1b1d1f"><i>Brachypodium distachyon</i></span><br>
+                              <span style="color:#7e8690">Bd21-3</span><br>
+                              <span style="color:white">___________</span>
                             </div>
                             <div class="SlSpExAtImg">
                               <div class="MMinfoicn"><img src="img/icons8-info_fin2.svg" class="MMinfoiimg" title="Brachypodium distachyon | Accession: Bd21-3 | Illumina Stranded Total RNA-Seq">
@@ -178,12 +187,14 @@ HTML Body starts: wrapper = 1st level div
                         </a> 
                       </div> 
                     </div>
-                    <div class="col-xs-3">
+                    <div class="col">
                       <div class="MMSwrap">
-                        <a href="devseq.php" data-select="Capsella_rubella" class="menuspec" style="text-decoration: none"> 
+                        <a href="testindex.php" data-select="Capsella_rubella" class="menuspec" style="text-decoration: none"> 
                           <div class="UpperSpcClass">
                             <div class="SlSpExAtTxt">
-                              <i>Capsella rubella</i>
+                              <span style="color:#1b1d1f"><i>Capsella rubella</i></span><br>
+                              <span style="color:#7e8690">Mt.Gargano</span><br>
+                              <span style="color:white">___________</span>
                             </div>
                             <div class="SlSpExAtImg">
                               <div class="MMinfoicn"><img src="img/icons8-info_fin2.svg" class="MMinfoiimg" title="Capsella rubella | Ecotype: Monte Gargano | Illumina Stranded Total RNA-Seq">
@@ -194,18 +205,15 @@ HTML Body starts: wrapper = 1st level div
                         </a> 
                       </div> 
                     </div>
-                    <div class="col-xs-12">
-                      <table></table>
-                      <table></table>
-                      <table></table>
-                      <table></table>
-                    </div>
-                    <div class="col-xs-3">
+                    
+                    <div class="col">
                       <div class="MMSwrap">
-                        <a href="devseq.php" data-select="Eutrema_salsugineum" class="menuspec" style="text-decoration: none"> 
+                        <a href="testindex.php" data-select="Eutrema_salsugineum" class="menuspec" style="text-decoration: none"> 
                           <div class="UpperSpcClass">
                             <div class="SlSpExAtTxt">
-                              <i>Eutrema salsugineum</i>
+                              <span style="color:#1b1d1f"><i>Eutrema salsugineum</i></span><br>
+                              <span style="color:#7e8690">Shandong</span><br>
+                              <span style="color:white">___________</span>
                             </div>
                             <div class="SlSpExAtImg">
                               <div class="MMinfoicn"><img src="img/icons8-info_fin2.svg" class="MMinfoiimg" title="Eutrema salsugineum | Ecotype: Shandong | Illumina Stranded Total RNA-Seq">
@@ -216,12 +224,14 @@ HTML Body starts: wrapper = 1st level div
                         </a> 
                       </div> 
                     </div>
-                    <div class="col-xs-3">
+                    <div class="col">
                       <div class="MMSwrap">
-                        <a href="devseq.php" data-select="Medicago_truncatula" class="menuspec" style="text-decoration: none"> 
+                        <a href="testindex.php" data-select="Medicago_truncatula" class="menuspec" style="text-decoration: none"> 
                           <div class="UpperSpcClass">
                             <div class="SlSpExAtTxt">
-                              <i>Medicago truncatula</i>
+                              <span style="color:#1b1d1f"><i>Medicago truncatula</i></span><br>
+                              <span style="color:#7e8690">A17</span><br>
+                              <span style="color:white">___________</span>
                             </div>
                             <div class="SlSpExAtImg">
                               <div class="MMinfoicn"><img src="img/icons8-info_fin2.svg" class="MMinfoiimg" title="Medicago truncatula | Accession: A17 | Illumina Stranded Total RNA-Seq">
@@ -232,12 +242,14 @@ HTML Body starts: wrapper = 1st level div
                         </a> 
                       </div> 
                     </div>
-                    <div class="col-xs-3">
+                    <div class="col">
                       <div class="MMSwrap">
-                        <a href="devseq.php" data-select="Tarenaya_hassleriana" class="menuspec" style="text-decoration: none"> 
+                        <a href="testindex.php" data-select="Tarenaya_hassleriana" class="menuspec" style="text-decoration: none"> 
                           <div class="UpperSpcClass">
                             <div class="SlSpExAtTxt">
-                              <i>Tarenaya hassleriana</i>
+                              <span style="color:#1b1d1f"><i>Tarenaya hassleriana</i></span><br>
+                              <span style="color:#7e8690">ES1100</span><br>
+                              <span style="color:white">___________</span>
                             </div>
                             <div class="SlSpExAtImg">
                               <div class="MMinfoicn"><img src="img/icons8-info_fin2.svg" class="MMinfoiimg" title="Tarenaya hassleriana | Accession: ES1100 | Illumina Stranded Total RNA-Seq">
@@ -248,23 +260,23 @@ HTML Body starts: wrapper = 1st level div
                         </a> 
                       </div> 
                     </div>
-                    <div class="col-xs-3 imgs"></div>
-                      <!-- this column empty -->
+                    </div>
                     </div>
                   </div>
-                </div><!-- End Single Species Content -->
+                
+              </div><!-- End Single Species Content -->
 
               <div class = "col-xs-3">
-                <div class="Comparative_Transcriptome_Atlas">
-                  <div class="CompTransExAt">
+                <div class="Integrative_Transcriptome_Analysis">
+                  <div class="IntTransA">
                     <div class="SlSpExAtFt">
-                      Comparative Analysis
+                      Integrative Transcriptome Analysis
                     </div>
                   </div>
-                  <div class="CompTranscrAtl">
-                    <div class="col-xs-6">
+                  <div class="SlSpExAtIc">
+                    <div class="col-xs-4">
                       <div class="MMCwrap">
-                        <a href="devseq.php" data-select="Capsella_rubella" class="menuspec" style="text-decoration: none"> 
+                        <a href="development.html" class="menuspec" style="text-decoration: none"> 
                           <div class="UpperSpcClass">
                             <div class="SlSpExAtTxt">
                               1-1&nbsportholog expression
@@ -278,53 +290,9 @@ HTML Body starts: wrapper = 1st level div
                         </a> 
                       </div> 
                     </div>
-                    <div class="col-xs-6">
-                      <div class="MMCwrap">
-                        <a href="devseq.php" data-select="Capsella_rubella" class="menuspec" style="text-decoration: none"> 
-                          <div class="UpperSpcClass">
-                            <div class="SlSpExAtTxt">
-                              Orthogroup expression
-                            </div>
-                            <div class="SlSpExAtImg">
-                              <div class="MMinfoicn"><img src="img/icons8-info_fin2.svg" class="MMinfoiimg" title="Orthogroup expression | Orthology Inference: OrthoFinder2">
-                              </div>
-                              <img src="img/Orthogroups_tin.jpg" class=img-responsive" alt="" style="border-radius:7px">
-                            </div>
-                          </div>
-                        </a> 
-                      </div> 
-                    </div>
-                    <div class="col-xs-12">
-                      <table></table>
-                      <table></table>
-                      <table></table>
-                      <table></table>
-                    </div>
-                    <div class="col-xs-12">
-                      <div class="MMwrap">
-                        <a href="devseq.php" data-select="Eutrema_salsugineum" class="menuspec" style="text-decoration: none"> 
-                          <div class="UpperSpcClass">
-                            <div class="SlSpExAtTxt">
-                            </div>
-                          </div>
-                        </a> 
-                      </div> 
-                    </div>
-                  </div>
-                </div>
-              </div><!-- End Comparative Transcriptome Content -->
-
-              <div class = "col-xs-3">
-                <div class="Integrative_Transcriptome_Analysis">
-                  <div class="IntTransA">
-                    <div class="SlSpExAtFt">
-                      Integrative Transcriptome Analysis
-                    </div>
-                  </div>
-                  <div class="SlSpExAtIc">
                     <div class = "col-xs-4">
                       <div class="MMIwrap">
-                        <a href="devseq.php" data-select="Capsella_rubella" class="menuspec" style="text-decoration: none"> 
+                        <a href="development.html" class="menuspec" style="text-decoration: none"> 
                           <div class="UpperSpcClass">
                             <div class="SlSpExAtTxt">
                               Coding&nbspsense/<br>cis&#8209NAT&nbsppairs
@@ -340,7 +308,7 @@ HTML Body starts: wrapper = 1st level div
                     </div>
                     <div class="col-xs-4">
                       <div class="MMIwrap">
-                        <a href="devseq.php" data-select="Capsella_rubella" class="menuspec" style="text-decoration: none"> 
+                        <a href="development.html" class="menuspec" style="text-decoration: none"> 
                           <div class="UpperSpcClass">
                             <div class="SlSpExAtTxt">
                               DevSeq-At<br>GenExpress
@@ -354,51 +322,7 @@ HTML Body starts: wrapper = 1st level div
                         </a> 
                       </div> 
                     </div>
-                    <div class = "col-xs-4">
-                      <div class="MMIwrap">
-                        <a href="devseq.php" data-select="Capsella_rubella" class="menuspec" style="text-decoration: none"> 
-                          <div class="UpperSpcClass">
-                            <div class="SlSpExAtTxt">
-                              Coding&nbspsense/<br>circRNA&nbsppairs
-                            </div>
-                            <div class="SlSpExAtImg">
-                              <div class="MMinfoicn"><img src="img/icons8-info_fin2.svg" class="MMinfoiimg" title="Expression of protein-coding sense/circular RNA (circRNA) pairs">
-                              </div>
-                              <img src="img/circRNA_pairs.jpg" class=img-responsive" alt="" style="border-radius:7px">
-                            </div>
-                          </div>
-                        </a> 
-                      </div> 
-                    </div>
-                    <div class="col-xs-12">
-                      <table></table>
-                      <table></table>
-                      <table></table>
-                      <table></table>
-                    </div>
-                    <div class="col-xs-4">
-                      <div class="MMIwrap">
-                        <a href="devseq.php" data-select="Capsella_rubella" class="menuspec" style="text-decoration: none"> 
-                          <div class="UpperSpcClass">
-                            <div class="SlSpExAtTxt">
-                              More...
-                            </div>
-                            <div class="SlSpExAtImg">
-                              <div class="MMinfoicn"><img src="img/icons8-info_fin2.svg" class="MMinfoiimg" title="Find out about the integrative and functional transcriptome analysis tools we currently work on">
-                              </div>
-                              <img src="img/more_tin.jpg" class=img-responsive" alt="" style="border-radius:7px">
-                            </div>
-                          </div>
-                        </a> 
-                      </div> 
-                    </div>
-                    <div class="col-xs-12">
-                      <table></table>
-                      <table></table>
-                      <table></table>
-                      <table></table>
-                      <table></table>
-                    </div>
+                    
                     <div class="col-xs-12">
                       <div class="MMwrap">
                       </div> 
@@ -446,7 +370,7 @@ HTML Body starts: wrapper = 1st level div
         <li ><a href="#" title="Release Notes" class="fa_ellipsis_class"><span class = 'hreflinks6'><svg class="fa fa-pencil-square-o" xmlns="http://www.w3.org/2000/svg" height="0.95em" viewBox="0 0 512 512"><path d="M471.6 21.7c-21.9-21.9-57.3-21.9-79.2 0L362.3 51.7l97.9 97.9 30.1-30.1c21.9-21.9 21.9-57.3 0-79.2L471.6 21.7zm-299.2 220c-6.1 6.1-10.8 13.6-13.5 21.9l-29.6 88.8c-2.9 8.6-.6 18.1 5.8 24.6s15.9 8.7 24.6 5.8l88.8-29.6c8.2-2.7 15.7-7.4 21.9-13.5L437.7 172.3 339.7 74.3 172.4 241.7zM96 64C43 64 0 107 0 160V416c0 53 43 96 96 96H352c53 0 96-43 96-96V320c0-17.7-14.3-32-32-32s-32 14.3-32 32v96c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V160c0-17.7 14.3-32 32-32h96c17.7 0 32-14.3 32-32s-14.3-32-32-32H96z"/></svg></span></a>
         </li>   
         <li ><a href="#" title="Contact" class="fa_envelope_class"><span class = 'hreflinks6'><svg class="fa fa-envelope icon" xmlns="http://www.w3.org/2000/svg" height="1.1em" viewBox="4 -10 512 512"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg><svg class="fa fa-envelope-open icon" xmlns="http://www.w3.org/2000/svg" height="1.1em" viewBox="4 -10 512 512"><path d="M255.4 48.2c.2-.1 .4-.2 .6-.2s.4 .1 .6 .2L460.6 194c2.1 1.5 3.4 3.9 3.4 6.5v13.6L291.5 355.7c-20.7 17-50.4 17-71.1 0L48 214.1V200.5c0-2.6 1.2-5 3.4-6.5L255.4 48.2zM48 276.2L190 392.8c38.4 31.5 93.7 31.5 132 0L464 276.2V456c0 4.4-3.6 8-8 8H56c-4.4 0-8-3.6-8-8V276.2zM256 0c-10.2 0-20.2 3.2-28.5 9.1L23.5 154.9C8.7 165.4 0 182.4 0 200.5V456c0 30.9 25.1 56 56 56H456c30.9 0 56-25.1 56-56V200.5c0-18.1-8.7-35.1-23.4-45.6L284.5 9.1C276.2 3.2 266.2 0 256 0z"/></svg><span></span></a></li>
-        <li class="active"><a href="about.html"><span class = 'hreflinks9'>About</span></a></li> 
+        <li ><a href="about.html"><span class = 'hreflinks9'>About</span></a></li> 
         </ul>
       </div><!-- End of Collapse Navigation -->
     </div>
@@ -460,7 +384,7 @@ HTML Body starts: wrapper = 1st level div
     $(document).ready(function(){
       $(".dropdown").click(            
             function() {
-               $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true,true).slideToggle(350, "swing");
+               $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true,true).slideToggle(250, "swing");
                $(this).toggleClass('open');        
            }
       );
@@ -472,7 +396,7 @@ HTML Body starts: wrapper = 1st level div
   <!-- JavaScipt for writing Mega Menu selected link data (species) to local storage -->
   <script type="text/javascript"> 
     $(document).ready(function(){ 
-      $('a[href="devseq.php"]').click(
+      $('a[href="testindex.php"]').click(
           function () {
             var SpeciesToStore = $(this).data('select');
             localStorage.setItem("storelinkInput", SpeciesToStore);
@@ -494,11 +418,7 @@ HTML Body starts: wrapper = 1st level div
 
     <div style = "margin:0 auto!important; padding-top: 100px; width: 50%;">
 
-      <div style = "margin:0 auto!important; text-align: center; padding-top: 0px, padding-bottom: 0px">
-        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" height="100" viewBox="0 0 256 256" enable-background="new 0 0 256 256" xml:space="preserve"><g><g><g><path fill="#000000" d="M31.1,49.3c-2.5,0.7-5.1,2.9-6.3,5.3c-0.6,1.5-0.7,7.9-0.9,69.7l-0.1,68.1h-6.9H10v2.7v2.6l6,4.7l6,4.7H128h105.9l6-4.7l6-4.7v-2.6v-2.7h-6.9h-6.9v-66.8c0-47.3-0.1-67.5-0.5-69.2c-0.7-3.3-3.4-6.1-6.5-7.1c-2-0.6-14.1-0.7-97.1-0.6C52.1,48.7,32.8,48.9,31.1,49.3z M224,56.9c0.5,0.5,0.6,13.3,0.6,68v67.4l-37.6,0.1l-37.6,0.1l-0.8,1.6c-0.5,0.9-1.7,2.1-2.5,2.7c-1.6,1-1.9,1-18,1c-15.6,0-16.5,0-18-0.9c-0.9-0.6-2-1.8-2.5-2.7l-0.9-1.7H69.2H31.8l-0.2-1.5c-0.4-1.9-0.4-131.1,0-132.8c0.1-0.7,0.7-1.5,1.2-1.7c0.6-0.2,42.6-0.4,95.8-0.3C205.6,56.3,223.5,56.4,224,56.9z"/><path fill="#000000" d="M124.6,121.7c-6,17.9-10.9,32.6-10.9,32.7c0,0.1,1.7,0.3,3.8,0.3h3.8l10.8-32.2c5.9-17.7,10.9-32.4,11-32.7c0.1-0.4-0.8-0.6-3.7-0.6h-3.9L124.6,121.7z"/><path fill="#000000" d="M85.7,113.6L64.3,124l0.1,3.2l0.1,3.2l21.2,10.3c11.6,5.7,21.3,10.3,21.3,10.3c0.1,0,0.1-1.8,0-4l-0.1-4l-16.7-7.8c-9.2-4.3-16.5-8-16.4-8.2c0.2-0.2,7.7-3.8,16.7-8l16.4-7.6l0.1-2.1c0.1-1.2,0.1-3,0-4.1l-0.1-2L85.7,113.6z"/><path fill="#000000" d="M148.7,107.2v4l16.8,7.8c9.3,4.3,17,7.9,17.1,8.1c0.1,0.1-7.4,3.8-16.7,8.1l-16.9,7.8l-0.1,4c-0.1,2.4,0,4,0.3,3.9c0.2,0,9.9-4.7,21.4-10.3l21.1-10.1l-0.1-3.5l-0.1-3.4l-21.3-10.3l-21.3-10.2L148.7,107.2L148.7,107.2z"/></g></g></g></svg>
-      </div>
-
-      <p style = "font-size: 20px; text-align: center; margin-top: -7px!important;"> This Page is Currently Under Development. </p>
+      <p style = "font-size: 20px; text-align: center; margin-top: 0px!important;"> This Page is Currently Under Development. </p>
 
       <p style = "text-align: center;"><a href="testindex.php" style = "font-size: 16px;" ><font color="#333399">Back to Home</font></a></p>
 
