@@ -484,7 +484,7 @@ HTML Body starts: wrapper = 1st level div
                 <div class="Single_Species_Atlas">
                   <div class="SlSpExAt">
                     <div class="SlSpExAtFt">
-                      Single Species Expression Atlas
+                      Single Species Stranded Total RNA-Seq Expression Atlas
                     </div>
                   </div> 
                   <div class="SlSpExAtCnt">
@@ -494,15 +494,12 @@ HTML Body starts: wrapper = 1st level div
                         <a href="testindex.php" data-select="Arabidopsis_thaliana" class="menuspec" style="text-decoration: none">  
                           <div class="UpperSpcClass">
                             <div class="SlSpExAtTxt">
-                              
                               <span style="color:#1b1d1f"><i>Arabidopsis thaliana</i></span><br>
                               <span style="color:#7e8690">Col-0</span><br>
                               <span style="color:white">___________</span>
-                              
                             </div>
                             <div class="SlSpExAtImg">
-                              <div class="MMinfoicn"><img src="img/icons8-info_fin2.svg" class="MMinfoiimg" title="Arabidopsis thaliana | Ecotype: Col-0 | Illumina Stranded Total RNA-Seq">
-                              </div>
+                              
                               <img src="img/ATH_tin.jpg" class=img-responsive" alt="" style="border-radius:7px">
                             </div>
                           </div>
@@ -519,8 +516,7 @@ HTML Body starts: wrapper = 1st level div
                               <span style="color:white">___________</span>
                             </div>
                             <div class="SlSpExAtImg">
-                              <div class="MMinfoicn"><img src="img/icons8-info_fin2.svg" class="MMinfoiimg" title="Arabidopsis lyrata | Accession: MN47 | Illumina Stranded Total RNA-Seq">
-                              </div>
+                              
                               <img src="img/AL_tin.jpg" class=img-responsive" alt="" style="border-radius:7px">
                             </div>
                           </div>
@@ -537,8 +533,7 @@ HTML Body starts: wrapper = 1st level div
                               <span style="color:white">___________</span>
                             </div>
                             <div class="SlSpExAtImg">
-                              <div class="MMinfoicn"><img src="img/icons8-info_fin2.svg" class="MMinfoiimg" title="Brachypodium distachyon | Accession: Bd21-3 | Illumina Stranded Total RNA-Seq">
-                              </div>
+                              
                               <img src="img/BD_tin.jpg" class=img-responsive" alt="" style="border-radius:7px">
                             </div>
                           </div>
@@ -555,8 +550,7 @@ HTML Body starts: wrapper = 1st level div
                               <span style="color:white">___________</span>
                             </div>
                             <div class="SlSpExAtImg">
-                              <div class="MMinfoicn"><img src="img/icons8-info_fin2.svg" class="MMinfoiimg" title="Capsella rubella | Ecotype: Monte Gargano | Illumina Stranded Total RNA-Seq">
-                              </div>
+                              
                               <img src="img/CR_tin.jpg" class=img-responsive" alt="" style="border-radius:7px">
                             </div>
                           </div>
@@ -574,8 +568,7 @@ HTML Body starts: wrapper = 1st level div
                               <span style="color:white">___________</span>
                             </div>
                             <div class="SlSpExAtImg">
-                              <div class="MMinfoicn"><img src="img/icons8-info_fin2.svg" class="MMinfoiimg" title="Eutrema salsugineum | Ecotype: Shandong | Illumina Stranded Total RNA-Seq">
-                              </div>
+                              
                               <img src="img/ES_tin.jpg" class=img-responsive" alt="" style="border-radius:7px">
                             </div>
                           </div>
@@ -592,8 +585,7 @@ HTML Body starts: wrapper = 1st level div
                               <span style="color:white">___________</span>
                             </div>
                             <div class="SlSpExAtImg">
-                              <div class="MMinfoicn"><img src="img/icons8-info_fin2.svg" class="MMinfoiimg" title="Medicago truncatula | Accession: A17 | Illumina Stranded Total RNA-Seq">
-                              </div>
+                              
                               <img src="img/MT_tin.jpg" class=img-responsive" alt="" style="border-radius:7px">
                             </div>
                           </div>
@@ -610,8 +602,7 @@ HTML Body starts: wrapper = 1st level div
                               <span style="color:white">___________</span>
                             </div>
                             <div class="SlSpExAtImg">
-                              <div class="MMinfoicn"><img src="img/icons8-info_fin2.svg" class="MMinfoiimg" title="Tarenaya hassleriana | Accession: ES1100 | Illumina Stranded Total RNA-Seq">
-                              </div>
+                              
                               <img src="img/TH_tin.jpg" class=img-responsive" alt="" style="border-radius:7px">
                             </div>
                           </div>
@@ -632,12 +623,16 @@ HTML Body starts: wrapper = 1st level div
                     </div>
                   </div>
                   <div class="SlSpExAtIc">
-                    <div class="col-xs-4">
+                    <div class = "row">
+                    <div class="col">
                       <div class="MMCwrap">
                         <a href="development.html" class="menuspec" style="text-decoration: none"> 
                           <div class="UpperSpcClass">
                             <div class="SlSpExAtTxt">
-                              1-1&nbsportholog expression
+
+                              <span style="color:#1b1d1f">1-1&nbsportholog expression</span><br>
+                              <span style="color:white">___________</span>
+
                             </div>
                             <div class="SlSpExAtImg">
                               <div class="MMinfoicn"><img src="img/icons8-info_fin2.svg" class="MMinfoiimg" title="1-1 ortholog expression | Orthology Inference: BLAST best reciprocal hit">
@@ -648,12 +643,15 @@ HTML Body starts: wrapper = 1st level div
                         </a> 
                       </div> 
                     </div>
-                    <div class = "col-xs-4">
-                      <div class="MMIwrap">
+                    <div class = "col">
+                      <div class="MMCwrap">
                         <a href="development.html" class="menuspec" style="text-decoration: none"> 
                           <div class="UpperSpcClass">
                             <div class="SlSpExAtTxt">
-                              Coding&nbspsense/<br>cis&#8209NAT&nbsppairs
+
+                              <span style="color:#1b1d1f">Coding&nbspsense/<br>cis&#8209NAT&nbsppairs</span><br>
+                              <span style="color:white">___________</span>
+
                             </div>
                             <div class="SlSpExAtImg">
                               <div class="MMinfoicn"><img src="img/icons8-info_fin2.svg" class="MMinfoiimg" title="Expression of protein-coding sense/natural antisense transcript (cis-NAT) pairs">
@@ -664,12 +662,15 @@ HTML Body starts: wrapper = 1st level div
                         </a> 
                       </div> 
                     </div>
-                    <div class="col-xs-4">
-                      <div class="MMIwrap">
+                    <div class="col">
+                      <div class="MMCwrap">
                         <a href="development.html" class="menuspec" style="text-decoration: none"> 
                           <div class="UpperSpcClass">
                             <div class="SlSpExAtTxt">
-                              DevSeq-At<br>GenExpress
+
+                              <span style="color:#1b1d1f">DevSeq-At<br>GenExpress</span><br>
+                              <span style="color:white">___________</span>
+
                             </div>
                             <div class="SlSpExAtImg">
                               <div class="MMinfoicn"><img src="img/icons8-info_fin2.svg" class="MMinfoiimg" title="Comparative analysis of DevSeq RNA-Seq and AtGenExpress genome array Arabidopsis thaliana gene expression data">
@@ -679,6 +680,7 @@ HTML Body starts: wrapper = 1st level div
                           </div>
                         </a> 
                       </div> 
+                    </div>
                     </div>
                     
                     <div class="col-xs-12">
