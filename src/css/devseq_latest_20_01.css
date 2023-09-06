@@ -591,15 +591,15 @@ Container classes and bootstrap grid system settings
 #cred3lab {
     display: inline-block;
     position: relative;
-    margin-top: -2px!important;
-    margin-left: -5px!important;
-    font-size: 17.5px;
+    margin-top: -4px!important;
+    margin-left: -4px!important;
+    font-size: 20px;
     height: 20px;
     text-align: center!important;
     font-family: "Gill Sans", Geneva, sans-serif!important;
     font-weight: 100!important;
-    letter-spacing: 2px;
-    color: #85817d!important;
+    letter-spacing: 4px;
+    color: #858a88!important;
 }
 
 
@@ -2578,30 +2578,6 @@ Chart download button settings
     }
 }/* settings specific for Firefox */
 
-/* This positions the select option in Safari */
-.custom-selectsrt.al select {
-    padding-left: 229px!important;
-    }
-.custom-selectsrt.ath select {
-    padding-left: 220px!important;
-    }
-.custom-selectsrt.cr select {
-    padding-left: 236px!important;
-    }
-.custom-selectsrt.es select {
-    padding-left: 216px!important;
-    }
-.custom-selectsrt.th select {
-    padding-left: 219px!important;
-    }
-.custom-selectsrt.mt select {
-    padding-left: 219px!important;
-    }
-.custom-selectsrt.bd select {
-    padding-left: 200px!important;
-    }
-
-
 
 .custom-select select:hover { 
     border-top: 1px solid #a8a8a8!important;
@@ -2863,26 +2839,26 @@ Search Box and Submit button settings
     }
 
 .fa-searchinfo2.focus {
-  fill: #6e7273!important;
+  fill: #707983!important;
 }
 
 .fa-searchinfo2 {
-  fill: #6e7273!important;
+  fill: #707983!important;
 }
 
 
 .fa-searchinfo3 {
   position: absolute!important;
-  left: 4px!important;
+  left: 5px!important;
   right: 0px!important;
   top: 2px!important;
   padding: 0px 0px!important;
-  fill: #6e7273!important;
+  fill: #707983!important;
   cursor: default!important;
 }
 
 .fa-searchinfo3:hover {
-  fill: #6e7273!important;
+  fill: #707983!important;
   cursor: default!important;
 }
 
