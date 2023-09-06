@@ -624,7 +624,7 @@ HTML Body starts: wrapper = 1st level div
                   </div>
                   <div class="SlSpExAtIc">
                     <div class = "row">
-                    <div class="col">
+                    <div class="col-xs-4">
                       <div class="MMCwrap">
                         <a href="development.html" class="menuspec" style="text-decoration: none"> 
                           <div class="UpperSpcClass">
@@ -643,7 +643,7 @@ HTML Body starts: wrapper = 1st level div
                         </a> 
                       </div> 
                     </div>
-                    <div class = "col">
+                    <div class = "col-xs-4">
                       <div class="MMCwrap">
                         <a href="development.html" class="menuspec" style="text-decoration: none"> 
                           <div class="UpperSpcClass">
@@ -662,7 +662,7 @@ HTML Body starts: wrapper = 1st level div
                         </a> 
                       </div> 
                     </div>
-                    <div class="col">
+                    <div class="col-xs-4">
                       <div class="MMCwrap">
                         <a href="development.html" class="menuspec" style="text-decoration: none"> 
                           <div class="UpperSpcClass">
@@ -889,66 +889,6 @@ HTML Body starts: wrapper = 1st level div
             </script>
 
 
-
-            <!-- Safari Select Box hack to center select item text -->
-            <script type="text/javascript">
-              var customselectsrt = $(".custom-selectsrt");  
-              $(document).ready(function() {
-                if (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1)  {
-                  $(document).ready(function() {
-                    if(document.getElementById('selectorsrt').value=='Arabidopsis_lyrata') {
-                        customselectsrt.addClass("al");
-                    }
-                    else if(document.getElementById('selectorsrt').value=='Arabidopsis_thaliana') {
-                      customselectsrt.addClass("ath");
-                    }
-                    else if(document.getElementById('selectorsrt').value=='Capsella_rubella') {
-                        customselectsrt.addClass("cr");
-                    }
-                    else if(document.getElementById('selectorsrt').value=='Eutrema_salsugineum') {
-                        customselectsrt.addClass("es");
-                    }
-                    else if(document.getElementById('selectorsrt').value=='Tarenaya_hassleriana') {
-                        customselectsrt.addClass("th");
-                    }
-                    else if(document.getElementById('selectorsrt').value=='Medicago_truncatula') {
-                        customselectsrt.addClass("mt");
-                    }
-                    else if(document.getElementById('selectorsrt').value=='Brachypodium_distachyon') {
-                        customselectsrt.addClass("bd");
-                    }
-                  });
-                };
-              });
-
-              var slctspc  = (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1);
-              $("#selectorsrt").on("change", function () {
-                customselectsrt.removeClass().addClass("custom-selectsrt");
-                    if((slctspc) && (document.getElementById('selectorsrt').value=='Arabidopsis_lyrata')) {
-                        customselectsrt.addClass("al");           
-                    }
-                    else if((slctspc) && (document.getElementById('selectorsrt').value=='Arabidopsis_thaliana')) {
-                        customselectsrt.addClass("ath");
-                    }
-                    else if((slctspc) && (document.getElementById('selectorsrt').value=='Capsella_rubella')) {
-                        customselectsrt.addClass("cr");
-                    }
-                    else if((slctspc) && (document.getElementById('selectorsrt').value=='Eutrema_salsugineum')) {
-                        customselectsrt.addClass("es");
-                    }
-                    else if((slctspc) && (document.getElementById('selectorsrt').value=='Tarenaya_hassleriana')) {
-                        customselectsrt.addClass("th");
-                    }
-                    else if((slctspc) && (document.getElementById('selectorsrt').value=='Medicago_truncatula')) {
-                        customselectsrt.addClass("mt");
-                    }
-                    else if((slctspc) && (document.getElementById('selectorsrt').value=='Brachypodium_distachyon')) {
-                        customselectsrt.addClass("bd");
-                    }
-              });             
-            </script>
-
-
             <!-- JavaScript to control select box placeholder -->
             <script type="text/javascript">  
               var placeholderText = {
@@ -1003,7 +943,7 @@ HTML Body starts: wrapper = 1st level div
                       </div>
                      <div class="cbform-group">
                       &nbsp <input type="checkbox" class="checktoradio" name="filter5" value="2" id="cb2" noneoption="true"<?php if ($_POST['filter5'] == "2") echo 'checked';?>><label for="cb2"> min-max (RE)&nbsp</label>
-                        <div class="tooltipwrapper" style="display:inline-block;"><span class = 'hreflinks11' ><svg class="fa-searchinfo3" xmlns="http://www.w3.org/2000/svg" height="1.0em" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg></span>
+                        <div class="tooltipwrapper" style="display:inline-block;"><span class = 'hreflinks11' ><svg class="fa-searchinfo3" xmlns="http://www.w3.org/2000/svg" height="0.95em" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg></span>
                           <div class = "tooltipsrtbridge"></div>
                           <div class="tooltipsrt">In <b>min-max feature scaling</b>, the expression data of each transcript is linearly rescaled to the unit interval [0, 1].</font>
                           </div>
@@ -3237,7 +3177,7 @@ Closing controlplot_container 2nd level div and wrap 1st level div and define fo
     <div class="parent"> 
       <div class="child num1"><a href="#"><font color="#333399">Home</font></a>&nbsp · &nbsp<a href="#"><font color="#333399">About DevSeq</font></a>&nbsp · &nbsp<a href="#"><font color="#333399">Contact</font></a>
       </div>
-      <div class="child num3"><a href="#"><font color="#333399">Release 1 - June 2018</font></a>&nbsp · &nbsp<a href="#"><font color="#333399">Back to top<i class="fa fa-chevron-up" aria-hidden="true"></i></a>
+      <div class="child num3"><a href="#"><font color="#333399">Release 1 - September 2023</font></a>&nbsp · &nbsp<a href="#"><font color="#333399">Back to top<i class="fa fa-chevron-up" aria-hidden="true"></i></a>
       </div>  
     </div> 
   </div> 
