@@ -744,7 +744,7 @@ HTML Body starts: wrapper = 1st level div
     $(document).ready(function(){
       $(".dropdown").click(            
             function() {
-               $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true,true).slideToggle(250, "swing");
+               $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true,true).slideToggle(200, "swing");
                $(this).toggleClass('open');        
            }
       );
@@ -858,7 +858,14 @@ HTML Body starts: wrapper = 1st level div
                 <div class="SBoxsrt">
                   <div class="right-inner-addonsrt" id="rightinneraddonsrt_id">
                   <input name="searchquery" type="text" autofocus="autofocus" id="sfqsrt" size="35" maxlength="100000" class="tftextinput2" placeholder= "<?php echo $sboxplaceholder; ?>" value= "<?php if((isset($_POST['searchquery'])) && $_POST['searchquery'] != "") {echo $searchquery;} ?>" />
-                  <div class="tooltipwrapper2" style="display:inline-block;"><div class="searchinfo2div"><a><span style="text-decoration: none" id="fasearchinfo2_id" class="fa_searchinfo_class" ><svg class="fa-searchinfo2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" height="1.0em" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg></span></a></div>
+                  <div class="tooltipwrapper2" style="display:inline-block;"><div class="searchinfo2div"><a><span style="text-decoration: none" id="fasearchinfo2_id" class="fa_searchinfo_class" ><svg class="fa-searchinfo2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="1.325em" height="1.325em" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
+                    <g>
+                    <path fill="#7D8284" d="M50,6.99C26.27,6.99,6.99,26.27,6.99,50c0,23.729,19.28,43.011,43.01,43.011 c23.729,0,43.011-19.281,43.011-43.011C93.011,26.27,73.729,6.99,50,6.99z"/>
+                    <path fill="#FFFFFF" d="M50,11.512c21.279,0,38.488,17.209,38.488,38.488c0,21.279-17.209,38.488-38.488,38.488 c-21.279,0-38.488-17.209-38.488-38.488C11.512,28.721,28.721,11.512,50,11.512z"/>
+                    <g>
+                      <circle cx="50" cy="31.708" r="5.75"/>
+                      <polygon points="40.95,45.638 40.95,49.046 43.212,49.046 45.475,49.046 45.475,71.212 43.212,71.212 40.95,71.212 40.95,74.621 43.212,74.621 45.475,74.621 54.525,74.621 56.788,74.621 59.05,74.621 59.05,71.212 56.788,71.212 54.525,71.212 54.525,45.638 52.263,45.638 43.212,45.638"/>
+                    </g></g></svg></span></a></div>
                       <div class="tooltipsrcsrt" id="tooltipsrcsrtid">
                         <b>Input requirements:</b>
                         Multiple identifiers or gene symbols must be seperated with an empty space, comma, or semicolon.
