@@ -724,6 +724,18 @@ Container classes and bootstrap grid system settings
     }
 }
 
+@media only screen and (min-height: 880px) {
+    #md12rsltpg {
+        margin-top: 7px!important;
+    }
+}
+
+@media only screen and (min-height: 950px) {
+    #md12rsltpg {
+        margin-top: 11px!important;
+    }
+}
+
 .reqcontent {
     min-height: 300px!important;
     min-width: 944px!important;
@@ -884,7 +896,7 @@ Bootstrap navbar and dropdown settings
 .container-fluid {
     margin: 0px;
     border-top: 1px solid #c8cbcf!important;
-    max-width: 1280px;
+    max-width: 1252px;
     font-family:'Raleway', sans-serif!important;
     font-size: 15.8px;
     color: #000!important;
@@ -1217,12 +1229,12 @@ ol.message_list { position: relative !important}
     }
 
 .Mega_Menu_Lowerspacer {
-    height: 53px!important;
-    margin-top: -2px!important;
+    height: 50px!important;
+    margin-top: -5px!important;
     margin-bottom: -5px!important;
     margin-left: -10px!important;
     margin-right: -15px!important;
-    background: #fafafa!important;
+    background: #ededed!important;
     border-top: 1px solid #ced1d7!important;
     float: bottom!important;
     -webkit-border-bottom-left-radius: 3px!important;
@@ -1305,11 +1317,11 @@ ol.message_list { position: relative !important}
   margin-right: -4px!important;
   top: -1px;
   position: relative;
-  -moz-transition: transform 0.2s ease-out;
-  -webkit-transition: transform 0.2s ease-out;
-  -ms-transition: transform 0.2s ease-out;
-  -o-transition: transform 0.2s ease-out;
-  transition: transform 0.2s ease-out;
+  -moz-transition: transform 0.17s ease-out;
+  -webkit-transition: transform 0.17s ease-out;
+  -ms-transition: transform 0.17s ease-out;
+  -o-transition: transform 0.17s ease-out;
+  transition: transform 0.17s ease-out;
 }
 
 @-moz-document url-prefix() {
@@ -1533,8 +1545,8 @@ Mega Menu Content
 .MMinfoicn {
     display: inline!important;
     position: absolute!important;
-    right: 4px!important; 
-    top: -9px!important;
+    right: 10px!important; 
+    top: -7px!important;
 }
 
 @media only screen and (max-width: 1239px) {
@@ -1555,7 +1567,7 @@ Mega Menu Content
 
 
 .MMinfoiimg {
-    height: 25px!important;
+    transform: scale(2.5)!important;
     transition: opacity ease-out .15s; /* Animation */
     -webkit-transition: opacity ease-out .15s; /* Animation */
     -moz-transition: opacity ease-out .15s; /* Animation */
@@ -1765,11 +1777,11 @@ Site Footer
 
 .footerinner {
   min-width: 940px!important;
-  max-width: 1289px!important;
+  max-width: 1270px!important;
   position: relative;
   margin-left:auto!important;
   margin-right:auto!important;
-  padding-right:10px!important;
+  padding-right:8px!important;
   padding-left:8px!important;
 } 
 
@@ -2838,18 +2850,18 @@ Search Box and Submit button settings
     z-index: 5000!important;
     }
 
-.fa-searchinfo2.focus {
-  fill: #707983!important;
-}
-
 .fa-searchinfo2 {
-  fill: #707983!important;
+    position: absolute!important;
+    left: -7px!important;
+    right: 10px!important;
+    top: 10px!important;
+    bottom: 0px!important;
 }
 
 
 .fa-searchinfo3 {
   position: absolute!important;
-  left: 5px!important;
+  left: 7px!important;
   right: 0px!important;
   top: 2px!important;
   padding: 0px 0px!important;
@@ -3039,7 +3051,7 @@ Name = data-tooltip
 .tooltipwrapper .tooltipsrt {
   background: white;
   top: 100%;
-  left: -143.25px;
+  left: -140.75px;
   margin-top: 10.0px;
   opacity: 0!important;
   visibility: hidden;
@@ -3168,7 +3180,7 @@ Name = data-tooltip
   top: 100%;
   color: #1b1d1f;
   display: block;
-  left: 470.0px;
+  left: 471.0px;
   margin-top: 10px;
   opacity: 0;
   padding-left: 15px;
