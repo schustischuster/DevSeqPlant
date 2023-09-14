@@ -239,7 +239,7 @@ $jsonsessidshin = escapeshellarg($jsonsessid);
 
 
 // Perform hierarchical clustering of $jsonout json array by calling python script
-if ($_POST['filter4'] == "heatmap" && $_POST['filter6'] == "1" && ($count > 1) && ($count <= 4)) {
+if ($_POST['filter4'] == "heatmap" && $_POST['filter6'] == "1" && ($count > 1) && ($count <= 400)) {
 // Prepare json file for passing to shell
 $jsonoutshin = escapeshellarg($jsonout);
 // Execute the python script with the JSON data
@@ -263,7 +263,7 @@ $valuesclustout = json_encode($valuesclust, JSON_NUMERIC_CHECK);
 $keysclustout = json_encode($keysclust);
 
 // For >400 counts read and write json data from file when using hclust
-} else if ($_POST['filter4'] == "heatmap" && $_POST['filter6'] == "1" && ($count > 4)) {
+} else if ($_POST['filter4'] == "heatmap" && $_POST['filter6'] == "1" && ($count > 400)) {
   // Execute the python script with the JSON data
   // For production use: Send python errors to PHP and write to html
   //exec('/usr/bin/python3 /var/www/devseqplant.org/py/hclust_esc.py 2>&1', $output, $return_var);
@@ -3184,7 +3184,7 @@ Closing controlplot_container 2nd level div and wrap 1st level div and define fo
     <div class="parent"> 
       <div class="child num1"><a href="#"><font color="#333399">Home</font></a>&nbsp · &nbsp<a href="#"><font color="#333399">About DevSeq</font></a>&nbsp · &nbsp<a href="#"><font color="#333399">Contact</font></a>
       </div>
-      <div class="child num3"><a href="#"><font color="#333399">Release 1 - September 2023</font></a>&nbsp · &nbsp<a href="#"><font color="#333399">Back to top<i class="fa fa-chevron-up" aria-hidden="true"></i></a>
+      <div class="child num3"><a href="#"><font color="#333399">Release 1 - September 2023</font></a>&nbsp · &nbsp<a href="#"><font color="#333399">Back to top<span class="fa fa-chevron-up"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"/></svg></span></a>
       </div>  
     </div> 
   </div> 
@@ -3372,8 +3372,8 @@ Loading custom JavaScript scripts
 <?php
 
 //delete session data files from server
-//unlink($session_input_fname_path);
-//unlink($session_output_fname_path);
+unlink($session_input_fname_path);
+unlink($session_output_fname_path);
 
 ?> 
 
