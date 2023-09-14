@@ -2089,10 +2089,9 @@ Setup for general buttons
     }
 
 .fa-chevron-up {
-    margin-top: 0px!important;
     margin-left: 4px!important;
-    color: #6e7273!important;
-    font-size: 13px !important;
+    fill: #6e7273!important;
+    font-size: 10px !important;
     position: relative!important;
     }
 
@@ -2330,6 +2329,12 @@ Chart download button settings
     margin-left: -7px!important;
     margin-right: -1px!important;
     }
+}
+
+
+#sfqsrt::placeholder {
+  color: #556a78;
+  opacity: 0.8;
 }
 
 
