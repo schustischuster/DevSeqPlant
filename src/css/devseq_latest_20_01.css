@@ -6,7 +6,7 @@ General Setup
   
 /* Defaults */
 body {min-height: 100%; width: 100%; margin: 0 auto !important; float: none !important; padding: 0;}
-html { background-color: rgb(245, 245, 245)!important; overflow-y: scroll; height: 100%;}
+html { background-color: rgb(246, 248, 250)!important; overflow-y: scroll; height: 100%;}
 td { vertical-align: top; }
 textarea { overflow: auto; }
 label, input[type="button"], input[type="submit"], input[type="image"], button { cursor: pointer; }
@@ -283,7 +283,7 @@ Container classes and bootstrap grid system settings
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;
-    background: rgb(245, 245, 245)!important;
+    background: rgb(246, 248, 250)!important;
     max-width: 155px!important;
     }
 
@@ -297,7 +297,7 @@ Container classes and bootstrap grid system settings
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;
-    background: rgb(245, 245, 245)!important;
+    background: rgb(246, 248, 250)!important;
     max-width: 155px!important;
     color: #1b1d1f!important;
     font-size: 14px!important;
@@ -331,7 +331,7 @@ Container classes and bootstrap grid system settings
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;
-    background: rgb(245, 245, 245)!important;
+    background: rgb(246, 248, 250)!important;
     max-width: 1050px!important;
     display: flex!important;
     align-items: center!important;
@@ -456,7 +456,7 @@ Container classes and bootstrap grid system settings
     margin-left: 0px!important;
     padding-right: 0px!important;
     border: 0px solid #bfbfbf !important;
-    background: rgb(245, 245, 245)!important;
+    background: rgb(246, 248, 250)!important;
     max-width: 1050px!important;
     display: flex!important;
     align-items: center!important;
@@ -520,9 +520,9 @@ Container classes and bootstrap grid system settings
   width: 532px!important;
   height: 39px!important;
   background: #e9ecef!important;
-  -webkit-border-radius: 4px!important;
-  -moz-border-radius: 4px!important;
-  border-radius: 4px!important;
+  -webkit-border-radius: 5px!important;
+  -moz-border-radius: 5px!important;
+  border-radius: 5px!important;
 }
 
 #srtcredits {
@@ -610,9 +610,9 @@ Container classes and bootstrap grid system settings
     border-top: 0px solid #e5e5e5!important;
     padding-top: 18px!important;
     padding-bottom: 9px!important;
-    border-bottom: 1px solid rgb(245, 245, 245)!important;
+    border-bottom: 1px solid rgb(246, 248, 250)!important;
     border-bottom-style: solid!important;
-    background: rgb(245, 245, 245)!important;
+    background: rgb(246, 248, 250)!important;
     border-radius: 0px;
     font-size: 15.5px!important;
     color: #1b1d1f!important;
@@ -692,9 +692,9 @@ Container classes and bootstrap grid system settings
 
 .maincontent {
     border: 1px solid #ced1d7!important;
-    -webkit-border-radius: 4px!important;
-    -moz-border-radius: 4px!important;
-    border-radius: 4px!important;
+    -webkit-border-radius: 5px!important;
+    -moz-border-radius: 5px!important;
+    border-radius: 5px!important;
     margin-right: 20px!important;
     margin-left: -10px!important;
     margin-bottom: 18px!important;
@@ -782,7 +782,7 @@ Container classes and bootstrap grid system settings
 .col-xl-2 {
     padding-left: 15px!important;
     z-index: 100!important;
-    background: rgb(245, 245, 245)!important;
+    background: rgb(246, 248, 250)!important;
     }
  
 .reqinnercontent {
@@ -935,8 +935,8 @@ Bootstrap navbar and dropdown settings
     color: #000 !important;
     font-size: 20px !important; 
     border-top: 0px solid #f0f1f1 !important;
-    background: #ededed !important;
-    border-bottom: 0px solid #ededed !important;
+    background: #e9ecef !important;
+    border-bottom: 0px solid #e9ecef !important;
     opacity: 1!important;
     transition: 0.1s ease-in!important;
     }
@@ -958,7 +958,7 @@ Bootstrap navbar and dropdown settings
 
 
 .navbar-inverse {
-    border-color: rgb(245, 245, 245)!important;
+    border-color: rgb(246, 248, 250)!important;
     border-top: 1px solid #c8cbcf!important;
     min-width: 570px!important;
     padding-right: 15px !important;
@@ -1013,7 +1013,7 @@ Bootstrap navbar and dropdown settings
 
 
 .navbar-inverse .navbar-nav>.active>a:hover {
-    background: #ededed !important;
+    background: #e9ecef !important;
     color: #1b1d1f!important;
     -webkit-transition: color .25s ease-in!important;
     border-top: 0px solid #000 !important;
@@ -1041,9 +1041,9 @@ Bootstrap navbar and dropdown settings
 
 
 .navbar-inverse .navbar-nav > li > a:hover {
-    background: #ededed!important;
+    background: #e9ecef!important;
     color: #1b1d1f !important;
-    border-bottom: 3px solid #ededed !important;
+    border-bottom: 3px solid #e9ecef !important;
     outline:none!important; /* remove focus ring from Webkit */
     -webkit-appearance:none!important; /* remove the strong OSX influence from Webkit */
     }
@@ -1234,7 +1234,7 @@ ol.message_list { position: relative !important}
     margin-bottom: -5px!important;
     margin-left: -10px!important;
     margin-right: -15px!important;
-    background: #ededed!important;
+    background: #e9ecef!important;
     border-top: 1px solid #ced1d7!important;
     float: bottom!important;
     -webkit-border-bottom-left-radius: 3px!important;
@@ -1644,7 +1644,7 @@ Container and spacer settings
      padding-bottom: -10px!important;
      text-align: left;
      font-size: 100%;
-     background: rgb(245, 245, 245)!important;
+     background: rgb(246, 248, 250)!important;
      border-top: 3px solid blue!important;
      border-bottom: 1px solid #e8e8e8!important;
      min-width: 940px!important;
@@ -1690,7 +1690,7 @@ Container and spacer settings
 
 /* Wrapper for page content to push down footer */
 #wrap {
-  background: rgb(245, 245, 245)!important;
+  background: rgb(246, 248, 250)!important;
   z-index: 10!important;
   height: 100%!important;
   display: block!important;
@@ -2176,11 +2176,11 @@ Chart download button settings
 .btn-green {
     background-color: #0F77C0 !important;
     border: 1px solid #0F77C0 !important;
-    -webkit-border-radius: 4px;
-    -webkit-border-radius: 0.20rem;
-    -moz-border-radius: 4px;
-    -moz-border-radius: 0.20rem;
-    border-radius: 4px;
+    -webkit-border-radius: 5px;
+    -webkit-border-radius: 0.25rem;
+    -moz-border-radius: 5px;
+    -moz-border-radius: 0.25rem;
+    border-radius: 5px;
     border-radius: 0.25rem;
     margin-top: -5px!important;
     padding-top: 5px!important;
@@ -2343,7 +2343,7 @@ Chart download button settings
     flex: 0 0 6.8%!important;
     padding-top: 0px!important;
     width: 90px!important;
-    background-color: #ededed!important;
+    background-color: #e9ecef!important;
     z-index: 100!important;
     color: #1b1d1f!important;
     font-size: 15px!important;
@@ -2355,12 +2355,12 @@ Chart download button settings
     border-bottom: 1px solid #ced1d7!important;
     border-left: 1px solid #ced1d7!important;
     border-right: 0px solid #ced1d7!important;
-    -webkit-border-top-left-radius: 4px!important;
-    -moz-border-top-left-radius: 4px!important;
-    border-top-left-radius: 4px!important;
-    -webkit-border-bottom-left-radius: 4px!important;
-    -moz-border-bottom-left-radius: 4px!important;
-    border-bottom-left-radius: 4px!important;
+    -webkit-border-top-left-radius: 5px!important;
+    -moz-border-top-left-radius: 5px!important;
+    border-top-left-radius: 5px!important;
+    -webkit-border-bottom-left-radius: 5px!important;
+    -moz-border-bottom-left-radius: 5px!important;
+    border-bottom-left-radius: 5px!important;
     }
 
 .searchtextsrt {
@@ -2380,12 +2380,12 @@ Chart download button settings
     border-bottom: 1px solid #c0c4cc!important;
     border-left: 1px solid #c0c4cc!important;
     border-right: 0px solid #c0c4cc!important;
-    -webkit-border-top-left-radius: 4px!important;
-    -moz-border-top-left-radius: 4px!important;
-    border-top-left-radius: 4px!important;
-    -webkit-border-bottom-left-radius: 4px!important;
-    -moz-border-bottom-left-radius: 4px!important;
-    border-bottom-left-radius: 4px!important;
+    -webkit-border-top-left-radius: 5px!important;
+    -moz-border-top-left-radius: 5px!important;
+    border-top-left-radius: 5px!important;
+    -webkit-border-bottom-left-radius: 5px!important;
+    -moz-border-bottom-left-radius: 5px!important;
+    border-bottom-left-radius: 5px!important;
     }
 
 @-moz-document url-prefix() {
@@ -2400,7 +2400,7 @@ Chart download button settings
     flex: 0 0 4.0%!important;
     padding-top: 0px!important;
     width: 52px!important;
-    background-color: #ededed!important;
+    background-color: #e9ecef!important;
     z-index: 100!important;
     color: #1b1d1f!important;
     font-size: 15px!important;
@@ -2412,16 +2412,16 @@ Chart download button settings
     border-bottom: 1px solid #ced1d7!important;
     border-left: 1px solid #ced1d7!important;
     border-right: 0px solid #ced1d7!important;
-    -webkit-border-top-left-radius: 4px!important;
-    -moz-border-top-left-radius: 4px!important;
-    border-top-left-radius: 4px!important;
+    -webkit-border-top-left-radius: 5px!important;
+    -moz-border-top-left-radius: 5px!important;
+    border-top-left-radius: 5px!important;
     border-top-right-radius: 0px!important;
     -webkit-border-top-right-radius: 0px!important;
     -moz-border-top-right-radius: 0px!important;
     -o-border-top-right-radius: 0px!important;
-    -webkit-border-bottom-left-radius: 4px!important;
-    -moz-border-bottom-left-radius: 4px!important;
-    border-bottom-left-radius: 4px!important;
+    -webkit-border-bottom-left-radius: 5px!important;
+    -moz-border-bottom-left-radius: 5px!important;
+    border-bottom-left-radius: 5px!important;
     border-bottom-right-radius: 0px!important;
     -webkit-border-bottom-right-radius: 0px!important;
     -moz-border-bottom-right-radius: 0px!important;
@@ -2445,16 +2445,16 @@ Chart download button settings
     border-bottom: 1px solid #c0c4cc!important;
     border-left: 1px solid #c0c4cc!important;
     border-right: 0px solid #c0c4cc!important;
-    -webkit-border-top-left-radius: 4px!important;
-    -moz-border-top-left-radius: 4px!important;
-    border-top-left-radius: 4px!important;
+    -webkit-border-top-left-radius: 5px!important;
+    -moz-border-top-left-radius: 5px!important;
+    border-top-left-radius: 5px!important;
     border-top-right-radius: 0px!important;
     -webkit-border-top-right-radius: 0px!important;
     -moz-border-top-right-radius: 0px!important;
     -o-border-top-right-radius: 0px!important;
-    -webkit-border-bottom-left-radius: 4px!important;
-    -moz-border-bottom-left-radius: 4px!important;
-    border-bottom-left-radius: 4px!important;
+    -webkit-border-bottom-left-radius: 5px!important;
+    -moz-border-bottom-left-radius: 5px!important;
+    border-bottom-left-radius: 5px!important;
     border-bottom-right-radius: 0px!important;
     -webkit-border-bottom-right-radius: 0px!important;
     -moz-border-bottom-right-radius: 0px!important;
@@ -2470,12 +2470,12 @@ Chart download button settings
 .sboxbackground {
     background: white!important;
     z-index: 100!important;
-    -webkit-border-top-right-radius: 4px!important;
-    -moz-border-top-right-radius: 4px!important;
-    border-top-right-radius: 4px!important;
-    -webkit-border-bottom-right-radius: 4px!important;
-    -moz-border-bottom-right-radius: 4px!important;
-    border-bottom-right-radius: 4px!important;
+    -webkit-border-top-right-radius: 5px!important;
+    -moz-border-top-right-radius: 5px!important;
+    border-top-right-radius: 5px!important;
+    -webkit-border-bottom-right-radius: 5px!important;
+    -moz-border-bottom-right-radius: 5px!important;
+    border-bottom-right-radius: 5px!important;
     }
 
 .custom-select {
@@ -2499,12 +2499,12 @@ Chart download button settings
     border-bottom: 1px solid #ced1d7!important;
     border-left: 1px solid #ced1d7!important;
     border-right: 1px solid #ced1d7!important;
-    -webkit-border-top-right-radius: 4px!important;
-    -moz-border-top-right-radius: 4px!important;
-    border-top-right-radius: 4px!important;
-    -webkit-border-bottom-right-radius: 4px!important;
-    -moz-border-bottom-right-radius: 4px!important;
-    border-bottom-right-radius: 4px!important;
+    -webkit-border-top-right-radius: 5px!important;
+    -moz-border-top-right-radius: 5px!important;
+    border-top-right-radius: 5px!important;
+    -webkit-border-bottom-right-radius: 5px!important;
+    -moz-border-bottom-right-radius: 5px!important;
+    border-bottom-right-radius: 5px!important;
     -webkit-border-top-left-radius: 0px!important;
     -moz-border-top-left-radius: 0px!important;
     border-top-left-radius: 0px!important;
@@ -2550,12 +2550,12 @@ Chart download button settings
     border-bottom: 1px solid #c0c4cc!important;
     border-left: 1px solid #c0c4cc!important;
     border-right: 1px solid #c0c4cc!important;
-    -webkit-border-top-right-radius: 4px!important;
-    -moz-border-top-right-radius: 4px!important;
-    border-top-right-radius: 4px!important;
-    -webkit-border-bottom-right-radius: 4px!important;
-    -moz-border-bottom-right-radius: 4px!important;
-    border-bottom-right-radius: 4px!important;
+    -webkit-border-top-right-radius: 5px!important;
+    -moz-border-top-right-radius: 5px!important;
+    border-top-right-radius: 5px!important;
+    -webkit-border-bottom-right-radius: 5px!important;
+    -moz-border-bottom-right-radius: 5px!important;
+    border-bottom-right-radius: 5px!important;
     -webkit-border-top-left-radius: 0px!important;
     -moz-border-top-left-radius: 0px!important;
     border-top-left-radius: 0px!important;
@@ -2855,15 +2855,6 @@ Search Box and Submit button settings
     z-index: 5000!important;
     }
 
-.fa-searchinfo2 {
-    position: absolute!important;
-    left: -7px!important;
-    right: 10px!important;
-    top: 10px!important;
-    bottom: 0px!important;
-}
-
-
 .fa-searchinfo3 {
   position: absolute!important;
   left: 7px!important;
@@ -2880,17 +2871,28 @@ Search Box and Submit button settings
 }
 
 
-.fa-searchinfo {
+.fa-searchinfo2d {
   fill: #6e7273!important;
-  font-size: 11.5pt!important;
+  height: 35px!important;
 }
 
-.fa-searchinfo:hover {
+.fa-searchinfo2d:hover {
   fill: #6e7273!important;
-  font-size: 11.5pt!important;
+  cursor: default!important;
 }
 
-fa_searchinfo_class:hover .fa-searchinfo {
+.fa-searchinfo2 {
+  position: relative!important;
+  top: -1px!important;
+  left: 2.5px!important;
+}
+
+.fa-searchinfo2rst {
+  position: relative!important;
+  top: -1px!important;
+}
+
+.fa_searchinfo_class:hover .fa-searchinfo {
     fill: #3e4042!important;
     }
 
@@ -2902,12 +2904,12 @@ fa_searchinfo_class:hover .fa-searchinfo {
         z-index: 100!important;
         border: 1px solid #399F24!important;
         transform: scaleY(1)!important;
-        -webkit-border-top-right-radius: 4px!important;
-        -moz-border-top-right-radius: 4px!important;
-        border-top-right-radius: 4px!important;
-        -webkit-border-bottom-right-radius: 4px!important;
-        -moz-border-bottom-right-radius: 4px!important;
-        border-bottom-right-radius: 4px!important;
+        -webkit-border-top-right-radius: 5px!important;
+        -moz-border-top-right-radius: 5px!important;
+        border-top-right-radius: 5px!important;
+        -webkit-border-bottom-right-radius: 5px!important;
+        -moz-border-bottom-right-radius: 5px!important;
+        border-bottom-right-radius: 5px!important;
         border-top-left-radius: 0px!important; /* remove left border radius from Opera */
         border-bottom-left-radius: 0px!important; /* remove left border radius from Opera */
         -o-border-top-left-radius: 0px!important; /* remove left border radius from Opera */
@@ -2939,12 +2941,12 @@ fa_searchinfo_class:hover .fa-searchinfo {
         z-index: 100!important;
         border: 1px solid #399F24!important;
         transform: scaleY(1)!important;
-        -webkit-border-top-right-radius: 4px!important;
-        -moz-border-top-right-radius: 4px!important;
-        border-top-right-radius: 4px!important;
-        -webkit-border-bottom-right-radius: 4px!important;
-        -moz-border-bottom-right-radius: 4px!important;
-        border-bottom-right-radius: 4px!important;
+        -webkit-border-top-right-radius: 5px!important;
+        -moz-border-top-right-radius: 5px!important;
+        border-top-right-radius: 5px!important;
+        -webkit-border-bottom-right-radius: 5px!important;
+        -moz-border-bottom-right-radius: 5px!important;
+        border-bottom-right-radius: 5px!important;
         border-top-left-radius: 0px!important; /* remove left border radius from Opera */
         border-bottom-left-radius: 0px!important; /* remove left border radius from Opera */
         -o-border-top-left-radius: 0px!important; /* remove left border radius from Opera */
@@ -2982,6 +2984,11 @@ fa_searchinfo_class:hover .fa-searchinfo {
 .fa-searchiconsrt {
     fill: white!important;
     margin-top: 7.5px!important;
+}
+
+.fa-searchiconrst {
+    fill: white!important;
+    margin-top: 5.75px!important;
 }
 
 
@@ -3089,34 +3096,6 @@ Name = data-tooltip
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* update this */
 .tooltipwrapper:hover .tooltipsrtbridge {
   background: transparent!important;
@@ -3145,48 +3124,13 @@ Name = data-tooltip
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .tooltipwrapper2 .tooltipsrcsrt {
   background: white!important;
   top: 100%;
   color: #1b1d1f;
   display: block;
-  left: 471.0px;
-  margin-top: 10px;
+  left: 470.0px;
+  margin-top: 11px;
   opacity: 0;
   padding-left: 15px;
   padding-right: 13px;
@@ -3434,7 +3378,7 @@ Name = data-tooltip
   top: -7px;
   content: " ";
   height: 0;
-  left: 60.2%;
+  left: 60.1%;
   margin-left: -11px;
   position: absolute;
   width: 0;
@@ -3449,7 +3393,7 @@ Name = data-tooltip
   top: -8px;
   content: " ";
   height: -20px;
-  left: 60.2%;
+  left: 60.1%;
   margin-left: -12px;
   position: absolute;
   width: 0;
@@ -3658,7 +3602,7 @@ Name = data-tooltip
       -ms-transition: all 0.15s ease-out 0.5s!important;
        -o-transition: all 0.15s ease-out 0.5s!important;
           transition: all 0.15s ease-out 0.5s!important;
-  transition-delay: 0.75s!important;
+  transition-delay: 0.5s!important;
 }
 
 .tooltipwrapper2:hover .fa-searchinfo{
