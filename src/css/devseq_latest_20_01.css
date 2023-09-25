@@ -1030,8 +1030,8 @@ Bootstrap navbar and dropdown settings
     border-bottom: 3px solid white!important;
     padding-bottom: 13px!important;
     padding-top: 17px!important;
-    padding-left: 11px!important;
-    padding-right: 11px!important;
+    padding-left: 12px!important;
+    padding-right: 12px!important;
     max-height: 53px!important;
     background: white!important;
     outline:none!important; /* remove focus ring from Webkit */
@@ -1084,8 +1084,6 @@ Bootstrap navbar and dropdown settings
     display: inline;
     margin-right: 0px!important;
     margin-left: 0px!important;
-    padding-left: -10px!important;
-    padding-right: -10px!important;
     }
 
 
@@ -1103,10 +1101,13 @@ Bootstrap navbar and dropdown settings
     padding-right: 0px!important;
     }
 
-.navbar-nav.navbar-right > li:last-child > a  {
-    padding-left: 14px!important;
-    padding-right: 14px!important;
-    margin-right: 0px!important;
+.navbar-inverse .navbar-nav.navbar-right > li:last-child > a:hover {
+    background: white!important;
+    /*** color: #1b1d1f !important; ***/
+    border-bottom: 3px solid white !important;
+    outline:none!important; /* remove focus ring from Webkit */
+    -webkit-appearance:none!important; /* remove the strong OSX influence from Webkit */
+    cursor: default!important;
     }
 
 
@@ -1304,6 +1305,10 @@ ol.message_list { position: relative !important}
 .dropdown-menu>li {
     display: table-cell;
     }
+
+.dropdown-toggle {
+    margin-left: -1px!important;
+}
 
 /*** Format Bootstrap dropdown caret ***/
 .dropdown-toggle .caret {
@@ -1679,7 +1684,7 @@ Container and spacer settings
      padding-right: 25px;
      padding-top: -15px;
      padding-bottom: -10px;
-     height: 8px!important;
+     height: 1px!important;
      text-align: left;
      font-size: 100%;
      max-width: 1200px;
@@ -2099,6 +2104,44 @@ Setup for general buttons
     display: inline-block!important;
     margin-left: -5px!important;
     margin-right: -5px!important;
+    }
+
+#aboutaes {
+    background-color: white!important;
+    border: 1px solid #c8cbcf!important;
+    /*** box-shadow: 0 0 0.5px 0.5px #c8cbcf!important; ***/
+    color: #1f77b4 !important;
+    -webkit-border-radius: 10px;
+    -webkit-border-radius: 0.5rem;
+    -moz-border-radius: 10px;
+    -moz-border-radius: 0.5rem;
+    border-radius: 10px;
+    border-radius: 0.5rem;
+    margin-top: -5px; 
+    margin-left: -2px;
+    margin-right: 0px;
+    padding-left: 11px!important;
+    padding-right: 11px!important; 
+    padding-top: 4px;
+    padding-bottom: 3px;
+    cursor: pointer;
+    font-size: 15px!important;
+    /*** font-weight: 500!important; ***/
+}
+
+#aboutaes:hover {
+    background-color: #1f77b4 !important;
+    border: 1px solid #1f77b4 !important;
+    color: white !important;
+    cursor: pointer;
+}
+
+#aboutaes:focus,
+#aboutaes:hover {
+    background-color: #1f77b4 !important;
+    border: 1px solid #1f77b4 !important;
+    color: white !important;
+    cursor: pointer;
     }
 
 
@@ -2883,8 +2926,8 @@ Search Box and Submit button settings
 
 .fa-searchinfo2 {
   position: relative!important;
-  top: -1px!important;
-  left: 2.5px!important;
+  top: -0.5px!important;
+  left: 1.7px!important;
 }
 
 .fa-searchinfo2rst {
