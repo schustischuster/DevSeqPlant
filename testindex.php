@@ -1205,8 +1205,8 @@ HTML Body starts: wrapper = 1st level div
                       </div>
                       <div class="cbform-group">
                       &nbsp <input type="checkbox" class="checktoradio" name="filter5" value="2" id="cb2" noneoption="true"<?php if ($_POST['filter5'] == "2") echo 'checked';?>><label for="cb2"> min/max (RE)</label> 
-                        <div class="tooltipwrapper" style="display:inline-block;"><a><span class = 'hreflinks5' style="text-decoration: none" ><svg xmlns="http://www.w3.org/2000/svg" class="fa-searchinfo2" height="1em" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg></a>
-                          <div class="tooltip">Expression values will be scaled between 0 and 1. It allows to compare expression patterns of transcripts that display unequal absolute intensities. See <a class = 'hreflinks14' href="https://www.ncbi.nlm.nih.gov/pubmed/21150997" target="_blank" rel="noopener"><u>Domazet-Lo&scaron;o and Tautz (2010)</u></a>.</font>
+                        <div class="tooltipwrapper" style="display:inline-block;"><span class = 'hreflinks11' ><svg class="fa-searchinfo4" xmlns="http://www.w3.org/2000/svg" height="1.0em" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg></span>
+                          <div class="tooltip">In min-max feature scaling, the data of each transcript is linearly rescaled to the unit interval [0, 1].</font>
                           </div>
                         </div>
                       </div>
@@ -1231,13 +1231,12 @@ HTML Body starts: wrapper = 1st level div
                     <div class = rsltsrctitle><b>Cluster analysis</b></div>
                     <table></table>
                     <div class="cbform-group">
-                    &nbsp <input type="checkbox" name="filter6" value="1" id="cb4" class="idcb" onclick="validate()" noneoption="false"<?php if ($_POST['filter6'] == "1") echo 'checked';?>><label for="cb4"> hclust heatmap</label> 
-                      <div class="tooltipwrapper" style="display:inline-block;"><a><span class = 'hreflinks5' style="text-decoration: none" ><svg xmlns="http://www.w3.org/2000/svg" class="fa-searchinfo2" height="1em" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg></span></a>
-                        <div class="tooltipclust2"> Hierarchical clustering of expression profiles using the average-linkage method will be performed if multiple identifiers are submitted. See SciPy documentation for <a class = 'hreflinks14' href="https://docs.scipy.org/doc/scipy/reference/cluster.hierarchy.html" target="_blank" rel="noopener"><u>cluster.hierarchy</u></a>.
+                    &nbsp <input type="checkbox" name="filter6" value="1" id="cb4" class="idcb" onclick="validate()" noneoption="false"<?php if ($_POST['filter6'] == "1") echo 'checked';?>><label for="cb4"> hclust heatmap</label>
+                      <div class="tooltipwrapper" style="display:inline-block;"><span class = 'hreflinks11' ><svg class="fa-searchinfo5" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg></span>
+                        <div class="tooltipclust2"> Hierarchical clustering of expression profiles using the average-linkage method will be performed if multiple identifiers are submitted. See SciPy documentation for <a class = 'hreflinks14' href="https://docs.scipy.org/doc/scipy/reference/cluster.hierarchy.html" target="_blank" rel="noopener"><u>cluster.hierarchy</u></a>.</font>
                       </div>
                     </div>
-                    <table></table>
-                    <font color="#f7f6f6">.</font> 
+                    <div  class = "rstrefreshspace"></div>
                     </div>
                   </div>  
                 </div><!--/close "some-classinner"-->
