@@ -3243,7 +3243,7 @@ Name = data-tooltip
   padding-bottom: 11px;
   position: absolute!important;
   pointer-events: none!important;
-  width: 238px!important;
+  width: 237px!important;
   -webkit-transform: translateY(0px)!important;
      -moz-transform: translateY(0px)!important;
       -ms-transform: translateY(0px)!important;
@@ -3488,7 +3488,7 @@ Name = data-tooltip
   bottom: -6px;
   content: " ";
   height: 0;
-  left: 53%;
+  left: 53.5%;
   margin-left: -13px;
   position: absolute;
   width: 0;
