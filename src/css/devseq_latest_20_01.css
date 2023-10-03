@@ -653,7 +653,7 @@ Container classes and bootstrap grid system settings
     height: 12px;
     color: #30619a!important;
     z-index: 100!important;
-    border-bottom: 3px solid #1f77b4!important;
+    border-bottom: 3px solid #0077cb!important;
     position: relative!important;
     }
 
@@ -2219,9 +2219,9 @@ Chart download button settings
     -moz-border-radius: 0.25rem;
     border-radius: 5px;
     border-radius: 0.25rem;
-    margin-top: -3px!important;
-    padding-top: 5px!important;
-    padding-bottom: 4px!important;
+    margin-top: -4px!important;
+    padding-top: 6px!important;
+    padding-bottom: 5px!important;
     padding-left: 8px!important;
     padding-right: 8px!important;
     margin-left: -5px!important;
