@@ -758,24 +758,24 @@ Container classes and bootstrap grid system settings
 
 
 .flexitop {
-    height: 27px!important;
+    height: 25px!important;
     }
 
 @media only screen and (max-width: 1239px) {
     .flexitop {
-    height: 26px!important;
+    height: 24px!important;
     }
 }
 
 @media only screen and (max-height: 810px) {
     .flexitop {
-    height: 23px!important;
+    height: 21px!important;
     }
 }
 
 @media only screen and (max-width: 1239px) and (max-height: 810px) {
     .flexitop {
-    height: 22px!important;
+    height: 20px!important;
     }
 }
 
@@ -993,7 +993,7 @@ Bootstrap navbar and dropdown settings
     -webkit-appearance:none!important; /* remove the strong OSX influence from Webkit */
     -webkit-transition: color .25s ease-in!important;
     border-top: 0px solid #000 !important;
-    border-bottom: 3px solid #1f77b4!important;
+    border-bottom: 3px solid #0077cb!important;
     padding-bottom: 13px!important;
     padding-top: 17px!important;
     transition: 0.1s ease-in!important;
@@ -1005,7 +1005,7 @@ Bootstrap navbar and dropdown settings
     -webkit-appearance:none!important; /* remove the strong OSX influence from Webkit */
     -webkit-transition: color .25s ease-in!important;
     border-top: 0px solid #000 !important;
-    border-bottom: 3px solid #1f77b4!important;
+    border-bottom: 3px solid #0077cb!important;
     padding-bottom: 13px!important;
     padding-top: 17px!important;
     transition: 0.1s ease-in!important;
@@ -1017,7 +1017,7 @@ Bootstrap navbar and dropdown settings
     color: #1b1d1f!important;
     -webkit-transition: color .25s ease-in!important;
     border-top: 0px solid #000 !important;
-    border-bottom: 3px solid #1f77b4!important;
+    border-bottom: 3px solid #0077cb!important;
     padding-bottom: 13px!important;
     padding-top: 17px!important;
     transition: 0.1s ease-in!important;
@@ -1755,6 +1755,7 @@ Format chart options
 #chart {
     min-width: 947px!important;
     max-width: 1175px!important;
+    margin-bottom: -7px!important;
     }
 
 
@@ -2108,9 +2109,9 @@ Setup for general buttons
 
 #aboutaes {
     background-color: white!important;
-    border: 0.15rem solid #1777ba!important;
+    border: 0.15rem solid #0077cb!important;
     /*** box-shadow: 0 0 0.5px 0.5px #c8cbcf!important; ***/
-    color: #1777ba!important;
+    color: #0077cb!important;
     -webkit-border-radius: 10px;
     -webkit-border-radius: 0.5rem;
     -moz-border-radius: 10px;
@@ -2131,8 +2132,8 @@ Setup for general buttons
 
 #aboutaes:focus,
 #aboutaes:hover {
-    background-color: #1777ba !important;
-    border: 0.15rem solid #1777ba !important;
+    background-color: #0077cb !important;
+    border: 0.15rem solid #0077cb !important;
     color: white !important;
     cursor: pointer;
     }
@@ -2210,15 +2211,15 @@ Chart download button settings
 
 
 .btn-green {
-    background-color: #0F77C0 !important;
-    border: 1px solid #0F77C0 !important;
+    background-color: #0077cb !important;
+    border: 1px solid #0077cb !important;
     -webkit-border-radius: 5px;
     -webkit-border-radius: 0.25rem;
     -moz-border-radius: 5px;
     -moz-border-radius: 0.25rem;
     border-radius: 5px;
     border-radius: 0.25rem;
-    margin-top: -5px!important;
+    margin-top: -3px!important;
     padding-top: 5px!important;
     padding-bottom: 4px!important;
     padding-left: 8px!important;
@@ -2228,24 +2229,14 @@ Chart download button settings
     font-size: 14.25px!important;
     font-weight: 500!important;
     cursor: pointer;
-    width: 140px!important;
+    width: 142px!important;
     }
-
-@-moz-document url-prefix() {
-    .btn-green {
-        margin-top: -3px!important;
-        padding-top: 5px!important;
-        padding-bottom: 5px!important;
-        padding-left: 8px!important;
-        padding-right: 8px!important;
-    }
-}/* settings specific for Firefox */
 
 .btn-green:focus,
 .btn-green:hover {
-    background-color: #0D67A8!important;
+    background-color: #005fa2!important;
     color: white!important;
-    border: 1px solid #0D67A8!important;
+    border: 1px solid #005fa2!important;
     outline: none!important;
     }
 
