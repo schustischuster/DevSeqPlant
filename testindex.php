@@ -1285,7 +1285,7 @@ HTML Body starts: wrapper = 1st level div
                   <span class = 'hreflinks7'> 
                     <div class="tooltipwrapper" style="display:inline-block;">
                       <div> 
-                      <a><span class = 'hreflinks7' style="text-decoration: none" class="tfbutton5"><svg xmlns="http://www.w3.org/2000/svg" class="fa-searchinfo2" height="1em" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg></span></a>
+                      <span class = 'hreflinks11' class="tfbutton5"><svg xmlns="http://www.w3.org/2000/svg" class="fa-searchinfo7" height="1em" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg></span>
                         <div class="tooltipsinglespec">
                           <div class="tooltiphead">Single Species Transcriptome Atlas
                           </div>
@@ -1359,7 +1359,7 @@ HTML Body starts: wrapper = 1st level div
 
 
                 <!-- line chart message: if to many query IDs, print notification -->
-                <?php if ((isset($_POST['searchquery'])) && ($_POST['searchquery'] != "") && $_POST['filter4'] == "line_chart" && $_POST['filter1'] == "Arabidopsis_thaliana" && ($count > 50)){?>
+                <?php if ((isset($_POST['searchquery'])) && ($_POST['searchquery'] != "") && $_POST['filter4'] == "line_chart" && $_POST['filter1'] == "Arabidopsis_thaliana" && ($count > 20)){?>
 
                   <div id="lcnote">
                   <font color="#cc3623">Large number of entities found:</font><font color="#333399"> to display results, choose heatmap option and update chart.</font>
@@ -1601,7 +1601,7 @@ Run javascript vizualisation libraries for line chart and heatmap here
 
 <?php 
 // define line chart parameters for plotting Arabidopsis thaliana data here
-if($_POST['filter4'] == "line_chart" && $_POST['filter1'] == "Arabidopsis_thaliana" && ($count > 0) && ($count < 51)) { ?>
+if($_POST['filter4'] == "line_chart" && $_POST['filter1'] == "Arabidopsis_thaliana" && ($count > 0) && ($count < 21)) { ?>
 
     <script>
       var dataset = <?php echo $jsonout; ?>;
@@ -1852,7 +1852,7 @@ if($_POST['filter4'] == "line_chart" && $_POST['filter1'] == "Arabidopsis_thalia
 
 
 // define line chart parameters for plotting non-Arabidopsis thaliana data here
-else if ($_POST['filter4'] == "line_chart" && ($count > 0) && ($count < 51) && $_POST['filter1'] != "Arabidopsis_thaliana") { ?>
+else if ($_POST['filter4'] == "line_chart" && ($count > 0) && ($count < 21) && $_POST['filter1'] != "Arabidopsis_thaliana") { ?>
 
     <script>
       var dataset = <?php echo $jsonout; ?>;
