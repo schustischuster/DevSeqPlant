@@ -1358,7 +1358,7 @@ HTML Body starts: wrapper = 1st level div
 
 
 
-                <!-- line chart message: if to many query IDs, print notification -->
+                <!-- line chart message: if too many query IDs, print notification -->
                 <?php if ((isset($_POST['searchquery'])) && ($_POST['searchquery'] != "") && $_POST['filter4'] == "line_chart" && $_POST['filter1'] == "Arabidopsis_thaliana" && ($count > 20)){?>
 
                   <div id="lcnote">
