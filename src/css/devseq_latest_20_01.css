@@ -2220,8 +2220,8 @@ Chart download button settings
     border-radius: 5px;
     border-radius: 0.25rem;
     margin-top: -4px!important;
-    padding-top: 6px!important;
-    padding-bottom: 5px!important;
+    padding-top: 5.5px!important;
+    padding-bottom: 5.5px!important;
     padding-left: 8px!important;
     padding-right: 8px!important;
     margin-left: -5px!important;
@@ -2927,6 +2927,20 @@ Search Box and Submit button settings
   cursor: default!important;
 }
 
+.fa-searchinfo7 {
+  position: relative!important;
+  left: 5px!important;
+  right: 0px!important;
+  top: 1px!important;
+  fill: #707983!important;
+  cursor: default!important;
+}
+
+.fa-searchinfo7:hover {
+  fill: #707983!important;
+  cursor: default!important;
+}
+
 .rstrefreshspace {
   padding-top: 24px!important;
 }
@@ -3266,7 +3280,7 @@ Name = data-tooltip
   color: #fcfcfc;
   bottom: 100%;
   display: block;
-  left: -131px;
+  left: -125px;
   margin-bottom: 9px;
   opacity: 0;
   padding-left: 10px;
