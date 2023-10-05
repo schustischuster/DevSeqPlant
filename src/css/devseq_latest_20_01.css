@@ -918,11 +918,12 @@ Bootstrap navbar and dropdown settings
 
     
 .navbar-header{
-    width: 110px!important;
+    width: 115px!important;
 }
 
 .navbar-brand {
     border-top: 0px solid white!important;
+    border-bottom: 3px solid white !important;
     margin-bottom: 0px!important;
     padding-left: 14px !important; 
     padding-right: 14px !important;
@@ -944,9 +945,8 @@ Bootstrap navbar and dropdown settings
 
 .navbar .navbar-brand:hover {
     color: #000 !important;
-    
     background: #e9ecef !important;
-    
+    border-bottom: 3px solid #e9ecef !important;
     transition: 0.1s ease-in!important;
     }
 
