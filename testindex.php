@@ -459,9 +459,7 @@ HTML Body starts: wrapper = 1st level div
 
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-target="#navbarCollapse" data-toggle="collapse"> <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-        </button>
+        
           <a class="navbar-brand" href="testindex.php"><span>Dev<b>Seq</b></span></a>     
       </div>
       <!-- End of Navbar Brand -->  
@@ -474,9 +472,9 @@ HTML Body starts: wrapper = 1st level div
         <li class="dropdown mega-dropdown active">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Data Analysis <span class="caret"></span></a>       
           <div class="dropdown-menu mega-dropdown-menu">
-            <!-- Navbar Mega-Menu Content -->
-            <div class="Mega_menu_Content">
-            </div>
+           <!-- Navbar Mega-Menu Content -->
+           <div class="Mega_menu_Content">
+            
             <!-- Navbar Mega-Menu Content -->
             <div class = "row">
               <!-- Begin Single Species Content -->
@@ -718,7 +716,8 @@ HTML Body starts: wrapper = 1st level div
                 </div>
               </div>
             </div><!-- Close "Mega_Menu_Lowerspacer" -->
-          </div><!-- End of "mega-dropdown-menu" -->
+           </div><!-- Close "Mega_Menu_Lowerspacer" -->
+          </div><!-- End of "Mega-Menu Content" -->
         </li><!-- End of "mega-dropdown active" -->
 
         <li><a href="#"><span>Datasets</span></a>
