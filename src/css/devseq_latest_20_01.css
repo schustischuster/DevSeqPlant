@@ -896,7 +896,6 @@ Bootstrap navbar and dropdown settings
 .container-fluid {
     margin: 0px;
     border-top: 1px solid #c8cbcf!important;
-    max-width: 1252px;
     font-family:'Raleway', sans-serif!important;
     font-size: 15.8px;
     color: #000!important;
@@ -904,24 +903,36 @@ Bootstrap navbar and dropdown settings
     float: none;
     padding-top: 0px;
     margin-top:-1px!important;
-    padding-right: 0px!important;
+    padding-left: 14px!important;
+    padding-right: 14px!important;
     -webkit-appearance:none!important; /* remove the strong OSX influence from Webkit */
     -webkit-font-smoothing: subpixel-antialiased !important; /* make navbar font look sharp on non-retina displays */
     }
 
+    @media only screen and (min-width:1280px) {
+        .container-fluid {
+            padding-left: calc((((100vw) - 1280px)/2) + 14px)!important;
+            padding-right: calc((((100vw) - 1280px)/2) + 14px)!important;
+        }
+    };
+
+    
+.navbar-header{
+    width: 110px!important;
+}
 
 .navbar-brand {
     border-top: 0px solid white!important;
     margin-bottom: 0px!important;
-    padding-left: 11px !important; 
-    padding-right: 11px !important;
+    padding-left: 14px !important; 
+    padding-right: 14px !important;
     padding-top: 18px !important;
     margin-top: 0px!important;
     font-size: 20px !important; 
     font-weight: normal !important; 
     color: #1b1d1f !important;
     border-right: 2px solid rgba(255, 255, 255, 0.0); 
-    width: 110px;
+    width: 115px!important;
     min-height: 53px!important;
     outline:none!important; /* remove focus ring from Webkit */
     -webkit-appearance:none!important; /* remove the strong OSX influence from Webkit */
@@ -933,27 +944,14 @@ Bootstrap navbar and dropdown settings
 
 .navbar .navbar-brand:hover {
     color: #000 !important;
-    font-size: 20px !important; 
-    border-top: 0px solid #f0f1f1 !important;
+    
     background: #e9ecef !important;
-    border-bottom: 0px solid #e9ecef !important;
-    opacity: 1!important;
+    
     transition: 0.1s ease-in!important;
     }
 
 
-.logo {
-    display: inline !important;
-    max-height: 25px;
-    margin-top: -4px!important;
-    padding-right: 2px!important;
-    opacity: 1.0!important;
-    transition: 0.1s ease-in!important;
-    }
 
-.navbar .navbar-brand:hover .logo {
-    opacity: 1!important;
-    }
 
 
 
@@ -975,9 +973,7 @@ Bootstrap navbar and dropdown settings
     }
 
 
-.navbar-collapse.collapse {
-    display: block!important;
-    }
+
 
 .navbar-nav {
     float: left !important;
@@ -1120,25 +1116,33 @@ Bootstrap navbar and dropdown settings
 
 
 .mega-dropdown-menu {
-  padding-top: -40px!important;
+  padding-top: 0px!important;
   text-align: center;
-  width: 101.32% !important;
+  width: 100vw !important;
+  min-width: 1024px!important;
+  position: absolute !important;
   background-color: white!important;
   margin-left: 0px!important;
   padding-left: 10px!important;
   padding-right: 15px!important;
-  margin-top: 0px!important;
+  margin-top: 1px!important;
   margin-left: 0px!important;
   text-align: center !important; 
-  left: 0 !important; 
+  -webkit-transform: translateZ(0);
+  left: 0 !important;
   right: 0 !important;
   box-shadow: 0 5px 5px 1px rgba(0, 0, 0, 0.15);
   z-index: -1!important;
-  border-top: 1px solid #c8cbcf!important;
+  border-top: 0px solid #c8cbcf!important;
   border-left: 1px solid #d2d5d8!important;
   border-right: 1px solid #d2d5d8!important;
   border-bottom: 2px solid #d2d5d8!important;
   -webkit-font-smoothing: auto !important; 
+}
+
+.Mega_menu_Content {
+    max-width: 1252px !important;
+    margin: auto!important;
 }
 
 .dropdown-backdrop {
@@ -1235,7 +1239,6 @@ ol.message_list { position: relative !important}
     margin-bottom: -5px!important;
     margin-left: -10px!important;
     margin-right: -15px!important;
-    background: #e9ecef!important;
     border-top: 1px solid #ced1d7!important;
     float: bottom!important;
     -webkit-border-bottom-left-radius: 3px!important;
@@ -1247,6 +1250,8 @@ ol.message_list { position: relative !important}
     }
 
 .Mega_Menu_LowerspacerTxt {
+    max-width: 1252px !important;
+    margin: auto!important;
     color: #1b1d1f!important;
     padding-top: 15px!important;
     padding-bottom: -5px!important;
@@ -1597,9 +1602,7 @@ Mega Menu Content
 Inactivate navbar collapse
 ***************************************************************************/
 
-.navbar-collapse.collapse {
-  display: block!important;
-}
+
 
 .navbar-nav>li, .navbar-nav {
   float: left !important;
