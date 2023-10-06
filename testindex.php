@@ -476,7 +476,7 @@ HTML Body starts: wrapper = 1st level div
            <div class="Mega_menu_Content">
             
             <!-- Navbar Mega-Menu Content -->
-            <div class = "row">
+            <div class = "row masterrow">
               <!-- Begin Single Species Content -->
               <div class = "col-xs-9">
                 <div class="Single_Species_Atlas">
@@ -690,11 +690,15 @@ HTML Body starts: wrapper = 1st level div
               </div><!-- End Comparative Transcriptome Content -->
             </div><!-- Close bootstrap "row" -->
 
+            <!-- footerinner -->
             <div class = "Mega_Menu_Lowerspacer">
+              <!-- parent -->
               <div class = "Mega_Menu_LowerspacerTxt">
-                <div class="MMnum1"><a href="#" title="Go to Home" ><font color="#717577">DevSeq</font></a><font color="#717577">&nbsp/</font>&nbspData Analysis
+                <!-- child num1 -->
+                <div class="childmmf MMnum1"><a href="#" title="Go to Home" ><font color="#717577">DevSeq</font></a><font color="#717577">&nbsp/</font>&nbspData Analysis
                 </div>
-                <div class="MMnum2">
+                <!-- child num3 -->
+                <div class="childmmf MMnum2">
                   <div class = "MMchild2lnk">
                   <font color="#0d0e0f">More information on: &nbsp&nbsp</font>
                     <div class='hreflinks15'>
@@ -714,10 +718,13 @@ HTML Body starts: wrapper = 1st level div
                     </div>
                   </div>
                 </div>
-              </div>
+              </div><!-- Close "Mega_Menu_LowerspacerTxt" -->
             </div><!-- Close "Mega_Menu_Lowerspacer" -->
-           </div><!-- Close "Mega_Menu_Lowerspacer" -->
-          </div><!-- End of "Mega-Menu Content" -->
+           </div><!-- Close "Mega_menu_Content" -->
+           <!-- footerborder -->
+           <div class = "Mega_Menu_Borderspacer">
+           </div>
+          </div><!-- End of "mega-dropdown-menu" -->
         </li><!-- End of "mega-dropdown active" -->
 
         <li><a href="#"><span>Datasets</span></a>
