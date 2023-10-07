@@ -653,7 +653,7 @@ Container classes and bootstrap grid system settings
     height: 12px;
     color: #30619a!important;
     z-index: 100!important;
-    border-bottom: 3px solid #0077cb!important;
+    border-bottom: 3px solid #0077d0!important;
     position: relative!important;
     }
 
@@ -882,7 +882,7 @@ Bootstrap navbar and dropdown settings
 .navbar {
     margin: 0px;
     font-family:'Raleway', sans-serif!important;
-    font-size: 15.8px;
+    font-size: 15.5px;
     color: #000!important;
     background-color: #ffffff !important;
     border-color: #000!important;
@@ -897,7 +897,7 @@ Bootstrap navbar and dropdown settings
     margin: 0px;
     border-top: 1px solid #c8cbcf!important;
     font-family:'Raleway', sans-serif!important;
-    font-size: 15.8px;
+    font-size: 15.5px;
     color: #000!important;
     background-color: white!important;
     float: none;
@@ -988,9 +988,9 @@ Bootstrap navbar and dropdown settings
     -webkit-appearance:none!important; /* remove the strong OSX influence from Webkit */
     -webkit-transition: color .25s ease-in!important;
     border-top: 0px solid #000 !important;
-    border-bottom: 3px solid #0077cb!important;
-    padding-bottom: 13px!important;
-    padding-top: 17px!important;
+    border-bottom: 3px solid #0077d0!important;
+    padding-bottom: 12px!important;
+    padding-top: 18px!important;
     transition: 0.1s ease-in!important;
     }
 
@@ -1000,9 +1000,9 @@ Bootstrap navbar and dropdown settings
     -webkit-appearance:none!important; /* remove the strong OSX influence from Webkit */
     -webkit-transition: color .25s ease-in!important;
     border-top: 0px solid #000 !important;
-    border-bottom: 3px solid #0077cb!important;
-    padding-bottom: 13px!important;
-    padding-top: 17px!important;
+    border-bottom: 3px solid #0077d0!important;
+    padding-bottom: 12px!important;
+    padding-top: 18px!important;
     transition: 0.1s ease-in!important;
     }
 
@@ -1012,9 +1012,9 @@ Bootstrap navbar and dropdown settings
     color: #1b1d1f!important;
     -webkit-transition: color .25s ease-in!important;
     border-top: 0px solid #000 !important;
-    border-bottom: 3px solid #0077cb!important;
-    padding-bottom: 13px!important;
-    padding-top: 17px!important;
+    border-bottom: 3px solid #0077d0!important;
+    padding-bottom: 12px!important;
+    padding-top: 18px!important;
     transition: 0.1s ease-in!important;
     }
 
@@ -1023,8 +1023,8 @@ Bootstrap navbar and dropdown settings
     border-bottom: 1px !important;
     color: #6e7273 !important;
     border-bottom: 3px solid white!important;
-    padding-bottom: 13px!important;
-    padding-top: 17px!important;
+    padding-bottom: 12px!important;
+    padding-top: 18px!important;
     padding-left: 12px!important;
     padding-right: 12px!important;
     max-height: 53px!important;
@@ -2118,31 +2118,30 @@ Setup for general buttons
 
 #aboutaes {
     background-color: white!important;
-    border: 0.15rem solid #0077cb!important;
+    border: 0.15rem solid #0077db!important;
     /*** box-shadow: 0 0 0.5px 0.5px #c8cbcf!important; ***/
-    color: #0077cb!important;
+    color: #0077d0!important;
     -webkit-border-radius: 10px;
     -webkit-border-radius: 0.5rem;
     -moz-border-radius: 10px;
     -moz-border-radius: 0.5rem;
     border-radius: 10px;
     border-radius: 0.5rem;
-    margin-top: -6px; 
+    margin-top: -7px; 
     margin-left: -2px;
     margin-right: 0px;
     padding-left: 10px!important;
     padding-right: 11px!important; 
-    padding-top: 0.45rem;
-    padding-bottom: 0.3rem;
+    padding-top: 0.55rem;
+    padding-bottom: 0.35rem;
     cursor: pointer;
     font-size: 15.5px!important;
-    /*** font-weight: 500!important; ***/
 }
 
 #aboutaes:focus,
 #aboutaes:hover {
-    background-color: #0077cb !important;
-    border: 0.15rem solid #0077cb !important;
+    background-color: #0077d0 !important;
+    border: 0.15rem solid #0077d0 !important;
     color: white !important;
     cursor: pointer;
     }
@@ -2220,8 +2219,8 @@ Chart download button settings
 
 
 .btn-green {
-    background-color: #0077cb !important;
-    border: 1px solid #0077cb !important;
+    background-color: #0077d0 !important;
+    border: 1px solid #0077d0 !important;
     -webkit-border-radius: 5px;
     -webkit-border-radius: 0.25rem;
     -moz-border-radius: 5px;
@@ -2243,7 +2242,7 @@ Chart download button settings
 
 .btn-green:focus,
 .btn-green:hover {
-    background-color: #005fa2!important;
+    background-color: #005a9d!important;
     color: white!important;
     border: 1px solid #005fa2!important;
     outline: none!important;
