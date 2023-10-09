@@ -1672,7 +1672,7 @@ if($_POST['filter4'] == "line_chart" && $_POST['filter1'] == "Arabidopsis_thalia
         zoom: {enabled: false},
         regions: ath_regions,
         color: {
-          pattern: ['#0077cb', '#ff7f0e','#2ca02c','#d62728','#9467bd','#8c564b','#e377c2','#7f7f7f','#bcbd22','#17becf', '#ffbb78', '#98df8a', '#aec7e8', '#f7b6d2', '#dbdb8d', '#17becf', '#9edae5', '#d62728', '#2ca02c', '#c49c94']
+          pattern: ['#1177cf', '#ff7f0e','#2ca02c','#d62728','#9467bd','#8c564b','#e377c2','#7f7f7f','#bcbd22','#17becf', '#ffbb78', '#98df8a', '#aec7e8', '#f7b6d2', '#dbdb8d', '#17becf', '#9edae5', '#d62728', '#2ca02c', '#c49c94']
         }
       });
 
@@ -1725,7 +1725,7 @@ if($_POST['filter4'] == "line_chart" && $_POST['filter1'] == "Arabidopsis_thalia
         zoom: {enabled: false},
         regions: ath_regions,
         color: {
-          pattern: ['#0077cb', '#ff7f0e','#2ca02c','#d62728','#9467bd','#8c564b','#e377c2','#7f7f7f','#bcbd22','#17becf', '#ffbb78', '#98df8a', '#aec7e8', '#f7b6d2', '#dbdb8d', '#17becf', '#9edae5', '#d62728', '#2ca02c', '#c49c94']
+          pattern: ['#1177cf', '#ff7f0e','#2ca02c','#d62728','#9467bd','#8c564b','#e377c2','#7f7f7f','#bcbd22','#17becf', '#ffbb78', '#98df8a', '#aec7e8', '#f7b6d2', '#dbdb8d', '#17becf', '#9edae5', '#d62728', '#2ca02c', '#c49c94']
         }
       });
     }
@@ -1791,7 +1791,7 @@ if($_POST['filter4'] == "line_chart" && $_POST['filter1'] == "Arabidopsis_thalia
         },
         zoom: {enabled: false},
         color: {
-          pattern: ['#0077cb', '#ff7f0e','#2ca02c','#d62728','#9467bd','#8c564b','#e377c2','#7f7f7f','#bcbd22','#17becf', '#ffbb78', '#98df8a', '#aec7e8', '#f7b6d2', '#dbdb8d', '#17becf', '#9edae5', '#d62728', '#2ca02c', '#c49c94']
+          pattern: ['#1177cf', '#ff7f0e','#2ca02c','#d62728','#9467bd','#8c564b','#e377c2','#7f7f7f','#bcbd22','#17becf', '#ffbb78', '#98df8a', '#aec7e8', '#f7b6d2', '#dbdb8d', '#17becf', '#9edae5', '#d62728', '#2ca02c', '#c49c94']
         }
       });
     }
@@ -1845,7 +1845,7 @@ if($_POST['filter4'] == "line_chart" && $_POST['filter1'] == "Arabidopsis_thalia
         },
         zoom: {enabled: false},
         color: {
-          pattern: ['#0077cb', '#ff7f0e','#2ca02c','#d62728','#9467bd','#8c564b','#e377c2','#7f7f7f','#bcbd22','#17becf', '#ffbb78', '#98df8a', '#aec7e8', '#f7b6d2', '#dbdb8d', '#17becf', '#9edae5', '#d62728', '#2ca02c', '#c49c94']
+          pattern: ['#1177cf', '#ff7f0e','#2ca02c','#d62728','#9467bd','#8c564b','#e377c2','#7f7f7f','#bcbd22','#17becf', '#ffbb78', '#98df8a', '#aec7e8', '#f7b6d2', '#dbdb8d', '#17becf', '#9edae5', '#d62728', '#2ca02c', '#c49c94']
         }
       });
     }
@@ -1922,7 +1922,7 @@ else if ($_POST['filter4'] == "line_chart" && ($count > 0) && ($count < 21) && $
         },
         zoom: {enabled: false},
         color: {
-          pattern: ['#0077cb', '#ff7f0e','#2ca02c','#d62728','#9467bd','#8c564b','#e377c2','#7f7f7f','#bcbd22','#17becf', '#ffbb78', '#98df8a', '#aec7e8', '#f7b6d2', '#dbdb8d', '#17becf', '#9edae5', '#d62728', '#2ca02c', '#c49c94']
+          pattern: ['#1177cf', '#ff7f0e','#2ca02c','#d62728','#9467bd','#8c564b','#e377c2','#7f7f7f','#bcbd22','#17becf', '#ffbb78', '#98df8a', '#aec7e8', '#f7b6d2', '#dbdb8d', '#17becf', '#9edae5', '#d62728', '#2ca02c', '#c49c94']
         }
       });
 
@@ -1971,7 +1971,7 @@ else if ($_POST['filter4'] == "line_chart" && ($count > 0) && ($count < 21) && $
         },
         zoom: {enabled: false},
         color: {
-          pattern: ['#0077cb', '#ff7f0e','#2ca02c','#d62728','#9467bd','#8c564b','#e377c2','#7f7f7f','#bcbd22','#17becf', '#ffbb78', '#98df8a', '#aec7e8', '#f7b6d2', '#dbdb8d', '#17becf', '#9edae5', '#d62728', '#2ca02c', '#c49c94']
+          pattern: ['#1177cf', '#ff7f0e','#2ca02c','#d62728','#9467bd','#8c564b','#e377c2','#7f7f7f','#bcbd22','#17becf', '#ffbb78', '#98df8a', '#aec7e8', '#f7b6d2', '#dbdb8d', '#17becf', '#9edae5', '#d62728', '#2ca02c', '#c49c94']
         }
       });
     }
@@ -2017,7 +2017,7 @@ else if ($_POST['filter4'] == "line_chart" && ($count > 0) && ($count < 21) && $
         grid: {lines: {front: false}},
         zoom: {enabled: false},
         color: {
-          pattern: ['#0077cb', '#ff7f0e','#2ca02c','#d62728','#9467bd','#8c564b','#e377c2','#7f7f7f','#bcbd22','#17becf', '#ffbb78', '#98df8a', '#aec7e8', '#f7b6d2', '#dbdb8d', '#17becf', '#9edae5', '#d62728', '#2ca02c', '#c49c94']
+          pattern: ['#1177cf', '#ff7f0e','#2ca02c','#d62728','#9467bd','#8c564b','#e377c2','#7f7f7f','#bcbd22','#17becf', '#ffbb78', '#98df8a', '#aec7e8', '#f7b6d2', '#dbdb8d', '#17becf', '#9edae5', '#d62728', '#2ca02c', '#c49c94']
         }
       });
     }
