@@ -653,7 +653,7 @@ Container classes and bootstrap grid system settings
     height: 12px;
     color: #30619a!important;
     z-index: 100!important;
-    border-bottom: 3px solid #0077d0!important;
+    border-bottom: 3px solid #1177cf!important;
     position: relative!important;
     }
 
@@ -988,7 +988,7 @@ Bootstrap navbar and dropdown settings
     -webkit-appearance:none!important; /* remove the strong OSX influence from Webkit */
     -webkit-transition: color .25s ease-in!important;
     border-top: 0px solid #000 !important;
-    border-bottom: 3px solid #0077d0!important;
+    border-bottom: 3px solid #1177cf!important;
     padding-bottom: 12px!important;
     padding-top: 18px!important;
     transition: 0.1s ease-in!important;
@@ -1000,7 +1000,7 @@ Bootstrap navbar and dropdown settings
     -webkit-appearance:none!important; /* remove the strong OSX influence from Webkit */
     -webkit-transition: color .25s ease-in!important;
     border-top: 0px solid #000 !important;
-    border-bottom: 3px solid #0077d0!important;
+    border-bottom: 3px solid #1177cf!important;
     padding-bottom: 12px!important;
     padding-top: 18px!important;
     transition: 0.1s ease-in!important;
@@ -1012,7 +1012,7 @@ Bootstrap navbar and dropdown settings
     color: #1b1d1f!important;
     -webkit-transition: color .25s ease-in!important;
     border-top: 0px solid #000 !important;
-    border-bottom: 3px solid #0077d0!important;
+    border-bottom: 3px solid #1177cf!important;
     padding-bottom: 12px!important;
     padding-top: 18px!important;
     transition: 0.1s ease-in!important;
@@ -2118,15 +2118,15 @@ Setup for general buttons
 
 #aboutaes {
     background-color: white!important;
-    border: 0.15rem solid #0077d0!important;
+    border: 0.15rem solid #1177cf!important;
     /*** box-shadow: 0 0 0.5px 0.5px #c8cbcf!important; ***/
-    color: #0077d0!important;
-    -webkit-border-radius: 10px;
-    -webkit-border-radius: 0.5rem;
-    -moz-border-radius: 10px;
-    -moz-border-radius: 0.5rem;
-    border-radius: 10px;
-    border-radius: 0.5rem;
+    color: #1177cf!important;
+    -webkit-border-radius: 11px;
+    -webkit-border-radius: 0.55rem;
+    -moz-border-radius: 11px;
+    -moz-border-radius: 0.55rem;
+    border-radius: 11px;
+    border-radius: 0.55rem;
     margin-top: -7px; 
     margin-left: -2px;
     margin-right: 0px;
@@ -2140,8 +2140,8 @@ Setup for general buttons
 
 #aboutaes:focus,
 #aboutaes:hover {
-    background-color: #0077d0 !important;
-    border: 0.15rem solid #0077d0 !important;
+    background-color: #1177cf !important;
+    border: 0.15rem solid #1177cf !important;
     color: white !important;
     cursor: pointer;
     }
@@ -2219,8 +2219,8 @@ Chart download button settings
 
 
 .btn-green {
-    background-color: #0077d0 !important;
-    border: 1px solid #0077d0 !important;
+    background-color: #1177cf !important;
+    border: 1px solid #1177cf !important;
     -webkit-border-radius: 5px;
     -webkit-border-radius: 0.25rem;
     -moz-border-radius: 5px;
@@ -2242,9 +2242,9 @@ Chart download button settings
 
 .btn-green:focus,
 .btn-green:hover {
-    background-color: #005a9d!important;
+    background-color: #0d5fab!important;
     color: white!important;
-    border: 1px solid #005fa2!important;
+    border: 1px solid #0d5fab!important;
     outline: none!important;
     }
 
