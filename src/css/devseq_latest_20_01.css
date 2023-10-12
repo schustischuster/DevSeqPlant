@@ -1969,9 +1969,10 @@ Setup for general buttons
 
 .fa_external_link {
     fill: #005a1e!important;
-    padding-top: 2.5px!important;
+    padding-top: 1px!important;
     padding-bottom: 0px!important;
     padding-right: 5px!important;
+    margin-bottom: -1px!important;
 }
 
 .hreflinks15:hover .hreflinks13 {
