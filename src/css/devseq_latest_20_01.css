@@ -280,9 +280,9 @@ Container classes and bootstrap grid system settings
     margin-left: -5px!important;
     padding-right: 3px!important;
     border: 0px solid #bfbfbf !important;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    border-radius: 4px;
+    -webkit-border-radius: 5.5px;
+    -moz-border-radius: 5.5px;
+    border-radius: 5.5px;
     background: rgb(246, 248, 250)!important;
     max-width: 155px!important;
     }
@@ -294,9 +294,9 @@ Container classes and bootstrap grid system settings
     margin-left: -5px!important;
     padding-right: 3px!important;
     border: 0px solid #bfbfbf !important;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    border-radius: 4px;
+    -webkit-border-radius: 5.5px;
+    -moz-border-radius: 5.5px;
+    border-radius: 5.5px;
     background: rgb(246, 248, 250)!important;
     max-width: 155px!important;
     color: #1b1d1f!important;
@@ -328,9 +328,9 @@ Container classes and bootstrap grid system settings
     margin-left: -5px!important;
     padding-right: 3px!important;
     border: 0px solid #bfbfbf !important;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    border-radius: 4px;
+    -webkit-border-radius: 5.5px;
+    -moz-border-radius: 5.5px;
+    border-radius: 5.5px;
     background: rgb(246, 248, 250)!important;
     max-width: 1050px!important;
     display: flex!important;
@@ -520,9 +520,9 @@ Container classes and bootstrap grid system settings
   width: 532px!important;
   height: 39px!important;
   background: #e9ecef!important;
-  -webkit-border-radius: 5px!important;
-  -moz-border-radius: 5px!important;
-  border-radius: 5px!important;
+  -webkit-border-radius: 5.5px!important;
+  -moz-border-radius: 5.5px!important;
+  border-radius: 5.5px!important;
 }
 
 #srtcredits {
@@ -678,7 +678,7 @@ Container classes and bootstrap grid system settings
     margin-left: 0px !important;
     border: 1px solid white!important;
     background: white;
-    border-radius: 5px;
+    border-radius: 5.5px;
     display: block!important;
     vertical-align: middle;
     z-index: 100!important;
@@ -692,9 +692,9 @@ Container classes and bootstrap grid system settings
 
 .maincontent {
     border: 1px solid #ced1d7!important;
-    -webkit-border-radius: 5px!important;
-    -moz-border-radius: 5px!important;
-    border-radius: 5px!important;
+    -webkit-border-radius: 5.5px!important;
+    -moz-border-radius: 5.5px!important;
+    border-radius: 5.5px!important;
     margin-right: 20px!important;
     margin-left: -10px!important;
     margin-bottom: 18px!important;
@@ -903,16 +903,16 @@ Bootstrap navbar and dropdown settings
     float: none;
     padding-top: 0px;
     margin-top:-1px!important;
-    padding-left: 14px!important;
-    padding-right: 14px!important;
+    padding-left: 17px!important;
+    padding-right: 17px!important;
     -webkit-appearance:none!important; /* remove the strong OSX influence from Webkit */
     -webkit-font-smoothing: subpixel-antialiased !important; /* make navbar font look sharp on non-retina displays */
     }
 
     @media only screen and (min-width:1280px) {
         .container-fluid {
-            padding-left: calc((((100vw) - 1280px)/2) + 14px)!important;
-            padding-right: calc((((100vw) - 1280px)/2) + 14px)!important;
+            padding-left: calc((((100vw) - 1280px)/2) + 17px)!important;
+            padding-right: calc((((100vw) - 1280px)/2) + 17px)!important;
         }
     };
 
@@ -959,7 +959,6 @@ Bootstrap navbar and dropdown settings
     border-color: rgb(246, 248, 250)!important;
     border-top: 1px solid #c8cbcf!important;
     min-width: 570px!important;
-    padding-right: 15px !important;
     margin-bottom: -1px!important;
     margin: auto!important;
     background: white!important;
@@ -1092,7 +1091,9 @@ Bootstrap navbar and dropdown settings
     }
 
 .navbar-nav.navbar-right:last-child {
-    margin-right: -15px !important;
+    padding-left: 11px!important;
+    padding-right: 11px!important;
+    margin-right: -11px !important;
     padding-right: 0px!important;
     }
 
@@ -1839,17 +1840,6 @@ Setup for general buttons
 .hreflinks3:link {text-decoration:none;}
 
 
-.hreflinks1 {
-    color:#1b1d1f;
-    }
-.hreflinks1:hover {
-    color:rgb(128,128,128);
-    }
-   a{
-    color:inherit;
-    }
-
-
 .hreflinks2 {
     color:#1b1d1f;
     }
@@ -2121,17 +2111,14 @@ Setup for general buttons
     border: 0.15rem solid #1177cf!important;
     /*** box-shadow: 0 0 0.5px 0.5px #c8cbcf!important; ***/
     color: #1177cf!important;
-    -webkit-border-radius: 11px;
-    -webkit-border-radius: 0.55rem;
-    -moz-border-radius: 11px;
-    -moz-border-radius: 0.55rem;
-    border-radius: 11px;
-    border-radius: 0.55rem;
+    -webkit-border-radius: 5.5px;
+    -moz-border-radius: 5.5px;
+    border-radius: 5.5px;
     margin-top: -7px; 
     margin-left: -2px;
     margin-right: 0px;
     padding-left: 10px!important;
-    padding-right: 11px!important; 
+    padding-right: 10.5px!important; 
     padding-top: 0.55rem;
     padding-bottom: 0.35rem;
     cursor: pointer;
@@ -2173,24 +2160,15 @@ Chart display settings
     -moz-border-radius: 0.35rem;
     border-radius: 7px;
     border-radius: 0.35rem;
-    padding-top: 6px!important;
-    padding-bottom: 4px!important;
-    padding-left: 8px!important;
-    padding-right: 8px!important;
+    padding-top: 5px!important;
+    padding-bottom: 5px!important;
+    padding-left: 8.5px!important;
+    padding-right: 8.5px!important;
     color: #333399!important;
-    font-size: 13.75px!important;
+    font-size: 14px!important;
     font-weight: 500!important;
     cursor: pointer;
     }
-
-@-moz-document url-prefix() {
-    .btn-display {
-        padding-top: 3.5pt!important;
-        padding-bottom: 3.5pt!important;
-        padding-left: 8px!important;
-        padding-right: 8px!important;
-    }
-}/* settings specific for Firefox */
 
 
 .btn-display:focus,
@@ -2221,17 +2199,12 @@ Chart download button settings
 .btn-green {
     background-color: #1177cf !important;
     border: 1px solid #1177cf !important;
-    -webkit-border-radius: 5px;
-    -webkit-border-radius: 0.25rem;
-    -moz-border-radius: 5px;
-    -moz-border-radius: 0.25rem;
-    border-radius: 5px;
-    border-radius: 0.25rem;
+    -webkit-border-radius: 5.5px;
+    -moz-border-radius: 5.5px;
+    border-radius: 5.5px;
     margin-top: -4px!important;
     padding-top: 5.5px!important;
     padding-bottom: 5.5px!important;
-    padding-left: 8px!important;
-    padding-right: 8px!important;
     margin-left: -5px!important;
     color: white!important;
     font-size: 14.25px!important;
@@ -2261,39 +2234,46 @@ Chart download button settings
     .btn-green {
         display: none!important;
     }
-}  
+}
+
+.fa-refresh {
+    fill: white!important;
+    padding-top: 1px!important;
+    padding-right: 5px!important;
+    margin-bottom: -1px!important;
+    margin-left: -3.5px!important;
+}
+
+.fa-download {
+    fill: #0a1e38!important;
+    padding-top: 1px!important;
+    padding-right: 5px!important;
+    margin-bottom: -1px!important;
+    margin-left: -1px!important;
+}
 
 
 .btn-gray-light {
     background-color: #c8e1f4 !important;
     border: 1px solid #c8e1f4 !important;
-    -webkit-border-radius: 5px;
-    -webkit-border-radius: 0.25rem;
-    -moz-border-radius: 5px;
-    -moz-border-radius: 0.25rem;
-    border-radius: 5px;
-    border-radius: 0.25rem;
+    -webkit-border-radius: 7px;
+    -webkit-border-radius: 0.35rem;
+    -moz-border-radius: 7px;
+    -moz-border-radius: 0.35rem;
+    border-radius: 7px;
+    border-radius: 0.35rem;
     margin-left: 0px!important;
     margin-right: 0px!important;
-    padding-top: 6px!important;
-    padding-bottom: 4px!important;
-    padding-left: 8px!important;
-    padding-right: 8px!important;
+    padding-top: 5px!important;
+    padding-bottom: 5px!important;
+    padding-left: 8.5px!important;
+    padding-right: 8.5px!important;
     color: #0a1e38 !important;
-    font-size: 13.75px!important;
+    font-size: 14px!important;
     font-weight: 500!important;
     cursor: pointer;
     transition: 0.1s ease-in!important;
     }
-
-@-moz-document url-prefix() {
-    .btn-gray-light {
-        padding-top: 3.5pt!important;
-        padding-bottom: 3.5pt!important;
-        padding-left: 8px!important;
-        padding-right: 8px!important;
-    }
-}/* settings specific for Firefox */
 
 .btn-gray-light:focus,
 .btn-gray-light:hover {
@@ -2390,12 +2370,12 @@ Chart download button settings
     border-bottom: 1px solid #ced1d7!important;
     border-left: 1px solid #ced1d7!important;
     border-right: 0px solid #ced1d7!important;
-    -webkit-border-top-left-radius: 5px!important;
-    -moz-border-top-left-radius: 5px!important;
-    border-top-left-radius: 5px!important;
-    -webkit-border-bottom-left-radius: 5px!important;
-    -moz-border-bottom-left-radius: 5px!important;
-    border-bottom-left-radius: 5px!important;
+    -webkit-border-top-left-radius: 5.5px!important;
+    -moz-border-top-left-radius: 5.5px!important;
+    border-top-left-radius: 5.5px!important;
+    -webkit-border-bottom-left-radius: 5.5px!important;
+    -moz-border-bottom-left-radius: 5.5px!important;
+    border-bottom-left-radius: 5.5px!important;
     }
 
 .searchtextsrt {
@@ -2415,12 +2395,12 @@ Chart download button settings
     border-bottom: 1px solid #c0c4cc!important;
     border-left: 1px solid #c0c4cc!important;
     border-right: 0px solid #c0c4cc!important;
-    -webkit-border-top-left-radius: 5px!important;
-    -moz-border-top-left-radius: 5px!important;
-    border-top-left-radius: 5px!important;
-    -webkit-border-bottom-left-radius: 5px!important;
-    -moz-border-bottom-left-radius: 5px!important;
-    border-bottom-left-radius: 5px!important;
+    -webkit-border-top-left-radius: 5.5px!important;
+    -moz-border-top-left-radius: 5.5px!important;
+    border-top-left-radius: 5.5px!important;
+    -webkit-border-bottom-left-radius: 5.5px!important;
+    -moz-border-bottom-left-radius: 5.5px!important;
+    border-bottom-left-radius: 5.5px!important;
     }
 
 @-moz-document url-prefix() {
@@ -2447,16 +2427,16 @@ Chart download button settings
     border-bottom: 1px solid #ced1d7!important;
     border-left: 1px solid #ced1d7!important;
     border-right: 0px solid #ced1d7!important;
-    -webkit-border-top-left-radius: 5px!important;
-    -moz-border-top-left-radius: 5px!important;
-    border-top-left-radius: 5px!important;
+    -webkit-border-top-left-radius: 5.5px!important;
+    -moz-border-top-left-radius: 5.5px!important;
+    border-top-left-radius: 5.5px!important;
     border-top-right-radius: 0px!important;
     -webkit-border-top-right-radius: 0px!important;
     -moz-border-top-right-radius: 0px!important;
     -o-border-top-right-radius: 0px!important;
-    -webkit-border-bottom-left-radius: 5px!important;
-    -moz-border-bottom-left-radius: 5px!important;
-    border-bottom-left-radius: 5px!important;
+    -webkit-border-bottom-left-radius: 5.5px!important;
+    -moz-border-bottom-left-radius: 5.5px!important;
+    border-bottom-left-radius: 5.5px!important;
     border-bottom-right-radius: 0px!important;
     -webkit-border-bottom-right-radius: 0px!important;
     -moz-border-bottom-right-radius: 0px!important;
@@ -2480,16 +2460,16 @@ Chart download button settings
     border-bottom: 1px solid #c0c4cc!important;
     border-left: 1px solid #c0c4cc!important;
     border-right: 0px solid #c0c4cc!important;
-    -webkit-border-top-left-radius: 5px!important;
-    -moz-border-top-left-radius: 5px!important;
-    border-top-left-radius: 5px!important;
+    -webkit-border-top-left-radius: 5.5px!important;
+    -moz-border-top-left-radius: 5.5px!important;
+    border-top-left-radius: 5.5px!important;
     border-top-right-radius: 0px!important;
     -webkit-border-top-right-radius: 0px!important;
     -moz-border-top-right-radius: 0px!important;
     -o-border-top-right-radius: 0px!important;
-    -webkit-border-bottom-left-radius: 5px!important;
-    -moz-border-bottom-left-radius: 5px!important;
-    border-bottom-left-radius: 5px!important;
+    -webkit-border-bottom-left-radius: 5.5px!important;
+    -moz-border-bottom-left-radius: 5.5px!important;
+    border-bottom-left-radius: 5.5px!important;
     border-bottom-right-radius: 0px!important;
     -webkit-border-bottom-right-radius: 0px!important;
     -moz-border-bottom-right-radius: 0px!important;
@@ -2505,12 +2485,12 @@ Chart download button settings
 .sboxbackground {
     background: white!important;
     z-index: 100!important;
-    -webkit-border-top-right-radius: 5px!important;
-    -moz-border-top-right-radius: 5px!important;
-    border-top-right-radius: 5px!important;
-    -webkit-border-bottom-right-radius: 5px!important;
-    -moz-border-bottom-right-radius: 5px!important;
-    border-bottom-right-radius: 5px!important;
+    -webkit-border-top-right-radius: 5.5px!important;
+    -moz-border-top-right-radius: 5.5px!important;
+    border-top-right-radius: 5.5px!important;
+    -webkit-border-bottom-right-radius: 5.5px!important;
+    -moz-border-bottom-right-radius: 5.5px!important;
+    border-bottom-right-radius: 5.5px!important;
     }
 
 .custom-select {
@@ -2534,12 +2514,12 @@ Chart download button settings
     border-bottom: 1px solid #ced1d7!important;
     border-left: 1px solid #ced1d7!important;
     border-right: 1px solid #ced1d7!important;
-    -webkit-border-top-right-radius: 5px!important;
-    -moz-border-top-right-radius: 5px!important;
-    border-top-right-radius: 5px!important;
-    -webkit-border-bottom-right-radius: 5px!important;
-    -moz-border-bottom-right-radius: 5px!important;
-    border-bottom-right-radius: 5px!important;
+    -webkit-border-top-right-radius: 5.5px!important;
+    -moz-border-top-right-radius: 5.5px!important;
+    border-top-right-radius: 5.5px!important;
+    -webkit-border-bottom-right-radius: 5.5px!important;
+    -moz-border-bottom-right-radius: 5.5px!important;
+    border-bottom-right-radius: 5.5px!important;
     -webkit-border-top-left-radius: 0px!important;
     -moz-border-top-left-radius: 0px!important;
     border-top-left-radius: 0px!important;
@@ -2585,12 +2565,12 @@ Chart download button settings
     border-bottom: 1px solid #c0c4cc!important;
     border-left: 1px solid #c0c4cc!important;
     border-right: 1px solid #c0c4cc!important;
-    -webkit-border-top-right-radius: 5px!important;
-    -moz-border-top-right-radius: 5px!important;
-    border-top-right-radius: 5px!important;
-    -webkit-border-bottom-right-radius: 5px!important;
-    -moz-border-bottom-right-radius: 5px!important;
-    border-bottom-right-radius: 5px!important;
+    -webkit-border-top-right-radius: 5.5px!important;
+    -moz-border-top-right-radius: 5.5px!important;
+    border-top-right-radius: 5.5px!important;
+    -webkit-border-bottom-right-radius: 5.5px!important;
+    -moz-border-bottom-right-radius: 5.5px!important;
+    border-bottom-right-radius: 5.5px!important;
     -webkit-border-top-left-radius: 0px!important;
     -moz-border-top-left-radius: 0px!important;
     border-top-left-radius: 0px!important;
@@ -2987,12 +2967,12 @@ Search Box and Submit button settings
         z-index: 100!important;
         border: 1px solid #399F24!important;
         transform: scaleY(1)!important;
-        -webkit-border-top-right-radius: 5px!important;
-        -moz-border-top-right-radius: 5px!important;
-        border-top-right-radius: 5px!important;
-        -webkit-border-bottom-right-radius: 5px!important;
-        -moz-border-bottom-right-radius: 5px!important;
-        border-bottom-right-radius: 5px!important;
+        -webkit-border-top-right-radius: 5.5px!important;
+        -moz-border-top-right-radius: 5.5px!important;
+        border-top-right-radius: 5.5px!important;
+        -webkit-border-bottom-right-radius: 5.5px!important;
+        -moz-border-bottom-right-radius: 5.5px!important;
+        border-bottom-right-radius: 5.5px!important;
         border-top-left-radius: 0px!important; /* remove left border radius from Opera */
         border-bottom-left-radius: 0px!important; /* remove left border radius from Opera */
         -o-border-top-left-radius: 0px!important; /* remove left border radius from Opera */
@@ -3024,12 +3004,12 @@ Search Box and Submit button settings
         z-index: 100!important;
         border: 1px solid #399F24!important;
         transform: scaleY(1)!important;
-        -webkit-border-top-right-radius: 5px!important;
-        -moz-border-top-right-radius: 5px!important;
-        border-top-right-radius: 5px!important;
-        -webkit-border-bottom-right-radius: 5px!important;
-        -moz-border-bottom-right-radius: 5px!important;
-        border-bottom-right-radius: 5px!important;
+        -webkit-border-top-right-radius: 5.5px!important;
+        -moz-border-top-right-radius: 5.5px!important;
+        border-top-right-radius: 5.5px!important;
+        -webkit-border-bottom-right-radius: 5.5px!important;
+        -moz-border-bottom-right-radius: 5.5px!important;
+        border-bottom-right-radius: 5.5px!important;
         border-top-left-radius: 0px!important; /* remove left border radius from Opera */
         border-bottom-left-radius: 0px!important; /* remove left border radius from Opera */
         -o-border-top-left-radius: 0px!important; /* remove left border radius from Opera */
