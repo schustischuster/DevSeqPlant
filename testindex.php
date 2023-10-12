@@ -292,7 +292,7 @@ $valuesclustout = json_encode($valuesclust, JSON_NUMERIC_CHECK);
 $keysclustout = json_encode($keysclust);
 }; 
 
-if ($_POST['filter4'] == "heatmap" && $_POST['filter6'] == "1") {
+if ($_POST['filter4'] == "heatmap" && $_POST['filter6'] == "1" && ($count > 1)) {
   // Combine keys and values from hclust analysis
   function mapArrayClust($keysclust, $valuesclust) {
     return [array_merge([$keysclust], $valuesclust)];
@@ -1246,9 +1246,7 @@ HTML Body starts: wrapper = 1st level div
                     </div>
                   </div>  
                 </div><!--/close "some-classinner"-->
-                <span class = 'hreflinks1'>
-                <button id="export_charts" class="btn btn-green" type="submit" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none" class="tfbutton3"><i class="fa fa-refresh" aria-hidden="true"></i> <span>Update chart</span></a></button>
-                </span>
+                <button id="export_charts" class="btn btn-green" type="submit" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none" class="tfbutton3"><svg  class="fa fa-refresh" xmlns="http://www.w3.org/2000/svg" height="1.0em" viewBox="0 0 512 512"><path d="M142.9 142.9c62.2-62.2 162.7-62.5 225.3-1L327 183c-6.9 6.9-8.9 17.2-5.2 26.2s12.5 14.8 22.2 14.8H463.5c0 0 0 0 0 0H472c13.3 0 24-10.7 24-24V72c0-9.7-5.8-18.5-14.8-22.2s-19.3-1.7-26.2 5.2L413.4 96.6c-87.6-86.5-228.7-86.2-315.8 1C73.2 122 55.6 150.7 44.8 181.4c-5.9 16.7 2.9 34.9 19.5 40.8s34.9-2.9 40.8-19.5c7.7-21.8 20.2-42.3 37.8-59.8zM16 312v7.6 .7V440c0 9.7 5.8 18.5 14.8 22.2s19.3 1.7 26.2-5.2l41.6-41.6c87.6 86.5 228.7 86.2 315.8-1c24.4-24.4 42.1-53.1 52.9-83.7c5.9-16.7-2.9-34.9-19.5-40.8s-34.9 2.9-40.8 19.5c-7.7 21.8-20.2 42.3-37.8 59.8c-62.2 62.2-162.7 62.5-225.3 1L185 329c6.9-6.9 8.9-17.2 5.2-26.2s-12.5-14.8-22.2-14.8H48.4h-.7H40c-13.3 0-24 10.7-24 24z"/></svg><span>Update chart</span></button>
               </div>
             </form>
           </div><!--/close "XL-2 grid"-->
@@ -1412,12 +1410,12 @@ HTML Body starts: wrapper = 1st level div
                     <!-- Define "download data and plot" links -->
 
                     <div class='dloptions' <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none" >
-                    <span class = 'hreflinks1'>
-                    <button id="export_charts" class="btn btn-gray-light" title="Download data as csv file" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none" class="tfbutton3" onclick="download_csv_function();"><i class="fa fa-download" aria-hidden="true" style="color:#0a1e38"></i> <span>Data</span></a></button>
-                    </span>
-                    <span class = 'hreflinks3'>
-                    <a href="data/devseq_sample_table.csv" download="devseq_sample_table.csv" Download!><button class="btn btn-gray-light" title="Download sample table as csv file" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none"><i class="fa fa-download" aria-hidden="true" style="color:#0a1e38"></i><span> Sample table</span></button></a></a>
-                    </span>
+                    
+                    <button id="export_charts" class="btn btn-gray-light" title="Download data as csv file" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none" class="tfbutton3" onclick="download_csv_function();"><svg class="fa-download" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><path d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V274.7l-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0l128-128c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L288 274.7V32zM64 352c-35.3 0-64 28.7-64 64v32c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V416c0-35.3-28.7-64-64-64H346.5l-45.3 45.3c-25 25-65.5 25-90.5 0L165.5 352H64zm368 56a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/></svg><span>Data</span></button>
+                    
+                    
+                    <a href="data/devseq_sample_table.csv" download="devseq_sample_table.csv" Download!><button class="btn btn-gray-light" title="Download sample table as csv file" <?php if ((!isset($_POST['searchquery']) || $_POST['searchquery'] == "") || $count==0){?> style="display: none" <?php } ?> style="text-decoration: none"><svg class="fa-download" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><path d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V274.7l-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0l128-128c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L288 274.7V32zM64 352c-35.3 0-64 28.7-64 64v32c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V416c0-35.3-28.7-64-64-64H346.5l-45.3 45.3c-25 25-65.5 25-90.5 0L165.5 352H64zm368 56a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/></svg><span>Sample table</span></button></a>
+                    
                     
 
 
