@@ -1933,12 +1933,14 @@ Setup for general buttons
 
 .hreflinks13 {
     color: #005a1e!important;
+    display: inline-block!important;
     padding-top: 0px!important;
     outline:none!important; /* remove focus ring from Webkit */
     -webkit-appearance:none!important; /* remove the strong OSX influence from Webkit */
     }
 
 .hreflinks13:hover {
+    padding-bottom: 2px!important;
     cursor: pointer!important;
     outline:none!important; /* remove focus ring from Webkit */
     -webkit-appearance:none!important; /* remove the strong OSX influence from Webkit */
@@ -1958,27 +1960,28 @@ Setup for general buttons
     }
 
 .hreflinks15 {
+    cursor: pointer!important;
     padding-right: 4px!important;
-    padding-top: 4px!important;
+    padding-top: 0px!important;
     color: #005a1e!important;
     outline:none!important; /* remove focus ring from Webkit */
     }
+
+.fa_external_link {
+    fill: #005a1e!important;
+    padding-top: 2.5px!important;
+    padding-bottom: 0px!important;
+    padding-right: 5px!important;
+}
+
+.hreflinks15:hover .hreflinks13 {
+    text-decoration: underline!important;
+}
 
 
 @-moz-document url-prefix() {
     .hreflinks12 {
         color: 006521!important;
-    }
-}/* target color specific for Firefox */
-@-moz-document url-prefix() {
-    .hreflinks13 {
-        color: 006521!important;
-    }
-}/* target color specific for Firefox */
-@-moz-document url-prefix() {
-    .hreflinks15 {
-        color: 006521!important;
-        padding-top: 3px!important;
     }
 }/* target color specific for Firefox */
 
