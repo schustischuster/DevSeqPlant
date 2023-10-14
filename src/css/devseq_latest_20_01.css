@@ -1940,7 +1940,6 @@ Setup for general buttons
     }
 
 .hreflinks13:hover {
-    padding-bottom: 2px!important;
     cursor: pointer!important;
     outline:none!important; /* remove focus ring from Webkit */
     -webkit-appearance:none!important; /* remove the strong OSX influence from Webkit */
