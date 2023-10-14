@@ -1164,8 +1164,8 @@ ol.message_list { position: relative !important}
     text-align: left!important;
     margin-right: 100px!important;
     margin-left: 20px!important;
-    margin-top: 12px!important;
-    margin-bottom: 18px!important;
+    margin-top: 11px!important;
+    margin-bottom: 16px!important;
     padding-top: 0px!important;
     padding-bottom: 8px!important;
     background: white!important;
@@ -1180,8 +1180,8 @@ ol.message_list { position: relative !important}
     text-align: left!important;
     margin-right: 20px!important;
     margin-left: -70px!important;
-    margin-top: 12px!important;
-    margin-bottom: 18px!important;
+    margin-top: 11px!important;
+    margin-bottom: 16px!important;
     padding-top: 0px!important;
     padding-bottom: 8px!important;
     padding-left: 0px!important;
@@ -1191,7 +1191,8 @@ ol.message_list { position: relative !important}
     }
 
 .masterrow{
-    margin: 5px 5px;
+    padding-top: 2px!important;
+    margin-bottom: 0px;
     width: calc(100% - 10px);
 }
 
@@ -1230,15 +1231,15 @@ ol.message_list { position: relative !important}
     position: absolute !important;
     height: 1px!important;
     border-top: 1px solid #ced1d7!important;
-    margin-top: -45px!important;
+    margin-top: -47px!important;
 }
 
 .Mega_Menu_Lowerspacer {
     min-width: 1024px!important;
     max-width: 1252px !important;
     height: 50px!important;
-    margin-top: -5px!important;
-    margin-bottom: -5px!important;
+    margin-top: 0px!important;
+    margin-bottom: 0px!important;
     position: relative;
     margin-left:auto!important;
     margin-right:auto!important;
@@ -1253,10 +1254,10 @@ ol.message_list { position: relative !important}
 
 .Mega_Menu_LowerspacerTxt {
     color: #1b1d1f!important;
-    padding-top: 5px!important;
+    padding-top: 10px!important;
     padding-left: 30px!important;
     padding-right: 10px!important;
-    margin: -12px 0 0 -10px!important;
+    margin: -10px 0 0 -10px!important;
     -webkit-font-smoothing: auto !important;
     display: flex!important;
     flex-wrap:wrap!important;
@@ -1968,10 +1969,11 @@ Setup for general buttons
 
 .fa_external_link {
     fill: #005a1e!important;
-    padding-top: 1px!important;
+    padding-top: 1.75px!important;
     padding-bottom: 0px!important;
-    padding-right: 5px!important;
-    margin-bottom: -1px!important;
+    padding-left: 0px!important;
+    margin-bottom: -1.25px!important;
+    margin-right: -5px!important;
 }
 
 .hreflinks15:hover .hreflinks13 {
