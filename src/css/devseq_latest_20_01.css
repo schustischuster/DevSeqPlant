@@ -1987,22 +1987,16 @@ Setup for general buttons
     }
 
 .fa-envelope {
-    margin-top: 1px!important;
+    margin-top: 0px!important;
     margin-bottom: 4px!important;
     font-size: 1.025em!important;
     fill: #6e7273!important;
     transition: 0.1s ease-in!important;
     }
 
-@-moz-document url-prefix() {
-    .fa-envelope {
-        margin-top: 0px!important;
-        margin-bottom: 4px!important;
-    }
-}/* settings specific for Firefox */
 
 .fa-envelope-open {
-    margin-top: 1px!important;
+    margin-top: -1px!important;
     font-size: 1.025em!important;
     fill: #3e4042!important;
     transition: 0.1s ease-in!important;
@@ -2011,45 +2005,26 @@ Setup for general buttons
     top: -1px;
     }
 
-@-moz-document url-prefix() {
-    .fa-envelope-open {
-        margin-top: 0px!important;
-    }
-}/* settings specific for Firefox */
 
 .fa_envelope_class .fa-envelope-open,
 .fa_envelope_class:hover .fa-envelope {
     display: none;
-    margin-top: 1px!important;
+    margin-top: 0px!important;
     margin-bottom: 0px!important;
     transition: 0.1s ease-in!important;
 }
 
-@-moz-document url-prefix() {
-    .fa_envelope_class .fa-envelope-open,
-    .fa_envelope_class:hover .fa-envelope {
-        margin-top: 0px!important;
-        margin-bottom: 0px!important;
-    }
-}/* settings specific for Firefox */
 
 .fa_envelope_class:hover .fa-envelope-open {
-    margin-top: 1px!important;
+    margin-top: -1px!important;
     margin-bottom: 4px!important;
     display: inline-block!important;
     transition: 0.1s ease-in!important;
 }
 
-@-moz-document url-prefix() {
-    .fa_envelope_class:hover .fa-envelope-open {
-        margin-top: 0px!important;
-        margin-bottom: 4px!important;
-    }
-}/* settings specific for Firefox */
-
 
 .fa-github {
-    margin-top: 0px!important;
+    margin-top: -1px!important;
     margin-bottom: 2px!important;
     fill: #6e7273!important;
     transition: 0.1s ease-in!important;
@@ -2057,12 +2032,6 @@ Setup for general buttons
     position: relative!important;
     }
 
-@-moz-document url-prefix() {
-    .fa-github {
-        margin-top: -1px!important;
-        margin-bottom: 2px!important;
-    }
-}/* settings specific for Firefox */
 
 .fa_github_class:hover .fa-github {
     fill: #3e4042!important;
@@ -2070,7 +2039,7 @@ Setup for general buttons
 
 
 .fa-pencil-square-o {
-    margin-top: 0px!important;
+    margin-top: -1px!important;
     margin-bottom: 2px!important;
     fill: #6e7273!important;
     font-size: 19px !important;
@@ -2078,14 +2047,6 @@ Setup for general buttons
     top: 1px !important;
     transition: 0.1s ease-in!important;
     }
-
-@-moz-document url-prefix() {
-    .fa-pencil-square-o {
-        margin-top: -1px!important;
-        margin-bottom: 2px!important;
-        top: 1px !important;
-    }
-}/* settings specific for Firefox */
 
 
 .fa_ellipsis_class:hover .fa-pencil-square-o {
