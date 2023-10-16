@@ -1162,8 +1162,8 @@ ol.message_list { position: relative !important}
     color: #1b1d1f!important;
     font-weight: 600!important;
     text-align: left!important;
-    margin-right: 100px!important;
-    margin-left: 20px!important;
+    margin-right: 90px!important;
+    margin-left: 23px!important;
     margin-top: 11px!important;
     margin-bottom: 16px!important;
     padding-top: 0px!important;
@@ -1178,7 +1178,7 @@ ol.message_list { position: relative !important}
     color: #1b1d1f!important;
     font-weight: 600!important;
     text-align: left!important;
-    margin-right: 20px!important;
+    margin-right: 23px!important;
     margin-left: -70px!important;
     margin-top: 11px!important;
     margin-bottom: 16px!important;
@@ -1193,6 +1193,7 @@ ol.message_list { position: relative !important}
 .masterrow{
     padding-top: 2px!important;
     margin-bottom: 0px;
+    margin-left: 5px!important;
     width: calc(100% - 10px);
 }
 
@@ -1221,13 +1222,13 @@ ol.message_list { position: relative !important}
 
 .SlSpExAtIc {
     margin-left: -65.0px!important;
-    margin-right: 35px!important;
+    margin-right: 28px!important;
     padding-top: 0px!important;
     padding-bottom: 0px!important;
     }
 
 .Mega_Menu_Borderspacer {
-    width: calc(100vw - 2px)!important;
+    width: calc(100% - 1px)!important;
     position: absolute !important;
     height: 1px!important;
     border-top: 1px solid #ced1d7!important;
@@ -1237,7 +1238,7 @@ ol.message_list { position: relative !important}
 .Mega_Menu_Lowerspacer {
     min-width: 1024px!important;
     max-width: 1252px !important;
-    height: 50px!important;
+    height: 48px!important;
     margin-top: 0px!important;
     margin-bottom: 0px!important;
     position: relative;
@@ -1254,9 +1255,9 @@ ol.message_list { position: relative !important}
 
 .Mega_Menu_LowerspacerTxt {
     color: #1b1d1f!important;
-    padding-top: 10px!important;
-    padding-left: 30px!important;
-    padding-right: 10px!important;
+    padding-top: 8px!important;
+    padding-left: 42px!important;
+    padding-right: 32px!important;
     margin: -10px 0 0 -10px!important;
     -webkit-font-smoothing: auto !important;
     display: flex!important;
@@ -1284,7 +1285,6 @@ ol.message_list { position: relative !important}
 }
 
 .MMchild2lnk {
-    padding-right: 24px!important;
     display: flex!important;
     float: right!important;
 }
@@ -1441,8 +1441,8 @@ Mega Menu Content
     margin-right: 0px!important;
     padding-left: 0px!important;
     padding-right: 0px!important;
-    padding-top: 7px!important;
-    padding-bottom: 2px!important;
+    padding-top: 8px!important;
+    padding-bottom: 1px!important;
     text-decoration: none!important;
     -webkit-transition:  0.1s ease-out!important;
     -moz-transition:  0.1s ease-out!important;
@@ -1452,12 +1452,6 @@ Mega Menu Content
     opacity: 0.98!important;
 }
 
-@-moz-document url-prefix() {
-    .SlSpExAtTxt, .SlSpExAtImg {
-        padding-top: 8px!important;
-        padding-bottom: 1px!important;
-    }
-}/* settings specific for Firefox */
 
 .SlSpExAtImg {
     margin-bottom: 0px!important;
@@ -1569,17 +1563,17 @@ Mega Menu Content
 
 @media only screen and (max-width: 1239px) {
     .MMinfoicn {
-        right: 2px!important;
+        right: 9px!important;
     }
 }
 @media only screen and (max-width: 1167px) {
     .MMinfoicn {
-        right: 0px!important;
+        right: 7px!important;
     }
 }
 @media only screen and (max-width: 1095px) {
     .MMinfoicn {
-        right: -2px!important;
+        right: 5px!important;
     }
 }
 
