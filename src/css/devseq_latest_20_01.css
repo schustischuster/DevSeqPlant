@@ -934,7 +934,7 @@ Bootstrap navbar and dropdown settings
     color: #1b1d1f !important;
     border-right: 2px solid rgba(255, 255, 255, 0.0); 
     width: 115px!important;
-    min-height: 53px!important;
+    min-height: 52px!important;
     outline:none!important; /* remove focus ring from Webkit */
     -webkit-appearance:none!important; /* remove the strong OSX influence from Webkit */
     opacity: 1!important;
@@ -1026,7 +1026,7 @@ Bootstrap navbar and dropdown settings
     padding-top: 18px!important;
     padding-left: 12px!important;
     padding-right: 12px!important;
-    max-height: 53px!important;
+    max-height: 52px!important;
     background: white!important;
     outline:none!important; /* remove focus ring from Webkit */
     -webkit-appearance:none!important; /* remove the strong OSX influence from Webkit */
@@ -2119,7 +2119,7 @@ Setup for general buttons
     padding-left: 10px!important;
     padding-right: 10.5px!important; 
     padding-top: 0.55rem;
-    padding-bottom: 0.35rem;
+    padding-bottom: 0.3rem;
     cursor: pointer;
     font-size: 15.5px!important;
 }
