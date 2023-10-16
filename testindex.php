@@ -498,7 +498,7 @@ HTML Body starts: wrapper = 1st level div
                             </div>
                             <div class="SlSpExAtImg">
                               
-                              <img src="img/ATH_tin.jpg" class=img-responsive" alt="" style="border-radius:7px">
+                              <img src="img/ATH_tin.jpg" class="img-responsive" alt="" style="border-radius:7px">
                             </div>
                           </div>
                         </a> 
@@ -515,7 +515,7 @@ HTML Body starts: wrapper = 1st level div
                             </div>
                             <div class="SlSpExAtImg">
                               
-                              <img src="img/AL_tin.jpg" class=img-responsive" alt="" style="border-radius:7px">
+                              <img src="img/AL_tin.jpg" class="img-responsive" alt="" style="border-radius:7px">
                             </div>
                           </div>
                         </a> 
@@ -532,7 +532,7 @@ HTML Body starts: wrapper = 1st level div
                             </div>
                             <div class="SlSpExAtImg">
                               
-                              <img src="img/BD_tin.jpg" class=img-responsive" alt="" style="border-radius:7px">
+                              <img src="img/BD_tin.jpg" class="img-responsive" alt="" style="border-radius:7px">
                             </div>
                           </div>
                         </a> 
@@ -549,7 +549,7 @@ HTML Body starts: wrapper = 1st level div
                             </div>
                             <div class="SlSpExAtImg">
                               
-                              <img src="img/CR_tin.jpg" class=img-responsive" alt="" style="border-radius:7px">
+                              <img src="img/CR_tin.jpg" class="img-responsive" alt="" style="border-radius:7px">
                             </div>
                           </div>
                         </a> 
@@ -567,7 +567,7 @@ HTML Body starts: wrapper = 1st level div
                             </div>
                             <div class="SlSpExAtImg">
                               
-                              <img src="img/ES_tin.jpg" class=img-responsive" alt="" style="border-radius:7px">
+                              <img src="img/ES_tin.jpg" class="img-responsive" alt="" style="border-radius:7px">
                             </div>
                           </div>
                         </a> 
@@ -584,7 +584,7 @@ HTML Body starts: wrapper = 1st level div
                             </div>
                             <div class="SlSpExAtImg">
                               
-                              <img src="img/MT_tin.jpg" class=img-responsive" alt="" style="border-radius:7px">
+                              <img src="img/MT_tin.jpg" class="img-responsive" alt="" style="border-radius:7px">
                             </div>
                           </div>
                         </a> 
@@ -601,7 +601,7 @@ HTML Body starts: wrapper = 1st level div
                             </div>
                             <div class="SlSpExAtImg">
                               
-                              <img src="img/TH_tin.jpg" class=img-responsive" alt="" style="border-radius:7px">
+                              <img src="img/TH_tin.jpg" class="img-responsive" alt="" style="border-radius:7px">
                             </div>
                           </div>
                         </a> 
@@ -629,13 +629,14 @@ HTML Body starts: wrapper = 1st level div
                             <div class="SlSpExAtTxt">
 
                               <span style="color:#1b1d1f">1-1&nbsportholog expression</span><br>
+                              <span style="color:white">Spacer</span><br>
                               <span style="color:white">___________</span>
 
                             </div>
                             <div class="SlSpExAtImg">
                               <div class="MMinfoicn"><img src="img/icons8-info_fin2.svg" class="MMinfoiimg" title="1-1 ortholog expression | Orthology Inference: BLAST best reciprocal hit">
                               </div>
-                              <img src="img/1-1_orthologs_tin.jpg" class=img-responsive" alt="" style="border-radius:7px">
+                              <img src="img/1-1_orthologs_tin.jpg" class="img-responsive" alt="" style="border-radius:7px">
                             </div>
                           </div>
                         </a> 
@@ -648,13 +649,14 @@ HTML Body starts: wrapper = 1st level div
                             <div class="SlSpExAtTxt">
 
                               <span style="color:#1b1d1f">Coding&nbspsense/<br>cis&#8209NAT&nbsppairs</span><br>
+                              <span style="color:white">Spacer</span><br>
                               <span style="color:white">___________</span>
 
                             </div>
                             <div class="SlSpExAtImg">
                               <div class="MMinfoicn"><img src="img/icons8-info_fin2.svg" class="MMinfoiimg" title="Expression of protein-coding sense/natural antisense transcript (cis-NAT) pairs">
                               </div>
-                              <img src="img/cis_NAT_pairs_tin.jpg" class=img-responsive" alt="" style="border-radius:7px">
+                              <img src="img/cis_NAT_pairs_tin.jpg" class="img-responsive" alt="" style="border-radius:7px">
                             </div>
                           </div>
                         </a> 
@@ -667,13 +669,14 @@ HTML Body starts: wrapper = 1st level div
                             <div class="SlSpExAtTxt">
 
                               <span style="color:#1b1d1f">DevSeq-At<br>GenExpress</span><br>
+                              <span style="color:white">Spacer</span><br>
                               <span style="color:white">___________</span>
 
                             </div>
                             <div class="SlSpExAtImg">
                               <div class="MMinfoicn"><img src="img/icons8-info_fin2.svg" class="MMinfoiimg" title="Comparative analysis of DevSeq RNA-Seq and AtGenExpress genome array Arabidopsis thaliana gene expression data">
                               </div>
-                              <img src="img/DevSeq_ATGE_tin.jpg" class=img-responsive" alt="" style="border-radius:7px">
+                              <img src="img/DevSeq_ATGE_tin.jpg" class="img-responsive" alt="" style="border-radius:7px">
                             </div>
                           </div>
                         </a> 
@@ -701,14 +704,14 @@ HTML Body starts: wrapper = 1st level div
                 <div class="childmmf MMnum2">
                   <div class = "MMchild2lnk">
                   <font color="#0d0e0f">More information on: &nbsp&nbsp</font>
-                    <div class='hreflinks15'><a class='hreflinks13' href="#" title="Go to Data Analysis Methods"><span>
-                      <svg class="fa_external_link" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32h82.7L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3V192c0 17.7 14.3 32 32 32s32-14.3 32-32V32c0-17.7-14.3-32-32-32H320zM80 32C35.8 32 0 67.8 0 112V432c0 44.2 35.8 80 80 80H400c44.2 0 80-35.8 80-80V320c0-17.7-14.3-32-32-32s-32 14.3-32 32V432c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16V112c0-8.8 7.2-16 16-16H192c17.7 0 32-14.3 32-32s-14.3-32-32-32H80z"/></svg>
+                    <div class='hreflinks15'><a class='hreflinks13' href="#"><span>
                       <a class='hreflinks13' href="#" title="Go to Data Analysis Methods">Data Analysis Methods</a>
+                      <svg class="fa_external_link" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><path d="M384 32c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96C0 60.7 28.7 32 64 32H384zM160 144c-13.3 0-24 10.7-24 24s10.7 24 24 24h94.1L119 327c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l135-135V328c0 13.3 10.7 24 24 24s24-10.7 24-24V168c0-13.3-10.7-24-24-24H160z"/></svg>
                     </span></a></div>
                     &nbsp &nbsp
-                    <div class='hreflinks15'><a class='hreflinks13' href="#" title="Go to Datasets"><span>
-                      <svg class="fa_external_link" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32h82.7L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3V192c0 17.7 14.3 32 32 32s32-14.3 32-32V32c0-17.7-14.3-32-32-32H320zM80 32C35.8 32 0 67.8 0 112V432c0 44.2 35.8 80 80 80H400c44.2 0 80-35.8 80-80V320c0-17.7-14.3-32-32-32s-32 14.3-32 32V432c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16V112c0-8.8 7.2-16 16-16H192c17.7 0 32-14.3 32-32s-14.3-32-32-32H80z"/></svg>
+                    <div class='hreflinks15'><a class='hreflinks13' href="#"><span>
                       <a class='hreflinks13' href="#" title="Go to Datasets">Datasets</a>
+                      <svg class="fa_external_link" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><path d="M384 32c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96C0 60.7 28.7 32 64 32H384zM160 144c-13.3 0-24 10.7-24 24s10.7 24 24 24h94.1L119 327c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l135-135V328c0 13.3 10.7 24 24 24s24-10.7 24-24V168c0-13.3-10.7-24-24-24H160z"/></svg>
                     </span></a></div>
                   </div>
                 </div>
