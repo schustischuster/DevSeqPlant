@@ -8,7 +8,7 @@ sudo mysql
 # Show database
 show databases;
 
-# Use database "mytest"
+# Use database "devseq"
 use devseq;
 
 # Show all tables in selected database
