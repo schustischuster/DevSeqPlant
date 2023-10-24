@@ -133,7 +133,7 @@ sample_tb <- list(devseq_transcripts_all_samples = devseq_transcripts_all_sample
 	devseq_replicate_transcripts = devseq_replicate_transcripts, 
 	devseq_replicate_transcripts_RE = devseq_replicate_transcripts_RE)
 
-add.gene.id <- function(x) {
+addGeneId <- function(x) {
 
 	x$gene_id <- x$transcript_id
 	x$gene_id <- gsub("\\..*","",x$gene_id)
@@ -141,7 +141,7 @@ add.gene.id <- function(x) {
 	return(x)
 }
 
-tb_ls <- lapply(sample_tb, add.gene.id)
+tb_ls <- lapply(sample_tb, addGeneId)
 list2env(tb_ls, globalenv())
 
 
