@@ -1,11 +1,9 @@
-# Prepare_ATH_data_for_webpage - expression data version from 20210528
-# This script prepares DevSeq A.thaliana expression data for DevSeq webpage database
+# Prepare_AT_data_for_webpage - gene expression data version from 20210528
+# TPM expression estimates normalized by DESeq2
+# This script prepares DevSeq A.thaliana expression data input for DevSeqPlant mySQL database
 # Input format of DevSeq expression table is as follows:
-# id / symbol / biotype / source / DEVSEQ_SAMPLE_REPLICATES(132samples)
-# Check: depending on input file version, input format could be without symbols
-# id / biotype / source / DEVSEQ_SAMPLE_REPLICATES(132samples)
-# In that case, load gene_ids_araport_gene_symbol file and add gene symbols to
-# devseq expression table
+# id / DEVSEQ_SAMPLE_REPLICATES(132samples)
+# Load gene_ids_araport_gene_symbol file and add gene symbols to devseq expression table
 
 devseq_genes_input_file <- "AT_genes_inter_norm_tpm_mat_deseq_sample_names.csv"
 devseq_genes_input_file_pol <- "AT_genes_intra_norm_tpm_mat_deseq_sample_names.csv"
