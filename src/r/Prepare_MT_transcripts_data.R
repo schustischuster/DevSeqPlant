@@ -2,7 +2,7 @@
 # TPM expression estimates normalized by DESeq2
 # This script prepares DevSeq M.truncatula expression data input for DevSeqPlant mySQL database
 # Input format of DevSeq expression table is as follows:
-# id / DEVSEQ_SAMPLE_REPLICATES(24/27samples for table w/w/o pollen)
+# transcript_id / DEVSEQ_SAMPLE_REPLICATES(24/27samples for table w/w/o pollen)
 
 devseq_transcripts_input_file <- "MT_transcripts_inter_norm_tpm_mat_deseq_sample_names.csv"
 devseq_transcripts_input_file_pol <- "MT_transcripts_intra_norm_tpm_mat_deseq_sample_names.csv"
