@@ -1,7 +1,8 @@
-# Prepare_MT_data_for_webpage - expression data version from 20210528
-# This script prepares DevSeq M.truncatula expression data for DevSeq webpage database
+# Prepare_MT_data_for_webpage - gene expression data version from 20210528
+# TPM expression estimates normalized by DESeq2
+# This script prepares DevSeq M.truncatula expression data input for DevSeqPlant mySQL database
 # Input format of DevSeq expression table is as follows:
-# id / symbol / biotype / source / DEVSEQ_SAMPLE_REPLICATES(24/27samples for table w/w/o pollen)
+# id / DEVSEQ_SAMPLE_REPLICATES(24/27samples for table w/w/o pollen)
 
 devseq_transcripts_input_file <- "MT_transcripts_inter_norm_tpm_mat_deseq_sample_names.csv"
 devseq_transcripts_input_file_pol <- "MT_transcripts_intra_norm_tpm_mat_deseq_sample_names.csv"
@@ -54,7 +55,7 @@ devseq_transcripts_all_samples = devseq_transcripts_all_samples %>% select(
 
 # Create string of colnames for merged replicates
 # Adjust columns that need to be excluded to table format of devseq input raw data!
-replicate_names <- unique(gsub('.{4}$', "", names(devseq_genes_all_samples[2:ncol(devseq_genes_all_samples)])))
+replicate_names <- unique(gsub('.{4}$', "", names(devseq_transcripts_all_samples[2:ncol(devseq_transcripts_all_samples)])))
 devseq_col_names <- c("transcript_id", replicate_names)
 
 
