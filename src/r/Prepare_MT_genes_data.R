@@ -1,7 +1,8 @@
-# Prepare_MT_data_for_webpage - expression data version from 20210528
-# This script prepares DevSeq M.truncatula expression data for DevSeq webpage database
+# Prepare_MT_data_for_webpage - gene expression data version from 20210528
+# TPM expression estimates normalized by DESeq2
+# This script prepares DevSeq M.truncatula expression data input for DevSeqPlant mySQL database
 # Input format of DevSeq expression table is as follows:
-# id / symbol / biotype / source / DEVSEQ_SAMPLE_REPLICATES(24/27samples for table w/w/o pollen)
+# id / DEVSEQ_SAMPLE_REPLICATES(24/27samples for table w/w/o pollen)
 
 # Load libraries
 library(dplyr)
