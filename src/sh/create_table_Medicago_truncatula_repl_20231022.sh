@@ -26,9 +26,9 @@ CREATE TABLE devseq.Medicago_truncatula_repl_gene_tpm_20231022 (
    apex_vegetative_6d DECIMAL(10,2),
    meristem_inflorescence_7w DECIMAL(10,2),
    flower_stg8_7w DECIMAL(10,2),
-   flower_stg8_carpels_7w DECIMAL(10,2),
    flower_stg8_stamens_7w DECIMAL(10,2),
    flowers_mature_pollen_7w DECIMAL(10,2),
+   flower_stg8_carpels_7w DECIMAL(10,2),
    FULLTEXT (gene_id),
    PRIMARY KEY(gene_id)
 );
@@ -42,9 +42,9 @@ CREATE TABLE devseq.Medicago_truncatula_repl_gene_tpm_RE_20231022 (
    apex_vegetative_6d DECIMAL(10,2),
    meristem_inflorescence_7w DECIMAL(10,2),
    flower_stg8_7w DECIMAL(10,2),
-   flower_stg8_carpels_7w DECIMAL(10,2),
    flower_stg8_stamens_7w DECIMAL(10,2),
    flowers_mature_pollen_7w DECIMAL(10,2),
+   flower_stg8_carpels_7w DECIMAL(10,2),
    FULLTEXT (gene_id),
    PRIMARY KEY(gene_id)
 );
@@ -59,9 +59,9 @@ CREATE TABLE devseq.Medicago_truncatula_repl_transcript_tpm_20231022 (
    apex_vegetative_6d DECIMAL(10,2),
    meristem_inflorescence_7w DECIMAL(10,2),
    flower_stg8_7w DECIMAL(10,2),
-   flower_stg8_carpels_7w DECIMAL(10,2),
    flower_stg8_stamens_7w DECIMAL(10,2),
    flowers_mature_pollen_7w DECIMAL(10,2),
+   flower_stg8_carpels_7w DECIMAL(10,2),
    FULLTEXT (transcript_id, gene_id),
    PRIMARY KEY(transcript_id)
 );
@@ -76,9 +76,9 @@ CREATE TABLE devseq.Medicago_truncatula_repl_transcript_tpm_RE_20231022 (
    apex_vegetative_6d DECIMAL(10,2),
    meristem_inflorescence_7w DECIMAL(10,2),
    flower_stg8_7w DECIMAL(10,2),
-   flower_stg8_carpels_7w DECIMAL(10,2),
    flower_stg8_stamens_7w DECIMAL(10,2),
    flowers_mature_pollen_7w DECIMAL(10,2),
+   flower_stg8_carpels_7w DECIMAL(10,2),
    FULLTEXT (transcript_id, gene_id),
    PRIMARY KEY(transcript_id)
 );
