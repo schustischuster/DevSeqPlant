@@ -42,15 +42,15 @@ names(devseq_genes_all_samples)[names(devseq_genes_all_samples) == 'id'] <- 'gen
 devseq_genes_all_samples = devseq_genes_all_samples %>% select(
 			gene_id, 
 			root_whole_root_4d_.1.:flower_stg8_7w_.3.,
-			flower_stg8_carpels_7w_.1.,
-			flower_stg8_carpels_7w_.2.,
-			flower_stg8_carpels_7w_.3.,
 			flower_stg8_stamens_7w_.1.,
 			flower_stg8_stamens_7w_.2.,
 			flower_stg8_stamens_7w_.3.,
 			flowers_mature_pollen_7w_.1.,
 			flowers_mature_pollen_7w_.2.,
-			flowers_mature_pollen_7w_.3.
+			flowers_mature_pollen_7w_.3.,
+			flower_stg8_carpels_7w_.1.,
+			flower_stg8_carpels_7w_.2.,
+			flower_stg8_carpels_7w_.3.
 			)
 
 
