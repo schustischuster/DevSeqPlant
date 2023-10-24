@@ -41,15 +41,15 @@ names(devseq_transcripts_all_samples)[names(devseq_transcripts_all_samples) == '
 devseq_transcripts_all_samples = devseq_transcripts_all_samples %>% select(
 			transcript_id, 
 			root_whole_root_4d_.1.:flower_stg8_7w_.3.,
-			flower_stg8_carpels_7w_.1.,
-			flower_stg8_carpels_7w_.2.,
-			flower_stg8_carpels_7w_.3.,
 			flower_stg8_stamens_7w_.1.,
 			flower_stg8_stamens_7w_.2.,
 			flower_stg8_stamens_7w_.3.,
 			flowers_mature_pollen_7w_.1.,
 			flowers_mature_pollen_7w_.2.,
-			flowers_mature_pollen_7w_.3.
+			flowers_mature_pollen_7w_.3.,
+			flower_stg8_carpels_7w_.1.,
+			flower_stg8_carpels_7w_.2.,
+			flower_stg8_carpels_7w_.3.
 			)
 
 
@@ -125,6 +125,24 @@ devseq_transcripts_all_samples_RE <- round_df(devseq_transcripts_all_samples_RE,
 
 devseq_replicate_transcripts <- round_df(devseq_replicate_transcripts, 2)
 devseq_replicate_transcripts_RE <- round_df(devseq_replicate_transcripts_RE, 2)
+
+
+# Add gene ID
+sample_tb <- list(devseq_transcripts_all_samples = devseq_transcripts_all_samples, 
+	devseq_transcripts_all_samples_RE = devseq_transcripts_all_samples_RE, 
+	devseq_replicate_transcripts = devseq_replicate_transcripts, 
+	devseq_replicate_transcripts_RE = devseq_replicate_transcripts_RE)
+
+add.gene.id <- function(x) {
+
+	x$gene_id <- x$transcript_id
+	x$gene_id <- gsub("\\..*","",x$gene_id)
+	x <- x %>% select(transcript_id, gene_id, everything())
+	return(x)
+}
+
+tb_ls <- lapply(sample_tb, add.gene.id)
+list2env(tb_ls, globalenv())
 
 
 # Write final data tables to csv files and store them in /out_dir/output/data_tables
