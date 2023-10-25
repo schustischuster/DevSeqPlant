@@ -336,7 +336,7 @@ $sboxplaceholder = "Enter gene or isoform ID, e.g. Thhalv10012606m, Thhalv100067
 } else if ($_POST['filter1'] == "Tarenaya_hassleriana") {
 $sboxplaceholder = "Enter gene or isoform ID, e.g. XM_010527257.2, XM_010538056.2, or paste a list";
 } else if ($_POST['filter1'] == "Medicago_truncatula") {
-$sboxplaceholder = "Enter gene or isoform ID, e.g. Medtr1g013360.1, Medtr1g024025.1, or paste a list";
+$sboxplaceholder = "Enter gene or isoform ID, e.g. Medtr1g013360, Medtr1g024025, or paste a list";
 } else if ($_POST['filter1'] == "Brachypodium_distachyon") {
 $sboxplaceholder = "Enter gene or isoform ID, e.g. Bradi1g31200.1, Bradi5g25157.1, or paste a list of IDs";
 };
@@ -923,7 +923,7 @@ HTML Body starts: wrapper = 1st level div
                 "Brachypodium_distachyon": "Enter gene or isoform ID, e.g. Bradi1g31200.1, Bradi5g25157.1, or paste a list of IDs",
                 "Capsella_rubella": "Enter gene or isoform ID, e.g. Carubv10003739m, Carubv10008258m, or paste a list",
                 "Eutrema_salsugineum": "Enter gene or isoform ID, e.g. Thhalv10012606m, Thhalv10006748m, or paste a list",
-                "Medicago_truncatula": "Enter gene or isoform ID, e.g. Medtr1g013360.1, Medtr1g024025.1, or paste a list",
+                "Medicago_truncatula": "Enter gene or isoform ID, e.g. Medtr1g013360, Medtr1g024025, or paste a list",
                 "Tarenaya_hassleriana": "Enter gene or isoform ID, e.g. XM_010527257.2, XM_010538056.2, or paste a list"
               };
               var sfqsrtid = $("#sfqsrt");
@@ -1057,7 +1057,7 @@ HTML Body starts: wrapper = 1st level div
         document.getElementById('genelev').checked = true;
         }
         else if (document.getElementById('selectorsrt').value=='Medicago_truncatula') {
-          text.value = 'Medtr1g013360.1, Medtr1g024025.1';
+          text.value = 'Medtr1g013360, Medtr1g024025';
           text.focus();
         document.getElementById('genelev').checked = true;
         }
@@ -1153,7 +1153,7 @@ HTML Body starts: wrapper = 1st level div
           "Brachypodium_distachyon": "Enter gene or isoform ID, e.g. Bradi1g31200.1, Bradi5g25157.1, or paste a list of identifiers",
           "Capsella_rubella": "Enter gene or isoform ID, e.g. Carubv10003739m, Carubv10008258m, or paste a list of IDs",
           "Eutrema_salsugineum": "Enter gene or isoform ID, e.g. Thhalv10012606m, Thhalv10006748m, or paste a list of IDs",
-          "Medicago_truncatula": "Enter gene or isoform ID, e.g. Medtr1g013360.1, Medtr1g024025.1, or paste a list of IDs",
+          "Medicago_truncatula": "Enter gene or isoform ID, e.g. Medtr1g013360, Medtr1g024025, or paste a list of IDs",
           "Tarenaya_hassleriana": "Enter gene or isoform ID, e.g. XM_010527257.2, XM_010538056.2, or paste a list of IDs"
         };
 
