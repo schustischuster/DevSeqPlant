@@ -81,10 +81,10 @@ if (isset($_POST['searchquery']) && $_POST['searchquery'] != "") {
     $sqlCommand = "SELECT gene_id, {$mtcolnames} FROM Medicago_truncatula_gene_tpm_RE_20231022 WHERE gene_id in ('".implode("','",$search)."')";
 
   } else if ($_POST['filter1'] == "Medicago_truncatula" && $_POST['filter2'] == "isoform_level" && ($_POST['filter5'] == "0" || $_POST['filter5'] == "1")) {
-    $sqlCommand = "SELECT transcript_id, {$mtcolnames} FROM Medicago_truncatula_transcript_tpm_20231022 WHERE transcript_id in ('".implode("','",$search)."')";
+    $sqlCommand = "SELECT transcript_id, {$mtcolnames} FROM Medicago_truncatula_transcript_tpm_20231022 WHERE transcript_id in ('".implode("','",$search)."') OR gene_id in ('".implode("','",$search)."')";
 
   } else if ($_POST['filter1'] == "Medicago_truncatula" && $_POST['filter2'] == "isoform_level" && ($_POST['filter5'] == "2")) {
-    $sqlCommand = "SELECT transcript_id, {$mtcolnames} FROM Medicago_truncatula_transcript_tpm_RE_20231022 WHERE transcript_id in ('".implode("','",$search)."')";
+    $sqlCommand = "SELECT transcript_id, {$mtcolnames} FROM Medicago_truncatula_transcript_tpm_RE_20231022 WHERE transcript_id in ('".implode("','",$search)."') OR gene_id in ('".implode("','",$search)."')";
 
   }
 
@@ -1869,7 +1869,7 @@ if($_POST['filter4'] == "line_chart" && $_POST['filter1'] == "Arabidopsis_thalia
 
 
 // define line chart parameters for plotting non-Arabidopsis thaliana data here
-else if ($_POST['filter4'] == "line_chart" && ($count > 0) && ($count < 21) && $_POST['filter1'] == "Medicago_truncatula") { ?>
+else if ($_POST['filter4'] == "line_chart" && ($count > 0) && ($count < 21) && $_POST['filter1'] != "Arabidopsis_thaliana") { ?>
 
     <script>
       var dataset = <?php echo $jsonout; ?>;
