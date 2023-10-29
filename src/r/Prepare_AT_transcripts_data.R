@@ -214,33 +214,6 @@ devseq_transcripts_all_samples = devseq_transcripts_all_samples %>% select(
 
 
 
-# The following wrapper function calculates relative expression (RE)
-# it scales all expression values to the range between 0 and 1
-
-getRE <- function(x) { 
-
-	devseq_RE <- data.frame(x[1:3], 
-        as.data.frame(t(apply(x[,c(4:ncol(x))], 1, # transposes matrix output from apply function
-	    
-	    normalize <- function(x) {
-		
-		    # calculate relative expression
-		    calculateRE <- function(x) {
-		    	(x - min(x, na.rm = TRUE)) / 
-		    	(max(x, na.rm = TRUE) - min(x, na.rm = TRUE))
-		    }
-		    x <- calculateRE(x)
-
-		    return(x)
-		}
-	)))
-    )
-}
-
-# Apply getRE function
-devseq_transcripts_all_samples_RE <- getRE(devseq_transcripts_all_samples)
-
-
 # Create string of colnames for merged replicates
 # Adjust columns that need to be excluded to table format of devseq input raw data!
 replicate_names <- unique(gsub('.{4}$', "", names(devseq_transcripts_all_samples[4:ncol(devseq_transcripts_all_samples)])))
@@ -271,8 +244,35 @@ calculateAvgExpr <- function(df) {
 devseq_replicate_transcripts <- calculateAvgExpr(devseq_transcripts_all_samples)
 colnames(devseq_replicate_transcripts) <- devseq_col_names
 
-devseq_replicate_transcripts_RE <- calculateAvgExpr(devseq_transcripts_all_samples_RE)
-colnames(devseq_replicate_transcripts_RE) <- devseq_col_names
+
+
+# The following wrapper function calculates relative expression (RE)
+# it scales all expression values to the range between 0 and 1
+
+getRE <- function(x) { 
+
+	devseq_RE <- data.frame(x[1:3], 
+        as.data.frame(t(apply(x[,c(4:ncol(x))], 1, # transposes matrix output from apply function
+	    
+	    normalize <- function(x) {
+		
+		    # calculate relative expression
+		    calculateRE <- function(x) {
+		    	(x - min(x, na.rm = TRUE)) / 
+		    	(max(x, na.rm = TRUE) - min(x, na.rm = TRUE))
+		    }
+		    x <- calculateRE(x)
+
+		    return(x)
+		}
+	)))
+    )
+}
+
+# Apply getRE function
+devseq_transcripts_all_samples_RE <- getRE(devseq_transcripts_all_samples)
+devseq_replicate_transcripts_RE <- getRE(devseq_replicate_transcripts)
+
 
 
 # Round values to two digits (database numeric columns are formated to Decimal[2])
