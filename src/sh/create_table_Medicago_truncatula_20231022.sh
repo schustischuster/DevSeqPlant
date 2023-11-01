@@ -18,7 +18,7 @@ show TABLES;
 # 2._Create new database tables
 
 # Create AT tables in devseq database
-CREATE TABLE devseq.Medicago_truncatula_gene_tpm_20231022 (
+CREATE TABLE devseq.Medicago_truncatula_gene_tpm_20231101 (
   gene_id VARCHAR(255),
   root_whole_root_4d_1 DECIMAL(10,2), 
   root_whole_root_4d_2 DECIMAL(10,2), 
@@ -52,7 +52,7 @@ CREATE TABLE devseq.Medicago_truncatula_gene_tpm_20231022 (
 );
 
 
-CREATE TABLE devseq.Medicago_truncatula_gene_tpm_RE_20231022 (
+CREATE TABLE devseq.Medicago_truncatula_gene_tpm_RE_20231101 (
   gene_id VARCHAR(255),
   root_whole_root_4d_1 DECIMAL(10,2), 
   root_whole_root_4d_2 DECIMAL(10,2), 
@@ -86,7 +86,7 @@ CREATE TABLE devseq.Medicago_truncatula_gene_tpm_RE_20231022 (
 );
 
 
-CREATE TABLE devseq.Medicago_truncatula_transcript_tpm_20231022 (
+CREATE TABLE devseq.Medicago_truncatula_transcript_tpm_20231101 (
   transcript_id VARCHAR(255),
   gene_id VARCHAR(255),
   root_whole_root_4d_1 DECIMAL(10,2), 
@@ -121,7 +121,7 @@ CREATE TABLE devseq.Medicago_truncatula_transcript_tpm_20231022 (
 );
 
 
-CREATE TABLE devseq.Medicago_truncatula_transcript_tpm_RE_20231022 (
+CREATE TABLE devseq.Medicago_truncatula_transcript_tpm_RE_20231101 (
   transcript_id VARCHAR(255),
   gene_id VARCHAR(255),
   root_whole_root_4d_1 DECIMAL(10,2), 
