@@ -18,7 +18,7 @@ show TABLES;
 # 2._Create new database tables
 
 # Create AT replicate tables in devseq database
-CREATE TABLE devseq.Arabidopsis_thaliana_repl_gene_tpm_20230627 (
+CREATE TABLE devseq.Arabidopsis_thaliana_repl_gene_tpm_20231101 (
    gene_id VARCHAR(255),
    symbol VARCHAR(255),
    root_root_tip_5d DECIMAL(10,2),
@@ -70,7 +70,7 @@ CREATE TABLE devseq.Arabidopsis_thaliana_repl_gene_tpm_20230627 (
 );
 
 
-CREATE TABLE devseq.Arabidopsis_thaliana_repl_gene_tpm_RE_20230627 (
+CREATE TABLE devseq.Arabidopsis_thaliana_repl_gene_tpm_RE_20231101 (
    gene_id VARCHAR(255),
    symbol VARCHAR(255),
    root_root_tip_5d DECIMAL(10,2),
@@ -122,7 +122,7 @@ CREATE TABLE devseq.Arabidopsis_thaliana_repl_gene_tpm_RE_20230627 (
 );
 
 
-CREATE TABLE devseq.Arabidopsis_thaliana_repl_transcript_tpm_20230627 (
+CREATE TABLE devseq.Arabidopsis_thaliana_repl_transcript_tpm_20231101 (
    transcript_id VARCHAR(255),
    gene_id VARCHAR(255),
    symbol VARCHAR(255),
@@ -175,7 +175,7 @@ CREATE TABLE devseq.Arabidopsis_thaliana_repl_transcript_tpm_20230627 (
 );
 
 
-CREATE TABLE devseq.Arabidopsis_thaliana_repl_transcript_tpm_RE_20230627 (
+CREATE TABLE devseq.Arabidopsis_thaliana_repl_transcript_tpm_RE_20231101 (
    transcript_id VARCHAR(255),
    gene_id VARCHAR(255),
    symbol VARCHAR(255),
