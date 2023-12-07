@@ -277,7 +277,7 @@ Container classes and bootstrap grid system settings
 .some-class {
     padding-top: 3px!important;
     padding-left: 0px;
-    margin-left: -5px!important;
+    margin-left: 0px!important;
     padding-right: 3px!important;
     border: 0px solid #bfbfbf !important;
     -webkit-border-radius: 5.5px;
@@ -291,7 +291,7 @@ Container classes and bootstrap grid system settings
 .some-classundr {
     padding-top: 2px!important;
     padding-left: 0px;
-    margin-left: -5px!important;
+    margin-left: 0px!important;
     padding-right: 3px!important;
     border: 0px solid #bfbfbf !important;
     -webkit-border-radius: 5.5px;
@@ -311,6 +311,7 @@ Container classes and bootstrap grid system settings
     .some-class{
     margin-top: -13px!important;
     padding-top: 0px!important;
+    margin-left: -5px!important;
     }
 }
 
@@ -638,7 +639,7 @@ Container classes and bootstrap grid system settings
     z-index: 100!important;
     border-top: 0px solid #c4c4c4!important;
     border-bottom: 0px solid #cdd0d3!important;
-    border-left: 0px solid #333399!important;
+    border-left: 0px solid #1f1fab!important;
     border-right: 0px solid #cdd0d3!important;
     }
 
@@ -653,7 +654,7 @@ Container classes and bootstrap grid system settings
     height: 12px;
     color: #30619a!important;
     z-index: 100!important;
-    border-bottom: 3px solid #1177cf!important;
+    border-bottom: 3px solid #1b77d1!important;
     position: relative!important;
     }
 
@@ -666,7 +667,7 @@ Container classes and bootstrap grid system settings
     margin-bottom: 5px!important;
     margin-right: 9px!important;
     height: 1px;
-    color: #333399!important;
+    color: #1f1fab!important;
     background-color:rgba(0,0,0,0);
     z-index: 10!important;
     border-bottom: 1px solid #8c8c8c!important;
@@ -695,7 +696,7 @@ Container classes and bootstrap grid system settings
     -webkit-border-radius: 5.5px!important;
     -moz-border-radius: 5.5px!important;
     border-radius: 5.5px!important;
-    margin-right: 20px!important;
+    margin-right: 10px!important;
     margin-left: -10px!important;
     margin-bottom: 18px!important;
     padding-top: 3px!important;
@@ -781,8 +782,8 @@ Container classes and bootstrap grid system settings
 
 .col-xl-2 {
     padding-left: 15px!important;
+    margin-right: -10px!important;
     z-index: 100!important;
-    background: rgb(246, 248, 250)!important;
     }
  
 .reqinnercontent {
@@ -987,7 +988,7 @@ Bootstrap navbar and dropdown settings
     -webkit-appearance:none!important; /* remove the strong OSX influence from Webkit */
     -webkit-transition: color .25s ease-in!important;
     border-top: 0px solid #000 !important;
-    border-bottom: 3px solid #1177cf!important;
+    border-bottom: 3px solid #1b77d1!important;
     padding-bottom: 12px!important;
     padding-top: 18px!important;
     transition: 0.1s ease-in!important;
@@ -999,7 +1000,7 @@ Bootstrap navbar and dropdown settings
     -webkit-appearance:none!important; /* remove the strong OSX influence from Webkit */
     -webkit-transition: color .25s ease-in!important;
     border-top: 0px solid #000 !important;
-    border-bottom: 3px solid #1177cf!important;
+    border-bottom: 3px solid #1b77d1!important;
     padding-bottom: 12px!important;
     padding-top: 18px!important;
     transition: 0.1s ease-in!important;
@@ -1011,7 +1012,7 @@ Bootstrap navbar and dropdown settings
     color: #1b1d1f!important;
     -webkit-transition: color .25s ease-in!important;
     border-top: 0px solid #000 !important;
-    border-bottom: 3px solid #1177cf!important;
+    border-bottom: 3px solid #1b77d1!important;
     padding-bottom: 12px!important;
     padding-top: 18px!important;
     transition: 0.1s ease-in!important;
@@ -1881,7 +1882,7 @@ Setup for general buttons
     }
 
 .hreflinks8 {
-    color: #333399!important;
+    color: #1f1fab!important;
     outline:none!important; /* remove focus ring from Webkit */
     -webkit-appearance:none!important; /* remove the strong OSX influence from Webkit */
     }
@@ -2068,17 +2069,17 @@ Setup for general buttons
 
 #aboutaes {
     background-color: white!important;
-    border: 0.15rem solid #1177cf!important;
+    border: 0.15rem solid #1b77d1!important;
     /*** box-shadow: 0 0 0.5px 0.5px #c8cbcf!important; ***/
-    color: #1177cf!important;
+    color: #1b77d1!important;
     -webkit-border-radius: 5.5px;
     -moz-border-radius: 5.5px;
     border-radius: 5.5px;
     margin-top: -7px; 
     margin-left: -2px;
     margin-right: 0px;
-    padding-left: 10px!important;
-    padding-right: 10.5px!important; 
+    padding-left: 11px!important;
+    padding-right: 11.5px!important; 
     padding-top: 0.55rem;
     padding-bottom: 0.3rem;
     cursor: pointer;
@@ -2087,8 +2088,8 @@ Setup for general buttons
 
 #aboutaes:focus,
 #aboutaes:hover {
-    background-color: #1177cf !important;
-    border: 0.15rem solid #1177cf !important;
+    background-color: #1b77d1 !important;
+    border: 0.15rem solid #1b77d1 !important;
     color: white !important;
     cursor: pointer;
     }
@@ -2124,7 +2125,7 @@ Chart display settings
     padding-bottom: 5px!important;
     padding-left: 8.5px!important;
     padding-right: 8.5px!important;
-    color: #333399!important;
+    color: #1f1fab!important;
     font-size: 14px!important;
     font-weight: 500!important;
     cursor: pointer;
@@ -2157,15 +2158,15 @@ Chart download button settings
 
 
 .btn-green {
-    background-color: #1177cf !important;
-    border: 1px solid #1177cf !important;
+    background-color: #1b77d1 !important;
+    border: 1px solid #1b77d1 !important;
     -webkit-border-radius: 5.5px;
     -moz-border-radius: 5.5px;
     border-radius: 5.5px;
     margin-top: -4px!important;
     padding-top: 5.5px!important;
     padding-bottom: 5.5px!important;
-    margin-left: -5px!important;
+    margin-left: 0px!important;
     color: white!important;
     font-size: 14.25px!important;
     font-weight: 500!important;
@@ -2255,7 +2256,7 @@ Chart download button settings
   display: flex!important;
   padding-bottom: 8px!important;
   margin-left: -10px!important;
-  margin-right: 10px!important;
+  margin-right: 0px!important;
 }
 
 @media (max-width: 1239px) {
