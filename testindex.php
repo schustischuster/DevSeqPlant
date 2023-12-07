@@ -1395,7 +1395,7 @@ HTML Body starts: wrapper = 1st level div
                 <?php if ((isset($_POST['searchquery'])) && ($_POST['searchquery'] != "") && $_POST['filter4'] == "line_chart" && $_POST['filter1'] == "Arabidopsis_thaliana" && ($count > 20)){?>
 
                   <div id="lcnote">
-                  <font color="#cc3623">Large number of entities found:</font><font color="#333399"> to display results, choose heatmap option and update chart.</font>
+                  <font color="#cc3623">Large number of entities found:</font><font color="#1f1fab"> to display results, choose heatmap option and update chart.</font>
                 
                 <?php } ?> <!--/close php condition for line chart notification-->
 
@@ -1699,7 +1699,7 @@ if($_POST['filter4'] == "line_chart" && $_POST['filter1'] == "Arabidopsis_thalia
         zoom: {enabled: false},
         regions: ath_regions,
         color: {
-          pattern: ['#1177cf', '#ff7f0e','#2ca02c','#d62728','#9467bd','#8c564b','#e377c2','#7f7f7f','#bcbd22','#17becf', '#ffbb78', '#98df8a', '#aec7e8', '#f7b6d2', '#dbdb8d', '#17becf', '#9edae5', '#d62728', '#2ca02c', '#c49c94']
+          pattern: ['#1b77d1', '#ff7f0e','#2ca02c','#d62728','#9467bd','#8c564b','#e377c2','#7f7f7f','#bcbd22','#17becf', '#ffbb78', '#98df8a', '#aec7e8', '#f7b6d2', '#dbdb8d', '#17becf', '#9edae5', '#d62728', '#2ca02c', '#c49c94']
         }
       });
 
@@ -1752,7 +1752,7 @@ if($_POST['filter4'] == "line_chart" && $_POST['filter1'] == "Arabidopsis_thalia
         zoom: {enabled: false},
         regions: ath_regions,
         color: {
-          pattern: ['#1177cf', '#ff7f0e','#2ca02c','#d62728','#9467bd','#8c564b','#e377c2','#7f7f7f','#bcbd22','#17becf', '#ffbb78', '#98df8a', '#aec7e8', '#f7b6d2', '#dbdb8d', '#17becf', '#9edae5', '#d62728', '#2ca02c', '#c49c94']
+          pattern: ['#1b77d1', '#ff7f0e','#2ca02c','#d62728','#9467bd','#8c564b','#e377c2','#7f7f7f','#bcbd22','#17becf', '#ffbb78', '#98df8a', '#aec7e8', '#f7b6d2', '#dbdb8d', '#17becf', '#9edae5', '#d62728', '#2ca02c', '#c49c94']
         }
       });
     }
@@ -1818,7 +1818,7 @@ if($_POST['filter4'] == "line_chart" && $_POST['filter1'] == "Arabidopsis_thalia
         },
         zoom: {enabled: false},
         color: {
-          pattern: ['#1177cf', '#ff7f0e','#2ca02c','#d62728','#9467bd','#8c564b','#e377c2','#7f7f7f','#bcbd22','#17becf', '#ffbb78', '#98df8a', '#aec7e8', '#f7b6d2', '#dbdb8d', '#17becf', '#9edae5', '#d62728', '#2ca02c', '#c49c94']
+          pattern: ['#1b77d1', '#ff7f0e','#2ca02c','#d62728','#9467bd','#8c564b','#e377c2','#7f7f7f','#bcbd22','#17becf', '#ffbb78', '#98df8a', '#aec7e8', '#f7b6d2', '#dbdb8d', '#17becf', '#9edae5', '#d62728', '#2ca02c', '#c49c94']
         }
       });
     }
@@ -1872,7 +1872,7 @@ if($_POST['filter4'] == "line_chart" && $_POST['filter1'] == "Arabidopsis_thalia
         },
         zoom: {enabled: false},
         color: {
-          pattern: ['#1177cf', '#ff7f0e','#2ca02c','#d62728','#9467bd','#8c564b','#e377c2','#7f7f7f','#bcbd22','#17becf', '#ffbb78', '#98df8a', '#aec7e8', '#f7b6d2', '#dbdb8d', '#17becf', '#9edae5', '#d62728', '#2ca02c', '#c49c94']
+          pattern: ['#1b77d1', '#ff7f0e','#2ca02c','#d62728','#9467bd','#8c564b','#e377c2','#7f7f7f','#bcbd22','#17becf', '#ffbb78', '#98df8a', '#aec7e8', '#f7b6d2', '#dbdb8d', '#17becf', '#9edae5', '#d62728', '#2ca02c', '#c49c94']
         }
       });
     }
@@ -1955,7 +1955,7 @@ else if ($_POST['filter4'] == "line_chart" && ($count > 0) && ($count < 21) && $
         },
         zoom: {enabled: false},
         color: {
-          pattern: ['#1177cf', '#ff7f0e','#2ca02c','#d62728','#9467bd','#8c564b','#e377c2','#7f7f7f','#bcbd22','#17becf', '#ffbb78', '#98df8a', '#aec7e8', '#f7b6d2', '#dbdb8d', '#17becf', '#9edae5', '#d62728', '#2ca02c', '#c49c94']
+          pattern: ['#1b77d1', '#ff7f0e','#2ca02c','#d62728','#9467bd','#8c564b','#e377c2','#7f7f7f','#bcbd22','#17becf', '#ffbb78', '#98df8a', '#aec7e8', '#f7b6d2', '#dbdb8d', '#17becf', '#9edae5', '#d62728', '#2ca02c', '#c49c94']
         }
       });
 
@@ -2004,7 +2004,7 @@ else if ($_POST['filter4'] == "line_chart" && ($count > 0) && ($count < 21) && $
         },
         zoom: {enabled: false},
         color: {
-          pattern: ['#1177cf', '#ff7f0e','#2ca02c','#d62728','#9467bd','#8c564b','#e377c2','#7f7f7f','#bcbd22','#17becf', '#ffbb78', '#98df8a', '#aec7e8', '#f7b6d2', '#dbdb8d', '#17becf', '#9edae5', '#d62728', '#2ca02c', '#c49c94']
+          pattern: ['#1b77d1', '#ff7f0e','#2ca02c','#d62728','#9467bd','#8c564b','#e377c2','#7f7f7f','#bcbd22','#17becf', '#ffbb78', '#98df8a', '#aec7e8', '#f7b6d2', '#dbdb8d', '#17becf', '#9edae5', '#d62728', '#2ca02c', '#c49c94']
         }
       });
     }
@@ -2050,7 +2050,7 @@ else if ($_POST['filter4'] == "line_chart" && ($count > 0) && ($count < 21) && $
         grid: {lines: {front: false}},
         zoom: {enabled: false},
         color: {
-          pattern: ['#1177cf', '#ff7f0e','#2ca02c','#d62728','#9467bd','#8c564b','#e377c2','#7f7f7f','#bcbd22','#17becf', '#ffbb78', '#98df8a', '#aec7e8', '#f7b6d2', '#dbdb8d', '#17becf', '#9edae5', '#d62728', '#2ca02c', '#c49c94']
+          pattern: ['#1b77d1', '#ff7f0e','#2ca02c','#d62728','#9467bd','#8c564b','#e377c2','#7f7f7f','#bcbd22','#17becf', '#ffbb78', '#98df8a', '#aec7e8', '#f7b6d2', '#dbdb8d', '#17becf', '#9edae5', '#d62728', '#2ca02c', '#c49c94']
         }
       });
     }
@@ -3260,9 +3260,9 @@ Closing controlplot_container 2nd level div and wrap 1st level div and define fo
 <div class="footer"> 
   <div class="footerinner"> 
     <div class="parent"> 
-      <div class="child num1"><a href="testindex.php"><font color="#333399">Home</font></a>&nbsp · &nbsp<a href="about.html"><font color="#333399">About DevSeq</font></a>&nbsp · &nbsp<a href="contact.html"><font color="#333399">Contact</font></a>
+      <div class="child num1"><a href="testindex.php"><font color="#1f1fab">Home</font></a>&nbsp · &nbsp<a href="about.html"><font color="#1f1fab">About DevSeq</font></a>&nbsp · &nbsp<a href="contact.html"><font color="#1f1fab">Contact</font></a>
       </div>
-      <div class="child num3"><a href="release-notes.html"><font color="#333399">Release 1 - September 2023</font></a>&nbsp · &nbsp<a href="#"><font color="#333399">Back to top<span class="fa fa-chevron-up"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"/></svg></span></a>
+      <div class="child num3"><a href="release-notes.html"><font color="#1f1fab">Release 1 - September 2023</font></a>&nbsp · &nbsp<a href="#"><font color="#1f1fab">Back to top<span class="fa fa-chevron-up"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"/></svg></span></a>
       </div>  
     </div> 
   </div> 
