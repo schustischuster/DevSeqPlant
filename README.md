@@ -3,4 +3,4 @@ Web platform for plant evolutionary transcriptomics. It houses a collection of i
 
 **Reference:**
 <br/>
-Schuster C., Gabel A., Drost H.-G., Grosse I., Leyser O., Meyerowitz E. M. **Rapid evolution of gene expression patterns in flowering plants.** *bioRxiv* (2024). Available from: https://doi.org/10.1101/2024.07.08.602577.
+Schuster C., Gabel A., Drost H.-G., Grosse I., Leyser O., Meyerowitz E. M. **Rapid evolution of gene expression patterns in flowering plants.** *bioRxiv* **[Preprint]** (2024). Available from: https://doi.org/10.1101/2024.07.08.602577.
