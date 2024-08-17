@@ -41,6 +41,12 @@ $jsonouthclust = fopen($session_output_fname_path, 'w');
 $search_output = "";
 $transformq = "";
 $atcolnames = "";
+$alcolnames = "";
+$crcolnames = "";
+$escolnames = "";
+$thcolnames = "";
+$mtcolnames = "";
+$bdcolnames = "";
 $valueslog = "";
 $keysclust = "";
 $valuesclust = "";
@@ -62,6 +68,8 @@ if (isset($_POST['searchquery']) && $_POST['searchquery'] != "") {
   $mtcolnames .= 'root_whole_root_4d_1, root_whole_root_4d_2, root_whole_root_4d_3,  hypocotyl_8d_1, hypocotyl_8d_2, hypocotyl_8d_3, leaf_2_7d_1, leaf_2_7d_2, leaf_2_7d_3, apex_vegetative_6d_1, apex_vegetative_6d_2, apex_vegetative_6d_3, meristem_inflorescence_7w_1, meristem_inflorescence_7w_2, meristem_inflorescence_7w_3, flower_stg8_7w_1, flower_stg8_7w_2, flower_stg8_7w_3, flower_stg8_stamens_7w_1, flower_stg8_stamens_7w_2, flower_stg8_stamens_7w_3, flowers_mature_pollen_7w_1, flowers_mature_pollen_7w_2, flowers_mature_pollen_7w_3, flower_stg8_carpels_7w_1, flower_stg8_carpels_7w_2, flower_stg8_carpels_7w_3';
 
   $bdcolnames .= 'root_whole_root_4d_1, root_whole_root_4d_2, root_whole_root_4d_3,  mesocotyl_7d_1, mesocotyl_7d_2, mesocotyl_7d_3, leaf_1_4d_1, leaf_1_4d_2, leaf_1_4d_3, apex_vegetative_5d_1, apex_vegetative_5d_2, apex_vegetative_5d_3, lateral_spikelet_meristem_3w_1, lateral_spikelet_meristem_3w_2, lateral_spikelet_meristem_3w_3, floret_w_anthers_before_dehiscence_32d_1, floret_w_anthers_before_dehiscence_32d_2, floret_w_anthers_before_dehiscence_32d_3, floret_stamen_32d_1, flowet_stamen_32d_2, flowet_stamen_32d_3, floret_mature_pollen_32d_1, floret_mature_pollen_32d_2, floret_mature_pollen_32d_3, floret_carpel_32d_1, floret_carpel_32d_2, floret_carpel_32d_3';
+
+  $thcolnames .= 'root_whole_root_5d_1, root_whole_root_5d_2, root_whole_root_5d_3,  hypocotyl_11d_1, hypocotyl_11d_2, hypocotyl_11d_3, leaf_1_2_11d_1, leaf_1_2_11d_2, leaf_1_2_11d_3, apex_vegetative_11d_1, apex_vegetative_11d_2, apex_vegetative_11d_3, apex_inflorescence_11w_1, apex_inflorescence_11w_2, apex_inflorescence_11w_3, flower_stg12_11w_1, flower_stg12_11w_2, flower_stg12_11w_3, flower_stamen_11w_1, flower_stamen_11w_2, flower_stamen_11w_3, flower_mature_pollen_11w_1, flower_mature_pollen_11w_2, flower_mature_pollen_11w_3, flower_carpel_11w_1, flower_carpel_11w_2, flower_carpel_11w_3';
   
   // Searching Arabidopsis thaliana tables
   if ($_POST['filter1'] == "Arabidopsis_thaliana" && $_POST['filter2'] == "gene_level" && ($_POST['filter5'] == "0" || $_POST['filter5'] == "1")) {
@@ -99,6 +107,18 @@ if (isset($_POST['searchquery']) && $_POST['searchquery'] != "") {
 
   } else if ($_POST['filter1'] == "Brachypodium_distachyon" && $_POST['filter2'] == "isoform_level" && ($_POST['filter5'] == "2")) {
     $sqlCommand = "SELECT transcript_id, {$bdcolnames} FROM Brachypodium_distachyon_transcript_tpm_RE_20231121 WHERE transcript_id in ('".implode("','",$search)."') OR gene_id in ('".implode("','",$search)."')";
+
+  } else if ($_POST['filter1'] == "Tarenaya_hassleriana" && $_POST['filter2'] == "gene_level" && ($_POST['filter5'] == "0" || $_POST['filter5'] == "1")) {
+    $sqlCommand = "SELECT gene_id, {$bdcolnames} FROM Tarenaya_hassleriana_gene_tpm_20240815 WHERE gene_id in ('".implode("','",$search)."')";
+  
+  } else if ($_POST['filter1'] == "Tarenaya_hassleriana" && $_POST['filter2'] == "gene_level" && ($_POST['filter5'] == "2")) {
+    $sqlCommand = "SELECT gene_id, {$bdcolnames} FROM Tarenaya_hassleriana_gene_tpm_RE_20240815 WHERE gene_id in ('".implode("','",$search)."')";
+
+  } else if ($_POST['filter1'] == "Tarenaya_hassleriana" && $_POST['filter2'] == "isoform_level" && ($_POST['filter5'] == "0" || $_POST['filter5'] == "1")) {
+    $sqlCommand = "SELECT transcript_id, {$bdcolnames} FROM Tarenaya_hassleriana_transcript_tpm_20240815 WHERE transcript_id in ('".implode("','",$search)."') OR gene_id in ('".implode("','",$search)."')";
+
+  } else if ($_POST['filter1'] == "Tarenaya_hassleriana" && $_POST['filter2'] == "isoform_level" && ($_POST['filter5'] == "2")) {
+    $sqlCommand = "SELECT transcript_id, {$bdcolnames} FROM Tarenaya_hassleriana_transcript_tpm_RE_20240815 WHERE transcript_id in ('".implode("','",$search)."') OR gene_id in ('".implode("','",$search)."')";
 
   }
 
@@ -166,6 +186,8 @@ if ($_POST['filter1'] == "Arabidopsis_thaliana" && ($count < 1251)) {
   $colnames = array(['ID','root_whole root_4d.1', 'root_whole root_4d.2', 'root_whole root_4d.3', 'hypocotyl_8d.1', 'hypocotyl_8d.2', 'hypocotyl_8d.3', 'leaf 2_7d.1', 'leaf 2_7d.2', 'leaf 2_7d.3', 'apex vegetative_6d.1', 'apex vegetative_6d.2', 'apex vegetative_6d.3', 'meristem inflorescence_7w.1', 'meristem inflorescence_7w.2', 'meristem inflorescence_7w.3', 'flower stg8.1', 'flower stg8.2', 'flower stg8.3','flower stg8_stamens.1', 'flower stg8_stamens.2', 'flower stg8_stamens.3', 'mature pollen.1', 'mature pollen.2', 'mature pollen.3', 'flower stg8_carpels.1', 'flower stg8_carpels.2', 'flower stg8_carpels.3']);
 } else if ($_POST['filter1'] == "Brachypodium_distachyon") { 
   $colnames = array(['ID','root_whole root_4d.1', 'root_whole root_4d.2', 'root_whole root_4d.3', 'mesocotyl_7d.1', 'mesocotyl_7d.2', 'mesocotyl_7d.3', 'leaf 1_4d.1', 'leaf 1_4d.2', 'leaf 1_4d.3', 'apex vegetative_5d.1', 'apex vegetative_5d.2', 'apex vegetative_5d.3', 'lateral spikelet meristem_7w.1', 'lateral spikelet meristem_7w.2', 'lateral spikelet meristem_7w.3', 'floret w/ anthers before dehiscence.1', 'floret w/ anthers before dehiscence.2', 'floret w/ anthers before dehiscence.3', 'floret stamen.1', 'floret stamen.2', 'floret stamen.3', 'mature pollen.1', 'mature pollen.2', 'mature pollen.3', 'floret carpel.1', 'floret carpel.2', 'floret carpel.3']);
+}  else if ($_POST['filter1'] == "Tarenaya_hassleriana") { 
+  $colnames = array(['ID','root_whole root_5d.1', 'root_whole root_5d.2', 'root_whole root_5d.3', 'hypocotyl_11d.1', 'hypocotyl_11d.2', 'hypocotyl_1d.3', 'leaf 1_2_11d.1', 'leaf 1_2_11d.2', 'leaf 1_2_11d.3', 'apex vegetative_11d.1', 'apex vegetative_11d.2', 'apex vegetative_11d.3', 'apex inflorescence_11w.1', 'apex inflorescence_11w.2', 'apex inflorescence_11w.3', 'flower stg12.1', 'flower stg12.2', 'flower stg12.3', 'flower stamen.1', 'flower stamen.2', 'flower stamen.3', 'mature pollen.1', 'mature pollen.2', 'mature pollen.3', 'flower carpel.1', 'flower carpel.2', 'flower carpel.3']);
 };
 
 
@@ -1913,6 +1935,9 @@ else if ($_POST['filter4'] == "line_chart" && ($count > 0) && ($count < 21) && $
         <?php }
         else if ($_POST['filter1'] == "Brachypodium_distachyon") { ?>
         ['root_whole root_4d.1', 'root_whole root_4d.2', 'root_whole root_4d.3', 'mesocotyl_7d.1', 'mesocotyl_7d.2', 'mesocotyl_7d.3', 'leaf 1_4d.1', 'leaf 1_4d.2', 'leaf 1_4d.3', 'apex vegetative_5d.1', 'apex vegetative_5d.2', 'apex vegetative_5d.3', 'lateral spikelet meristem.1', 'lateral spikelet meristem.2', 'lateral spikelet meristem.3', 'floret.1', 'floret.2', 'floret.3', 'floret stamens.1', 'floret stamens.2', 'floret stamens.3', 'mature pollen.1', 'mature pollen.2', 'mature pollen.3', 'floret carpels.1', 'floret carpels.2', 'floret carpels.3'];
+        <?php }
+        else if ($_POST['filter1'] == "Tarenaya_hassleriana") { ?>
+        ['root, whole root, 5d.1', 'root, whole root, 5d.2', 'root, whole root, 5d.3', 'hypocotyl, 11d.1', 'hypocotyl, 11d.2', 'hypocotyl, 11d.3', 'leaf 1+2, 11d.1', 'leaf 1+2, 11d.2', 'leaf 1+2, 11d.3', 'apex vegetative, 11d.1', 'apex vegetative, 11d.2', 'apex vegetative, 11d.3', 'apex inflorescence.1', 'apex inflorescence.2', 'apex inflorescence.3', 'flower.1', 'flower.2', 'flower.3', 'flower, stamens.1', 'flower, stamens.2', 'flower, stamens.3', 'mature pollen.1', 'mature pollen.2', 'mature pollen.3', 'flower, carpels.1', 'flower, carpels.2', 'flower, carpels.3'];
         <?php } ?>
 
       var chart = c3.generate({
@@ -2451,6 +2476,9 @@ else if (($_POST['filter4'] == "heatmap" && $_POST['filter1'] != "Arabidopsis_th
         <?php }
         else if ($_POST['filter1'] == "Brachypodium_distachyon") { ?>
         ['root_whole root_4d.1', 'root_whole root_4d.2', 'root_whole root_4d.3', 'mesocotyl_7d.1', 'mesocotyl_7d.2', 'mesocotyl_7d.3', 'leaf 1_4d.1', 'leaf 1_4d.2', 'leaf 1_4d.3', 'apex vegetative_5d.1', 'apex vegetative_5d.2', 'apex vegetative_5d.3', 'lateral spikelet meristem.1', 'lateral spikelet meristem.2', 'lateral spikelet meristem.3', 'floret.1', 'floret.2', 'floret.3', 'floret stamens.1', 'floret stamens.2', 'floret stamens.3', 'mature pollen.1', 'mature pollen.2', 'mature pollen.3', 'floret carpels.1', 'floret carpels.2', 'floret carpels.3'];
+        <?php }
+        else if ($_POST['filter1'] == "Tarenaya_hassleriana") { ?>
+        ['root, whole root, 5d.1', 'root, whole root, 5d.2', 'root, whole root, 5d.3', 'hypocotyl, 11d.1', 'hypocotyl, 11d.2', 'hypocotyl, 11d.3', 'leaf 1+2, 11d.1', 'leaf 1+2, 11d.2', 'leaf 1+2, 11d.3', 'apex vegetative, 11d.1', 'apex vegetative, 11d.2', 'apex vegetative, 11d.3', 'apex inflorescence.1', 'apex inflorescence.2', 'apex inflorescence.3', 'flower.1', 'flower.2', 'flower.3', 'flower, stamens.1', 'flower, stamens.2', 'flower, stamens.3', 'mature pollen.1', 'mature pollen.2', 'mature pollen.3', 'flower, carpels.1', 'flower, carpels.2', 'flower, carpels.3'];
         <?php } ?>
 
         var title = <?php echo $titleout; ?>;
@@ -3003,6 +3031,9 @@ else if ($_POST['filter4'] == "heatmap" && $_POST['filter1'] != "Arabidopsis_tha
         <?php } 
         else if ($_POST['filter1'] == "Brachypodium_distachyon") { ?>
         ['root_whole root_4d.1', 'root_whole root_4d.2', 'root_whole root_4d.3', 'mesocotyl_7d.1', 'mesocotyl_7d.2', 'mesocotyl_7d.3', 'leaf 1_4d.1', 'leaf 1_4d.2', 'leaf 1_4d.3', 'apex vegetative_5d.1', 'apex vegetative_5d.2', 'apex vegetative_5d.3', 'lateral spikelet meristem.1', 'lateral spikelet meristem.2', 'lateral spikelet meristem.3', 'floret.1', 'floret.2', 'floret.3', 'floret stamens.1', 'floret stamens.2', 'floret stamens.3', 'mature pollen.1', 'mature pollen.2', 'mature pollen.3', 'floret carpels.1', 'floret carpels.2', 'floret carpels.3'];
+        <?php }
+        else if ($_POST['filter1'] == "Tarenaya_hassleriana") { ?>
+        ['root, whole root, 5d.1', 'root, whole root, 5d.2', 'root, whole root, 5d.3', 'hypocotyl, 11d.1', 'hypocotyl, 11d.2', 'hypocotyl, 11d.3', 'leaf 1+2, 11d.1', 'leaf 1+2, 11d.2', 'leaf 1+2, 11d.3', 'apex vegetative, 11d.1', 'apex vegetative, 11d.2', 'apex vegetative, 11d.3', 'apex inflorescence.1', 'apex inflorescence.2', 'apex inflorescence.3', 'flower.1', 'flower.2', 'flower.3', 'flower, stamens.1', 'flower, stamens.2', 'flower, stamens.3', 'mature pollen.1', 'mature pollen.2', 'mature pollen.3', 'flower, carpels.1', 'flower, carpels.2', 'flower, carpels.3'];
         <?php } ?>
 
         var title = <?php echo $titleout; ?>;
