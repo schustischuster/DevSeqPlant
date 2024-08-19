@@ -360,23 +360,23 @@ if ($_POST['filter4'] == "heatmap" && $_POST['filter6'] == "1" && ($count > 1)) 
 }
 
 
-$sboxplaceholder = "Enter gene, isoform ID, or symbol, e.g. AT5G10720, PIN1, or paste a list of identifiers";
+$sboxplaceholder = "Enter gene, isoform ID, or symbol, e.g. AT5G10720, ETT, or paste a list of identifiers";
 
 // Set input box placeholder in case another species gets selected
 if ($_POST['filter1'] == "Arabidopsis_thaliana") {
-$sboxplaceholder = "Enter gene, isoform ID, or symbol, e.g. AT5G10720, PIN1, or paste a list of identifiers";
+$sboxplaceholder = "Enter gene, isoform ID, or symbol, e.g. AT5G10720, ETT, or paste a list of identifiers";
 } else if ($_POST['filter1'] == "Arabidopsis_lyrata") {
-$sboxplaceholder = "Enter gene or isoform ID, e.g. AL6G21260.t1, AL1G32580.t1, or paste a list of IDs";
+$sboxplaceholder = "Enter gene or isoform ID, e.g. AL6G21260, AL4G29670, or paste a list of IDs";
 } else if ($_POST['filter1'] == "Capsella_rubella") {
-$sboxplaceholder = "Enter gene or isoform ID, e.g. Carubv10003739m, Carubv10008258m, or paste a list";
+$sboxplaceholder = "Enter gene or isoform ID, e.g. Carubv10003739m.g, Carubv10025185m.g, or paste a list";
 } else if ($_POST['filter1'] == "Eutrema_salsugineum") {
-$sboxplaceholder = "Enter gene or isoform ID, e.g. Thhalv10012606m, Thhalv10006748m, or paste a list";
+$sboxplaceholder = "Enter gene or isoform ID, e.g. Thhalv10012606m.g, Thhalv10016394m.g, or paste a list";
 } else if ($_POST['filter1'] == "Tarenaya_hassleriana") {
-$sboxplaceholder = "Enter gene or isoform ID, e.g. XM_010527257.2, XM_010538056.2, or paste a list";
+$sboxplaceholder = "Enter gene or isoform ID, e.g. 104803327, 104812619, or paste a list";
 } else if ($_POST['filter1'] == "Medicago_truncatula") {
-$sboxplaceholder = "Enter gene or isoform ID, e.g. Medtr1g013360, Medtr1g024025, or paste a list";
+$sboxplaceholder = "Enter gene or isoform ID, e.g. Medtr3g105590, Medtr2g014770, or paste a list";
 } else if ($_POST['filter1'] == "Brachypodium_distachyon") {
-$sboxplaceholder = "Enter gene or isoform ID, e.g. Bradi1g31200, Bradi5g25157, or paste a list of IDs";
+$sboxplaceholder = "Enter gene or isoform ID, e.g. Bradi1g31200, Bradi2g16610, or paste a list of IDs";
 };
 
 }; # close count condition
@@ -956,13 +956,13 @@ HTML Body starts: wrapper = 1st level div
             <!-- JavaScript to control select box placeholder -->
             <script type="text/javascript">  
               var placeholderText = {
-                "Arabidopsis_thaliana": "Enter gene, isoform ID, or symbol, e.g. AT5G10720, PIN1, or paste a list of identifiers",
-                "Arabidopsis_lyrata": "Enter gene or isoform ID, e.g. AL6G21260.t1, AL1G32580.t1, or paste a list of IDs",
-                "Brachypodium_distachyon": "Enter gene or isoform ID, e.g. Bradi1g31200, Bradi5g25157, or paste a list of IDs",
-                "Capsella_rubella": "Enter gene or isoform ID, e.g. Carubv10003739m, Carubv10008258m, or paste a list",
-                "Eutrema_salsugineum": "Enter gene or isoform ID, e.g. Thhalv10012606m, Thhalv10006748m, or paste a list",
-                "Medicago_truncatula": "Enter gene or isoform ID, e.g. Medtr1g013360, Medtr1g024025, or paste a list",
-                "Tarenaya_hassleriana": "Enter gene or isoform ID, e.g. XM_010527257.2, XM_010538056.2, or paste a list"
+                "Arabidopsis_thaliana": "Enter gene, isoform ID, or symbol, e.g. AT5G10720, ETT, or paste a list of identifiers",
+                "Arabidopsis_lyrata": "Enter gene or isoform ID, e.g. AL6G21260, AL4G29670, or paste a list of IDs",
+                "Brachypodium_distachyon": "Enter gene or isoform ID, e.g. Bradi1g31200, Bradi2g16610, or paste a list of IDs",
+                "Capsella_rubella": "Enter gene or isoform ID, e.g. Carubv10003739m.g, Carubv10025185m.g, or paste a list",
+                "Eutrema_salsugineum": "Enter gene or isoform ID, e.g. Thhalv10012606m.g, Thhalv10016394m.g, or paste a list",
+                "Medicago_truncatula": "Enter gene or isoform ID, e.g. Medtr3g105590, Medtr2g014770, or paste a list",
+                "Tarenaya_hassleriana": "Enter gene or isoform ID, e.g. 104803327, 104812619, or paste a list"
               };
               var sfqsrtid = $("#sfqsrt");
               $(document).ready(function(){ 
@@ -1186,13 +1186,13 @@ HTML Body starts: wrapper = 1st level div
       <!-- JavaScript to control select box placeholder -->
       <script type="text/javascript">  
         var placeholderText = {
-          "Arabidopsis_thaliana": "Enter gene or isoform ID, or symbol, e.g. AT5G10720, AT1G19850.1, PIN1, or paste a list",
-          "Arabidopsis_lyrata": "Enter gene or isoform ID, e.g. AL6G21260.t1, AL1G32580.t1, or paste a list of identifiers",
-          "Brachypodium_distachyon": "Enter gene or isoform ID, e.g. Bradi1g31200.1, Bradi5g25157.1, or paste a list of identifiers",
-          "Capsella_rubella": "Enter gene or isoform ID, e.g. Carubv10003739m, Carubv10008258m, or paste a list of IDs",
-          "Eutrema_salsugineum": "Enter gene or isoform ID, e.g. Thhalv10012606m, Thhalv10006748m, or paste a list of IDs",
-          "Medicago_truncatula": "Enter gene or isoform ID, e.g. Medtr1g013360, Medtr1g024025, or paste a list of IDs",
-          "Tarenaya_hassleriana": "Enter gene or isoform ID, e.g. XM_010527257.2, XM_010538056.2, or paste a list of IDs"
+          "Arabidopsis_thaliana": "Enter gene or isoform ID, or symbol, e.g. AT5G10720, ETT, or paste a list",
+          "Arabidopsis_lyrata": "Enter gene or isoform ID, e.g. AL6G21260, AL4G29670, or paste a list of identifiers",
+          "Brachypodium_distachyon": "Enter gene or isoform ID, e.g. Bradi1g31200, Bradi2g16610, or paste a list of identifiers",
+          "Capsella_rubella": "Enter gene or isoform ID, e.g. Carubv10003739m.g, Carubv10025185m.g, or paste a list of IDs",
+          "Eutrema_salsugineum": "Enter gene or isoform ID, e.g. Thhalv10012606m.g, Thhalv10016394m.g, or paste a list of IDs",
+          "Medicago_truncatula": "Enter gene or isoform ID, e.g. Medtr3g105590, Medtr2g014770, or paste a list of IDs",
+          "Tarenaya_hassleriana": "Enter gene or isoform ID, e.g. 104803327, 104812619, or paste a list of IDs"
         };
 
         $("#selector").on("change", function () {
