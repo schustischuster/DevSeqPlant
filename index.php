@@ -1070,37 +1070,37 @@ HTML Body starts: wrapper = 1st level div
       document.getElementById("addexid").addEventListener('click', function () {
         var text = document.getElementById('sfqsrt');
         if(document.getElementById('selectorsrt').value=='Arabidopsis_thaliana') {
-        text.value = 'AT5G10720, AT1G19850';
+        text.value = 'AT5G10720, ETT';
         text.focus();
         document.getElementById('genelev').checked = true;
         }
         else if (document.getElementById('selectorsrt').value=='Arabidopsis_lyrata') {
-          text.value = 'AL6G21260.t1, AL1G32580.t1';
+          text.value = 'AL6G21260, AL4G29670';
           text.focus();
         document.getElementById('genelev').checked = true;
         }
         else if (document.getElementById('selectorsrt').value=='Capsella_rubella') {
-          text.value = 'Carubv10003739m, Carubv10008258m';
+          text.value = 'Carubv10003739m.g, Carubv10025185m.g';
           text.focus();
         document.getElementById('genelev').checked = true;
         }
         else if (document.getElementById('selectorsrt').value=='Eutrema_salsugineum') {
-          text.value = 'Thhalv10012606m, Thhalv10006748m';
+          text.value = 'Thhalv10012606m.g, Thhalv10016394m.g';
           text.focus();
         document.getElementById('genelev').checked = true;
         }
         else if (document.getElementById('selectorsrt').value=='Tarenaya_hassleriana') {
-          text.value = 'XM_010527257.2, XM_010538056.2';
+          text.value = '104803327, 104812619';
           text.focus();
         document.getElementById('genelev').checked = true;
         }
         else if (document.getElementById('selectorsrt').value=='Medicago_truncatula') {
-          text.value = 'Medtr1g013360, Medtr1g024025';
+          text.value = 'Medtr3g105590, Medtr2g014770';
           text.focus();
         document.getElementById('genelev').checked = true;
         }
         else {
-          text.value = 'Bradi1g31200, Bradi5g25157';
+          text.value = 'Bradi1g31200, Bradi2g16610';
           text.focus();
         document.getElementById('genelev').checked = true;
         }
