@@ -1414,7 +1414,7 @@ HTML Body starts: wrapper = 1st level div
 
 
                 <!-- line chart message: if too many query IDs, print notification -->
-                <?php if ((isset($_POST['searchquery'])) && ($_POST['searchquery'] != "") && $_POST['filter4'] == "line_chart" && $_POST['filter1'] == "Arabidopsis_thaliana" && ($count > 20)){?>
+                <?php if ((isset($_POST['searchquery'])) && ($_POST['searchquery'] != "") && $_POST['filter4'] == "line_chart" && ($count > 20)){?>
 
                   <div id="lcnote">
                   <font color="#cc3623">Large number of entities found:</font><font color="#1f1fab"> to display results, choose heatmap option and update chart.</font>
@@ -2524,6 +2524,7 @@ else if (($_POST['filter4'] == "heatmap" && $_POST['filter1'] != "Arabidopsis_th
           yaxis: {
             showticklabels: true,
             tickangle: 0,
+            type: 'category',
             tickfont: {
               size: 11.75,
               color: 'black'
@@ -2550,6 +2551,7 @@ else if (($_POST['filter4'] == "heatmap" && $_POST['filter1'] != "Arabidopsis_th
           yaxis: {
             showticklabels: true,
             tickangle: 0,
+            type: 'category',
             tickfont: {
               size: 11.75,
               color: 'black'
@@ -2576,6 +2578,7 @@ else if (($_POST['filter4'] == "heatmap" && $_POST['filter1'] != "Arabidopsis_th
           yaxis: {
             showticklabels: true,
             tickangle: 0,
+            type: 'category',
             tickfont: {
               size: 11.75,
               color: 'black'
@@ -3079,6 +3082,7 @@ else if ($_POST['filter4'] == "heatmap" && $_POST['filter1'] != "Arabidopsis_tha
           yaxis: {
             showticklabels: true,
             tickangle: 0,
+            type: 'category',
             tickfont: {
               size: 11.75,
               color: 'black'
@@ -3105,6 +3109,7 @@ else if ($_POST['filter4'] == "heatmap" && $_POST['filter1'] != "Arabidopsis_tha
           yaxis: {
             showticklabels: true,
             tickangle: 0,
+            type: 'category',
             tickfont: {
               size: 11.75,
               color: 'black'
@@ -3131,6 +3136,7 @@ else if ($_POST['filter4'] == "heatmap" && $_POST['filter1'] != "Arabidopsis_tha
           yaxis: {
             showticklabels: true,
             tickangle: 0,
+            type: 'category',
             tickfont: {
               size: 11.75,
               color: 'black'
