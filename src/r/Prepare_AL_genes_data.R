@@ -138,10 +138,10 @@ devseq_replicate_genes_RE <- round_df(devseq_replicate_genes_RE, 2)
 
 # Write final data tables to csv files and store them in /out_dir/output/data_tables
 if (!dir.exists(file.path(out_dir, "output", "data_tables"))) dir.create(file.path(out_dir, "output", "data_tables"), recursive = TRUE)
-write.table(devseq_genes_all_samples, file=file.path(out_dir, "output", "data_tables", "TH_devseq_genes_all_samples.csv"), sep=";", dec=".", row.names=FALSE, col.names=TRUE)
-write.table(devseq_genes_all_samples_RE, file=file.path(out_dir, "output", "data_tables", "TH_devseq_genes_all_samples_RE.csv"), sep=";", dec=".", row.names=FALSE, col.names=TRUE)
-write.table(devseq_replicate_genes, file=file.path(out_dir, "output", "data_tables", "TH_devseq_replicate_genes.csv"), sep=";", dec=".", row.names=FALSE, col.names=TRUE)
-write.table(devseq_replicate_genes_RE, file=file.path(out_dir, "output", "data_tables", "TH_devseq_replicate_genes_RE.csv"), sep=";", dec=".", row.names=FALSE, col.names=TRUE)
+write.table(devseq_genes_all_samples, file=file.path(out_dir, "output", "data_tables", "AL_devseq_genes_all_samples.csv"), sep=";", dec=".", row.names=FALSE, col.names=TRUE)
+write.table(devseq_genes_all_samples_RE, file=file.path(out_dir, "output", "data_tables", "AL_devseq_genes_all_samples_RE.csv"), sep=";", dec=".", row.names=FALSE, col.names=TRUE)
+write.table(devseq_replicate_genes, file=file.path(out_dir, "output", "data_tables", "AL_devseq_replicate_genes.csv"), sep=";", dec=".", row.names=FALSE, col.names=TRUE)
+write.table(devseq_replicate_genes_RE, file=file.path(out_dir, "output", "data_tables", "AL_devseq_replicate_genes_RE.csv"), sep=";", dec=".", row.names=FALSE, col.names=TRUE)
 
 
 
