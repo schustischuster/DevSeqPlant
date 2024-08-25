@@ -1,1 +1,1 @@
-R scripts for preparing data imput.
+R scripts for preparing mySQL data imput.
