@@ -1928,17 +1928,36 @@ else if ($_POST['filter4'] == "line_chart" && ($count > 0) && ($count < 21) && $
     <script>
       var dataset = <?php echo $jsonout; ?>;
       var title = <?php echo $titleout; ?>;
-      var nonathgrid = [
-        {value: 2.5, class: 'gridx'},
-        {value: 5.5, class: 'gridx'},
-        {value: 8.5, class: 'gridx'},
-        {value: 11.5, class: 'gridx'},
-        {value: 14.5, class: 'gridx'},
-        {value: 17.5, class: 'gridx'},
-        {value: 20.5, class: 'gridx'},
-        {value: 23.5, class: 'gridx'},
-        {value: 26.43, class: 'gridy'}
-      ];
+      var nonathgrid = 
+      <?php if($_POST['filter1'] == "Arabidopsis_lyrata") { ?>
+        [
+          {value: 2.5, class: 'gridx'},
+          {value: 5.5, class: 'gridx'},
+          {value: 8.5, class: 'gridx'},
+          {value: 11.5, class: 'gridx'},
+          {value: 14.5, class: 'gridx'},
+          {value: 17.5, class: 'gridx'},
+          {value: 20.5, class: 'gridx'},
+          {value: 23.5, class: 'gridx'},
+          {value: 26.5, class: 'gridx'},
+          {value: 29.5, class: 'gridx'},
+          {value: 32.5, class: 'gridx'},
+          {value: 35.43, class: 'gridy'}
+        ];
+      <?php }
+      else { ?> 
+        [
+          {value: 2.5, class: 'gridx'},
+          {value: 5.5, class: 'gridx'},
+          {value: 8.5, class: 'gridx'},
+          {value: 11.5, class: 'gridx'},
+          {value: 14.5, class: 'gridx'},
+          {value: 17.5, class: 'gridx'},
+          {value: 20.5, class: 'gridx'},
+          {value: 23.5, class: 'gridx'},
+          {value: 26.43, class: 'gridy'}
+        ];
+      <?php } ?>
       var xValues = 
        <?php if($_POST['filter1'] == "Arabidopsis_lyrata") { ?>
        ['root, whole root, 6d.1', 'root, whole root, 6d.2', 'root, whole root, 6d.3', 'hypocotyl, 12d.1', 'hypocotyl, 12d.2', 'hypocotyl, 12d.3', 'leaf 1+2, 10d.1', 'leaf 1+2, 10d.2', 'leaf 1+2, 10d.3', 'apex vegetative, 11d.1', 'apex vegetative, 11d.2', 'apex vegetative, 11d.3', 'apex inflorescence.1', 'apex inflorescence.2', 'apex inflorescence.3', 'flower stg12.1', 'flower stg12.2', 'flower stg12.3', 'flower stg11, stamens.1', 'flower stg11, stamens.2', 'flower stg11, stamens.3', 'flower early stg12, stamens.1', 'flower early stg12, stamens.2', 'flower early stg12, stamens.3', 'flower mid stg12, stamens.1', 'flower mid stg12, stamens.2', 'flower mid stg12, stamens.3', 'flower late stg12, stamens.1', 'flower late stg12, stamens.2', 'flower late stg12, stamens.3', 'mature pollen.1', 'mature pollen.2', 'mature pollen.3', 'flower stg12, carpels.1', 'flower stg12, carpels.2', 'flower stg12, carpels.3'];
@@ -2485,7 +2504,7 @@ else if (($_POST['filter4'] == "heatmap" && $_POST['filter1'] != "Arabidopsis_th
         // define x axis labels depending on selected species
         var xValues = 
         <?php if($_POST['filter1'] == "Arabidopsis_lyrata") { ?>
-        ['root, whole root, 6d.1', 'root, whole root, 6d.2', 'root, whole root, 6d.3', 'hypocotyl, 12d.1', 'hypocotyl, 12d.2', 'hypocotyl, 12d.3', 'leaf 1+2, 10d.1', 'leaf 1+2, 10d.2', 'leaf 1+2, 10d.3', 'apex vegetative, 11d.1', 'apex vegetative, 11d.2', 'apex vegetative, 11d.3', 'apex inflorescence.1', 'apex inflorescence.2', 'apex inflorescence.3', 'flower stg12.1', 'flower stg12.2', 'flower stg12.3', 'flower stg11, stamens.1', 'flower stg11, stamens.2', 'flower stg11, stamens.3', 'flower early stg12, stamens.1', 'flower early stg12, stamens.2', 'flower early stg12, stamens.3', 'flower mid stg12, stamens.1', 'flower mid stg12, stamens.2', 'flower mid stg12, stamens.3', 'flower late stg12, stamens.1', 'flower late stg12, stamens.2', 'flower late stg12, stamens.3', 'mature pollen.1', 'mature pollen.2', 'mature pollen.3' 'flower stg12, carpels.1', 'flower stg12, carpels.2', 'flower stg12, carpels.3'];
+        ['root, whole root, 6d.1', 'root, whole root, 6d.2', 'root, whole root, 6d.3', 'hypocotyl, 12d.1', 'hypocotyl, 12d.2', 'hypocotyl, 12d.3', 'leaf 1+2, 10d.1', 'leaf 1+2, 10d.2', 'leaf 1+2, 10d.3', 'apex vegetative, 11d.1', 'apex vegetative, 11d.2', 'apex vegetative, 11d.3', 'apex inflorescence.1', 'apex inflorescence.2', 'apex inflorescence.3', 'flower stg12.1', 'flower stg12.2', 'flower stg12.3', 'flower stg11, stamens.1', 'flower stg11, stamens.2', 'flower stg11, stamens.3', 'flower early stg12, stamens.1', 'flower early stg12, stamens.2', 'flower early stg12, stamens.3', 'flower mid stg12, stamens.1', 'flower mid stg12, stamens.2', 'flower mid stg12, stamens.3', 'flower late stg12, stamens.1', 'flower late stg12, stamens.2', 'flower late stg12, stamens.3', 'mature pollen.1', 'mature pollen.2', 'mature pollen.3', 'flower stg12, carpels.1', 'flower stg12, carpels.2', 'flower stg12, carpels.3'];
         <?php }
         else if($_POST['filter1'] == "Capsella_rubella") { ?>
         ['root, whole root, 4d.1', 'root, whole root, 4d.2', 'root, whole root, 4d.3', 'hypocotyl, 9d.1', 'hypocotyl, 9d.2', 'hypocotyl, 9d.3', 'leaf 1+2, 7d.1', 'leaf 1+2, 7d.2', 'leaf 1+2, 7d.3', 'apex vegetative, 7d.1', 'apex vegetative, 7d.2', 'apex vegetative, 7d.3', 'apex inflorescence.1', 'apex inflorescence.2', 'apex inflorescence.3', 'flower stg12.1', 'flower stg12.2', 'flower stg12.3', 'flower stg12, carpels.1', 'flower stg12, carpels.2', 'flower stg12, carpels.3', 'flower stg12, stamens.1', 'flower stg12, stamens.2', 'flower stg12, stamens.3', 'mature pollen.1', 'mature pollen.2', 'mature pollen.3'];
@@ -3046,7 +3065,7 @@ else if ($_POST['filter4'] == "heatmap" && $_POST['filter1'] != "Arabidopsis_tha
         // define x axis labels depending on selected species
         var xValues = 
         <?php if($_POST['filter1'] == "Arabidopsis_lyrata") { ?>
-        ['root, whole root, 6d.1', 'root, whole root, 6d.2', 'root, whole root, 6d.3', 'hypocotyl, 12d.1', 'hypocotyl, 12d.2', 'hypocotyl, 12d.3', 'leaf 1+2, 10d.1', 'leaf 1+2, 10d.2', 'leaf 1+2, 10d.3', 'apex vegetative, 11d.1', 'apex vegetative, 11d.2', 'apex vegetative, 11d.3', 'apex inflorescence.1', 'apex inflorescence.2', 'apex inflorescence.3', 'flower stg12.1', 'flower stg12.2', 'flower stg12.3', 'flower stg11, stamens.1', 'flower stg11, stamens.2', 'flower stg11, stamens.3', 'flower early stg12, stamens.1', 'flower early stg12, stamens.2', 'flower early stg12, stamens.3', 'flower mid stg12, stamens.1', 'flower mid stg12, stamens.2', 'flower mid stg12, stamens.3', 'flower late stg12, stamens.1', 'flower late stg12, stamens.2', 'flower late stg12, stamens.3', 'mature pollen.1', 'mature pollen.2', 'mature pollen.3' 'flower stg12, carpels.1', 'flower stg12, carpels.2', 'flower stg12, carpels.3'];
+        ['root, whole root, 6d.1', 'root, whole root, 6d.2', 'root, whole root, 6d.3', 'hypocotyl, 12d.1', 'hypocotyl, 12d.2', 'hypocotyl, 12d.3', 'leaf 1+2, 10d.1', 'leaf 1+2, 10d.2', 'leaf 1+2, 10d.3', 'apex vegetative, 11d.1', 'apex vegetative, 11d.2', 'apex vegetative, 11d.3', 'apex inflorescence.1', 'apex inflorescence.2', 'apex inflorescence.3', 'flower stg12.1', 'flower stg12.2', 'flower stg12.3', 'flower stg11, stamens.1', 'flower stg11, stamens.2', 'flower stg11, stamens.3', 'flower early stg12, stamens.1', 'flower early stg12, stamens.2', 'flower early stg12, stamens.3', 'flower mid stg12, stamens.1', 'flower mid stg12, stamens.2', 'flower mid stg12, stamens.3', 'flower late stg12, stamens.1', 'flower late stg12, stamens.2', 'flower late stg12, stamens.3', 'mature pollen.1', 'mature pollen.2', 'mature pollen.3', 'flower stg12, carpels.1', 'flower stg12, carpels.2', 'flower stg12, carpels.3'];
         <?php }
         else if($_POST['filter1'] == "Capsella_rubella") { ?>
         ['root, whole root, 4d.1', 'root, whole root, 4d.2', 'root, whole root, 4d.3', 'hypocotyl, 9d.1', 'hypocotyl, 9d.2', 'hypocotyl, 9d.3', 'leaf 1+2, 7d.1', 'leaf 1+2, 7d.2', 'leaf 1+2, 7d.3', 'apex vegetative, 7d.1', 'apex vegetative, 7d.2', 'apex vegetative, 7d.3', 'apex inflorescence.1', 'apex inflorescence.2', 'apex inflorescence.3', 'flower stg12.1', 'flower stg12.2', 'flower stg12.3', 'flower stg12, carpels.1', 'flower stg12, carpels.2', 'flower stg12, carpels.3', 'flower stg12, stamens.1', 'flower stg12, stamens.2', 'flower stg12, stamens.3', 'mature pollen.1', 'mature pollen.2', 'mature pollen.3'];
