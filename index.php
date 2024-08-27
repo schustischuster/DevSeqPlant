@@ -123,16 +123,16 @@ if (isset($_POST['searchquery']) && $_POST['searchquery'] != "") {
     $sqlCommand = "SELECT transcript_id, {$thcolnames} FROM Tarenaya_hassleriana_transcript_tpm_RE_20240815 WHERE transcript_id in ('".implode("','",$search)."') OR gene_id in ('".implode("','",$search)."')";
 
   } else if ($_POST['filter1'] == "Arabidopsis_lyrata" && $_POST['filter2'] == "gene_level" && ($_POST['filter5'] == "0" || $_POST['filter5'] == "1")) {
-    $sqlCommand = "SELECT gene_id, {$thcolnames} FROM Arabidopsis_lyrata_gene_tpm_20240827 WHERE gene_id in ('".implode("','",$search)."')";
+    $sqlCommand = "SELECT gene_id, {$alcolnames} FROM Arabidopsis_lyrata_gene_tpm_20240827 WHERE gene_id in ('".implode("','",$search)."')";
   
   } else if ($_POST['filter1'] == "Arabidopsis_lyrata" && $_POST['filter2'] == "gene_level" && ($_POST['filter5'] == "2")) {
-    $sqlCommand = "SELECT gene_id, {$thcolnames} FROM Arabidopsis_lyrata_gene_tpm_RE_20240827 WHERE gene_id in ('".implode("','",$search)."')";
+    $sqlCommand = "SELECT gene_id, {$alcolnames} FROM Arabidopsis_lyrata_gene_tpm_RE_20240827 WHERE gene_id in ('".implode("','",$search)."')";
 
   } else if ($_POST['filter1'] == "Arabidopsis_lyrata" && $_POST['filter2'] == "isoform_level" && ($_POST['filter5'] == "0" || $_POST['filter5'] == "1")) {
-    $sqlCommand = "SELECT transcript_id, {$thcolnames} FROM Arabidopsis_lyrata_transcript_tpm_20240827 WHERE transcript_id in ('".implode("','",$search)."') OR gene_id in ('".implode("','",$search)."')";
+    $sqlCommand = "SELECT transcript_id, {$alcolnames} FROM Arabidopsis_lyrata_transcript_tpm_20240827 WHERE transcript_id in ('".implode("','",$search)."') OR gene_id in ('".implode("','",$search)."')";
 
   } else if ($_POST['filter1'] == "Arabidopsis_lyrata" && $_POST['filter2'] == "isoform_level" && ($_POST['filter5'] == "2")) {
-    $sqlCommand = "SELECT transcript_id, {$thcolnames} FROM Arabidopsis_lyrata_transcript_tpm_RE_20240827 WHERE transcript_id in ('".implode("','",$search)."') OR gene_id in ('".implode("','",$search)."')";
+    $sqlCommand = "SELECT transcript_id, {$alcolnames} FROM Arabidopsis_lyrata_transcript_tpm_RE_20240827 WHERE transcript_id in ('".implode("','",$search)."') OR gene_id in ('".implode("','",$search)."')";
 
   }
 
