@@ -151,16 +151,16 @@ if (isset($_POST['searchquery']) && $_POST['searchquery'] != "") {
     $sqlCommand = "SELECT transcript_id, {$crcolnames} FROM Capsella_rubella_transcript_tpm_RE_20240902 WHERE transcript_id in ('".implode("','",$search)."') OR gene_id in ('".implode("','",$search)."')";
 
   } else if ($_POST['filter1'] == "Eutrema_salsugineum" && $_POST['filter2'] == "gene_level" && ($_POST['filter5'] == "0" || $_POST['filter5'] == "1")) {
-    $sqlCommand = "SELECT gene_id, {$escolnames} FROM Capsella_rubella_gene_tpm_20240902 WHERE gene_id in ('".implode("','",$search)."')";
+    $sqlCommand = "SELECT gene_id, {$escolnames} FROM Eutrema_salsugineum_gene_tpm_20240906 WHERE gene_id in ('".implode("','",$search)."')";
   
   } else if ($_POST['filter1'] == "Eutrema_salsugineum" && $_POST['filter2'] == "gene_level" && ($_POST['filter5'] == "2")) {
-    $sqlCommand = "SELECT gene_id, {$escolnames} FROM Capsella_rubella_gene_tpm_RE_20240902 WHERE gene_id in ('".implode("','",$search)."')";
+    $sqlCommand = "SELECT gene_id, {$escolnames} FROM Eutrema_salsugineum_gene_tpm_RE_20240906 WHERE gene_id in ('".implode("','",$search)."')";
 
   } else if ($_POST['filter1'] == "Eutrema_salsugineum" && $_POST['filter2'] == "isoform_level" && ($_POST['filter5'] == "0" || $_POST['filter5'] == "1")) {
-    $sqlCommand = "SELECT transcript_id, {$escolnames} FROM Capsella_rubella_transcript_tpm_20240902 WHERE transcript_id in ('".implode("','",$search)."') OR gene_id in ('".implode("','",$search)."')";
+    $sqlCommand = "SELECT transcript_id, {$escolnames} FROM Eutrema_salsugineum_transcript_tpm_20240906 WHERE transcript_id in ('".implode("','",$search)."') OR gene_id in ('".implode("','",$search)."')";
 
   } else if ($_POST['filter1'] == "Eutrema_salsugineum" && $_POST['filter2'] == "isoform_level" && ($_POST['filter5'] == "2")) {
-    $sqlCommand = "SELECT transcript_id, {$escolnames} FROM Capsella_rubella_transcript_tpm_RE_20240902 WHERE transcript_id in ('".implode("','",$search)."') OR gene_id in ('".implode("','",$search)."')";
+    $sqlCommand = "SELECT transcript_id, {$escolnames} FROM Eutrema_salsugineum_transcript_tpm_RE_20240906 WHERE transcript_id in ('".implode("','",$search)."') OR gene_id in ('".implode("','",$search)."')";
 
   }
 
@@ -225,7 +225,7 @@ if ($_POST['filter1'] == "Arabidopsis_thaliana" && ($count < 1251)) {
 } else if ($_POST['filter1'] == "Capsella_rubella") {
   $colnames = array(['ID','root_whole root_4d.1', 'root_whole root_4d.2', 'root_whole root_4d.3', 'hypocotyl_9d.1', 'hypocotyl_9d.2', 'hypocotyl_9d.3', 'leaf 1+2_7d.1', 'leaf 1+2_7d.2', 'leaf 1+2_7d.3', 'apex vegetative_7d.1', 'apex vegetative_7d.2', 'apex vegetative_7d.3', 'apex inflorescence.1', 'apex inflorescence.2', 'apex inflorescence.3', 'flower stg12.1', 'flower stg12.2', 'flower stg12.3', 'flower stg12_stamens.1', 'flower stg12_stamens.2', 'flower stg12_stamens.3', 'mature pollen.1', 'mature pollen.2', 'mature pollen.3', 'flower stg12_carpels.1', 'flower stg12_carpels.2', 'flower stg12_carpels.3']);
 } else if ($_POST['filter1'] == "Eutrema_salsugineum") { 
-  $colnames = array(['ID','root_whole root_6d.1', 'root_whole root_6d.2', 'root_whole root_6d.3', 'hypocotyl_12d.1', 'hypocotyl_12d.2', 'hypocotyl_12d.3', 'leaf 1+2_9d.1', 'leaf 1+2_9d.2', 'leaf 1+2_9d.3', 'apex vegetative_9d.1', 'apex vegetative_9d.2', 'apex vegetative_9d.3', 'apex inflorescence.1', 'apex inflorescence.2', 'apex inflorescence.3', 'flower stg12.1', 'flower stg12.2', 'flower stg12.3', 'flower stg12_stamens.1', 'flower stg12_stamens.2', 'flower stg12_stamens.3', 'mature pollen.1', 'mature pollen.2', 'mature pollen.3''flower stg12_carpels.1', 'flower stg12_carpels.2', 'flower stg12_carpels.3', ]);
+  $colnames = array(['ID','root_whole root_6d.1', 'root_whole root_6d.2', 'root_whole root_6d.3', 'hypocotyl_12d.1', 'hypocotyl_12d.2', 'hypocotyl_12d.3', 'leaf 1+2_9d.1', 'leaf 1+2_9d.2', 'leaf 1+2_9d.3', 'apex vegetative_9d.1', 'apex vegetative_9d.2', 'apex vegetative_9d.3', 'apex inflorescence.1', 'apex inflorescence.2', 'apex inflorescence.3', 'flower stg12.1', 'flower stg12.2', 'flower stg12.3', 'flower stg12_stamens.1', 'flower stg12_stamens.2', 'flower stg12_stamens.3', 'mature pollen.1', 'mature pollen.2', 'mature pollen.3', 'flower stg12_carpels.1', 'flower stg12_carpels.2', 'flower stg12_carpels.3']);
 } else if ($_POST['filter1'] == "Medicago_truncatula") { 
   $colnames = array(['ID','root_whole root_4d.1', 'root_whole root_4d.2', 'root_whole root_4d.3', 'hypocotyl_8d.1', 'hypocotyl_8d.2', 'hypocotyl_8d.3', 'leaf 2_7d.1', 'leaf 2_7d.2', 'leaf 2_7d.3', 'apex vegetative_6d.1', 'apex vegetative_6d.2', 'apex vegetative_6d.3', 'meristem inflorescence_7w.1', 'meristem inflorescence_7w.2', 'meristem inflorescence_7w.3', 'flower stg8.1', 'flower stg8.2', 'flower stg8.3','flower stg8_stamens.1', 'flower stg8_stamens.2', 'flower stg8_stamens.3', 'mature pollen.1', 'mature pollen.2', 'mature pollen.3', 'flower stg8_carpels.1', 'flower stg8_carpels.2', 'flower stg8_carpels.3']);
 } else if ($_POST['filter1'] == "Brachypodium_distachyon") { 
