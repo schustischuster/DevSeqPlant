@@ -9,7 +9,7 @@ angio_core_genes_input_file <- "AT_core_inter_tpm_mat_deseq_sample_names.csv"
 
 
 # Read raw data
-core_orthologs <- read.table(file=file.path(in_dir, "core_angio", angio_core_genes_input_file), sep=";", dec=".", header=TRUE, stringsAsFactors = FALSE)
+core_orthologs <- read.table(file=file.path(in_dir, "ortholog_expression_data", angio_core_genes_input_file), sep=";", dec=".", header=TRUE, stringsAsFactors = FALSE)
 
 
 colnames(core_orthologs)[1] <- "id"
