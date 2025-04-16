@@ -99,6 +99,33 @@ core_ortholog_df <- core_ortholog_df %>%
 names(core_ortholog_df)[names(core_ortholog_df) == 'seq_id'] <- 'orthogroup'
 
 
+# The following wrapper function calculates relative expression (RE)
+# it scales all expression values to the range between 0 and 1
+
+getRE <- function(x) { 
+
+	devseq_RE <- data.frame(x[1:9], 
+        as.data.frame(t(apply(x[,c(10:ncol(x))], 1, # transposes matrix output from apply function
+	    
+	    normalize <- function(x) {
+		
+		    # calculate relative expression
+		    calculateRE <- function(x) {
+		    	(x - min(x, na.rm = TRUE)) / 
+		    	(max(x, na.rm = TRUE) - min(x, na.rm = TRUE))
+		    }
+		    x <- calculateRE(x)
+
+		    return(x)
+		}
+	)))
+    )
+}
+
+# Apply getRE function
+core_ortholog_df_RE <- getRE(core_ortholog_df)
+
+
 
 # Round values to two digits (database numeric columns are formated to Decimal[2])
 round_df <- function(x, digits) {
@@ -109,10 +136,12 @@ round_df <- function(x, digits) {
 
 
 core_ortholog_df <- cbind(core_ortholog_df[,1:9], round_df(core_ortholog_df[,10:ncol(core_ortholog_df)], 2))
+core_ortholog_df_RE <- cbind(core_ortholog_df_RE[,1:9], round_df(core_ortholog_df_RE[,10:ncol(core_ortholog_df_RE)], 2))
 
 
 # Write final data tables to csv files and store them in /out_dir/output/data_tables
 if (!dir.exists(file.path(out_dir, "output", "data_tables"))) dir.create(file.path(out_dir, "output", "data_tables"), recursive = TRUE)
 write.table(core_ortholog_df, file=file.path(out_dir, "output", "data_tables", "core_ortholog_df.csv"), sep=";", dec=".", row.names=FALSE, col.names=TRUE)
+write.table(core_ortholog_df_RE, file=file.path(out_dir, "output", "data_tables", "core_ortholog_df_RE.csv"), sep=";", dec=".", row.names=FALSE, col.names=TRUE)
 
 
